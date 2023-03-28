@@ -1,0 +1,424 @@
+<hr />
+
+<p>layout: tutorial<em>page
+permalink: /epi2020</em>module5<em>lab
+title: Epigenomics Lab 5
+header1: Workshop Pages for Students
+header2: Downstream analyses &amp; integrative tools
+image: /site</em>images/CBW<em>Epigenome-data</em>icon.jpg</p>
+
+<h2>home: https://bioinformaticsdotca.github.io/epigenomics_2020</h2>
+
+<h1>Module 5: Downstream analyses &amp; integrative tools</h1>
+
+<p><em>by David Bujold, M.Sc.</em></p>
+
+<h2>Important notes:</h2>
+
+<ul>
+<li>The username <strong>user01</strong> in all of the commands below is provided as an example. 
+You should always replace it with the user that was assigned to you for this workshop. </li>
+</ul>
+
+<h2>Introduction</h2>
+
+<h3>Description of the lab</h3>
+
+<p>We will now explore some of the tools that were covered in the lecture for module 5.</p>
+
+<ul>
+<li>First, we will learn how to use the IHEC Data Portal's tools to fetch feature tracks of interest.</li>
+<li>Second, we will explore ChIP-Seq peak prediction files (in bed format) to discover motifs using HOMER.</li>
+<li>Third, we will use an IHEC dataset with the GREAT GO enrichment tool to do functions prediction.</li>
+<li>Last, we'll explore and launch a few jobs on the Galaxy web platform.</li>
+</ul>
+
+<h3>Local software that we will use</h3>
+
+<p><strong>You should already have an open connection to Compute Canada, either through JupyterLab, or through an ssh terminal session.</strong> </p>
+
+<ul>
+<li>A web browser</li>
+<li>scp or WinSCP to transfer results from Compute Canada to your computer</li>
+</ul>
+
+<h2>Tutorial</h2>
+
+<h5>Preparation on your Compute Canada session</h5>
+
+<p>From your Compute Canada terminal session, go to your home folder.</p>
+
+<p><code>
+cd ~
+</code></p>
+
+<p>You will be in your home folder.</p>
+
+<h5>Prepare directory for module 5</h5>
+
+<ul>
+<li>If it exists, remove any <code>module5</code> directory in your home directory with the "rm" command.</li>
+<li>Create a new <code>module5</code> directory.</li>
+<li>Go to that directory.</li>
+</ul>
+
+<p><code>
+rm -rf ~/module5
+mkdir -p ~/module5
+cd ~/module5
+</code></p>
+
+<h3>1- IHEC Data Portal</h3>
+
+<h4>Exploring available datasets</h4>
+
+<ul>
+<li><p>Open a web browser on your computer, and load the URL <a href="http://epigenomesportal.ca/ihec">http://epigenomesportal.ca/ihec</a> .</p></li>
+<li><p>In the Overview page, click on the "View all" button.</p></li>
+<li><p>You will get a grid with all available datasets for IHEC Core Assays, on the hg38 assembly.</p>
+
+<ul>
+<li>You can filter out visible datasets in the grid using the filtering options at the right of the grid.</li>
+</ul></li>
+<li><p>Go back to the Overview page (<code>Home</code> on the top menu), and select the following categories of datasets: On the "hg19" reference genome, "Histone" experiments for the "Muscle" cell type. Click on <code>View selected</code>.</p></li>
+</ul>
+
+<p><img src="https://github.com/bioinformatics-ca/Epigenomics_2020/blob/master/img/module5/portal_select_from_overview.png?raw=true" alt="P1" width="750" /></p>
+
+<ul>
+<li>Only these categories will now get displayed in the grid. Expand the "Muscle" category by clicking on the black triangle, and select the following grid cell:</li>
+</ul>
+
+<p><img src="../img/module5/portal_muscle_h3k27ac.png" alt="img" title="" /></p>
+
+<h4>Visualizing the tracks</h4>
+
+<ul>
+<li>Click on the "Send" button for the UCSC Genome Browser, at the bottom of the grid.</li>
+</ul>
+
+<p><img src="https://github.com/bioinformatics-ca/Epigenomics_2020/blob/master/img/module5/portal_send_to_ucsc.png?raw=true" alt="p2" width="750" /></p>
+
+<ul>
+<li><p>You can see that the datasets are being displayed at a mirror of the UCSC Genome Browser. These are all peaks and signal for the chosen muscle H3K27ac ChIP-Seq datasets. In the Genome Browser, you can expand the tracks by changing visibility from "pack" to "full" and clicking the "Refresh" button.</p>
+
+<p><img src="https://github.com/bioinformatics-ca/Epigenomics_2020/blob/master/img/module5/ucsc_fullTrackView.png?raw=true" alt="p3" width="750" />   </p></li>
+<li><p>You can also download these tracks locally for visualization in IGV.</p>
+
+<ul>
+<li>Go back to the IHEC Data Portal tab.</li>
+<li>Click on the "Download tracks" button at the bottom of the grid.</li>
+<li>Use the download links to download a few of the available tracks.</li>
+<li>Open them in IGV.</li>
+</ul></li>
+</ul>
+
+<h4>Tracks correlation</h4>
+
+<p>You can get a whole genome overview of the similarity of a group of tracks by using the Portal's correlation tool.</p>
+
+<ul>
+<li>Back on the Data Grid tab of your browser, from the filters at the right of the grid, add back datasets for all tissues and all assay types. You can select all checkboxes at once by click on the top checkbox, next to "Category". Also remove non-core assays if it is selected.</li>
+</ul>
+
+<p><img src="../img/module5/portal_selectAllTissues.png" alt="img" title="" /></p>
+
+<p><img src="../img/module5/portal_selectAllAssays.png" alt="img" title="" /></p>
+
+<p><img src="../img/module5/portal_deselect_non_core_assays.png" alt="img" title="" /></p>
+
+<ul>
+<li>Select all ChIP-Seq marks for the cell type "Bone Marrow Derived Mesenchymal Stem Cell Cultured Cell", under the "Stromal" category. The first 6 columns should be selected.</li>
+</ul>
+
+<p><img src="../img/module5/portal_roadmap_chipseq.png" alt="img" title="" /></p>
+
+<ul>
+<li><p>At the bottom of the grid, click on the button "Correlate datasets".</p></li>
+<li><p>You will see that tracks seem to correlate nicely, with activator marks clustering together and repressor marks forming another group. You can zoom out the view with the buttons at the lower right corner of the popup.</p></li>
+</ul>
+
+<p><img src="https://github.com/bioinformatics-ca/Epigenomics_2020/blob/master/img/module5/portal_clusteringPerMark.png?raw=true" alt="p4" width="750" /></p>
+
+<ul>
+<li>You can also use the correlation tool to assess whether datasets that are supposed to be similar actually are.
+<ul>
+<li>Close the correlation popup window with the top right "X" button.</li>
+<li>Reset grid selection with the "Reset" button at the bottom of the grid.</li>
+<li>Click on the grid cell for cell type "B Cell", under the "Blood" category, and assay "H3K27ac".</li>
+<li>Click on "Correlate datasets".</li>
+<li>One dataset seems to be an outlier... This is either a problem with the quality of the dataset, or the underlying metadata can indicate that something is different (disease status or some other key element).</li>
+</ul></li>
+</ul>
+
+<p><img src="../img/module5/portal_selectBcell.png" alt="img" title="" /></p>
+
+<p>You should get something like this:</p>
+
+<p><img src="../img/module5/portal_correlationOutlier.png" alt="img" title="" /></p>
+
+<h3>2- Predicting motifs with HOMER</h3>
+
+<p>We will now attempt to detect motifs in peak regions for transcription factor binding sites using HOMER.</p>
+
+<ul>
+<li>Reset to the default IHEC Data Portal view by clicking "Data Grid" in the top bar.</li>
+</ul>
+
+<p><img src="https://github.com/bioinformatics-ca/Epigenomics_2020/blob/master/img/module5/HOMER_selectDataGrid.png?raw=true" alt="p5" width="750" /></p>
+
+<ul>
+<li>Choose Assembly <code>hg19</code>.</li>
+</ul>
+
+<p><img src="https://github.com/bioinformatics-ca/Epigenomics_2020/blob/master/img/module5/HOMER_selecthg19.png?raw=true" alt="p6" width="750" /></p>
+
+<ul>
+<li>In the filters to the right of the grid, activate non-core IHEC assays, and display only Transcription Factor Binding Sites (<code>TFBS</code>) assays.</li>
+</ul>
+
+<p><img src="../img/module5/HOMER_showNonCoreAssays.png" alt="img" title="" /></p>
+
+<p><img src="../img/module5/HOMER_showTFBS.png" alt="img" title="" /></p>
+
+<ul>
+<li>In the grid, select ENCODE datasets for the <code>CTCF</code> assay and the <code>B cell</code> cell type.</li>
+</ul>
+
+<p><img src="../img/module5/HOMER_selectCTCF.png" alt="img" title="" /></p>
+
+<ul>
+<li>Go to the track list at the bottom of the grid and select only the dataset for sample "ENCBS400ARI".</li>
+</ul>
+
+<p><img src="https://github.com/bioinformatics-ca/Epigenomics_2020/blob/master/img/module5/HOMER_selectPeaksTrack.png?raw=true" alt="p7" width="750" /></p>
+
+<ul>
+<li>You can get the URL to the track you want by clicking on the "Download tracks" button at the bottom of the grid.
+Here, we're interested in <code>https://epigenomesportal.ca/tracks/ENCODE/hg19/71523.ENCODE.ENCBS400ARI.CTCF.peak_calls.bigBed</code>.</li>
+<li>Open your Compute Canada terminal session, create a directory for our HOMER-related files, and go into it. Then, download the BigBed file.</li>
+</ul>
+
+<p><code>
+mkdir homer
+cd homer
+wget https://epigenomesportal.ca/tracks/ENCODE/hg19/71523.ENCODE.ENCBS400ARI.CTCF.peak_calls.bigBed
+</code></p>
+
+<ul>
+<li>Convert the bigBed file into a bed file using the UCSC set of tools. It is available as a CVMFS module.</li>
+</ul>
+
+<p><code>
+module load mugqic/ucsc/20140212
+bigBedToBed 71523.ENCODE.ENCBS400ARI.CTCF.peak_calls.bigBed 71523.ENCODE.ENCBS400ARI.CTCF.peak_calls.bed
+</code></p>
+
+<ul>
+<li>Prepare an output directory for HOMER, and a genome preparsed motifs directory.</li>
+</ul>
+
+<p><code>
+mkdir output
+mkdir preparsed
+</code></p>
+
+<ul>
+<li>Run the HOMER software to identify motifs in the peak regions. You need to load the proper module:
+<ul>
+<li><strong>mugqic/homer/4.9.1</strong> to run HOMER</li>
+</ul></li>
+</ul>
+
+<p><code>
+module load mugqic/homer/4.9.1
+findMotifsGenome.pl 71523.ENCODE.ENCBS400ARI.CTCF.peak_calls.bed hg19 output -preparsedDir preparsed -p 2 -S 15
+</code></p>
+
+<ul>
+<li>HOMER takes a while to execute for a whole genome track like this. Expect this job to take about 30 minutes of runtime, with the current 2 cores setup. In the meantime, we will explore the GO terms enrichment tool GREAT.</li>
+</ul>
+
+<h3>3- Looking for GO terms enrichment with GREAT</h3>
+
+<p>Next, we will try to identify GO terms connected to ChIP-Seq peaks calls using GREAT. We need <code>bed</code> files to use the GREAT portal. We will do the conversion from a <code>bigBed</code> file to a <code>bed</code> file on our Compute Canada session.</p>
+
+<ul>
+<li>In the IHEC Data Portal, go back to the default grid page (by clicking on Data Grid in the top bar). For assembly <code>Human (hg38)</code>, filter the tissues list to keep only "Bone Marrow" tissues. </li>
+</ul>
+
+<p><img src="../img/module5/GREAT_select_bone_marrow.png" alt="img" title="" /></p>
+
+<ul>
+<li>Select the datasets for cell type "Myeloid cell" and assay H3K27ac.</li>
+</ul>
+
+<p><img src="../img/module5/GREAT_bone_marrow_h3k27ac.png" alt="img" title="" /></p>
+
+<ul>
+<li>For this exercise, we will download only one of the bigbeds for available datasets. Pick up the dataset below, for sample <code>ERS1027405</code>:</li>
+</ul>
+
+<p><img src="https://github.com/bioinformatics-ca/Epigenomics_2020/blob/master/img/module5/GREAT_selectSomeBoneMarrowDatasets.png?raw=true" alt="p8" width="750" /></p>
+
+<ul>
+<li><p>Click "Download tracks" at the bottom of the grid.</p></li>
+<li><p>On the download page, click on <code>View Full URL List</code>. This will give you a text list with all tracks of interest. Copy the link to this page in your clipboard, using the address provided in your browser's URL bar.</p></li>
+</ul>
+
+<p><img src="https://github.com/bioinformatics-ca/Epigenomics_2020/blob/master/img/module5/GREAT_batch_download.png?raw=true" alt="p9" width="750" /></p>
+
+<ul>
+<li><p>Open another terminal connection to get into Compute Canada, either through JupyterLab, or another terminal window.</p></li>
+<li><p>Go to your module5 directory and create a place to put the material we will download.</p></li>
+</ul>
+
+<p><code>
+cd ~/module5
+mkdir great
+cd great
+</code></p>
+
+<ul>
+<li>For you own analyses, you can download a bunch of tracks at the same time by using wget on a list of URLs.
+<ul>
+<li>Use the <strong>wget</strong> command to download the text file that contains the list of tracks.</li>
+</ul></li>
+</ul>
+
+<p><code>
+wget -O trackList.txt 'https://epigenomesportal.ca/api/datahub/download?session=18731&amp;format=text'
+</code></p>
+
+<ul>
+<li>Now download the tracks that are contained in this list.</li>
+</ul>
+
+<p><code>
+wget -i trackList.txt
+</code></p>
+
+<ul>
+<li>Convert the bigbed using the UCSC set of tools. It is available as a CVMFS module.</li>
+</ul>
+
+<p><code>
+module load mugqic/ucsc/20140212
+bigBedToBed 58394.Blueprint.ERS1027405.H3K27ac.peak_calls.bigBed 58394.Blueprint.ERS1027405.H3K27ac.peak_calls.bed
+</code></p>
+
+<p><strong>Note:</strong> If you're under Linux / Mac, you can also install the UCSC tools locally, as they are a useful set of tools to manipulate tracks data, without requiring so much processing power.</p>
+
+<ul>
+<li>GREAT has a limit on the number of regions to be tested in one execution. Therefore, we need to subsample our file. We can create a BED file subsample this way:
+<ul>
+<li>Sort BED file in random order with <code>sort -R</code></li>
+<li>Take the 20000 first lines in the file with <code>head -n20000</code></li>
+</ul></li>
+</ul>
+
+<p><code>
+sort -R 58394.Blueprint.ERS1027405.H3K27ac.peak_calls.bed &gt; 58394.Blueprint.ERS1027405.H3K27ac.peak_calls.random.bed
+head -n 20000 58394.Blueprint.ERS1027405.H3K27ac.peak_calls.random.bed &gt; 58394.Blueprint.ERS1027405.H3K27ac.peak_calls.random_short.bed
+</code></p>
+
+<ul>
+<li><strong>From your local computer</strong>, download the BED files locally using <strong>scp</strong> / <strong>WinSCP</strong>. Don't forget to run the command on a local terminal session, not on your Compute Canada terminal session.</li>
+</ul>
+
+<p><code>
+scp user01@login1.cbw-oct-2020.calculquebec.cloud:/home/user01/module5/great/*.bed .
+</code></p>
+
+<ul>
+<li><p>Load the GREAT website: <a href="http://bejerano.stanford.edu/great/public/html/">http://bejerano.stanford.edu/great/public/html/</a></p></li>
+<li><p>Provide the following input to the GREAT interface:</p>
+
+<ul>
+<li>Assembly: <strong>Human: GRCh38</strong></li>
+<li>Test regions: The randomized short version of the BED files you just downloaded. (58394.Blueprint.ERS1027405.H3K27ac.peak<em>calls.random</em>short.bed)</li>
+</ul></li>
+<li><p>Submit the form.</p></li>
+<li><p>In the results, for instance, you should obtain something like this for biological processes:</p></li>
+</ul>
+
+<p><img src="../img/module5/GREAT_go_biological_process.png" alt="img" title="" /></p>
+
+<p>Bonus question: Why is your result slightly different from the screenshot?</p>
+
+<h3>Go back to your HOMER results</h3>
+
+<ul>
+<li>Is the job done? If it is completed, you can bring back HOMER results to your laptop for visualiztion. <strong>From your laptop</strong>, use the scp command or WinSCP to bring back the results folder.</li>
+</ul>
+
+<p><code>
+scp -r user01@login1.cbw-oct-2020.calculquebec.cloud:/home/user01/module5/homer/output .
+</code></p>
+
+<p>Then, open the de novo and known motifs HTML files in a browser for visualization. Do the identified motifs fit what we would expect?</p>
+
+<p><img src="https://github.com/bioinformatics-ca/Epigenomics_2020/blob/master/img/module5/HOMER_denovoResult.png?raw=true" alt="p10" width="750" /></p>
+
+<h3>Galaxy</h3>
+
+<p>We will now explore and learn how to use the Galaxy interface. In this short exercise, we will load a FASTQ dataset, run FastQC on it, and trim it to improve overall quality of reads.</p>
+
+<ul>
+<li>Using a web browser, open the following URL: <a href="http://workshop103-galaxy.vzhost34.genap.ca/galaxy/">http://workshop103-galaxy.vzhost34.genap.ca/galaxy/</a></li>
+</ul>
+
+<p>While you can run Galaxy jobs without creating an account, features and number of jobs that can be executed at once will be limited. We should therefore create an account.</p>
+
+<ul>
+<li><p>On the top menu, click on "User" > "Register"</p></li>
+<li><p>Fill the email, password and public name boxes, and click on "Submit"</p></li>
+<li><p>Click on "Return to the home page."</p></li>
+<li><p>You are now logged in as a Galaxy user. For this exercise, we’ll use subsets of data from the Illumina BodyMap 2.0 project, from human adrenal gland tissues. The sampled reads are paired-end 50bp that map mostly to a 500Kb region of chromosome 19, positions 3-3.5 million (chr19:3000000:3500000). (source: https://usegalaxy.org/u/jeremy/p/galaxy-rna-seq-analysis-exercise)</p></li>
+<li><p>Import the following two FASTQ files in your user space. To do so:</p>
+
+<ul>
+<li>Use Get Data > Upload File from the tool section</li>
+<li>Go to the <code>Paste/Fetch data</code> section</li>
+<li>You can provide both URLs in the same text box
+<ul>
+<li><a href="https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2018/master/files/adrenal_1.fastq">https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics<em>2018/master/files/adrenal</em>1.fastq</a></li>
+<li><a href="https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2018/master/files/adrenal_2.fastq">https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics<em>2018/master/files/adrenal</em>2.fastq</a></li>
+</ul></li>
+<li>For Genome, specify “Human (Home sapiens): hg19”</li>
+<li>Click on <code>Start</code>.</li>
+</ul></li>
+<li><p>After it finished to upload (green state), rename the two imported files, for better organization.</p>
+
+<ul>
+<li>From the history column, click on the <code>Pen</code> icon for the first imported item, and enter the new name “adrenal_1” in the dialog.</li>
+<li>Rename the second imported file to “adrenal_2”.</li>
+<li>Examine results from the history bar using the <code>Eye</code> icon.</li>
+</ul></li>
+<li><p>Run the tool FastQC: Comprehensive QC for adrenal_1.</p>
+
+<ul>
+<li>To find it, use the search window at the top of the Tools column (left panel).</li>
+<li>Execute, then examine results from the history bar using the <code>Eye</code> icon.</li>
+<li>Repeat the same operations for adrenal_2. As a shortcut, you can click on the new file name in our history, then click on the <code>Run this job again</code> icon and simply change the input file to automatically reuse the same parameters.</li>
+</ul></li>
+<li><p>Many tools using FASTQ files in Galaxy require them to be “groomed”, meaning they will be standardized. This will ensure more reliability and consistency to those tools output. To groom our FASTQ files, we will use the tool FASTQ Groomer with default parameters.</p>
+
+<ul>
+<li>When we don’t know which quality score type to provide, we can extract that information from the FastQC report that we already generated. Can you find the information in the FastQC report? (Answer: It’s in Sanger format)</li>
+<li>Leave the other options as-is.</li>
+<li>Run this for both of our paired-end files, adrenal<em>1 and adrenal</em>2.</li>
+</ul></li>
+<li><p>You will now trim the reads, to improve the quality of the dataset by removing bad quality bases, clipping adapters and so on. Launch the Trimmomatic tool with default parameters, except:</p>
+
+<ul>
+<li>Give the groomed adrenal<em>1 file for direction 1, and groomed adrenal</em>2 for direction 2.</li>
+<li>Sliding window size: 4</li>
+<li>Average quality required: 30</li>
+</ul></li>
+<li><p>Run FastQC again on both paired files, and compare results with pre-trimming FastQC output.</p></li>
+</ul>
+
+<h3>All done!</h3>
+
+<p>If you have time remaining, you can try running other types of jobs on Galaxy, or explore further the tools that we covered in this lab, using other types of datasets. For example, does running a GREAT query on another cell type yield the type of annotations that you'd expect?</p>
