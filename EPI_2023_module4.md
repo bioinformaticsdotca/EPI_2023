@@ -1,11 +1,11 @@
 ---
 layout: tutorial_page
-permalink: /EPI_2021_Module4_lab
-title: EPI 2021 Module 4 Lab
+permalink: /EPI_2023_Module4_lab
+title: EPI 2023 Module 4 Lab
 header1: Workshop Pages for Students
 header2: Introduction to WGBS and Analysis 
 image: /site_images/CBW_Epigenome-data_icon.jpg
-home: https://bioinformaticsdotca.github.io/EPI_2021
+home: https://bioinformaticsdotca.github.io/EPI_2023
 ---
 
 -----------------------
@@ -61,7 +61,7 @@ This module will cover the basics of Whole Genome Bisulfite-Sequencing (WGBS) da
 #### Local software that we will use:
 Before you begin, make sure you have the following programs ready in your local computer: 
 
-* A connection to the `EPI_2021` AWS instance
+* A connection to the `EPI_2023` AWS instance
 * An internet browser 
 * IGV
 * R (or RStudio), *optional*
@@ -326,7 +326,7 @@ chr19:44,527,387-44,536,873
 
 You should see something like this:
 
-<img src="https://github.com/bioinformatics-ca/EPI_2021/blob/master/img/region2.png?raw=true" alt="Region" width="750" />
+<img src="https://github.com/bioinformatics-ca/EPI_2023/blob/master/img/region2.png?raw=true" alt="Region" width="750" />
 
 *If it looks different, can you change the way the colors are displayed?*
 
@@ -378,7 +378,7 @@ Load all the files in IGV using `File -> Load from file` or `File -> Load from U
 
 At this point, if you load the region `chr19:44,527,387-44,536,873` you should see something like
 
-<img src="https://github.com/bioinformatics-ca/EPI_2021/blob/master/img/region2_full.png?raw=true" alt="Region" width="750" />
+<img src="https://github.com/bioinformatics-ca/EPI_2023/blob/master/img/region2_full.png?raw=true" alt="Region" width="750" />
 
 This promoter looks to be hypomethylated. 
 
@@ -421,8 +421,8 @@ R
 If you did this properly, the following message will be displayed and your prompt will change from **`ubuntu@ip-00-00-00-0:~/workspace/module4$`** to **`>`**: 
 
 ```{:output}
-R version 4.0.5 (2021-03-31) -- "Shake and Throw"
-Copyright (C) 2021 The R Foundation for Statistical Computing
+R version 4.0.5 (2023-03-31) -- "Shake and Throw"
+Copyright (C) 2023 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 ...
 

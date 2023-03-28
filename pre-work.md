@@ -1,11 +1,11 @@
 ---
 layout: tutorial_page
-permalink: /epigenomics_2018_prework
+permalink: /EPI_2023_prework
 title: Epigenomic Data Analysis Prework
 header1: Workshop Pages for Students
-header2: Epigenomic Data Analysis 2018
+header2: Epigenomic Analysis 2023
 image: /site_images/CBW_Epigenome-data_icon.jpg
-home: https://bioinformaticsdotca.github.io	/epigenomics_2018
+home: https://bioinformaticsdotca.github.io	/EPI_2023
 ---
 
 ## Pre-readings, Pre-work, and Laptop Setup   

@@ -1,11 +1,11 @@
 ---
 layout: tutorial_page
-permalink: /EPI_2021_Module1_lab
-title: EPI 2021 Module 1 Lab
+permalink: /EPI_2023_Module1_lab
+title: EPI 2023 Module 1 Lab
 header1: Workshop Pages for Students
 header2: Introduction to ChIP-seq and analysis
 image: /site_images/CBW_Epigenome-data_icon.jpg
-home: https://bioinformaticsdotca.github.io/EPI_2021
+home: https://bioinformaticsdotca.github.io/EPI_2023
 description: Introduction to ChIP-seq and analysis
 author: Martin Hirst and Edmund Su
 
@@ -168,10 +168,10 @@ Note the GC distribution of Input VS H3K27ac
 ```
 ##### Input
 
-<img src="https://github.com/bioinformatics-ca/EPI_2021/blob/master/img/moduel1/input.png?raw=true" width= 750 />
+<img src="https://github.com/bioinformatics-ca/EPI_2023/blob/master/img/moduel1/input.png?raw=true" width= 750 />
 
 ##### H3K27ac
-<img src="https://github.com/bioinformatics-ca/EPI_2021/blob/master/img/moduel1/h3k27ac.png?raw=true" width= 750 />
+<img src="https://github.com/bioinformatics-ca/EPI_2023/blob/master/img/moduel1/h3k27ac.png?raw=true" width= 750 />
 
 ### <B>4. Run alignment</B>
 ##### Code:

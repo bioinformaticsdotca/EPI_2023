@@ -1,11 +1,11 @@
 ---
 layout: tutorial_page
-permalink: /EPI_2021_Module1-3_lab
-title: EPI 2021 Module 1-3 Lab
+permalink: /EPI_2023_Module1-3_lab
+title: EPI 2023 Module 1-3 Lab
 header1: Workshop Pages for Students
 header2: Introduction to ChIP-seq and analysis
 image: /site_images/CBW_Epigenome-data_icon.jpg
-home: https://bioinformaticsdotca.github.io/EPI_2021
+home: https://bioinformaticsdotca.github.io/EPI_2023
 description: Introduction to ChIP-seq and analysis
 author: Martin Hirst and Edmund Su
 
@@ -30,7 +30,7 @@ author: Martin Hirst and Edmund Su
 <a name="Common-tools-of-the-trade"></a>
 ## <B>Common tools of the trade</B>
 ***
-### <B>- Explaination of tools</B>
+### <B>- Explanation of tools</B>
 
 [BWA](http://bio-bwa.sourceforge.net/bwa.shtml) Genomic Sequence Read alignment tool 
 
@@ -278,10 +278,10 @@ Note the GC distribution of Input VS H3K27ac
 ```
 ##### Input
 
-<img src="https://github.com/bioinformatics-ca/EPI_2021/blob/master/img/moduel1/input.png?raw=true" width= 750 />
+<img src="https://github.com/bioinformatics-ca/EPI_2023/blob/master/img/moduel1/input.png?raw=true" width= 750 />
 
 ##### H3K27ac
-<img src="https://github.com/bioinformatics-ca/EPI_2021/blob/master/img/moduel1/h3k27ac.png?raw=true" width= 750 />
+<img src="https://github.com/bioinformatics-ca/EPI_2023/blob/master/img/moduel1/h3k27ac.png?raw=true" width= 750 />
 
 ### <B>4. Run alignment</B>
 ##### Code:
@@ -689,21 +689,21 @@ Check out the provided regions!
 Filtered out region due to intersect w/ blacklist
 chr16:34,145,433-34,160,335
 ```
-<img src="https://github.com/bioinformatics-ca/EPI_2021/blob/master/img/moduel1/blacklist.png?raw=true" width= 750 />
+<img src="https://github.com/bioinformatics-ca/EPI_2023/blob/master/img/moduel1/blacklist.png?raw=true" width= 750 />
 
 ```Shell
 Artifact region:
 chr16:34514779-34732558
 ```
 
-<img src="https://github.com/bioinformatics-ca/EPI_2021/blob/master/img/moduel1/artifact.png?raw=true" width= 750 />
+<img src="https://github.com/bioinformatics-ca/EPI_2023/blob/master/img/moduel1/artifact.png?raw=true" width= 750 />
 
 ```Shell
 HOXA region:
 chr7:26981738-27365875
 ```
 
-<img src="https://github.com/bioinformatics-ca/EPI_2021/blob/master/img/moduel1/HOX.png?raw=true" width= 750 />
+<img src="https://github.com/bioinformatics-ca/EPI_2023/blob/master/img/moduel1/HOX.png?raw=true" width= 750 />
 
 ###  <B>4. Homework </B>
 ##### Comments:

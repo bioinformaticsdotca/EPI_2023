@@ -1,11 +1,11 @@
 ---
 layout: tutorial_page
-permalink: /EPI_2021_schedule
+permalink: /EPI_2023_schedule
 title: Epigenomics Analysis
 header1: Workshop Pages for Students
-header2: Epigenomic Analysis 2021 Schedule
+header2: Epigenomic Analysis 2023 Schedule
 image: /site_images/CBW_Epigenome-data_icon.jpg
-home: https://bioinformaticsdotca.github.io/EPI_2021
+home: https://bioinformaticsdotca.github.io/EPI_2023
 ---
 
 | | **Monday, September 13** | | **Tuesday, September 14** || **Wednesday, September 15** |

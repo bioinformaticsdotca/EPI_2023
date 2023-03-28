@@ -1,11 +1,11 @@
 ---
 layout: tutorial_page
-permalink: /EPI_2021_Module2_lab
-title: EPI 2021 Module 2 Lab
+permalink: /EPI_2023_Module2_lab
+title: EPI 2023 Module 2 Lab
 header1: Workshop Pages for Students
-header2: Epigenomic Analysis 2021
+header2: Epigenomic Analysis 2023
 image: /site_images/CBW_Epigenome-data_icon.jpg
-home: https://bioinformaticsdotca.github.io/EPI_2021
+home: https://bioinformaticsdotca.github.io/EPI_2023
 description: Introduction to ChIP-seq and analysis
 author: Martin Hirst and Edmund Su
 
@@ -341,21 +341,21 @@ Check out the provided regions!
 Filtered out region due to intersect w/ blacklist
 chr16:34,145,433-34,160,335
 ```
-<img src="https://github.com/bioinformatics-ca/EPI_2021/blob/master/img/moduel1/blacklist.png?raw=true" width= 750 />
+<img src="https://github.com/bioinformatics-ca/EPI_2023/blob/master/img/moduel1/blacklist.png?raw=true" width= 750 />
 
 ```Shell
 Artifact region:
 chr16:34514779-34732558
 ```
 
-<img src="https://github.com/bioinformatics-ca/EPI_2021/blob/master/img/moduel1/artifact.png?raw=true" width= 750 />
+<img src="https://github.com/bioinformatics-ca/EPI_2023/blob/master/img/moduel1/artifact.png?raw=true" width= 750 />
 
 ```Shell
 HOXA region:
 chr7:26981738-27365875
 ```
 
-<img src="https://github.com/bioinformatics-ca/EPI_2021/blob/master/img/moduel1/HOX.png?raw=true" width= 750 />
+<img src="https://github.com/bioinformatics-ca/EPI_2023/blob/master/img/moduel1/HOX.png?raw=true" width= 750 />
 
 ###  <B>4. Homework </B>
 ##### Comments:
