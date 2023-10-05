@@ -107,7 +107,7 @@ macs2 callpeak -t ${treatment} -c ${input} -f BAMPE -g 58617616 -n ${name} --kee
     - `-n ${name}` name or prefix to use
     - `-q 0.05` FDR q value default
     - `--outdir ~/workspace/module123/peaks/` where to output files otherwise stores in current working directory
-    - `--bdg` outputs pileup into bedgraphs
+    - `--bdg` outputs pileup into bedgraph (a `BED` file where the fourth column is pileup/fragment count/coverage)
     - `1> ~/workspace/module123/peaks/${name}.out.log` output log
     - `2>  ~/workspace/module123/peaks/${name}.err.log` error log
     - let's inspect the peaks file
@@ -304,7 +304,7 @@ bedtools intersect -u -a ~/workspace/module123/peaks/${sample}.narrowPeak -b ${b
 - we'll return to this later when we can visualize the peaks
 
 ### Step 5A : Visualization of pileup tracks
-- in the next step of steps, we convert our pipleup bedgraphs and bed peak files into a smaller managable formats.
+- in the next steps, we convert our pipleup bedgraphs and bed peak files into a smaller managable formats.
 
 **Code:**
 ```
@@ -333,6 +333,12 @@ rm ~/workspace/module123/bigWig/tmp
     - `-k2,2n` sort secondarily by genomic coordinates
 - `bedGraphToBigWig` convert bedGraph file to bigWig
 ### Step 5B : Visualization of pileup tracks continued
+- we're converting the `bedgraph` file to a `bigWig` file.
+- note `bedgraph` is an extension of bed(genomic coordinates) + a column with a numeric value
+    - in our case pileup/coverage
+- a bigWig is a binary version of a `wig` file
+    - wig has a different format : https://useast.ensembl.org/info/website/upload/wig.html
+    - the preferred convention for displaying data on a track
 **Code:**
 ```
 ###Shell###
@@ -364,6 +370,7 @@ bedGraphToBigWig ~/workspace/module123/bigWig/tmp ${chrom_sizes} ${output_bigwig
 rm ~/workspace/module123/bigWig/tmp
 ```
 ### Step 5C : Visualization of peak tracks
+- next we convert our `BED` files
 **Code:**
 ```
 ###Shell###
@@ -424,7 +431,8 @@ rm ~/workspace/module123/bigBed/tmp
 
 ### Step 6A : Quality Control (Enrichment in key genomic areas)
 - A way to determine the efficacy of your enrichment is to benchmark % of reads to called peaks (FRIP) or known regions
-
+- in our toy example we'll be examining enrichment at promoters (TSS+/- 2kb) and encode defining enhancer regions
+- For H3K27me3 we'd typically look at HOX regions however no HOX regions on chr19
 **Code :** 
 ```
 ###Shell###
@@ -625,4 +633,4 @@ CourseData/EPI_data/module123/triplicates/peaks:
 CondA.Rep1_peaks.narrowPeak  CondA.Rep3_peaks.narrowPeak  CondB.Rep2_peaks.narrowPeak
 CondA.Rep2_peaks.narrowPeak  CondB.Rep1_peaks.narrowPeak  CondB.Rep3_peaks.narrowPeak
 ```
-- triplicates were generated from MCF10A_H3K4me3 by choosing a list of exclusive peaks for condA and condB and subsampling replicates accordingly
+- triplicates were generated from MCF10A_H3K4me3 by choosing a list of exclusive peaks for condA and condB and randomly subsampling replicates accordingly

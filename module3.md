@@ -246,8 +246,7 @@ bedtools map -a ${MCF10A_H3K27ac} -b ${methylation} -c 4 -o median,count | head
 ###R###
 library(DiffBind)
 setwd("/home/ubuntu")
-read.csv("CourseData/EPI_data/module123/triplicates/triplicates.csv")
-MCF10A <- dba(sampleSheet="CourseData/EPI_data/module123/triplicates/triplicates.csv")
+samples <- read.csv("CourseData/EPI_data/module123/triplicates/triplicates.csv")
 MCF10A <- dba(sampleSheet=samples)
 MCF10A <- dba.count(MCF10A, bUseSummarizeOverlaps=TRUE)
 dba.plotPCA(MCF10A, attributes=DBA_CONDITION,label=DBA_ID)
@@ -264,9 +263,9 @@ write.table(analyzed_peaks, file="workspace/module123/diffBind/differential_peak
 ```
 - `library(DiffBind)`
     - we load R package [DiffBind](https://bioconductor.org/packages/release/bioc/html/DiffBind.html)
-- `setwd("/Users/esu/Desktop/work/epiworkshop/")`
+- `setwd("/home/ubuntu")`
     - set our working directory
-- `read.csv("CourseData/module123/triplicates/triplicates.csv")`
+- `read.csv("CourseData/EPI_data/module123/triplicates/triplicates.csv")`
     - read in our csv
     - let's inspect the columns
 - `MCF10A <- dba(sampleSheet=samples)`
@@ -307,13 +306,13 @@ write.table(analyzed_peaks, file="workspace/module123/diffBind/differential_peak
 **Code:**
 ```
 ###Shell###
-cp CourseData/module123/triplicates/alignments/MCF10A_H3K4me3_chr19.CondA.Rep1.bam workspace/module123/alignments/MCF10A_H3K4me3_chr19.CondA.Rep1.bam
-cp CourseData/module123/triplicates/alignments/MCF10A_H3K4me3_chr19.CondB.Rep1.bam workspace/module123/alignments/MCF10A_H3K4me3_chr19.CondB.Rep1.bam
+cp ~/CourseData/EPI_data/module123/triplicates/alignments/MCF10A_H3K4me3_chr19.CondA.Rep1.bam workspace/module123/alignments/MCF10A_H3K4me3_chr19.CondA.Rep1.bam
+cp ~/CourseData/EPI_data/module123/triplicates/alignments/MCF10A_H3K4me3_chr19.CondB.Rep1.bam workspace/module123/alignments/MCF10A_H3K4me3_chr19.CondB.Rep1.bam
 
-condA_bam=workspace/module123/alignments/MCF10A_H3K4me3_chr19.CondA.Rep1.bam
-condB_bam=workspace/module123/alignments/MCF10A_H3K4me3_chr19.CondB.Rep1.bam
-condA_bw=workspace/module123/bigWig/MCF10A_H3K4me3_chr19.CondA.Rep1.bw
-condB_bw=workspace/module123/bigWig/MCF10A_H3K4me3_chr19.CondB.Rep1.bw
+condA_bam=~/workspace/module123/alignments/MCF10A_H3K4me3_chr19.CondA.Rep1.bam
+condB_bam=~/workspace/module123/alignments/MCF10A_H3K4me3_chr19.CondB.Rep1.bam
+condA_bw=~/workspace/module123/bigWig/MCF10A_H3K4me3_chr19.CondA.Rep1.bw
+condB_bw=~/workspace/module123/bigWig/MCF10A_H3K4me3_chr19.CondB.Rep1.bw
 
 samtools index ${condA_bam}
 samtools index ${condB_bam}
@@ -339,12 +338,12 @@ bamCoverage --samFlagExclude 1028 --extendReads --normalizeUsing RPKM -b ${condB
 **Code:**
 ```
 ###Shell###
-condA_peaks=CourseData/module123/triplicates/peaks/CondA.Rep1_peaks.narrowPeak
-condB_peaks=CourseData/module123/triplicates/peaks/CondB.Rep1_peaks.narrowPeak
+condA_peaks=~/CourseData/EPI_data/module123/triplicates/peaks/CondA.Rep1_peaks.narrowPeak
+condB_peaks=~/CourseData/EPI_data/module123/triplicates/peaks/CondB.Rep1_peaks.narrowPeak
 
-cat ${condA_peaks} ${condB_peaks} | sort -k1,1 -k2,2n | bedtools merge -i stdin > workspace/module123/analysis/merged_peaks
+cat ${condA_peaks} ${condB_peaks} | sort -k1,1 -k2,2n | bedtools merge -i stdin > workspace/module123/diffBind/merged_peaks.bed
 ```
-- `cat ${condA_peaks} ${condB_peaks} | sort -k1,1 -k2,2n | bedtools merge -i stdin > merged_peaks`
+- `cat ${condA_peaks} ${condB_peaks} | sort -k1,1 -k2,2n | bedtools merge -i stdin > merged_peaks.bed`
     - Pseudo code break down : `Read our peaks | sort peaks coordinate wise | merge peaks`
 ### Step3B: Differential peaks utilizing Fold change and significance - RPKMs per peak
 - We'll derrive RPKM values per BAM for each peak in our peak set
@@ -352,11 +351,11 @@ cat ${condA_peaks} ${condB_peaks} | sort -k1,1 -k2,2n | bedtools merge -i stdin 
 **Code:**
 ```
 ###Shell###
-multiBigwigSummary BED-file -b ${condA_bw} ${condB_bw} -o workspace/module123/analysis/results.npz --BED workspace/module123/analysis/merged_peaks --outRawCounts workspace/module123/analysis/merged_peaks_rpkm.bed
+multiBigwigSummary BED-file -b ${condA_bw} ${condB_bw} -o workspace/module123/analysis/results.npz --BED workspace/module123/diffBind/merged_peaks.bed --outRawCounts workspace/module123/diffBind/merged_peaks_rpkm.bed
 
 vim workspace/module123/analysis/merged_peaks_rpkm.bed
 ```
-- `multiBigwigSummary BED-file -b ${condA_bw} ${condB_bw} -o workspace/module123/analysis/results.npz --BED workspace/module123/analysis/merged_peaks --outRawCounts workspace/module123/analysis/merged_peaks_rpkm.bed`
+- `multiBigwigSummary BED-file -b ${condA_bw} ${condB_bw} -o workspace/module123/diffBind/results.npz --BED workspace/module123/diffBind/merged_peaks.bed --outRawCounts workspace/module123/diffBind/merged_peaks_rpkm.bed`
     - `multiBigWigSummary` summarizes bigWig files based on the mode selected : `BED-file` or `bins`
     - `-b ${condA_bw} ${condB_bw}` bigwig files to be supplied
     - `-o workspace/module123/analysis/results.npz` output file to be saved and used for other deeptools functions
@@ -373,12 +372,11 @@ vim workspace/module123/analysis/merged_peaks_rpkm.bed
 **Code:**
 ```
 ###R###
-setwd("/Users/esu/Desktop/work/epiworkshop/")
+setwd("/home/ubuntu")
 library(edgeR)
 library(dplyr)
-setwd("/Users/esu/Desktop/work/epiworkshop/")
 
-peaks<-read.csv("workspace/module123/analysis/merged_peaks_rpkm.bed",sep='\t',colClasses= c("character","character","character","numeric","numeric"))
+peaks<-read.csv("workspace/module123/diffBind/merged_peaks_rpkm.bed",sep='\t',colClasses= c("character","character","character","numeric","numeric"))
 
 row.names(peaks)<-paste(peaks$chr,peaks$start,peaks$end,sep='_')
 
