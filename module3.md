@@ -37,6 +37,7 @@ getwd()
 ## Module 3 - Differential Analysis
 ### Step1A: Copy bigWig resources
 - we'll load some bigWigs to compare with
+
 **Code**
 ```
 ###Shell###
@@ -45,6 +46,8 @@ cp ~/CourseData/EPI_data/module123/encode_bigWig/* ~/workspace/module123/bigWig/
 
 
 ### Step1B: Using Bedtools to compare marks
+- We'll explore how to use bedtools to compare MCF10A histone marks and the interpretation of results
+
 **Code**
 ```
 ###Shell###
@@ -63,6 +66,8 @@ bedtools intersect -u -a ${MCF10A_H3K27ac} -b ${MCF10A_H3K4me3} | wc -l
   - H3K27ac and H3K27me3 tend to be antagonistic, hence the very small intersect
   - H3K27ac co-occurs with H3K4me3 at promoters, hence the larger intersect
 ### Step1C: Using Bedtools to compare samples
+- We'll demonstrate how to do comparisons on mass against ENCODE breast data and interpret results
+
 **Code**
 ```
 ###Shell###
@@ -99,6 +104,8 @@ paste \
   - higher amount of intersect in permissive marks of H3K4me3 and H3K27ac
 
 ### Step1D: Using Bedtools and pipe
+- We'll demonstrate advanced queries by piping and doing multiple bedtool queries
+
 **Code:**
 ```
 ###Shell###
@@ -122,6 +129,8 @@ bedtools intersect -u -a stdin -b ${luminal_H3K4me3} | wc -l
   - The command can be broken down into the following : `Common with LP | Common with Basal | Common with Luminal`
 
 ### Step1E: Using Bedtools to compare binary conditions/models
+- We'll explore how to use bedtools to compare binary conditions and possible interpretations
+
 **Code:**
 ```
 ###Shell###
@@ -173,6 +182,8 @@ bedtools intersect -wao -a ${condA_rep1} -b ${condA_rep2} ${condA_rep3} | head
 
 
 ### Step1F: Other useful bedtool functions
+- We'll highlight other useful bedtool applications.
+
 **Code:**
 ```
 ###Shell###
@@ -228,6 +239,8 @@ bedtools map -a ${MCF10A_H3K27ac} -b ${methylation} -c 4 -o median,count | head
         - `-o median,count` return the median of col 4 and coutn the number of elements from fileB that intersected the particular element from fileA
 
 ### Step2: Differential peaks utilizing triplicates and DiffBind
+- We'll perform analysis on mock MFC10A H3K4me3 data to get significant differential peaks for each condition. To do so, we'll utilizing the `diffBind` package in R
+
 **Code :**
 ```
 ###R###
@@ -289,6 +302,8 @@ write.table(analyzed_peaks, file="workspace/module123/diffBind/differential_peak
    - `row.names=F` include row names
    - `quote=F` if we want to include quotations around values
 ### Step3A: Differential peaks utilizing Fold change and significance - RPKM
+- We'll use another but similar approach. Firstly we'll preprocess our `BAM`s
+
 **Code:**
 ```
 ###Shell###
@@ -319,6 +334,8 @@ bamCoverage --samFlagExclude 1028 --extendReads --normalizeUsing RPKM -b ${condB
     - `-o` our output bigWig file
 
 ### Step3B: Differential peaks utilizing Fold change and significance - Merged peaks
+- We'll combine our two peak sets into an unified set.
+
 **Code:**
 ```
 ###Shell###
@@ -327,7 +344,11 @@ condB_peaks=CourseData/module123/triplicates/peaks/CondB.Rep1_peaks.narrowPeak
 
 cat ${condA_peaks} ${condB_peaks} | sort -k1,1 -k2,2n | bedtools merge -i stdin > workspace/module123/analysis/merged_peaks
 ```
+- `cat ${condA_peaks} ${condB_peaks} | sort -k1,1 -k2,2n | bedtools merge -i stdin > merged_peaks`
+    - Pseudo code break down : `Read our peaks | sort peaks coordinate wise | merge peaks`
 ### Step3B: Differential peaks utilizing Fold change and significance - RPKMs per peak
+- We'll derrive RPKM values per BAM for each peak in our peak set
+
 **Code:**
 ```
 ###Shell###
@@ -335,7 +356,20 @@ multiBigwigSummary BED-file -b ${condA_bw} ${condB_bw} -o workspace/module123/an
 
 vim workspace/module123/analysis/merged_peaks_rpkm.bed
 ```
+- `multiBigwigSummary BED-file -b ${condA_bw} ${condB_bw} -o workspace/module123/analysis/results.npz --BED workspace/module123/analysis/merged_peaks --outRawCounts workspace/module123/analysis/merged_peaks_rpkm.bed`
+    - `multiBigWigSummary` summarizes bigWig files based on the mode selected : `BED-file` or `bins`
+    - `-b ${condA_bw} ${condB_bw}` bigwig files to be supplied
+    - `-o workspace/module123/analysis/results.npz` output file to be saved and used for other deeptools functions
+    - `--BED workspace/module123/analysis/merged_peaks` only required if `BED-file` selected
+    - `--outRawCounts merged_peaks_rpkm.bed` produces a dataframe of bigwig values
+- `vim workspace/module123/analysis/merged_peaks_rpkm.bed`
+    - we need to edit to edit the column headers a bit
+    - to modify press `I` and perform your edits
+    - to finalize edits press `ESC`,type `:wq`,press `ENTER`
+
 ### Step3C: Differential peaks utilizing Fold change and significance - EdgeR differential
+- we'll read our data into `R` and perform a statistical analysis
+
 **Code:**
 ```
 ###R###
@@ -344,23 +378,47 @@ library(edgeR)
 library(dplyr)
 setwd("/Users/esu/Desktop/work/epiworkshop/")
 
-peaks<-read.csv("workspace/module123/analysis/merged_peaks_rpkm.bed",sep='\t',col_types = cols(start = col_character(),end=col_character()))
-
 peaks<-read.csv("workspace/module123/analysis/merged_peaks_rpkm.bed",sep='\t',colClasses= c("character","character","character","numeric","numeric"))
+
 row.names(peaks)<-paste(peaks$chr,peaks$start,peaks$end,sep='_')
 
-peaks<-read.csv("workspace/module123/analysis/merged_peaks_rpkm.bed",sep='\t',colClasses= c("character","character","character"))
 peaks_clean<-peaks[c(4,5)]
 
-
 edger_dl <- DGEList(counts=peaks_clean, group=1:2)
-edger_et <- exactTest(edger_dl,dispersion=0.01)
 
-decideTestsDGE(edger_et, p=0.05, adjust="BH")
-edger_tp <- topTags(edger_et, n=nrow(edger_et$table))
+bvc=0.1
+
+edger_et <- exactTest(edger_dl,dispersion=bcv^2)
+
+edger_tp <- topTags(edger_et, n=nrow(edger_et$table),adjust.method="BH")
+
+
 de <- edger_tp$table %>% filter(FDR < 0.01) %>% filter(logFC >=1 | logFC <=-1)
 write.table(analyzed_peaks, file="workspace/module123/diffBind/differential_peaks.tsv", sep="\t", quote=F, row.names=F, col.names=F)
 ```
+- `peaks<-read.csv("workspace/module123/analysis/merged_peaks_rpkm.bed",sep='\t',colClasses= c("character","character","character","numeric","numeric"))`
+    - `read.csv` read the `CSV` file into a `data.frame`
+    - `sep='\t'` specify the delimiter
+    - `colClasses= c("character","character","character","numeric","numeric")` indicate with column are what datatypes
+- `row.names(peaks)<-paste(peaks$chr,peaks$start,peaks$end,sep='_')`
+    - edit row names to be match genomic coordinates
+    - ``row.names(peaks)<-` indicate we want to overwrite exist row names
+    - `paste(peaks$chr,peaks$start,peaks$end,sep='_')` we want to concatenate our `chr`,`start` and `end` with `_` as a seperator
+- `peaks_clean<-peaks[c(4,5)]`
+    - subset our data.frame to use only the last two columns
+- `edger_dl <- DGEList(counts=peaks_clean, group=1:2)`
+    - `DGEList(counts=peaks_clean, group=1:2)` read in our `peak_clean` data.frame
+    - `group=1:2` identify which groups we want to contrast
+- `bvc=0.01` Set the `square-rootdispersion`. according to edgeR documentation: `from well-controlled experiments are 0.4 for human data, 0.1 for data on genetically identical model organisms or 0.01 for technical replicates`
+- `edger_et <- exactTest(edger_dl,dispersion=bcv^2)`
+    - calculate `FC` and `Pvalue` per row
+- `edger_tp <- topTags(edger_et, n=nrow(edger_et$table),adjust.method="BH")`
+    - calcualte `FDR` via Benjamini-Hochberg
+- `de <- edger_tp$table %>% filter(FDR < 0.01) %>% filter(logFC >=1 | logFC <=-1)`
+    - `filter(FDR < 0.01)` filter for significant peaks
+    - `filter(logFC >=1 | logFC <=-1)` filter for peaks with appropriate fold change
+- `write.table(analyzed_peaks, file="workspace/module123/diffBind/differential_peaks_edger.tsv", sep="\t", quote=F, row.names=F, col.names=F)`
+    - save files
 
 ## Server resources
 ### QC Resources
@@ -407,6 +465,10 @@ stromal.H3K4me1.peak_calls.bed
 stromal.H3K4me3.peak_calls.bed
 ```
 - https://epigenomesportal.ca/tracks/CEEHRC/hg38/
+- Breast Basal CEMT0035
+- Breast Stromal CEMT0036
+- Breast Luminal CEMT0037
+- Breast Luminal Progenitor CEMT0038
 ### Encode BigWig
 ```
 ls ~/CourseData/EPI_data/module123/encode_bigWig
@@ -428,6 +490,10 @@ stromal.H3K4me1.signal_unstranded.bigWig
 stromal.H3K4me3.signal_unstranded.bigWig
 ```
 - https://epigenomesportal.ca/tracks/CEEHRC/hg38/
+- Breast Basal CEMT0035
+- Breast Stromal CEMT0036
+- Breast Luminal CEMT0037
+- Breast Luminal Progenitor CEMT0038
 ### MCF10A Fastq
 ```
 ls ~/CourseData/EPI_data/module123/fastq

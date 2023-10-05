@@ -42,6 +42,7 @@ getwd()
 - It's always good practice to organize your directories beforehand
 - This avoids file conflicts and accidental data loss.
 - We'll be making a subdirectory for each major step.
+
 **Code:**
 ```
 ###Shell###
@@ -103,6 +104,7 @@ gunzip ~/workspace/module123/BWA_index/chr19.fa.gz -c > ~/workspace/module123/BW
 
 > [!NOTE]
 > [A newer version of BWA-mem](https://github.com/bwa-mem2/bwa-mem2) does exist, however we'll be using the older version due to a bug that requires significant memory for indexing.
+
 **Code:** 
 ```
 ###Shell###
@@ -131,6 +133,7 @@ fastqc -t 8 ${fastq_h3k4me3} -o ~/workspace/module123/fastqc > ~/workspace/modul
     - `-o` specifies our output directory
 ### Step 3A: FastQC and interpretation
 - Let's take a look at our FASTQC results and compare
+
 **Code:**
 ```
 ###Browser###
@@ -177,6 +180,7 @@ http://main.uhn-hpc.ca/module123/fastqc/MCF10A.H3K4me3.chr19.R1_fastqc.html
 
 ### Step 4: Alignment
 - Mapping the read pairs to a position of the reference genome
+
 **Code:** 
 ```
 ###Shell###
@@ -352,6 +356,10 @@ stromal.H3K4me1.peak_calls.bed
 stromal.H3K4me3.peak_calls.bed
 ```
 - https://epigenomesportal.ca/tracks/CEEHRC/hg38/
+- Breast Basal CEMT0035
+- Breast Stromal CEMT0036
+- Breast Luminal CEMT0037
+- Breast Luminal Progenitor CEMT0038
 ### Encode BigWig
 ```
 ls ~/CourseData/EPI_data/module123/encode_bigWig
@@ -373,6 +381,10 @@ stromal.H3K4me1.signal_unstranded.bigWig
 stromal.H3K4me3.signal_unstranded.bigWig
 ```
 - https://epigenomesportal.ca/tracks/CEEHRC/hg38/
+- Breast Basal CEMT0035
+- Breast Stromal CEMT0036
+- Breast Luminal CEMT0037
+- Breast Luminal Progenitor CEMT0038
 ### MCF10A Fastq
 ```
 ls ~/CourseData/EPI_data/module123/fastq

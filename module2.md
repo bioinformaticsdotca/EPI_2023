@@ -7,8 +7,10 @@ by Martin Hirst and Edmund Su
 2. Module 2. Peak Calling
     - Dedup BAM file
     - Running Peak Caller
+    - Running Peak call for ATAC
     - Filter Blacklist regions
     - Visualization
+    - QC
 3. Server side resources
 ## Breakdown of markdown file
 - At the start of each step, the intention will declare.
@@ -145,11 +147,12 @@ macs2 callpeak -t ${treatment} -c ${input} -f BAMPE -g 58617616 -n ${name} --kee
         - pValue 
         - qValue
 ### Step 3A : Run Peak Caller for ATAC - Make fragment file
-**Code:**
 - Convert our `BAM` to `BED` to easily manipulate coordinates
 - perform shift to account for Tn5 binding as a dimer and inserts two adapters separated by 9 bp
 > [!NOTE]
 > This step can also be done for chipseq
+
+**Code:**
 ```
 name=MCF10A_ATAC
 dedup=~/workspace/module123/alignments/${name}_chr19.sorted.dup_marked.dedup.bam
@@ -162,6 +165,7 @@ bedtools bamtobed -bedpe -mate1 -i ${nsort} > ${tags}
 - perform shift to account for Tn5 binding as a dimer and inserts two adapters separated by 9 bp
 > [!NOTE]
 > Tn5 shift can be skipped if one is not interested in footprinting.
+
 **Code:**
 ```
 ###Shell###
@@ -264,8 +268,10 @@ macs2 callpeak \
     - `--keep-dup all` retain "duplicates". As we've already filtered out duplicates, MACS2 will call duplicates via genomic coordinates
     - `--call-summits` 
 
-### Step 3 : Blacklist removal
+### Step 4 : Blacklist removal
 - [Problematic regions](https://www.nature.com/articles/s41598-019-45839-z) can obscure our results, thus filter any peaks that coincide with those regions.
+
+**Code:**
 ```
 ###Shell###
 wget https://www.encodeproject.org/files/ENCFF356LFX/@@download/ENCFF356LFX.bed.gz -O ~/workspace/module123/resources/hg38_blacklist.bed.gz
@@ -297,7 +303,7 @@ bedtools intersect -u -a ~/workspace/module123/peaks/${sample}.narrowPeak -b ${b
     - `-v` reverse the behaviour, identify elements that do not overlap
 - we'll return to this later when we can visualize the peaks
 
-### Step 4A : Visualization of pileup tracks
+### Step 5A : Visualization of pileup tracks
 - in the next step of steps, we convert our pipleup bedgraphs and bed peak files into a smaller managable formats.
 
 **Code:**
@@ -326,7 +332,7 @@ rm ~/workspace/module123/bigWig/tmp
     - `-k1,1` sort first by chromosome alphabetically
     - `-k2,2n` sort secondarily by genomic coordinates
 - `bedGraphToBigWig` convert bedGraph file to bigWig
-### Step 4B : Visualization of pileup tracks continued
+### Step 5B : Visualization of pileup tracks continued
 **Code:**
 ```
 ###Shell###
@@ -357,7 +363,7 @@ sort -k1,1 -k2,2n ${input_bedgraph} > ~/workspace/module123/bigWig/tmp
 bedGraphToBigWig ~/workspace/module123/bigWig/tmp ${chrom_sizes} ${output_bigwig}
 rm ~/workspace/module123/bigWig/tmp
 ```
-### Step 4C : Visualization of peak tracks
+### Step 5C : Visualization of peak tracks
 **Code:**
 ```
 ###Shell###
@@ -378,8 +384,11 @@ rm ~/workspace/module123/bigBed/tmp
     - `-k1,1` sort first by chromosome alphabetically
     - `-k2,2n` sort secondarily by genomic coordinates
 - `bedGraphToBigWig` convert bedGraph file to bigBed
-### Step 4D : Visualization of peak tracks continued
+### Step 5D : Visualization of peak tracks continued
+
+**Code:**
 ```
+###Shell###
 sample="MCF10A_ATAC"
 chrom_sizes=~/workspace/module123/resources/hg38.chrom.sizes
 input_bed=~/workspace/module123/peaks/${sample}_peaks.blacklistRemoved.narrowPeak
@@ -410,11 +419,12 @@ sort -k1,1 -k2,2n ${input_bed} | cut -f1-3 > ~/workspace/module123/bigBed/tmp
 bedToBigBed ~/workspace/module123/bigBed/tmp ${chrom_sizes} ${output_bigwig}
 rm ~/workspace/module123/bigBed/tmp
 ```
-### Step 4E : Visualization of peaks and tracks
+### Step 5E : Visualization of peaks and tracks
 
 
-### Step 5A : Quality Control (Enrichment in key genomic areas)
-- A way to determine the efficancy of your enrichment is to benchmark % of reads to called peaks (FRIP) or known regions
+### Step 6A : Quality Control (Enrichment in key genomic areas)
+- A way to determine the efficacy of your enrichment is to benchmark % of reads to called peaks (FRIP) or known regions
+
 **Code :** 
 ```
 ###Shell###
@@ -444,7 +454,8 @@ samtools view -@4 -q 10 -F 1028 $query_bam -L ~/workspace/module123/peaks/${samp
     - `$query_bam` Bam of interest
     - `-c ` count the number of reads that fulfil the criteria
     - `-L` perform actions on reads that fall within the specified genomic coordiantes (Bed File)
-### Step 5B : Quality Control (Enrichment in key genomic areas) Continued:
+### Step 6B : Quality Control (Enrichment in key genomic areas) Continued:
+
 **Code:**
 ```
 ###Shell###
@@ -548,6 +559,10 @@ stromal.H3K4me1.peak_calls.bed
 stromal.H3K4me3.peak_calls.bed
 ```
 - https://epigenomesportal.ca/tracks/CEEHRC/hg38/
+- Breast Basal CEMT0035
+- Breast Stromal CEMT0036
+- Breast Luminal CEMT0037
+- Breast Luminal Progenitor CEMT0038
 ### Encode BigWig
 ```
 ls ~/CourseData/EPI_data/module123/encode_bigWig
@@ -569,6 +584,10 @@ stromal.H3K4me1.signal_unstranded.bigWig
 stromal.H3K4me3.signal_unstranded.bigWig
 ```
 - https://epigenomesportal.ca/tracks/CEEHRC/hg38/
+- Breast Basal CEMT0035
+- Breast Stromal CEMT0036
+- Breast Luminal CEMT0037
+- Breast Luminal Progenitor CEMT0038
 ### MCF10A Fastq
 ```
 ls ~/CourseData/EPI_data/module123/fastq
