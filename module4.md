@@ -11,7 +11,7 @@ home: https://bioinformaticsdotca.github.io/EPI_2023
 
 # Introduction to WGBS and Analysis 
 
-*by Guillaume Bourque, PhD, Jose Hector Galvez and Mareike Janiak*
+*by Guillaume Bourque, PhD, Jose Hector Galvez and Mareike Janiak, PhD*
 
 ## Contents: 
 
@@ -25,17 +25,25 @@ home: https://bioinformaticsdotca.github.io/EPI_2023
     
     2.3 [Repeat Alignment for All Datasets](#repeat)
     
-    2.4 [Load Data and Explor with IGV](#load_igv)
+    2.4 [Load Data and Explore with IGV](#load_igv)
     
     2.5 [Generate Methylation Profiles](#methylation_profiles)
     
 3. [Differential Methylation Analysis in MethylKit](#methylkit)
 
-    3.1 [Load R and MethylKit](#load_r)
+    3.1 [Load R and MethylKit](#load_methylkit_r)
     
-    3.2 [Import the Alignment Data into methylKit](#r_import)
+    3.2 [Import the Alignment Data into methylKit](#r_methylkit_import)
     
-    3.3 [Find Differentially Methylated Regions](#r_dmr)
+    3.3 [Find Differentially Methylated Regions with methylKit](#r_methylkit_dmr)
+
+4. [Differential Methylation Analysis in DSS](#DSS)
+
+    4.1 [Load R and DSS](#load_dss_r)
+    
+    4.2 [Import the Methylation Data into DSS](#r_dss_import)
+    
+    4.3 [Find Differentially Methylated Regions with DSS](#r_dss_dmr)
 
 
 ---
@@ -197,7 +205,7 @@ For more details, please refer to the Bismark [user guide](http://www.bioinforma
 
 ---
 
-This step will take a few minutes to run for this reduced dataset. A dataset spanning a full genome will take several hours. 
+This step will take a few minutes to run for this reduced dataset. A dataset spanning a full genome will take *several hours*. 
 
 For your own datasets, make sure you have enough computing walltime to run the alignment. 
 
@@ -213,12 +221,23 @@ At the end of the alignment, you should have the following files saved into your
 WGBS.A34002.137160.chr19.1_bismark_bt2_pe.bam  WGBS.A34002.137160.chr19.1_bismark_bt2_PE_report.txt
 ```
 
-Let's look at the report: 
+Bismark offers a tool to generate an interactive HTML report for each sample, which we can now run to obtain the summary for our first sample. 
+
+```{bash}
+bismark2report
+
+```
+
+This will produce an additional file called: `WGBS.A34002.137160.chr19.1_bismark_bt2_PE_report.html`. 
+
+Let's look at the report. We can read the text file directly on the command line: 
 
 ```{bash}
 less WGBS.A34002.137160.chr19.1_bismark_bt2_PE_report.txt
 
 ```
+
+Or open the HTML report using your internet browser and the IP address of your AWS instance. Just click on the link to the HTML report and it should open. 
 
 **What was the mapping efficiency? What percent of C's were methylated in CpG context? ** 
 
@@ -243,6 +262,8 @@ C methylated in unknown context (CN or CHN):    3.5%
 ...
 
 ```
+
+You can also look at plot the `Cytosine Methylation` section in the interactive HTML report. 
 
 </details>
 
@@ -302,7 +323,14 @@ bismark --multicore 4 --bowtie2 $GENOME/genome/bismark_index \
 
 Remember, for the command to work, both `$GENOME` and `$WGBS_DATA` need to be defined. 
 
-This is the command to prepare the samples for IGV (sort and index): 
+Also, if you want to generate the HTML reports, you can run `bismark2report`. Bismark also has a "summary" that produces a report for all samples (`bismark2summary`), we can run both by doing the following: 
+
+```{bash}
+bismark2report ; bismark2summary
+
+```
+
+After checking the reports, we can run the commands to prepare the samples for IGV (sort and index): 
 
 ```{bash}
 samtools sort  WGBS.A34002.137487.chr19.1_bismark_bt2_pe.bam -o WGBS.A34002.137487.chr19.1_bismark_bt2_pe_sorted.bam
@@ -355,7 +383,7 @@ If you haven't installed it yet, please get it here [IGV download](http://softwa
 
 Make sure that the human genome is selected in the top left corner. It should read: **Human (hg38)**.
 
-Load your sorted `bam` file in IGV using `File -> Load from file`. *For this to work, you need to have the index file (`.bai`) in the same location as the `bam` file.* 
+Load your **sorted** `bam` file in IGV using `File -> Load from file`. *For this to work, you need to have the index file (`.bai`) in the same location as the `bam` file.* 
 
 Now go to the following location:
 
@@ -392,9 +420,11 @@ So far we have only mapped the reads using Bismark. We can generate methylation 
 ```{bash}
 cd ~/workspace/module4
 
-bismark_methylation_extractor --bedGraph WGBS.A34002.137160.chr19.1_bismark_bt2_pe.bam
+bismark_methylation_extractor --cytosine_report WGBS.A34002.137160.chr19.1_bismark_bt2_pe.bam --genome_folder $GENOME/genome/bismark_index
 
 ```
+
+The `--cytosine_report` option creates a `CpG_report` table summarizing key data for each `CG` position in the genome, which will be useful later (see [section 4.2](#r_dss_import)). 
 
 **How would you do the same for the other replicates?**
 
@@ -411,8 +441,8 @@ These are the commands that you should use:
 ```{bash}
 cd ~/workspace/module4
 
-bismark_methylation_extractor --bedGraph WGBS.A34002.137487.chr19.1_bismark_bt2_pe.bam
-bismark_methylation_extractor --bedGraph WGBS.A34002.137488.chr19.1_bismark_bt2_pe.bam
+bismark_methylation_extractor --cytosine_report WGBS.A34002.137487.chr19.1_bismark_bt2_pe.bam --genome_folder $GENOME/genome/bismark_index
+bismark_methylation_extractor --cytosine_report WGBS.A34002.137488.chr19.1_bismark_bt2_pe.bam --genome_folder $GENOME/genome/bismark_index
 
 ```
 
@@ -427,6 +457,8 @@ Download *all* the files produced so far to your local computer using your inter
 ---
 
 Load all the downloaded files in IGV using `File -> Load from file`.
+
+**Please be aware that if you just try to open all your files on IGV you might get a warning/error message mentioning that you are trying to open an unsorted BAM. If that is the case, ignore the message, but make sure that you are opening the `sorted.bam` so you can visualize your results.**
 
 At this point, if you load the region `chr19:44,527,387-44,536,873` you should see something like
 
@@ -487,7 +519,7 @@ library("methylKit")
 
 ---
 
-<a name="r_import"></a>
+<a name="r_methylkit_import"></a>
 
 ### 3.2 Import the Alignment Data into methylKit
 
@@ -600,9 +632,9 @@ getMethylationStats(myobj[[2]],plot=FALSE,both.strands=FALSE)
 
 --- 
 
-### 3.3 Find Differentially Methylated Regions
+### 3.3 Find Differentially Methylated Regions with methylKit
 
-<a name="r_dmr"></a>
+<a name="r_methylkit_dmr"></a>
 
 #### Merge Samples
 
@@ -729,6 +761,188 @@ Using the navigation pane, download the bedGraph files you just produced and try
 **Do the statistical results match what you had seen before when exploring the data?** 
 
 **What interesting genomic features are found close to the DMRs? What could this mean?** 
+
+---
+
+<a name="DSS"></a>
+
+## 4. Differential Methylation Analysis in DSS
+
+The following section will use the Bioconductor package `DSS` to do a differential methylation analysis. 
+You can do it in your own computer (if you have installed `R` and `DSS`) or in the AWS instance. 
+
+To install `DSS` locally on your computer, make sure you have a recent version of `R` and 
+follow the instructions in this [page](https://bioconductor.org/packages/release/bioc/html/DSS.html). 
+
+---
+
+### 4.1 Load R and DSS
+
+<a name="load_dss_r"></a>
+
+If you just did the previous section, you might not need to load `R` again. Otherwise, please launch `R` using the instructions in [section 3.1](#load_methylkit_r). 
+
+Once you have successfully launched `R`, you can load `DSS` with the following command: 
+
+```{r}
+library("DSS") 
+
+```
+
+---
+
+<a name="r_dss_import"></a>
+
+### 4.2 Import the Methylation Data into DSS
+
+#### Process Bismark CpG Reports
+
+The `DSS` library expects input data to be already summarized into the following columns for each CG position in the genome: 
+
+- chromosome number (`chr`), 
+- genomic coordinate (`pos`), 
+- total number of reads (`N`), 
+- and, number of reads showing methylation (`X`). 
+
+Fortunately, Bismark already produced a table (`CpG_report.txt`) with most of that information when we ran the `bismark_methylation_extractor` command (see [section 2.5](#methylation_profiles) to review this step). Therefore, we can import the `CpG_report` table into R and reshape it into the proper input for `DSS`.  
+
+First, we will load the `CpG_report.txt` table for sample `137160` to our R environment and save it as a variable called `CpG.report.160`. To do this, we will use the base `R` function `read.table` and name the columns as follows: 
+
+- `chr`, 
+- `pos`, 
+- `strand`, 
+- `X` (num. of reads showing methylation at this position),
+- `C` (num. of reads *without* methylation in this position), 
+- `C_context` (2-base context at this position), 
+- `tri_context` (3-base context at this position)
+
+The full command is as follows: 
+
+```{r}
+CpG.report.160 <- read.table("WGBS.A34002.137160.chr19.1_bismark_bt2_pe.CpG_report.txt", header = F, col.names = c("chr", "pos", "strand", "X", "C", "C_context", "tri_context")) 
+```
+
+Next, we need to calculate the total number of reads for each position by adding up the ones with and without methylation (columns `X` and `C` in the table we just imported). We will name this new column `N` to follow the `DSS` convention. Finally, we will save the input table for DSS as `CpG.DSS.table.160` and make sure it is in ascending order by position with the `setorder` command. You can find the full commands below: 
+
+```{r}
+CpG.report.160["N"] <- CpG.report.160["C"] + CpG.report.160["X"]
+CpG.DSS.table.160 <- CpG.report.160[c("chr", "pos", "N", "X")]
+
+```
+
+**Can you repeat the above process for the other two samples?**
+
+<details>
+
+  <summary>
+  
+  **Solution** (click here)
+  
+  </summary> 
+  
+Use the following commands to import the remaining `CpG_report` tables, as well as reformatting them into appropriate `DSS` input.  
+
+```{r}
+CpG.report.487 <- read.table("WGBS.A34002.137487.chr19.1_bismark_bt2_pe.CpG_report.txt", header = F, col.names = c("chr", "pos", "strand", "X", "C", "C_context", "tri_context")) 
+CpG.report.487["N"] <- CpG.report.487["C"] + CpG.report.487["X"]
+CpG.DSS.table.487 <- CpG.report.487[c("chr", "pos", "N", "X")]
+
+CpG.report.488 <- read.table("WGBS.A34002.137488.chr19.1_bismark_bt2_pe.CpG_report.txt", header = F, col.names = c("chr", "pos", "strand", "X", "C", "C_context", "tri_context")) 
+CpG.report.488["N"] <- CpG.report.488["C"] + CpG.report.488["X"]
+CpG.DSS.table.488 <- CpG.report.488[c("chr", "pos", "N", "X")]
+
+```
+
+*Hint:* If you want to check all the `DSS` input tables are constructed properly, you can take a peek at the "top" of each table with the `head()` command in `R`. For example, you should see the following if you did all the previous steps correctly: 
+
+```{r}
+head(CpG.DSS.table.160)
+```
+
+```{:output}
+chr   pos N X
+1 chr19 60119 0 0
+2 chr19 60120 0 0
+3 chr19 60172 0 0
+4 chr19 60173 0 0
+5 chr19 60183 0 0
+6 chr19 60184 0 0
+```
+
+The same command for the other two samples will give the same result, because there are no reads aligning to the beginning of chromosome 19 in our dataset. 
+
+</details> 
+
+---
+
+Next, we will create the `BS` object that `DSS` will use by using the `makeBSseqData` command and the tables we just created: 
+
+```{r}
+BSobj <- makeBSseqData( list(CpG.DSS.table.160, CpG.DSS.table.487, CpG.DSS.table.488),
+     c("sample.160","sample.487", "sample.488") )
+```
+
+Notice how we are labeling the 3 samples with the names `c("sample.160","sample.487", "sample.488")` as part of this command. It is likely that you will receive a warning message when you run the command above indicating that the CG sites are not ordered. We will ignore it for now, in this case it should not impact the analysis.
+
+If the object was constructed properly, we can inspect it's properties by calling the variable name directly `BSobj`, which will output.
+
+```{:output}
+An object of type 'BSseq' with
+  2113330 methylation loci
+  3 samples
+has not been smoothed
+All assays are in-memory
+```
+
+---
+
+### 4.3 Find Differentially Methylated Regions with DSS
+
+<a name="r_dss_dmr"></a>
+
+The `DSS` library operates under different statistical assumptions than `methylKit`, which include a smoothing of methylation data to improve methylation analysis. By smoothing the data, `DSS` will attempt to correct the methylation percentage of a CpG site using the context of nearby sites. Additionally, it will then estimate the dispersion of the sites and perform a Wald statistical test to allow for comparsion across samples. These three steps are done in one single command called `DMLtest` which will take our `BSobj` as input. 
+
+We will run command is done as follows and save the results in a variable called `dmlTest`:
+
+```{r}
+dmlTest <- DMLtest(BSobj, 
+  group1=c("sample.160"), 
+  group2=c("sample.487", "sample.488"), 
+  smoothing=TRUE)
+
+```
+
+Notice how we defined the two experimental groups in the `DMLtest` command, using the we defined when creating `BSobj`. When the test finishes running, we can extract the significant Differentially Methylated Loci (DML) using the `callDML` command and our defined p-value threshold: 
+
+```{r}
+dmls = callDML(dmlTest, p.threshold=0.05)
+```
+
+Extracting Differentially Methylated Regions (DMR) works similarly, with the `callDMR` command. One important difference between `methylKit` and `DSS` is that the latter does not work using bins. Instead, `DSS` will estimate the length of a DMR based on the dispersion of individual CpGs. Therefore, contrary to DMRs calculated with methylKit, these regions will all have different lengths. 
+
+To ensure that DMRs we call in this workshop are comparable to what we calculated with methylKit, we will set the minimum length to 500bp. The `callDMR` command will look like this: 
+
+```{r}
+dmrs = callDMR(dmlTest, minlen = 500, p.threshold=0.05)
+```
+
+The `DSS` library will group all DMR results into a single table, making no distinction between hypo and hyper methylated regions. You can view the results by running calling the `dmrs` variable. 
+
+
+**Look at the `DSS` differential methylation results and compare them to what was obtained by `methylKit`. Do you notice any important differences? Are there any overlaps?**
+
+---
+
+To save the results of your `DSS` analysis as a `CSV` file, use the base R command `write.csv`. Unfortunately, there is no native `DSS` command to export the results into a BedGraph file, and converting the table outptut to this format is outside the scope of this workshop. We encourage you to find tools that do this after the workshop if you want to do a deeper comparsion between the `DSS` and `methylKit` results in your own datasets. 
+
+```{r}
+write.csv(dmls, file="DSS.DML.table.csv")
+write.csv(dmrs, file="DSS.DMR.table.csv") 
+```
+
+After saving the `DSS` results as CSV, remember to download them to your computer, where you can open them in the file explorer, or even a spreadsheet to improve visualization and filtering. 
+
+---
 
 
 ### Congrats, you're done!
