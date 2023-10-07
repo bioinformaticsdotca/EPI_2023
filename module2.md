@@ -428,7 +428,25 @@ bedToBigBed ~/workspace/module123/bigBed/tmp ${chrom_sizes} ${output_bigwig}
 rm ~/workspace/module123/bigBed/tmp
 ```
 ### Step 5E : Visualization of peaks and tracks
+- can either download your tracks and load them from files or via URL
+- colours used:
+  - H3K27ac : blue
+  - H3K27me3 : Brown
+  - H3K4me3 : Green
+  - ATAC : LightBlue
+  - Black : Input
+    
+<img src="https://github.com/bioinformaticsdotca/EPI_2023/blob/module123/module123_images/BCL3.png?raw=true" alt="Region" width="750" />
 
+- BCL3 start site is enriched with H3K4me3 and H3K27ac and accessible
+  
+<img src="https://github.com/bioinformaticsdotca/EPI_2023/blob/module123/module123_images/RDH8.png?raw=true" alt="Region" width="750" />
+
+- Genes around RDH8 show enrichment of H3K27me3 and lack of accessibility and enrichment for H3K27ac and H3K4me3
+  
+<img src="https://github.com/bioinformaticsdotca/EPI_2023/blob/module123/module123_images/blacklist.png?raw=true" alt="Region" width="750" />
+
+- Blacklist identified region hightlighted in red, represented by both H3K27me3 and ATAC
 
 ### Step 6A : Quality Control (Enrichment in key genomic areas)
 - A way to determine the efficacy of your enrichment is to benchmark % of reads to called peaks (FRIP) or known regions
