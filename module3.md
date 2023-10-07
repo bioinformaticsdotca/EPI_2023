@@ -5,10 +5,19 @@ by Martin Hirst and Edmund Su
 ## Table of Contents
 1. Breakdown of markdown file
 2. Module 3. Differential Analysis
-    - Bedtools
-    - Deeptools
-    - edgeR
-    - DiffBind
+    - Perform a differential analysis using genomic overlap
+        - comparing MCF10A histone marks
+        - MCF10A to CEMT Breast samples
+        - Utilizing bedtools and shell script to perform multiple queries
+        - comparing binary condition models
+        - Highlight other key Bedtool functions
+    - Perform an analysis on triplicate samples in a binary condition model
+        - DiffBind in R
+    - Perform an analysis on two samples
+        - Generating normalized coverage
+        - Unified peak set
+        - Generating a dataframe of normalzied coverage at unified peaks
+        - applying edgeR to perform statistical analysis
 3. Server side resources
 ## Breakdown of markdown file
 - At the start of each step, the intention will declare.
@@ -41,7 +50,8 @@ getwd()
 **Code**
 ```
 ###Shell###
-cp ~/CourseData/EPI_data/module123/encode_bigWig/* ~/workspace/module123/bigWig/
+cp ~/CourseData/EPI_data/module123/encode_bigWig/*H3K4me3* ~/workspace/module123/bigWig/
+cp ~/CourseData/EPI_data/module123/encode_bigBed/*H3K4me3* ~/workspace/module123/bigBed/
 ```
 
 
@@ -341,7 +351,7 @@ bamCoverage --samFlagExclude 1028 --extendReads --normalizeUsing RPKM -b ${condB
 condA_peaks=~/CourseData/EPI_data/module123/triplicates/peaks/CondA.Rep1_peaks.narrowPeak
 condB_peaks=~/CourseData/EPI_data/module123/triplicates/peaks/CondB.Rep1_peaks.narrowPeak
 
-cat ${condA_peaks} ${condB_peaks} | sort -k1,1 -k2,2n | bedtools merge -i stdin > workspace/module123/diffBind/merged_peaks.bed
+cat ${condA_peaks} ${condB_peaks} | sort -k1,1 -k2,2n | bedtools merge -i stdin > ~/workspace/module123/diffBind/merged_peaks.bed
 ```
 - `cat ${condA_peaks} ${condB_peaks} | sort -k1,1 -k2,2n | bedtools merge -i stdin > merged_peaks.bed`
     - Pseudo code break down : `Read our peaks | sort peaks coordinate wise | merge peaks`
@@ -351,9 +361,7 @@ cat ${condA_peaks} ${condB_peaks} | sort -k1,1 -k2,2n | bedtools merge -i stdin 
 **Code:**
 ```
 ###Shell###
-multiBigwigSummary BED-file -b ${condA_bw} ${condB_bw} -o workspace/module123/analysis/results.npz --BED workspace/module123/diffBind/merged_peaks.bed --outRawCounts workspace/module123/diffBind/merged_peaks_rpkm.bed
-
-vim workspace/module123/analysis/merged_peaks_rpkm.bed
+multiBigwigSummary BED-file -b ${condA_bw} ${condB_bw} -o ~/workspace/module123/diffBind/results.npz --BED ~/workspace/module123/diffBind/merged_peaks.bed --outRawCounts ~/workspace/module123/diffBind/merged_peaks_rpkm.bed
 ```
 - `multiBigwigSummary BED-file -b ${condA_bw} ${condB_bw} -o workspace/module123/diffBind/results.npz --BED workspace/module123/diffBind/merged_peaks.bed --outRawCounts workspace/module123/diffBind/merged_peaks_rpkm.bed`
     - `multiBigWigSummary` summarizes bigWig files based on the mode selected : `BED-file` or `bins`
@@ -361,10 +369,7 @@ vim workspace/module123/analysis/merged_peaks_rpkm.bed
     - `-o workspace/module123/analysis/results.npz` output file to be saved and used for other deeptools functions
     - `--BED workspace/module123/analysis/merged_peaks` only required if `BED-file` selected
     - `--outRawCounts merged_peaks_rpkm.bed` produces a dataframe of bigwig values
-- `vim workspace/module123/analysis/merged_peaks_rpkm.bed`
-    - we need to edit to edit the column headers a bit
-    - to modify press `I` and perform your edits
-    - to finalize edits press `ESC`,type `:wq`,press `ENTER`
+
 
 ### Step3C: Differential peaks utilizing Fold change and significance - EdgeR differential
 - we'll read our data into `R` and perform a statistical analysis
@@ -376,7 +381,7 @@ setwd("/home/ubuntu")
 library(edgeR)
 library(dplyr)
 
-peaks<-read.csv("workspace/module123/diffBind/merged_peaks_rpkm.bed",sep='\t',colClasses= c("character","character","character","numeric","numeric"))
+peaks<-read.csv("workspace/module123/diffBind/merged_peaks_rpkm.bed",sep='\t',col.names = c("chr", "start", "end","MCF10A_H3K4me3_chr19.CondA.Rep1","MCF10A_H3K4me3_chr19.CondB.Rep1"),colClasses= c("character","character","character","numeric","numeric"))
 
 row.names(peaks)<-paste(peaks$chr,peaks$start,peaks$end,sep='_')
 
@@ -386,17 +391,18 @@ edger_dl <- DGEList(counts=peaks_clean, group=1:2)
 
 bvc=0.1
 
-edger_et <- exactTest(edger_dl,dispersion=bcv^2)
+edger_et <- exactTest(edger_dl,dispersion=bvc^2)
 
 edger_tp <- topTags(edger_et, n=nrow(edger_et$table),adjust.method="BH")
 
 
 de <- edger_tp$table %>% filter(FDR < 0.01) %>% filter(logFC >=1 | logFC <=-1)
-write.table(analyzed_peaks, file="workspace/module123/diffBind/differential_peaks.tsv", sep="\t", quote=F, row.names=F, col.names=F)
+write.table(analyzed_peaks, file="workspace/module123/diffBind/differential_peaks_edger.tsv", sep="\t", quote=F, row.names=F, col.names=F)
 ```
-- `peaks<-read.csv("workspace/module123/analysis/merged_peaks_rpkm.bed",sep='\t',colClasses= c("character","character","character","numeric","numeric"))`
+- `peaks<-read.csv("workspace/module123/diffBind/merged_peaks_rpkm.bed",sep='\t',col.names = c("chr", "start", "end","MCF10A_H3K4me3_chr19.CondA.Rep1","MCF10A_H3K4me3_chr19.CondB.Rep1"),colClasses= c("character","character","character","numeric","numeric"))`
     - `read.csv` read the `CSV` file into a `data.frame`
     - `sep='\t'` specify the delimiter
+    - `col.names = c("chr", "start", "end","MCF10A_H3K4me3_chr19.CondA.Rep1","MCF10A_H3K4me3_chr19.CondB.Rep1")` set our column names
     - `colClasses= c("character","character","character","numeric","numeric")` indicate with column are what datatypes
 - `row.names(peaks)<-paste(peaks$chr,peaks$start,peaks$end,sep='_')`
     - edit row names to be match genomic coordinates

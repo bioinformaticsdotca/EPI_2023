@@ -6,11 +6,11 @@ by Martin Hirst and Edmund Su
 1. Breakdown of markdown file
 2. Module 2. Peak Calling
     - Dedup BAM file
-    - Running Peak Caller
+    - Running Peak Caller (Narrow + Broad)
     - Running Peak call for ATAC
     - Filter Blacklist regions
-    - Visualization
-    - QC
+    - Visualization coverage and peak files
+    - Quality control via Fraction of reads in peaks and known enriched areas
 3. Server side resources
 ## Breakdown of markdown file
 - At the start of each step, the intention will declare.
@@ -38,7 +38,8 @@ getwd()
 
 ## Module 2. Peak Calling
 ### Step 1: Dedup BAM file
-- We first remove duplicates here b/c `MACS2`(peak caller) identifies duplicates via genomic coordiantes (resulting in the removal of a lot reads)
+- We first remove duplicates here b/c `MACS2`(peak caller) identifies duplicates via genomic coordinates (excessive removal of a lot reads).
+- dedup now and instruct our peak caller to "keep duplicates" after.
 
 **Code:**
 ```
@@ -161,6 +162,17 @@ tags=~/workspace/module123/peaks/${name}_chr19.frags.bed
 samtools sort -@ 8 -n ${dedup} -o ${nsort}
 bedtools bamtobed -bedpe -mate1 -i ${nsort} > ${tags}
 ```
+
+- `samtools sort -@ 8 -n ${dedup} -o ${nsort}`
+    - specifying the `-n` sorts according to read name rather than coordinates by default
+- `bedtools bamtobed -bedpe -mate1 -i ${nsort} > ${tags}`
+    - `bedtools bamtobed` converts our `BAM` to `BED`/coordinates for our reads
+    - `-bedpe` instructs bedtools to report read pairs instead of each read individually
+    - unpaired reads will emit a warning
+    - `-mate1` instructs bedtools to report read1 information first followed by read2
+    - columns : `chrR1,startR1,endR1,chrR2,startR2,endR2,readName,mapQ,strandR1,strandR2`
+    - e.g. `chr19 4534039 4534190 chr19 4534110 4534248 SRR20814384.28 60 + -`
+    - bedtools will check if file is name sorted or coordinate sorted
 ### Step 3B : Run Peak Caller for ATAC - Tn5 Shift
 - perform shift to account for Tn5 binding as a dimer and inserts two adapters separated by 9 bp
 > [!NOTE]
@@ -170,27 +182,16 @@ bedtools bamtobed -bedpe -mate1 -i ${nsort} > ${tags}
 ```
 ###Shell###
 name=MCF10A_ATAC
-dedup=~/workspace/module123/alignments/${name}_chr19.sorted.dup_marked.dedup.bam
-nsort=~/workspace/module123/alignments/${name}_chr19.nsorted.dup_marked.dedup.bam
+
 tags=~/workspace/module123/peaks/${name}_chr19.frags.bed
 tn5_tags=~/workspace/module123/peaks/${name}_chr19.frags.tn5.bed
-samtools sort -@ 8 -n ${dedup} -o ${nsort}
-bedtools bamtobed -bedpe -mate1 -i ${nsort} > ${tags}
+
 
 cat ${tags} \
 | awk 'BEGIN{{OFS="\t"}}{{printf "%s\t%s\t%s\tN\t1000\t%s\n%s\t%s\t%s\tN\t1000\t%s\n",$1,$2,$3,$9,$4,$5,$6,$10}}'\
 | awk 'BEGIN{{OFS = "\t"}} {{if ($6 == "+") {{$2 = $2 + 4}} else if ($6 == "-") {{$3 = $3 - 5}} if ($2 >= $3) {{ if ($6 == "+") {{$2 = $3 - 1}} else {{$3 = $2 + 1}} }} print $0}}'\
 > ${tn5_tags}
 ```
-
-- `samtools sort -@ 8 -n ${dedup} -o ${nsort}`
-    - Sort our `BAM` by readnames
-- `bedtools bamtobed -bedpe -mate1 -i ${nsort} > ${tags}`
-    - convert our bam's read coordinates into bed format
-    - `-bedpe` report info on paired reads
-    - `-mate1` always report `read1` first
-    - columns : `chrR1,startR1,endR1,chrR2,startR2,endR2,readName,mapQ,strandR1,strandR2`
-    - e.g. `chr19 4534039 4534190 chr19 4534110 4534248 SRR20814384.28 60 + -`
 - `cat ${tags} | 
 awk 'BEGIN{{OFS="\t"}}{{printf "%s\t%s\t%s\tN\t1000\t%s\n%s\t%s\t%s\tN\t1000\t%s\n",$1,$2,$3,$9,$4,$5,$6,$10}}' |
 awk 'BEGIN {{OFS = "\t"}} {{if ($6 == "+") {{$2 = $2 + 4}} else if ($6 == "-") {{$3 = $3 - 5}} if ($2 >= $3) {{ if ($6 == "+") {{$2 = $3 - 1}} else {{$3 = $2 + 1}} }} print $0}}' > ${tn5_tags}`
@@ -207,7 +208,7 @@ BEGIN{{OFS="\t"}}
 }'
 ```
 - `BEGIN{{OFS="\t"}}` output file as tab delimited
-- `printf "%s\t%s\t%s\tN\t1000\t%s\n%s\t%s\t%s\tN\t1000\t%s\n",$1,$2...` print string where "%s" is substituted with the next specified element
+- `printf "%s\t%s\t%s\tN\t1000\t%s\n%s\t%s\t%s\tN\t1000\t%s\n",$1,$2...` print string where `%s` is substituted with the next specified element
   - equivalent to `print chrR1,startR1,endR1,"N","1000",strandR1,chrR2,startR2,endR2,strandR2`
 ```
 awk '
