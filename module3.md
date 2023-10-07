@@ -52,6 +52,7 @@ getwd()
 ###Shell###
 cp ~/CourseData/EPI_data/module123/encode_bigWig/*H3K4me3* ~/workspace/module123/bigWig/
 cp ~/CourseData/EPI_data/module123/encode_bigBed/*H3K4me3* ~/workspace/module123/bigBed/
+cp ~/CourseData/EPI_data/module123/triplicates/bigWig/* ~/workspace/module123/bigWig/
 ```
 
 
@@ -125,18 +126,19 @@ stromal_H3K4me3=~/CourseData/EPI_data/module123/encode_bed/stromal.H3K4me3.peak_
 lp_H3K4me3=~/CourseData/EPI_data/module123/encode_bed/lp.H3K4me3.peak_calls.bed
 MCF10A_H3K4me3=~/workspace/module123/peaks/MCF10A_H3K4me3_peaks.blacklistRemoved.narrowPeak
 
-bedtools intersect -u -a ${MCF10A_H3K4me3} -b ${lp_H3K4me3} | bedtools intersect -v -a stdin -b ${basal_H3K4me3} ${luminal_H3K4me3} | wc -l
+bedtools intersect -u -a ${MCF10A_H3K4me3} -b ${lp_H3K4me3} | bedtools intersect -v -a stdin -b ${basal_H3K4me3} ${luminal_H3K4me3} ${stromal_H3K4me3} | wc -l
 
 bedtools intersect -u -a ${MCF10A_H3K4me3} -b ${lp_H3K4me3} |\
 bedtools intersect -u -a stdin -b ${basal_H3K4me3} |\
-bedtools intersect -u -a stdin -b ${luminal_H3K4me3} | wc -l
+bedtools intersect -u -a stdin -b ${luminal_H3K4me3} |\
+bedtools intersect -u -a stdin -b ${stromal_H3K4me3} | wc -l
 ```
-- `bedtools intersect -u -a ${MCF10A_H3K4me3} -b ${lp_H3K4me3} | bedtools intersect -v -a stdin -b ${basal_H3K4me3} ${luminal_H3K4me3} | wc -l`
-  -  The command can be broken down into the following : `Common with LP | Not found in Basal OR Luminal`
+- `bedtools intersect -u -a ${MCF10A_H3K4me3} -b ${lp_H3K4me3} | bedtools intersect -v -a stdin -b ${basal_H3K4me3} ${luminal_H3K4me3} ${stromal_H3K4me3}| wc -l`
+  -  The command can be broken down into the following : `Common with LP | Not found in Basal OR Luminal OR stromal`
   - `stdin` takes the results from half of our command and utilizies as input in the next
   - Other tools may have a similar function of `stdin`. Check documentation first.
-- `bedtools intersect -u -a ${MCF10A_H3K4me3} -b ${lp_H3K4me3} |\ bedtools intersect -u -a stdin -b  {basal_H3K4me3} |\ bedtools intersect -u -a stdin -b ${luminal_H3K4me3} | wc -l`
-  - The command can be broken down into the following : `Common with LP | Common with Basal | Common with Luminal`
+- `bedtools intersect -u -a ${MCF10A_H3K4me3} -b ${lp_H3K4me3} |  bedtools intersect -u -a stdin -b  {basal_H3K4me3} | bedtools intersect -u -a stdin -b ${luminal_H3K4me3} | bedtools intersect -u -a stdin -b ${stromal_H3K4me3}  | wc -l`
+  - The command can be broken down into the following : `MCF10A Common with LP | Common with Basal | Common with Luminal | Stromal`
 
 ### Step1E: Using Bedtools to compare binary conditions/models
 - We'll explore how to use bedtools to compare binary conditions and possible interpretations
