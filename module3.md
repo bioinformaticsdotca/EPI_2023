@@ -137,8 +137,12 @@ bedtools intersect -u -a stdin -b ${stromal_H3K4me3} | wc -l
   -  The command can be broken down into the following : `Common with LP | Not found in Basal OR Luminal OR stromal`
   - `stdin` takes the results from half of our command and utilizies as input in the next
   - Other tools may have a similar function of `stdin`. Check documentation first.
+<img src="https://github.com/bioinformaticsdotca/EPI_2023/blob/module123/module123_images/MCF10A_pLP_mBLS.png?raw=true" alt="Region" width="750" /> 
+
 - `bedtools intersect -u -a ${MCF10A_H3K4me3} -b ${lp_H3K4me3} |  bedtools intersect -u -a stdin -b  {basal_H3K4me3} | bedtools intersect -u -a stdin -b ${luminal_H3K4me3} | bedtools intersect -u -a stdin -b ${stromal_H3K4me3}  | wc -l`
   - The command can be broken down into the following : `MCF10A Common with LP | Common with Basal | Common with Luminal | Stromal`
+<img src="https://github.com/bioinformaticsdotca/EPI_2023/blob/module123/module123_images/MCF10A_pLPMBLS.png?raw=true" alt="Region" width="750" />
+
 
 ### Step1E: Using Bedtools to compare binary conditions/models
 - We'll explore how to use bedtools to compare binary conditions and possible interpretations
@@ -312,6 +316,9 @@ write.table(analyzed_peaks, file="workspace/module123/diffBind/differential_peak
    - `col.names=T` include column names
    - `row.names=F` include row names
    - `quote=F` if we want to include quotations around values
+ 
+<img src="https://github.com/bioinformaticsdotca/EPI_2023/blob/module123/module123_images/diffBind.png?raw=true" alt="Region" width="750" />
+
 ### Step3A: Differential peaks utilizing Fold change and significance - RPKM
 - We'll use another but similar approach. Firstly we'll preprocess our `BAM`s
 
@@ -425,6 +432,7 @@ write.table(analyzed_peaks, file="workspace/module123/diffBind/differential_peak
     - `filter(logFC >=1 | logFC <=-1)` filter for peaks with appropriate fold change
 - `write.table(analyzed_peaks, file="workspace/module123/diffBind/differential_peaks_edger.tsv", sep="\t", quote=F, row.names=F, col.names=F)`
     - save files
+<img src="https://github.com/bioinformaticsdotca/EPI_2023/blob/module123/module123_images/edger.png?raw=true" alt="Region" width="750" />
 
 ## Server resources
 ### QC Resources
