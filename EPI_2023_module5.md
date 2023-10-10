@@ -3,13 +3,13 @@ layout: tutorial_page
 permalink: /EPI_2023_Module5_lab
 title: EPI 2023 Module 5 Lab
 header1: Workshop Pages for Students
-header2: Downstream analyses & integrative tools
+header2: Downstream Analysis and Online Tools
 image: /site_images/CBW_Epigenome-data_icon.jpg
 home: https://bioinformaticsdotca.github.io/EPI_2023
 ---
 
 
-# Module 5: Downstream analyses & integrative tools
+# Module 5: Downstream Analysis and Online Tools
 *by David Bujold, M.Sc.*
 
 ## Contents: 
