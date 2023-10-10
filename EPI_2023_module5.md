@@ -33,7 +33,7 @@ We will now explore some of the tools that were covered in the lecture for modul
 In this lab, we will:
 * Learn how to use an online resource, the IHEC Data Portal, to fetch feature tracks of interest.
 * Explore ChIP-Seq peak prediction files (in bed format) to discover motifs using HOMER.
-* Use an IHEC dataset with the GREAT GO enrichment tool to do functions prediction.
+* Use an IHEC dataset with the GREAT GO enrichment tool to perform functions prediction.
 
 ### Local software that will be needed
 
@@ -41,17 +41,13 @@ In this lab, we will:
 * A web browser
 * The IGV genome browser
 
-#####  Preparation in your AWS session
+### Prepare directory for module 5
 
 From your command line terminal, go to your workspace folder.
 
 ```
 cd ~/workspace
 ```
-
-You will be in your home folder.
-
-##### Prepare directory for module 5
 
 * If it exists, remove any ```module5``` directory in your home directory with the "rm" command.
 * Create a new ```module5``` directory.
