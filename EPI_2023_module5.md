@@ -65,7 +65,7 @@ cd module5
 
 
 <a name="ihec_data_portal"></a>
-## 1- IHEC Data Portal
+## IHEC Data Portal
 
 ### Exploring available datasets
 * Open a web browser on your computer, and load the URL [http://epigenomesportal.ca/ihec](http://epigenomesportal.ca/ihec) .
@@ -135,7 +135,7 @@ You should get something like this:
 ![img](img/module5/portal_correlationOutlier.png)
 
 <a name="homer"></a>
-## 2- Predicting motifs with HOMER
+## Predicting motifs with HOMER
 
 We will now attempt to detect motifs in peak regions for transcription factor binding sites using HOMER.
 
@@ -200,7 +200,7 @@ findMotifsGenome.pl 84840.ENCODE.ENCBS400ARI.CTCF.peak_calls.bed hg19 output -pr
 * HOMER takes a while to execute for a whole genome track like this. Expect this job to take about 30 minutes of runtime, with your current setup. In the meantime, we will explore the GO terms enrichment tool GREAT.
 
 <a name="great"></a>
-## 3- Looking for GO terms enrichment with GREAT
+## Looking for GO terms enrichment with GREAT
 
 Next, we will try to identify GO terms connected to ChIP-Seq peaks calls using GREAT. We need `bed` files to use the GREAT portal. We will do the conversion from a `bigBed` file to a `bed` file on our AWS session.
 
@@ -284,7 +284,7 @@ http://<your VM ip address>/module5/great/58394.Blueprint.ERS1027405.H3K27ac.pea
 Bonus question: Why is your result slightly different from the screenshot?
 
 <a name="back_to_homer"></a>
-## 4- Going back to HOMER results
+## Going back to HOMER results
 
 * Is the job done? If it is completed, you can bring back HOMER results to your laptop for visualization. First we'll compress the results to a zip file.
 
