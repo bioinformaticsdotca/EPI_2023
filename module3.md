@@ -319,37 +319,20 @@ write.table(analyzed_peaks, file="workspace/module123/diffBind/differential_peak
  
 <img src="https://github.com/bioinformaticsdotca/EPI_2023/blob/module123/module123_images/diffBind.png?raw=true" alt="Region" width="750" />
 
-### Step3A: Differential peaks utilizing Fold change and significance - RPKM
-- We'll use another but similar approach. Firstly we'll preprocess our `BAM`s
+### Step3A: Differential peaks utilizing Fold change and significance - Merged peaks
+- Previously we performed differential analysis on triplicates, now let's explore how to do so on two samples.
+- We'll combine our two peak sets into an unified set.
 
 **Code:**
 ```
 ###Shell###
-cp ~/CourseData/EPI_data/module123/triplicates/alignments/MCF10A_H3K4me3_chr19.CondA.Rep1.bam workspace/module123/alignments/MCF10A_H3K4me3_chr19.CondA.Rep1.bam
-cp ~/CourseData/EPI_data/module123/triplicates/alignments/MCF10A_H3K4me3_chr19.CondB.Rep1.bam workspace/module123/alignments/MCF10A_H3K4me3_chr19.CondB.Rep1.bam
+condA_peaks=~/CourseData/EPI_data/module123/triplicates/peaks/CondA.Rep1_peaks.narrowPeak
+condB_peaks=~/CourseData/EPI_data/module123/triplicates/peaks/CondB.Rep1_peaks.narrowPeak
 
-condA_bam=~/workspace/module123/alignments/MCF10A_H3K4me3_chr19.CondA.Rep1.bam
-condB_bam=~/workspace/module123/alignments/MCF10A_H3K4me3_chr19.CondB.Rep1.bam
-condA_bw=~/workspace/module123/bigWig/MCF10A_H3K4me3_chr19.CondA.Rep1.bw
-condB_bw=~/workspace/module123/bigWig/MCF10A_H3K4me3_chr19.CondB.Rep1.bw
-
-samtools index ${condA_bam}
-samtools index ${condB_bam}
-
-bamCoverage --samFlagExclude 1028 --extendReads --normalizeUsing RPKM -b ${condA_bam} -o ${condA_bw}
-bamCoverage --samFlagExclude 1028 --extendReads --normalizeUsing RPKM -b ${condB_bam} -o ${condB_bw}
+cat ${condA_peaks} ${condB_peaks} | sort -k1,1 -k2,2n | bedtools merge -i stdin > ~/workspace/module123/edgeR/merged_peaks.bed
 ```
-- In this step we want to generate an RPKM count of contrasting `BAMs`
-- We'll first copy over the toy examples to our working directory
-- `samtools index ${condA_bam}`
-    - as with `BWA`, some tools require our BAM to be index for quick look ups
-- `bamCoverage --samFlagExclude 1028 --extendReads --normalizeUsing RPKM -b ${condA_bam} -o ${condA_bw}`
-    - `bamCoverage` is a function of `deeptools` that generates a stepwise (50bp) count of reads
-    - `--samFlagExclude 1028` ignore reads that have the following flags
-    - `--extendReads` instead of counting reads we extend `R1` to `R2` to count genomic fragments
-    - `--normalizeUsing RPKM` normalize via Reads per Kilobase per million mapped reads
-    - `-b` our input `BAM` file
-    - `-o` our output bigWig file
+- `cat ${condA_peaks} ${condB_peaks} | sort -k1,1 -k2,2n | bedtools merge -i stdin > merged_peaks.bed`
+    - Pseudo code break down : `Read our peaks | sort peaks coordinate wise | merge peaks`
 
 ### Step3B: Differential peaks utilizing Fold change and significance - Merged peaks
 - We'll combine our two peak sets into an unified set.
@@ -359,25 +342,30 @@ bamCoverage --samFlagExclude 1028 --extendReads --normalizeUsing RPKM -b ${condB
 ###Shell###
 condA_peaks=~/CourseData/EPI_data/module123/triplicates/peaks/CondA.Rep1_peaks.narrowPeak
 condB_peaks=~/CourseData/EPI_data/module123/triplicates/peaks/CondB.Rep1_peaks.narrowPeak
-
-cat ${condA_peaks} ${condB_peaks} | sort -k1,1 -k2,2n | bedtools merge -i stdin > ~/workspace/module123/diffBind/merged_peaks.bed
+mkdir ~/workspace/module123/edgeR/
+cat ${condA_peaks} ${condB_peaks} | sort -k1,1 -k2,2n | bedtools merge -i stdin > ~/workspace/module123/edgeR/merged_peaks.bed
 ```
 - `cat ${condA_peaks} ${condB_peaks} | sort -k1,1 -k2,2n | bedtools merge -i stdin > merged_peaks.bed`
     - Pseudo code break down : `Read our peaks | sort peaks coordinate wise | merge peaks`
-### Step3B: Differential peaks utilizing Fold change and significance - RPKMs per peak
+### Step3B: Differential peaks utilizing Fold change and significance - read counts per peak
 - We'll derrive RPKM values per BAM for each peak in our peak set
 
 **Code:**
 ```
 ###Shell###
-multiBigwigSummary BED-file -b ${condA_bw} ${condB_bw} -o ~/workspace/module123/diffBind/results.npz --BED ~/workspace/module123/diffBind/merged_peaks.bed --outRawCounts ~/workspace/module123/diffBind/merged_peaks_rpkm.bed
+peaks=~/workspace/module123/edgeR/merged_peaks.bed
+condA_bam=~/workspace/module123/alignments/MCF10A_H3K4me3_chr19.CondA.Rep1.bam
+condB_bam=~/workspace/module123/alignments/MCF10A_H3K4me3_chr19.CondB.Rep1.bam
+
+condA_count=~/workspace/module123/edgeR/MCF10A_H3K4me3_chr19.CondA.Rep1.bed
+condB_count=~/workspace/module123/edgeR/MCF10A_H3K4me3_chr19.CondB.Rep1.bed
+
+bedtools intersect -a ${peaks} -b ${condA_bam} -c > ${condA_count}
+bedtools intersect -a ${peaks} -b ${condB_bam} -c > ${condB_count}
 ```
-- `multiBigwigSummary BED-file -b ${condA_bw} ${condB_bw} -o workspace/module123/diffBind/results.npz --BED workspace/module123/diffBind/merged_peaks.bed --outRawCounts workspace/module123/diffBind/merged_peaks_rpkm.bed`
-    - `multiBigWigSummary` summarizes bigWig files based on the mode selected : `BED-file` or `bins`
-    - `-b ${condA_bw} ${condB_bw}` bigwig files to be supplied
-    - `-o workspace/module123/analysis/results.npz` output file to be saved and used for other deeptools functions
-    - `--BED workspace/module123/analysis/merged_peaks` only required if `BED-file` selected
-    - `--outRawCounts merged_peaks_rpkm.bed` produces a dataframe of bigwig values
+- `bedtools intersect -a ${peaks} -b ${condA_bam} -c > ${condA_count}`
+    - our intersect command is the same in principle but we're intersecting our peaks with a `BAM` file
+    - `-c` reports counts of our `BAM` that overlap our peaks 
 
 
 ### Step3C: Differential peaks utilizing Fold change and significance - EdgeR differential
@@ -385,43 +373,52 @@ multiBigwigSummary BED-file -b ${condA_bw} ${condB_bw} -o ~/workspace/module123/
 
 **Code:**
 ```
+```
 ###R###
 setwd("/home/ubuntu")
 library(edgeR)
 library(dplyr)
 
-peaks<-read.csv("workspace/module123/diffBind/merged_peaks_rpkm.bed",sep='\t',col.names = c("chr", "start", "end","MCF10A_H3K4me3_chr19.CondA.Rep1","MCF10A_H3K4me3_chr19.CondB.Rep1"),colClasses= c("character","character","character","numeric","numeric"))
+condA<-read.csv("workspace/module123/edgeR/MCF10A_H3K4me3_chr19.CondA.Rep1.bed",sep='\t',col.names = c("chr", "start", "end","MCF10A_H3K4me3_chr19.CondA.Rep1"),colClasses= c("character","character","character","numeric"))
+condB<-read.csv("workspace/module123/edgeR/MCF10A_H3K4me3_chr19.CondB.Rep1.bed",sep='\t',col.names = c("chr", "start", "end","MCF10A_H3K4me3_chr19.CondB.Rep1"),colClasses= c("character","character","character","numeric"))
 
-row.names(peaks)<-paste(peaks$chr,peaks$start,peaks$end,sep='_')
+peaks<-data.frame(
+    MCF10A_H3K4me3_chr19.CondA.Rep1=condA$MCF10A_H3K4me3_chr19.CondA.Rep1,
+    MCF10A_H3K4me3_chr19.CondB.Rep1=condB$MCF10A_H3K4me3_chr19.CondB.Rep1
+    )
+row.names(peaks)<-paste(condA$chr,condA$start,condA$end,sep='_')
 
-peaks_clean<-peaks[c(4,5)]
+edger_dl <- DGEList(counts=peaks, group=1:2,lib.size=c(1131503,1266436))
 
-edger_dl <- DGEList(counts=peaks_clean, group=1:2)
+edger_tmm <- calcNormFactors(edger_dl, method = "TMM")
 
 bvc=0.1
 
-edger_et <- exactTest(edger_dl,dispersion=bvc^2)
+edger_et <- exactTest(edger_tmm,dispersion=bvc^2)
 
 edger_tp <- topTags(edger_et, n=nrow(edger_et$table),adjust.method="BH")
 
 
 de <- edger_tp$table %>% filter(FDR < 0.01) %>% filter(logFC >=1 | logFC <=-1)
-write.table(analyzed_peaks, file="workspace/module123/diffBind/differential_peaks_edger.tsv", sep="\t", quote=F, row.names=F, col.names=F)
+
+write.table(de, file="workspace/module123/edgeR/differential_peaks_edger.tsv", sep="\t", quote=F, row.names=F, col.names=F)
 ```
-- `peaks<-read.csv("workspace/module123/diffBind/merged_peaks_rpkm.bed",sep='\t',col.names = c("chr", "start", "end","MCF10A_H3K4me3_chr19.CondA.Rep1","MCF10A_H3K4me3_chr19.CondB.Rep1"),colClasses= c("character","character","character","numeric","numeric"))`
+- `condA<-read.csv("workspace/module123/edgeR/MCF10A_H3K4me3_chr19.CondA.Rep1.bed",sep='\t',col.names = c("chr", "start", "end","MCF10A_H3K4me3_chr19.CondA.Rep1"),colClasses= c("character","character","character","numeric"))`
     - `read.csv` read the `CSV` file into a `data.frame`
     - `sep='\t'` specify the delimiter
-    - `col.names = c("chr", "start", "end","MCF10A_H3K4me3_chr19.CondA.Rep1","MCF10A_H3K4me3_chr19.CondB.Rep1")` set our column names
-    - `colClasses= c("character","character","character","numeric","numeric")` indicate with column are what datatypes
+    - `col.names = c("chr", "start", "end","MCF10A_H3K4me3_chr19.CondA.Rep1")` set our column names
+    - `colClasses= c("character","character","character","numeric")` indicate with column are what datatypes
+- `peaks<-data.frame(MCF10A_H3K4me3_chr19.CondA.Rep1=condA$MCF10A_H3K4me3_chr19.CondA.Rep1,MCF10A_H3K4me3_chr19.CondB.Rep1=condB$MCF10A_H3K4me3_chr19.CondB.Rep1)`
+    - make a new data.frame using our two columns from condA and condB
 - `row.names(peaks)<-paste(peaks$chr,peaks$start,peaks$end,sep='_')`
     - edit row names to be match genomic coordinates
     - ``row.names(peaks)<-` indicate we want to overwrite exist row names
     - `paste(peaks$chr,peaks$start,peaks$end,sep='_')` we want to concatenate our `chr`,`start` and `end` with `_` as a seperator
-- `peaks_clean<-peaks[c(4,5)]`
-    - subset our data.frame to use only the last two columns
-- `edger_dl <- DGEList(counts=peaks_clean, group=1:2)`
+- `edger_dl <- DGEList(counts=peaks, group=1:2,lib.size=c(1131503,1266436))`
     - `DGEList(counts=peaks_clean, group=1:2)` read in our `peak_clean` data.frame
     - `group=1:2` identify which groups we want to contrast
+    - `lib.size=c(1131503,1266436)` library size for the two conditions
+- `edger_tmm <- calcNormFactors(edger_dl, method = "TMM")` calculate the normalization factor to scale library sizes
 - `bvc=0.01` Set the `square-rootdispersion`. according to edgeR documentation: `from well-controlled experiments are 0.4 for human data, 0.1 for data on genetically identical model organisms or 0.01 for technical replicates`
 - `edger_et <- exactTest(edger_dl,dispersion=bcv^2)`
     - calculate `FC` and `Pvalue` per row
@@ -430,7 +427,7 @@ write.table(analyzed_peaks, file="workspace/module123/diffBind/differential_peak
 - `de <- edger_tp$table %>% filter(FDR < 0.01) %>% filter(logFC >=1 | logFC <=-1)`
     - `filter(FDR < 0.01)` filter for significant peaks
     - `filter(logFC >=1 | logFC <=-1)` filter for peaks with appropriate fold change
-- `write.table(analyzed_peaks, file="workspace/module123/diffBind/differential_peaks_edger.tsv", sep="\t", quote=F, row.names=F, col.names=F)`
+- `write.table(de, file="workspace/module123/edgeR/differential_peaks_edger.tsv", sep="\t", quote=F, row.names=F, col.names=F)`
     - save files
 <img src="https://github.com/bioinformaticsdotca/EPI_2023/blob/module123/module123_images/edger.png?raw=true" alt="Region" width="750" />
 

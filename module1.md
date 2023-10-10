@@ -55,14 +55,14 @@ mkdir -p ~/workspace/module123/bigBed
 mkdir -p ~/workspace/module123/bigWig
 mkdir -p ~/workspace/module123/resources
 mkdir -p ~/workspace/module123/diffBind
-mkdir -p ~/workspace/module123/deeptools
+mkdir -p ~/workspace/module123/edgeR
 mkdir -p ~/workspace/module123/qc
 ```
 - `mkdir -p ~/workspace/module123/BWA_index`
   -  `mkdir` creates a directory
   - `-p` creates the "parent" if the initial parent directory did not exist
   - how could we simplfy the command?
-  - `mkdir -p ~/workspace/module123/{BWA_index,alignments,fastqc,stats,peaks,bigBed,bigWig,resources,diffBind,deeptools,qc}`
+  - `mkdir -p ~/workspace/module123/{BWA_index,alignments,fastqc,stats,peaks,bigBed,bigWig,resources,diffBind,edgeR,qc}`
 
 
 
