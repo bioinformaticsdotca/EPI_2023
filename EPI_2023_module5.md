@@ -122,7 +122,7 @@ You can get a whole genome overview of the similarity of a group of tracks by us
     * Reset grid selection with the "Reset" button at the bottom of the grid.
     * Click on the grid cell for cell type "CD4-positive, alpha-beta T cell", under the "Blood" category, and assay "H3K27ac".
     * Click on "Correlate datasets".
-    * One dataset seems to be an outlier... This is either a problem with the quality of the dataset, or the underlying metadata can indicate that something is different (disease status or some other key element).
+    * One dataset seems to be an outlier. This could be, for instance, a problem with the quality of the dataset, or the underlying metadata can indicate that something is different (disease status or some other key element).
 
 ![img](img/module5/portal_selectTcell.png)
 
@@ -167,7 +167,6 @@ Here, we're interested in ```https://epigenomesportal.ca/tracks/ENCODE/hg19/7152
 mkdir homer
 cd homer
 wget https://epigenomesportal.ca/tracks/ENCODE/hg19/84840.ENCODE.ENCBS400ARI.CTCF.peak_calls.bigBed
-
 ```
 
 * UCSC provides a set of file format conversion tools, such as `bigBedToBed`, which converts a binary bigbed file to its plain text file equivalent. Some of these tools have been pre-installed on your AWS image.
