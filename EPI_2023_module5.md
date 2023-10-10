@@ -18,11 +18,11 @@ home: https://bioinformaticsdotca.github.io/EPI_2023
 
 2. [IHEC Data Portal](#ihec_data_portal)
     
-3. [HOMER](#homer)
+3. [Predicting motifs with HOMER](#homer)
 
-4. [GREAT](#great)
+4. [Looking for GO terms enrichment with GREAT](#great)
 
-4. [Going back to HOMER](#back_to_homer)
+5. [Going back to HOMER](#back_to_homer)
 
 <a name="introduction"></a>
 ## Introduction
@@ -31,7 +31,7 @@ home: https://bioinformaticsdotca.github.io/EPI_2023
 We will now explore some of the tools that were covered in the lecture for module 5.
 
 In this lab, we will:
-* Learn how to use an online resources, the IHEC Data Portal, to fetch feature tracks of interest.
+* Learn how to use an online resource, the IHEC Data Portal, to fetch feature tracks of interest.
 * Explore ChIP-Seq peak prediction files (in bed format) to discover motifs using HOMER.
 * Use an IHEC dataset with the GREAT GO enrichment tool to do functions prediction.
 
