@@ -196,13 +196,13 @@ name=MCF10A_ATAC
 tags=~/workspace/module123/peaks/${name}_chr19.frags.bed
 tn5_tags=~/workspace/module123/peaks/${name}_chr19.frags.tn5.bed
 
-{% raw %}
+<!-- {% raw %} -->
 
 cat ${tags} \
 | awk 'BEGIN{{OFS="\t"}}{{printf "%s\t%s\t%s\tN\t1000\t%s\n%s\t%s\t%s\tN\t1000\t%s\n",$1,$2,$3,$9,$4,$5,$6,$10}}'\
 | awk 'BEGIN{{OFS = "\t"}} {{if ($6 == "+") {{$2 = $2 + 4}} else if ($6 == "-") {{$3 = $3 - 5}} if ($2 >= $3) {{ if ($6 == "+") {{$2 = $3 - 1}} else {{$3 = $2 + 1}} }} print $0}}'\
 > ${tn5_tags}
-{% endraw %}
+<!-- {% endraw %} -->
 
 ```
 - `cat ${tags} | 
@@ -324,7 +324,7 @@ bedtools intersect -u -a ~/workspace/module123/peaks/${sample}.narrowPeak -b ${b
 ```
 ###Shell###
 mkdir -p ~/workspace/module123/{bigBed,bigWig}
-wget https://hgdownload.cse.ucsc.edu/goldenpath/hg38/bigZips/hg38.chrom.sizes -O workspace/module123/resources/hg38.chrom.sizes
+wget https://hgdownload.cse.ucsc.edu/goldenpath/hg38/bigZips/hg38.chrom.sizes -O ~/workspace/module123/resources/hg38.chrom.sizes
 
 sample="MCF10A_H3K27ac"
 chrom_sizes=~/workspace/module123/resources/hg38.chrom.sizes
@@ -391,7 +391,7 @@ rm ~/workspace/module123/bigWig/tmp
 ```
 ###Shell###
 mkdir -p ~/workspace/module123/{bigBed,bigWig}
-wget https://hgdownload.cse.ucsc.edu/goldenpath/hg38/bigZips/hg38.chrom.sizes -O workspace/module123/resources/hg38.chrom.sizes
+wget https://hgdownload.cse.ucsc.edu/goldenpath/hg38/bigZips/hg38.chrom.sizes -O ~/workspace/module123/resources/hg38.chrom.sizes
 
 sample="MCF10A_H3K27ac"
 chrom_sizes=~/workspace/module123/resources/hg38.chrom.sizes
@@ -470,13 +470,13 @@ rm ~/workspace/module123/bigBed/tmp
 **Code :** 
 ```
 ###Shell###
-mkdir workspace/module123/qc
-wget https://www.bcgsc.ca/downloads/esu/touchdown/hg38v79_genes_tss_2000.bed -O workspace/module123/resources/hg38v79_genes_tss_2000.bed
+mkdir ~/workspace/module123/qc
+wget https://www.bcgsc.ca/downloads/esu/touchdown/hg38v79_genes_tss_2000.bed -O ~/workspace/module123/resources/hg38v79_genes_tss_2000.bed
 
-sort -k1,1 -k2,2n workspace/module123/resources/hg38v79_genes_tss_2000.bed > tmp
-mv tmp workspace/module123/resources/hg38v79_genes_tss_2000.bed
+sort -k1,1 -k2,2n ~/workspace/module123/resources/hg38v79_genes_tss_2000.bed > tmp
+mv tmp ~/workspace/module123/resources/hg38v79_genes_tss_2000.bed
 
-wget https://www.bcgsc.ca/downloads/esu/touchdown/encode_enhancers_liftover.bed -O workspace/module123/resources/encode_enhancers_liftover.bed
+wget https://www.bcgsc.ca/downloads/esu/touchdown/encode_enhancers_liftover.bed -O ~/workspace/module123/resources/encode_enhancers_liftover.bed
 
 TSS=~/workspace/module123/resources/hg38v79_genes_tss_2000.bed
 ENH=~/workspace/module123/resources/encode_enhancers_liftover.bed
@@ -560,14 +560,14 @@ paste \
 ### QC Resources
 ```
 ###TSS+/-2kb
-mkdir workspace/module123/qc
-wget https://www.bcgsc.ca/downloads/esu/touchdown/hg38v79_genes_tss_2000.bed -O workspace/module123/resources/hg38v79_genes_tss_2000.bed
+mkdir ~/workspace/module123/qc
+wget https://www.bcgsc.ca/downloads/esu/touchdown/hg38v79_genes_tss_2000.bed -O ~/workspace/module123/resources/hg38v79_genes_tss_2000.bed
 
-sort -k1,1 -k2,2n workspace/module123/resources/hg38v79_genes_tss_2000.bed > tmp
-mv tmp workspace/module123/resources/hg38v79_genes_tss_2000.bed
+sort -k1,1 -k2,2n ~/workspace/module123/resources/hg38v79_genes_tss_2000.bed > tmp
+mv tmp ~/workspace/module123/resources/hg38v79_genes_tss_2000.bed
 
 ###Enhancer liftover
-wget https://www.bcgsc.ca/downloads/esu/touchdown/encode_enhancers_liftover.bed -O workspace/module123/resources/encode_enhancers_liftover.bed
+wget https://www.bcgsc.ca/downloads/esu/touchdown/encode_enhancers_liftover.bed -O ~/workspace/module123/resources/encode_enhancers_liftover.bed
 
 ###Blacklist
 wget https://www.encodeproject.org/files/ENCFF356LFX/@@download/ENCFF356LFX.bed.gz -O ~/workspace/module123/resources/hg38_blacklist.bed.gz
