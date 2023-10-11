@@ -396,11 +396,11 @@ wget https://hgdownload.cse.ucsc.edu/goldenpath/hg38/bigZips/hg38.chrom.sizes -O
 sample="MCF10A_H3K27ac"
 chrom_sizes=~/workspace/module123/resources/hg38.chrom.sizes
 input_bed=~/workspace/module123/peaks/${sample}_peaks.blacklistRemoved.narrowPeak
-output_bigwig=~/workspace/module123/bigBed/${sample}.blacklistRemoved.bb
+output_bigbed=~/workspace/module123/bigBed/${sample}.blacklistRemoved.bb
 
 
 sort -k1,1 -k2,2n ${input_bed} | cut -f1-3 > ~/workspace/module123/bigBed/tmp
-bedToBigBed ~/workspace/module123/bigBed/tmp ${chrom_sizes} ${output_bigwig}
+bedToBigBed ~/workspace/module123/bigBed/tmp ${chrom_sizes} ${output_bigbed}
 rm ~/workspace/module123/bigBed/tmp
 ```
 - `sort -k1,1 -k2,2n ${input_bedgraph}` sorting the BED file
@@ -415,31 +415,31 @@ rm ~/workspace/module123/bigBed/tmp
 sample="MCF10A_ATAC"
 chrom_sizes=~/workspace/module123/resources/hg38.chrom.sizes
 input_bed=~/workspace/module123/peaks/${sample}_peaks.blacklistRemoved.narrowPeak
-output_bigwig=~/workspace/module123/bigBed/${sample}.blacklistRemoved.bb
+output_bigbed=~/workspace/module123/bigBed/${sample}.blacklistRemoved.bb
 
 
 sort -k1,1 -k2,2n ${input_bed} | cut -f1-3 > ~/workspace/module123/bigBed/tmp
-bedToBigBed ~/workspace/module123/bigBed/tmp ${chrom_sizes} ${output_bigwig}
+bedToBigBed ~/workspace/module123/bigBed/tmp ${chrom_sizes} ${output_bigbed}
 rm ~/workspace/module123/bigBed/tmp
 
 sample="MCF10A_H3K4me3"
 chrom_sizes=~/workspace/module123/resources/hg38.chrom.sizes
 input_bed=~/workspace/module123/peaks/${sample}_peaks.blacklistRemoved.narrowPeak
-output_bigwig=~/workspace/module123/bigBed/${sample}.blacklistRemoved.bb
+output_bigbed=~/workspace/module123/bigBed/${sample}.blacklistRemoved.bb
 
 
 sort -k1,1 -k2,2n ${input_bed} | cut -f1-3 > ~/workspace/module123/bigBed/tmp
-bedToBigBed ~/workspace/module123/bigBed/tmp ${chrom_sizes} ${output_bigwig}
+bedToBigBed ~/workspace/module123/bigBed/tmp ${chrom_sizes} ${output_bigbed}
 rm ~/workspace/module123/bigBed/tmp
 
 sample="MCF10A_H3K27me3"
 chrom_sizes=~/workspace/module123/resources/hg38.chrom.sizes
 input_bed=~/workspace/module123/peaks/${sample}_peaks.blacklistRemoved.broadPeak
-output_bigwig=~/workspace/module123/bigBed/${sample}.blacklistRemoved.bb
+output_bigbed=~/workspace/module123/bigBed/${sample}.blacklistRemoved.bb
 
 
 sort -k1,1 -k2,2n ${input_bed} | cut -f1-3 > ~/workspace/module123/bigBed/tmp
-bedToBigBed ~/workspace/module123/bigBed/tmp ${chrom_sizes} ${output_bigwig}
+bedToBigBed ~/workspace/module123/bigBed/tmp ${chrom_sizes} ${output_bigbed}
 rm ~/workspace/module123/bigBed/tmp
 ```
 ### Step 5E : Visualization of peaks and tracks
