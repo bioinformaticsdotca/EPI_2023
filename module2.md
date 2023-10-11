@@ -1,6 +1,6 @@
 ---
 output: html_document
-permalink: /EPI_2023_module2
+permalink: /EPI_2023_module2_lab
 title: Epigenomics Analysis Module 2 Lab
 header1: Workshop Pages for Students
 header2: Epigenomic Analysis 2023
