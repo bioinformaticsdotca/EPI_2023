@@ -440,6 +440,7 @@ write.table(de, file="workspace/module123/edgeR/differential_peaks_edger.tsv", s
 - `write.table(de, file="workspace/module123/edgeR/differential_peaks_edger.tsv", sep="\t", quote=F, row.names=F, col.names=F)`
     - save files
 <img src="https://github.com/bioinformaticsdotca/EPI_2023/blob/module123/module123_images/edger.png?raw=true" alt="Region" width="750" />
+```
 
 ## Server resources
 ### QC Resources
