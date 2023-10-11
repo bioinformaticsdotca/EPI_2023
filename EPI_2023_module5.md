@@ -1,7 +1,7 @@
 ---
 layout: tutorial_page
-permalink: /EPI_2023_Module5_lab
-title: EPI 2023 Module 5 Lab
+permalink: /EPI_2023_module5
+title: Epigenomics Analysis 2023 Module 5 Lab
 header1: Workshop Pages for Students
 header2: Downstream Analysis and Online Tools
 image: /site_images/CBW_Epigenome-data_icon.jpg
