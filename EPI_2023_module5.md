@@ -302,3 +302,5 @@ http://<your VM ip address>/module5/homer/homer.zip
 ## All done!
 
 If you have time remaining, you can explore further the tools that we covered in this lab, using other types of datasets. For example, does running a GREAT query on another cell type yield the type of annotations that you'd expect?
+
+**Interested in exploring Galaxy?** You can start tackling a Galaxy introduction extra lab, available [here](./[EPI_2023_module5_galaxy.md). It uses the usegalaxy.org server, so you can also follow it at your own pace after the workshop.
