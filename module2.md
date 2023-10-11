@@ -1,6 +1,6 @@
 ---
 output: html_document
-permalink: /EPI_2023_module2_lab
+permalink: /EPI_2023_module2
 title: Epigenomics Analysis Module 2 Lab
 header1: Workshop Pages for Students
 header2: Epigenomic Analysis 2023
@@ -196,11 +196,14 @@ name=MCF10A_ATAC
 tags=~/workspace/module123/peaks/${name}_chr19.frags.bed
 tn5_tags=~/workspace/module123/peaks/${name}_chr19.frags.tn5.bed
 
+{% raw %}
 
 cat ${tags} \
 | awk 'BEGIN{{OFS="\t"}}{{printf "%s\t%s\t%s\tN\t1000\t%s\n%s\t%s\t%s\tN\t1000\t%s\n",$1,$2,$3,$9,$4,$5,$6,$10}}'\
 | awk 'BEGIN{{OFS = "\t"}} {{if ($6 == "+") {{$2 = $2 + 4}} else if ($6 == "-") {{$3 = $3 - 5}} if ($2 >= $3) {{ if ($6 == "+") {{$2 = $3 - 1}} else {{$3 = $2 + 1}} }} print $0}}'\
 > ${tn5_tags}
+{% endraw %}
+
 ```
 - `cat ${tags} | 
 awk 'BEGIN{{OFS="\t"}}{{printf "%s\t%s\t%s\tN\t1000\t%s\n%s\t%s\t%s\tN\t1000\t%s\n",$1,$2,$3,$9,$4,$5,$6,$10}}' |
@@ -349,8 +352,10 @@ rm ~/workspace/module123/bigWig/tmp
     - in our case pileup/coverage
 - a bigWig is a binary version of a `wig` file
     - wig has a different format : https://useast.ensembl.org/info/website/upload/wig.html
-    - the preferred convention for displaying data on a track
-**Code:**
+    - the preferred convention for displaying data on a track  
+  
+**Code:**  
+
 ```
 ###Shell###
 sample="MCF10A_H3K27me3"
