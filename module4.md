@@ -1,9 +1,10 @@
 ---
 layout: tutorial_page
-permalink: /epi2023_module4_lab
-title: Epigenomics Lab 4
+permalink: /EPI_2023_module4
+title: Epigenomics Analysis Lab 4
 header1: Workshop Pages for Students
 header2: Whole Genome Bisulfite Sequencing
+image: /site_images/CBW_Epigenome-data_icon.jpg
 home: https://bioinformaticsdotca.github.io/EPI_2023
 ---
 

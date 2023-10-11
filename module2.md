@@ -1,3 +1,13 @@
+---
+output: html_document
+permalink: /EPI_2023_module2
+title: Epigenomics Analysis Module 2 Lab
+header1: Workshop Pages for Students
+header2: Epigenomic Analysis 2023
+image: /site_images/CBW_Epigenome-data_icon.jpg
+home: https://bioinformaticsdotca.github.io/EPI_2023
+---
+
 # Introduction to ChIP-Seq Analysis
 by Martin Hirst and Edmund Su
 
