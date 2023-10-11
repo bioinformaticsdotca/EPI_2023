@@ -1,9 +1,9 @@
 ---
 layout: tutorial_page
-permalink: /EPI_2023_Module5_lab
-title: EPI 2023 Module 5 Lab
+permalink: /EPI_2023_module5_galaxy
+title: Epigenomics Analysis 2023 Module 5 extra Galaxy Lab
 header1: Workshop Pages for Students
-header2: Downstream analyses & integrative tools
+header2: Downstream Analysis and Online Tools
 image: /site_images/CBW_Epigenome-data_icon.jpg
 home: https://bioinformaticsdotca.github.io/EPI_2023
 ---
@@ -72,6 +72,4 @@ The types of jobs you can run without registering on the main Galaxy instance ar
 
  <img src="https://github.com/bioinformatics-ca/EPI_2021/blob/master/img/module5/galaxy_ucsc_aligned_set.png?raw=true" alt="p3" width="750" />
 
-### All done!
-
-If you have time remaining, you can try running other types of jobs on Galaxy, or explore further the tools that we covered in this lab, using other types of datasets. For example, does running a GREAT query on another cell type yield the type of annotations that you'd expect?
+### End of Galaxy lab
