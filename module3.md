@@ -92,20 +92,15 @@ bedtools intersect -u -a ${MCF10A_H3K27ac} -b ${MCF10A_H3K4me3} | wc -l
 **Code**
 ```
 ###Shell###
-basal_H3K27ac=~/CourseData/EPI_data/module123/encode_bed/basal.H3K27ac.peak_calls.bed
-luminal_H3K27ac=~/CourseData/EPI_data/module123/encode_bed/luminal.H3K27ac.peak_calls.bed
-stromal_H3K27ac=~/CourseData/EPI_data/module123/encode_bed/stromal.H3K27ac.peak_calls.bed
-lp_H3K27ac=~/CourseData/EPI_data/module123/encode_bed/lp.H3K27ac.peak_calls.bed
-MCF10A_H3K27ac=~/workspace/module123/peaks/MCF10A_H3K27ac_peaks.blacklistRemoved.narrowPeak
-
 paste \
-<(ls ~/CourseData/EPI_data/module123/encode_bed/*H3K4me3* | xargs -I {} sh -c "bedtools intersect -u -a ~/workspace/module123/peaks/MCF10A_H3K4me3_peaks.blacklistRemoved.narrowPeak -b {} | wc -l") \
-<(ls ~/CourseData/EPI_data/module123/encode_bed/*H3K27ac* |  xargs -I {} sh -c "bedtools intersect -u -a ~/workspace/module123/peaks/MCF10A_H3K27ac_peaks.blacklistRemoved.narrowPeak -b {} | wc -l") \
-<(ls ~/CourseData/EPI_data/module123/encode_bed/*H3K27me3* |  xargs -I {} sh -c "bedtools intersect -u -a ~/workspace/module123/peaks/MCF10A_H3K27me3_peaks.blacklistRemoved.broadPeak -b {} | wc -l")
+<(ls ~/CourseData/EPI_data/module123/encode_bed/*H3K4me3* | xargs -I {} sh -c "bedtools intersect -u -a ~//module123/peaks/MCF10A_H3K4me3_peaks.blacklistRemoved.narrowPeak -b {} | wc -l") \
+<(ls ~/CourseData/EPI_data/module123/encode_bed/*H3K27ac* |  xargs -I {} sh -c "bedtools intersect -u -a ~//module123/peaks/MCF10A_H3K27ac_peaks.blacklistRemoved.narrowPeak -b {} | wc -l") \
+<(ls ~/CourseData/EPI_data/module123/encode_bed/*H3K27me3* |  xargs -I {} sh -c "bedtools intersect -u -a ~//module123/peaks/MCF10A_H3K27me3_peaks.blacklistRemoved.broadPeak -b {} | wc -l")
 ```
 - `paste \
-<(ls CourseData/module123/bed/*H3K4me3* | xargs -I {} sh -c "bedtools intersect -u -a workspace/module123/peaks/MCF10A_H3K4me3_peaks.blacklistRemoved.narrowPeak -b {} | wc -l") \
-<(ls CourseData/module123/bed/*H3K27ac* |  xargs -I {} sh -c "bedtools intersect -u -a workspace/module123/peaks/MCF10A_H3K27ac_peaks.blacklistRemoved.narrowPeak -b {} | wc -l")`
+<(ls ~/CourseData/EPI_data/module123/encode_bed/*H3K4me3* | xargs -I {} sh -c "bedtools intersect -u -a ~//module123/peaks/MCF10A_H3K4me3_peaks.blacklistRemoved.narrowPeak -b {} | wc -l") \
+<(ls ~/CourseData/EPI_data/module123/encode_bed/*H3K27ac* |  xargs -I {} sh -c "bedtools intersect -u -a ~//module123/peaks/MCF10A_H3K27ac_peaks.blacklistRemoved.narrowPeak -b {} | wc -l") \
+<(ls ~/CourseData/EPI_data/module123/encode_bed/*H3K27me3* |  xargs -I {} sh -c "bedtools intersect -u -a ~//module123/peaks/MCF10A_H3K27me3_peaks.blacklistRemoved.broadPeak -b {} | wc -l")`
   - `paste` lets us aggregate our results where each column is the output from the command within `<(COMMAND)`
   - Each `<(COMMAND)`, contains the following `LOOKUP | FORLOOP intersect and count`
   - `\` let's continue our command on another line
@@ -213,6 +208,14 @@ bedtools intersect -wao -a ${condA_rep1} -b ${condA_rep2} ${condA_rep3} | head
 **Code:**
 ```
 ###Shell###
+
+#Retrieve TSS file if not present
+wget https://www.bcgsc.ca/downloads/esu/touchdown/hg38v79_genes_tss_2000.bed -O ~/workspace/module123/resources/hg38v79_genes_tss_2000.bed
+
+sort -k1,1 -k2,2n ~/workspace/module123/resources/hg38v79_genes_tss_2000.bed > tmp
+mv tmp ~/workspace/module123/resources/hg38v79_genes_tss_2000.bed
+
+
 MCF10A_H3K27ac=~/workspace/module123/peaks/MCF10A_H3K27ac_peaks.blacklistRemoved.narrowPeak
 TSS=~/workspace/module123/resources/hg38v79_genes_tss_2000.bed
 
@@ -222,8 +225,7 @@ bedtools closest -a ${MCF10A_H3K27ac} -b ${TSS} -d | head
 condA_peaks=~/CourseData/EPI_data/module123/triplicates/peaks/CondA.Rep1_peaks.narrowPeak
 condB_peaks=~/CourseData/EPI_data/module123/triplicates/peaks/CondB.Rep1_peaks.narrowPeak
 
-cat ${condA_peaks} ${condB_peaks} | sort -k1,1 -k2,2n | bedtools merge -i stdin > ~/workspace/module123/deeptools/merged_peaks.bed
-
+cat ${condA_peaks} ${condB_peaks} | sort -k1,1 -k2,2n | bedtools merge -i stdin > ~/workspace/module123/edgeR/merged_peaks.bed
 ####
 methylation=~/workspace/module123/resources/example_methylation.bed
 
@@ -364,8 +366,8 @@ cat ${condA_peaks} ${condB_peaks} | sort -k1,1 -k2,2n | bedtools merge -i stdin 
 ```
 ###Shell###
 peaks=~/workspace/module123/edgeR/merged_peaks.bed
-condA_bam=~/workspace/module123/alignments/MCF10A_H3K4me3_chr19.CondA.Rep1.bam
-condB_bam=~/workspace/module123/alignments/MCF10A_H3K4me3_chr19.CondB.Rep1.bam
+condA_bam=~/CourseData/EPI_data/module123/triplicates/alignments/MCF10A_H3K4me3_chr19.CondA.Rep1.bam
+condB_bam=~/CourseData/EPI_data/module123/triplicates/alignments/MCF10A_H3K4me3_chr19.CondB.Rep1.bam
 
 condA_count=~/workspace/module123/edgeR/MCF10A_H3K4me3_chr19.CondA.Rep1.bed
 condB_count=~/workspace/module123/edgeR/MCF10A_H3K4me3_chr19.CondB.Rep1.bed
@@ -382,7 +384,6 @@ bedtools intersect -a ${peaks} -b ${condB_bam} -c > ${condB_count}
 - we'll read our data into `R` and perform a statistical analysis
 
 **Code:**
-```
 ```
 ###R###
 setwd("/home/ubuntu")
@@ -440,20 +441,20 @@ write.table(de, file="workspace/module123/edgeR/differential_peaks_edger.tsv", s
 - `write.table(de, file="workspace/module123/edgeR/differential_peaks_edger.tsv", sep="\t", quote=F, row.names=F, col.names=F)`
     - save files
 <img src="https://github.com/bioinformaticsdotca/EPI_2023/blob/module123/module123_images/edger.png?raw=true" alt="Region" width="750" />
-```
+
 
 ## Server resources
 ### QC Resources
 ```
 ###TSS+/-2kb
-mkdir workspace/module123/qc
-wget https://www.bcgsc.ca/downloads/esu/touchdown/hg38v79_genes_tss_2000.bed -O workspace/module123/resources/hg38v79_genes_tss_2000.bed
+mkdir ~/workspace/module123/qc
+wget https://www.bcgsc.ca/downloads/esu/touchdown/hg38v79_genes_tss_2000.bed -O ~/workspace/module123/resources/hg38v79_genes_tss_2000.bed
 
-sort -k1,1 -k2,2n workspace/module123/resources/hg38v79_genes_tss_2000.bed > tmp
-mv tmp workspace/module123/resources/hg38v79_genes_tss_2000.bed
+sort -k1,1 -k2,2n ~/workspace/module123/resources/hg38v79_genes_tss_2000.bed > tmp
+mv tmp ~/workspace/module123/resources/hg38v79_genes_tss_2000.bed
 
 ###Enhancer liftover
-wget https://www.bcgsc.ca/downloads/esu/touchdown/encode_enhancers_liftover.bed -O workspace/module123/resources/encode_enhancers_liftover.bed
+wget https://www.bcgsc.ca/downloads/esu/touchdown/encode_enhancers_liftover.bed -O ~/workspace/module123/resources/encode_enhancers_liftover.bed
 
 ###Blacklist
 wget https://www.encodeproject.org/files/ENCFF356LFX/@@download/ENCFF356LFX.bed.gz -O ~/workspace/module123/resources/hg38_blacklist.bed.gz
