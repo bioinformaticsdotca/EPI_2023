@@ -445,11 +445,11 @@ rm ~/workspace/module123/bigBed/tmp
 ### Step 5E : Visualization of peaks and tracks
 - can either download your tracks and load them from files or via URL
 - colours used:
-  - H3K27ac : blue
-  - H3K27me3 : Brown
-  - H3K4me3 : Green
-  - ATAC : LightBlue
-  - Black : Input
+  - H3K27ac (`~/workspace/module123/bigWig/MCF10A_H3K27ac_treat_pileup.bw`) : blue
+  - H3K27me3 (`~/workspace/module123/bigWig/MCF10A_H3K27me3_treat_pileup.bw`): Brown
+  - H3K4me3 (`~/workspace/module123/bigWig/MCF10A_H3K4me3_treat_pileup.bw`) : Green
+  - ATAC (`~/workspace/module123/bigWig/MCF10A_ATAC_treat_pileup.bw`): LightBlue
+  - Input/Control (`~/workspace/module123/bigWig/MCF10A_Input_control_pileup.bw`): Black
     
 <img src="https://github.com/bioinformaticsdotca/EPI_2023/blob/module123/module123_images/BCL3.png?raw=true" alt="Region" width="750" />
 
