@@ -1,6 +1,6 @@
 ---
 layout: workshop_main_3day
-permalink: /EPI_2023
+permalink: /EPI_2023_tools
 title: Epigenomic Data Analysis
 header1: Workshop Pages for Students
 header2: Epigenomic Analysis 2023
