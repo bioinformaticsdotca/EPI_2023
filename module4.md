@@ -45,6 +45,8 @@ home: https://bioinformaticsdotca.github.io/EPI_2023
     4.2 [Import the Methylation Data into DSS](#r_dss_import)
     
     4.3 [Find Differentially Methylated Regions with DSS](#r_dss_dmr)
+    
+5. [Additional Resources](#additional_resources)
 
 
 ---
@@ -451,11 +453,28 @@ bismark_methylation_extractor --cytosine_report WGBS.A34002.137488.chr19.1_bisma
 
 ---
 
+#### Known SNP Filtering
+
+In a full WGBS analysis, it is often desirable to mask or filter out known SNPs from the downstream analysis because SNPs can complicate methylation calling due to the way 3-base aligners work. In this workshop, we will not remove known SNPs from our analysis, but in a real dataset we would recommend adding this step to your workflow *before doing the DML and DMR analysis*.
+
+Here is a simple step-by-step approach to do this (no code provided), but depending on the goal of the study, there may be different approaches that work better:
+
+1. After generating the methylation calls with `Bismark` convert them to `BED` format using `awk` or a similar tool. It is usually a good idea to sort the BED file after generating it, you can use a tool like `sort-bed` for this. 
+
+2. Download database of known SNPs that you want to mask or filter (we recommend using the NCBI dbSNP database as a default option for most cases. The latest dbSNP build for GRCh38 is found [here](https://ftp.ncbi.nih.gov/snp/latest_release/)). Convert the SNP database to `BED` format using a tool like `vcf2bed`. 
+
+3. Use a tool like `bedops` to filter all the SNPs in the dbSNP BED from the BED file you obtained from step 1.
+
+**You can find an implementation of this approach in the genpipes `methylseq` pipeline [here](https://bitbucket.org/mugqic/genpipes/src/5c71fd9a5359d5160902b892890d8525457211a0/bfx/tools.py#lines-915).**
+
+
+---
+
+#### Visualizing Methylation Profiles using IGV
+
 Download *all* the files produced so far to your local computer using your internet browser. 
 
 **While you wait for all the steps and downloads to finish, you can ask the instructors any questions you might have up until this point.**
-
----
 
 Load all the downloaded files in IGV using `File -> Load from file`.
 
@@ -953,5 +972,15 @@ You can quit R using the `quit()` or `q()` command. Remember to stop your AWS in
 
 Once you are finished make sure you download all the files you need and continue exploring on IGV. 
 
+---
 
+## Additional Resources
+
+<a name="additional_resources"></a>
+
+This tutorial was designed to be an introductory approach to WGBS analysis. However, there are readily available pipelines that perform this kind of analysis (including alignment and DMR detection). We suggest you look at the following options: 
+
+- [GenPipes MethylSeq Pipeline](https://bitbucket.org/mugqic/genpipes/src/master/pipelines/methylseq/): developed by us at C3G, this pipeline is readily available in Alliance clusters and performs alignment with `Bismark`, DMR detection (using `methylkit`) and produces several key metrics and reports. For more information check our documentation [here](https://genpipes.readthedocs.io/en/latest/user_guide/pipelines/gp_wgs_methylseq.html#filter-snp-cpgs). 
+
+- [NF-core MethylSeq Pipeline](https://nf-co.re/methylseq/2.4.0): for users familiar with `nextflow` and the `nf-core` pipelines, they also offer a similar analysis pipeline, that peforms alignment with `Bismkark` and generates some key metrics and reports. 
 
