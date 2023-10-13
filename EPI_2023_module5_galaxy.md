@@ -43,8 +43,8 @@ The types of jobs you can run without registering on the main Galaxy instance ar
 
 * Run the tool FastQC: Comprehensive QC for adrenal_1.
     * To find it, use the search window at the top of the Tools column (left panel).
-    * From the FastQC tool interface, for the field ```Short read data from your current history```, choose adrenal_1.
-    * Click on ```Execute```.
+    * From the FastQC tool interface, for the field ```Raw read data from your current history```, choose adrenal_1.
+    * Click on ```Run Tool```.
     * Pay attention to the green notice, which provides details about the input and output of the job you just launched.
     * Once the job is completed, examine the Webpage results from the history bar using the ```Eye``` icon.
     * Raw output statistics are also available, and can also be seen with the ```Eye``` icon.
@@ -65,7 +65,7 @@ The types of jobs you can run without registering on the main Galaxy instance ar
 
  <img src="https://github.com/bioinformatics-ca/EPI_2021/blob/master/img/module5/galaxy_fastq_compare.png?raw=true" alt="p3" width="750" />
 
-* As an exercise after the workshop, or if you have time remaining, you can now try to use this dataset in one of the aligners provided by Galayx, such as HISAT2 or RNA STAR. Once the alignment is completed, try
+* As an exercise after the workshop, or if you have time remaining, you can now try to use this dataset in one of the aligners provided by Galaxy, such as HISAT2 or RNA STAR. Once the alignment is completed, try
   * downloading the BAM using the ```floppy disk``` icon and visualizing it in IGV
   * visualizing it in the UCSC Genome Browser, using the ```display at UCSC main``` option
   * creating a bigWig coverage track using the bamCoverage tool 
