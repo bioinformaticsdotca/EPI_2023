@@ -159,7 +159,7 @@ We will now attempt to detect motifs in peak regions for transcription factor bi
 <img src="https://github.com/bioinformatics-ca/EPI_2021/blob/master/img/module5/HOMER_selectPeaksTrack.png?raw=true" alt="p7" width="750" />
 
 * You can get the URL to the track you want by clicking on the "Download tracks" button at the bottom of the grid.
-Here, we're interested in ```https://epigenomesportal.ca/tracks/ENCODE/hg19/71523.ENCODE.ENCBS400ARI.CTCF.peak_calls.bigBed```. This file contains peaks that were called out of the TFBS ChIP-Seq experiment.
+Here, we're interested in ```https://epigenomesportal.ca/tracks/ENCODE/hg19/84840.ENCODE.ENCBS400ARI.CTCF.peak_calls.bigBed```. This file contains peaks that were called out of the TFBS ChIP-Seq experiment.
 *  _Useful tip_: You can get the full set of metadata about ENCODE experiments and samples by consulting the ENCODE portal, and searching for a given sample name. In this case: `https://www.encodeproject.org/biosamples/ENCBS400ARI/`
 * Open your AWS terminal session, create a directory for our HOMER-related files, and go into it. Then, download the BigBed file.
 
