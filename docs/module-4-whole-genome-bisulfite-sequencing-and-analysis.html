@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Module 4: Whole-Genome Bisulfite Sequencing and Analysis | Epigenomic Analysis 2023</title>
+  <meta name="description" content="Workshop website for the {{YEAR}} {{WORKSHOP_NAME}} Canadian Bioinformatics Workshop" />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Module 4: Whole-Genome Bisulfite Sequencing and Analysis | Epigenomic Analysis 2023" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://bioinformaticsdotca.github.io/EPI_2023/img/bioinformatics_logo.png" />
+  <meta property="og:description" content="Workshop website for the {{YEAR}} {{WORKSHOP_NAME}} Canadian Bioinformatics Workshop" />
+  <meta name="github-repo" content="bioinformaticsdotca/EPI_2023" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Module 4: Whole-Genome Bisulfite Sequencing and Analysis | Epigenomic Analysis 2023" />
+  
+  <meta name="twitter:description" content="Workshop website for the {{YEAR}} {{WORKSHOP_NAME}} Canadian Bioinformatics Workshop" />
+  <meta name="twitter:image" content="https://bioinformaticsdotca.github.io/EPI_2023/img/bioinformatics_logo.png" />
+
+<meta name="author" content="Faculty: Guillaume Bourque, Martin Hirst, David Bujold, Jose Hector Galvez, Edmund Su, Mareike Janiak, Michelle Brazas, Nia Hughes, and Zhibin Lu" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+<link rel="prev" href="module-3-chip-seq-differential-analysis.html"/>
+<link rel="next" href="module-5-downstream-analysis-and-online-tools.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "name": "{{WORKSHOP_NAME}}",
+  "description": "The complete set of tutorials, slides, and practical exercises for the {{WORKSHOP_NAME}} {{YEAR}} Canadian Bioinformatics Workshop, hosted on GitHub Pages.",
+  "url": "https://bioinformaticsdotca.github.io/{{WORKSHOP_CODE}}",
+  "learningResourceType": ["tutorial", "slides", "exercise"],
+  "inLanguage": "en",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "provider": {
+    "@type": "Organization",
+    "name": "Bioinformatics.ca",
+    "url": "https://bioinformatics.ca"
+  },
+  "keywords": "",
+  "isPartOf": {
+    "@type": "Course",
+    "@id": "{{URL}}"
+  }
+}
+</script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<a href="https://bioinformaticsdotca.github.io/">
+ <img src="img/bioinformatics_logo.png" width="90%" alt="bioinformatics.ca logo" style="display:block; margin-left:auto; margin-right:auto; margin-top:15px;">
+ </a>
+<li><center><strong><a href="./"><br>Epigenomic Analysis<br><br></a></strong></center></li>
+<a href="./">
+ <img src="img/CBW_Epigenome-data_icon.png" width="70%" alt="Epigenomic Analysis logo" style="display:block; margin-left:auto; margin-right:auto; ">
+ </a>
+<br>
+
+<li class="divider"></li>
+<li class="part"><span><b>I Introduction</b></span></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Workshop Info</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#pre-work"><i class="fa fa-check"></i>Pre-work</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#class-photo"><i class="fa fa-check"></i>Class Photo</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#schedule"><i class="fa fa-check"></i>Schedule</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="meet-your-faculty.html"><a href="meet-your-faculty.html"><i class="fa fa-check"></i>Meet Your Faculty</a></li>
+<li class="chapter" data-level="" data-path="data-and-compute-setup.html"><a href="data-and-compute-setup.html"><i class="fa fa-check"></i>Data and Compute Setup</a></li>
+<li class="part"><span><b>II Modules</b></span></li>
+<li class="chapter" data-level="" data-path="module-1-introduction-to-chip-sequencing-and-analysis.html"><a href="module-1-introduction-to-chip-sequencing-and-analysis.html"><i class="fa fa-check"></i>Module 1: Introduction to ChIP Sequencing and Analysis</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-1-introduction-to-chip-sequencing-and-analysis.html"><a href="module-1-introduction-to-chip-sequencing-and-analysis.html#lecture"><i class="fa fa-check"></i>Lecture</a></li>
+<li class="chapter" data-level="" data-path="module-1-introduction-to-chip-sequencing-and-analysis.html"><a href="module-1-introduction-to-chip-sequencing-and-analysis.html#lab"><i class="fa fa-check"></i>Lab</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-1-introduction-to-chip-sequencing-and-analysis.html"><a href="module-1-introduction-to-chip-sequencing-and-analysis.html#breakdown-of-markdown-file"><i class="fa fa-check"></i>Breakdown of Markdown File</a></li>
+<li class="chapter" data-level="" data-path="module-1-introduction-to-chip-sequencing-and-analysis.html"><a href="module-1-introduction-to-chip-sequencing-and-analysis.html#module-1.-alignment"><i class="fa fa-check"></i>Module 1. Alignment</a></li>
+<li class="chapter" data-level="" data-path="module-1-introduction-to-chip-sequencing-and-analysis.html"><a href="module-1-introduction-to-chip-sequencing-and-analysis.html#server-resources"><i class="fa fa-check"></i>Server resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-2-alignment-peak-calling-and-visualization.html"><a href="module-2-alignment-peak-calling-and-visualization.html"><i class="fa fa-check"></i>Module 2: Alignment, Peak Calling, and Visualization</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-2-alignment-peak-calling-and-visualization.html"><a href="module-2-alignment-peak-calling-and-visualization.html#lecture-1"><i class="fa fa-check"></i>Lecture</a></li>
+<li class="chapter" data-level="" data-path="module-2-alignment-peak-calling-and-visualization.html"><a href="module-2-alignment-peak-calling-and-visualization.html#lab-1"><i class="fa fa-check"></i>Lab</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-2-alignment-peak-calling-and-visualization.html"><a href="module-2-alignment-peak-calling-and-visualization.html#breakdown-of-markdown-file-1"><i class="fa fa-check"></i>Breakdown of Markdown File</a></li>
+<li class="chapter" data-level="" data-path="module-2-alignment-peak-calling-and-visualization.html"><a href="module-2-alignment-peak-calling-and-visualization.html#module-2.-peak-calling"><i class="fa fa-check"></i>Module 2. Peak Calling</a></li>
+<li class="chapter" data-level="" data-path="module-2-alignment-peak-calling-and-visualization.html"><a href="module-2-alignment-peak-calling-and-visualization.html#server-resources-1"><i class="fa fa-check"></i>Server resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-3-chip-seq-differential-analysis.html"><a href="module-3-chip-seq-differential-analysis.html"><i class="fa fa-check"></i>Module 3: ChIP-seq Differential Analysis</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-3-chip-seq-differential-analysis.html"><a href="module-3-chip-seq-differential-analysis.html#lecture-2"><i class="fa fa-check"></i>Lecture</a></li>
+<li class="chapter" data-level="" data-path="module-3-chip-seq-differential-analysis.html"><a href="module-3-chip-seq-differential-analysis.html#lab-2"><i class="fa fa-check"></i>Lab</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-3-chip-seq-differential-analysis.html"><a href="module-3-chip-seq-differential-analysis.html#breakdown-of-markdown-file-2"><i class="fa fa-check"></i>Breakdown of markdown file</a></li>
+<li class="chapter" data-level="" data-path="module-3-chip-seq-differential-analysis.html"><a href="module-3-chip-seq-differential-analysis.html#module-3---differential-analysis"><i class="fa fa-check"></i>Module 3 - Differential Analysis</a></li>
+<li class="chapter" data-level="" data-path="module-3-chip-seq-differential-analysis.html"><a href="module-3-chip-seq-differential-analysis.html#server-resources-2"><i class="fa fa-check"></i>Server resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-4-whole-genome-bisulfite-sequencing-and-analysis.html"><a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html"><i class="fa fa-check"></i>Module 4: Whole-Genome Bisulfite Sequencing and Analysis</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-4-whole-genome-bisulfite-sequencing-and-analysis.html"><a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#lecture-3"><i class="fa fa-check"></i>Lecture</a></li>
+<li class="chapter" data-level="" data-path="module-4-whole-genome-bisulfite-sequencing-and-analysis.html"><a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#lab-3"><i class="fa fa-check"></i>Lab</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-4-whole-genome-bisulfite-sequencing-and-analysis.html"><a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#introduction"><i class="fa fa-check"></i>1. Introduction</a></li>
+<li class="chapter" data-level="" data-path="module-4-whole-genome-bisulfite-sequencing-and-analysis.html"><a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#mapping-tutorial"><i class="fa fa-check"></i>2. Mapping Tutorial</a></li>
+<li class="chapter" data-level="" data-path="module-4-whole-genome-bisulfite-sequencing-and-analysis.html"><a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#differential-methylation-analysis-in-methylkit"><i class="fa fa-check"></i>3. Differential Methylation Analysis in MethylKit</a></li>
+<li class="chapter" data-level="" data-path="module-4-whole-genome-bisulfite-sequencing-and-analysis.html"><a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#differential-methylation-analysis-in-dss"><i class="fa fa-check"></i>4. Differential Methylation Analysis in DSS</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-5-downstream-analysis-and-online-tools.html"><a href="module-5-downstream-analysis-and-online-tools.html"><i class="fa fa-check"></i>Module 5: Downstream Analysis and Online Tools</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-5-downstream-analysis-and-online-tools.html"><a href="module-5-downstream-analysis-and-online-tools.html#lecture-4"><i class="fa fa-check"></i>Lecture</a></li>
+<li class="chapter" data-level="" data-path="module-5-downstream-analysis-and-online-tools.html"><a href="module-5-downstream-analysis-and-online-tools.html#lab-4"><i class="fa fa-check"></i>Lab</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-5-downstream-analysis-and-online-tools.html"><a href="module-5-downstream-analysis-and-online-tools.html#introduction-1"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="module-5-downstream-analysis-and-online-tools.html"><a href="module-5-downstream-analysis-and-online-tools.html#ihec-data-portal"><i class="fa fa-check"></i>IHEC Data Portal</a></li>
+<li class="chapter" data-level="" data-path="module-5-downstream-analysis-and-online-tools.html"><a href="module-5-downstream-analysis-and-online-tools.html#predicting-motifs-with-homer"><i class="fa fa-check"></i>Predicting Motifs with HOMER</a></li>
+<li class="chapter" data-level="" data-path="module-5-downstream-analysis-and-online-tools.html"><a href="module-5-downstream-analysis-and-online-tools.html#looking-for-go-terms-enrichment-with-great"><i class="fa fa-check"></i>Looking for GO Terms Enrichment with GREAT</a></li>
+<li class="chapter" data-level="" data-path="module-5-downstream-analysis-and-online-tools.html"><a href="module-5-downstream-analysis-and-online-tools.html#going-back-to-homer-results"><i class="fa fa-check"></i>Going back to HOMER Results</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<h1 id="sponsors">Sponsors</h1>
+<center>
+<<a href="https://genomecanada.ca/"><img src="img/sponsors/genomecanada.png" height="70" style="display:inline-block;"  style="padding-bottom: 20px" alt="Genome Canada logo.">
+<a href="https://www.ontariogenomics.ca/"><img src="img/sponsors/ontariogenomics.png" height="70" style="display:inline-block;" style="padding-bottom: 20px;" alt="Ontario Genomics logo.">
+<br><br>
+<a href="https://oicr.on.ca/"><img src="img/sponsors/oicr.png" width=25% style="display:inline-block;" style="padding-bottom: 20px" alt="Ontario Institute for Cancer Research logo.">
+<a href="https://www.hpcforhealth.ca/"><img src="img/sponsors/hpc4health.png" width=60% style="display:inline-block;" style="padding-bottom: 20px "alt="HPC4Health logo.">
+<br><br>
+<a href="https://computationalgenomics.ca/"><img src="img/sponsors/c3g_Web.png" style="display:inline-block;" width=35% style="padding-bottom: 20px" alt="Canadian Centre for Computational Genomcis logo.">
+
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li></center>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Epigenomic Analysis 2023</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="module-4-whole-genome-bisulfite-sequencing-and-analysis" class="section level1 hasAnchor">
+<h1>Module 4: Whole-Genome Bisulfite Sequencing and Analysis<a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#module-4-whole-genome-bisulfite-sequencing-and-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="lecture-3" class="section level2 hasAnchor">
+<h2>Lecture<a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#lecture-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<iframe width="640" height="360" src="https://www.youtube.com/embed/PzZR5hI3VoA?si=kYgjNGVjdbzgmWWn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+</iframe>
+<p><br></p>
+<iframe src="https://drive.google.com/file/d/1DXZAcaKSTZr4APimUI4_hCudmWDUCAXm/preview" width="640" height="480" allow="autoplay">
+</iframe>
+</div>
+<div id="lab-3" class="section level2 hasAnchor">
+<h2>Lab<a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#lab-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="introduction" class="section level3 hasAnchor">
+<h3>1. Introduction<a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="description-of-the-lab" class="section level4 hasAnchor">
+<h4>Description of the lab:<a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#description-of-the-lab" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>This module will cover the basics of Whole Genome Bisulfite-Sequencing (WGBS) data analysis including data visualization in IGV.</p>
+</div>
+<div id="objectives" class="section level4 hasAnchor">
+<h4>Objectives:<a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#objectives" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ol style="list-style-type: decimal">
+<li>Learn how to align WGBS data using <code>Bismark</code></li>
+<li>Learn how to generate a methylation profile with <code>Bismark</code></li>
+<li>Learn how to open alignments and methylation profiles in the <code>IGV</code> genome browser</li>
+<li>Learn how to perform a basic differential methylation analysis with <code>MethylKit</code></li>
+</ol>
+</div>
+<div id="local-software-that-we-will-use" class="section level4 hasAnchor">
+<h4>Local software that we will use:<a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#local-software-that-we-will-use" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Before you begin, make sure you have the following programs ready in your local computer:</p>
+<ul>
+<li>A connection to the <code>EPI_2021</code> AWS instance</li>
+<li>An internet browser</li>
+<li>IGV</li>
+<li>R (or RStudio), <em>optional</em></li>
+</ul>
+<hr />
+<p><a name="map_tutorial"></a></p>
+</div>
+</div>
+<div id="mapping-tutorial" class="section level3 hasAnchor">
+<h3>2. Mapping Tutorial<a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#mapping-tutorial" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><a name="getting_started"></a></p>
+<div id="getting-started" class="section level4 hasAnchor">
+<h4>2.1 Getting Started<a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#getting-started" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="prepare-directory-for-the-lab" class="section level5 hasAnchor">
+<h5>Prepare Directory for the Lab<a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#prepare-directory-for-the-lab" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div class="sourceCode" id="cb67"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb67-1"><a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#cb67-1" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> ~/workspace/module4</span>
+<span id="cb67-2"><a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#cb67-2" tabindex="-1"></a><span class="bu">cd</span> ~/workspace/module4</span></code></pre></div>
+</div>
+<div id="save-genome-location" class="section level5 hasAnchor">
+<h5>Save Genome Location<a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#save-genome-location" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div class="sourceCode" id="cb68"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb68-1"><a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#cb68-1" tabindex="-1"></a><span class="va">GENOME</span><span class="op">=</span>~/CourseData/EPI_data/module4/Homo_sapiens.GRCh38.chr19</span>
+<span id="cb68-2"><a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#cb68-2" tabindex="-1"></a><span class="bu">export</span> <span class="va">GENOME</span></span></code></pre></div>
+<p>This will define a variable <code>$GENOME</code> that will simplify future commands.</p>
+<hr />
+</div>
+</div>
+<div id="locate-the-data-for-the-workshop" class="section level4 hasAnchor">
+<h4>Locate the Data for the Workshop<a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#locate-the-data-for-the-workshop" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb69"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb69-1"><a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#cb69-1" tabindex="-1"></a><span class="va">WGBS_DATA</span><span class="op">=</span>~/CourseData/EPI_data/module4/data</span>
+<span id="cb69-2"><a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#cb69-2" tabindex="-1"></a><span class="bu">export</span> <span class="va">WGBS_DATA</span></span></code></pre></div>
+<p>This will define a variable <code>$WGBS_DATA</code> that will simplify future commands.</p>
+<div id="check-the-files" class="section level5 hasAnchor">
+<h5>Check the Files<a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#check-the-files" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Type the following command: <code>ls $WGBS_DATA</code>, what do you see?</p>
+<details class="callout-dropdown callout-subtle callout-gray-subtle"><summary class="callout-dropdown-summary"><i class="fas fa-comment-dots" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;<span class="callout-dropdown-title">Solution (click here)</span> <span class="callout-dropdown-caret"><i class="fas fa-chevron-right" aria-hidden="true"></i></span></summary><div class="callout-dropdown-content"><p>You should see something similar to this</p>
+<pre><code>WGBS.A34002.137160.chr19.1.fastq.gz
+WGBS.A34002.137160.chr19.2.fastq.gz
+WGBS.A34002.137487.chr19.1.fastq.gz
+WGBS.A34002.137487.chr19.2.fastq.gz
+WGBS.A34002.137488.chr19.1.fastq.gz
+WGBS.A34002.137488.chr19.2.fastq.gz
+</code></pre></div></details>
+<p>These are the files that will be used for the workshop. They contain a subset of WGBS reads from CEMT sample <code>CEMT0007</code>, which is a mammary gland epithelial cell line <a href="https://ega-archive.org/datasets/EGAD00001000685">(more information here)</a>.</p>
+<p><strong>What do the “.1” and “.2” in the file names mean?</strong></p>
+<details class="callout-dropdown callout-subtle callout-gray-subtle"><summary class="callout-dropdown-summary"><i class="fas fa-comment-dots" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;<span class="callout-dropdown-title">Solution (click here)</span> <span class="callout-dropdown-caret"><i class="fas fa-chevron-right" aria-hidden="true"></i></span></summary><div class="callout-dropdown-content"><p>They represent the <code>read1</code> and <code>read2</code> of the
+paired end reads.</p></div></details>
+<hr />
+<p><a name="map_bismark"></a></p>
+</div>
+</div>
+<div id="map-data-using-bismark" class="section level4 hasAnchor">
+<h4>2.2 Map Data using Bismark<a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#map-data-using-bismark" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>We will now process and map the reads using the Bismark WGBS aligner <a href="https://www.bioinformatics.babraham.ac.uk/projects/bismark/">(more info here)</a>.</p>
+<div id="map-the-first-dataset-using-bismark" class="section level5 hasAnchor">
+<h5>Map the first dataset using Bismark<a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#map-the-first-dataset-using-bismark" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>To simplify the work, we will process the datasets one at a time. To align the first dataset, do the following:</p>
+<pre><code>cd ~/workspace/module4
+bismark --multicore 4 --bowtie2 $GENOME/genome/bismark_index \
+    -1 $WGBS_DATA/WGBS.A34002.137160.chr19.1.fastq.gz -2 $WGBS_DATA/WGBS.A34002.137160.chr19.2.fastq.gz
+    </code></pre>
+<p><strong>What do all the options in the command mean?</strong> (Hint check the help by using <code>bismark --help</code>)</p>
+<details class="callout-dropdown callout-subtle callout-gray-subtle"><summary class="callout-dropdown-summary"><i class="fas fa-comment-dots" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;<span class="callout-dropdown-title">Solution (click here)</span> <span class="callout-dropdown-caret"><i class="fas fa-chevron-right" aria-hidden="true"></i></span></summary><div class="callout-dropdown-content"><p>The <code>--multicore 4</code> option is to do multithreaded
+processing to improve speed.</p>
+<p>The <code>--bowtie2</code> option is to use the mapping algorithm
+from bowtie2.</p>
+<p>The <code>$GENOME/genome/bismark_index</code> specifies the location
+of the index for the reference genome to use. This uses the
+<code>$GENOME</code> variable we defined previously.</p>
+<p>The <code>-1 $WGBS_DATA/WGBS.A34002.137160.chr19.1.fastq.gz</code>
+specifies the location of read 1. Idem for <code>-2</code> which
+specifies read 2. This uses the <code>$WGBS_DATA</code> variable we
+defined previously.</p>
+<p>For more details, please refer to the Bismark <a
+href="http://www.bioinformatics.babraham.ac.uk/projects/bismark/Bismark_User_Guide.pdf">user
+guide</a>.</p></div></details>
+<hr />
+<p>This step will take a few minutes to run for this reduced dataset. A dataset spanning a full genome will take <em>several hours</em>.</p>
+<p>For your own datasets, make sure you have enough computing walltime to run the alignment.</p>
+<p><strong>While you wait for the results, ask any questions you have up to this point to the instructors.</strong></p>
+</div>
+<div id="check-files" class="section level5 hasAnchor">
+<h5>Check files<a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#check-files" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>At the end of the alignment, you should have the following files saved into your workshop folder:</p>
+<p><code>{:output} WGBS.A34002.137160.chr19.1_bismark_bt2_pe.bam  WGBS.A34002.137160.chr19.1_bismark_bt2_PE_report.txt</code></p>
+<p>Bismark offers a tool to generate an interactive HTML report for each sample, which we can now run to obtain the summary for our first sample.</p>
+<pre><code>bismark2report
+</code></pre>
+<p>This will produce an additional file called: <code>WGBS.A34002.137160.chr19.1_bismark_bt2_PE_report.html</code>.</p>
+<p>Let’s look at the report. We can read the text file directly on the command line:</p>
+<pre><code>less WGBS.A34002.137160.chr19.1_bismark_bt2_PE_report.txt
+</code></pre>
+<p>Or open the HTML report using your internet browser and the IP address of your AWS instance. Just click on the link to the HTML report and it should open.</p>
+<p><strong>What was the mapping efficiency? What percent of C’s were methylated in CpG context? </strong></p>
+<details class="callout-dropdown callout-subtle callout-gray-subtle"><summary class="callout-dropdown-summary"><i class="fas fa-comment-dots" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;<span class="callout-dropdown-title">Solution (click here)</span> <span class="callout-dropdown-caret"><i class="fas fa-chevron-right" aria-hidden="true"></i></span></summary><div class="callout-dropdown-content"><p>According to the report:</p>
+<pre><code>...
+Mapping efficiency:     92.4% 
+...
+C methylated in CpG context:    57.4%
+C methylated in CHG context:    0.6%
+C methylated in CHH context:    0.5%
+C methylated in unknown context (CN or CHN):    3.5%
+...
+</code></pre>
+<p>You can also look at plot the <code>Cytosine Methylation</code>
+section in the interactive HTML report.</p></div></details>
+<p>Close the report by pressing <code>q</code>.</p>
+<hr />
+</div>
+<div id="prepare-files-for-loading-in-igv" class="section level5 hasAnchor">
+<h5>Prepare files for loading in IGV<a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#prepare-files-for-loading-in-igv" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>We need to sort the <code>bam</code> file and prepare an index so we will be able to load it in IGV. We will use the program <code>samtools</code> for this.</p>
+<pre><code>samtools sort WGBS.A34002.137160.chr19.1_bismark_bt2_pe.bam -o WGBS.A34002.137160.chr19.1_bismark_bt2_pe_sorted.bam 
+samtools index WGBS.A34002.137160.chr19.1_bismark_bt2_pe_sorted.bam
+</code></pre>
+</div>
+<div id="check-files-1" class="section level5 hasAnchor">
+<h5>Check Files<a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#check-files-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>At the end, you should have the following files:</p>
+<pre><code>WGBS.A34002.137160.chr19.1_bismark_bt2_pe_sorted.bam
+WGBS.A34002.137160.chr19.1_bismark_bt2_pe.bam         
+WGBS.A34002.137160.chr19.1_bismark_bt2_pe_sorted.bam.bai
+WGBS.A34002.137160.chr19.1_bismark_bt2_PE_report.txt</code></pre>
+<hr />
+<p><a name="repeat"></a></p>
+</div>
+</div>
+<div id="repeat-alignment-for-all-datasets" class="section level4 hasAnchor">
+<h4>2.3 Repeat Alignment for All Datasets<a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#repeat-alignment-for-all-datasets" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><strong>How would you repeat the alignment with the other datasets?</strong></p>
+<details class="callout-dropdown callout-subtle callout-gray-subtle"><summary class="callout-dropdown-summary"><i class="fas fa-comment-dots" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;<span class="callout-dropdown-title">Solution (click here)</span> <span class="callout-dropdown-caret"><i class="fas fa-chevron-right" aria-hidden="true"></i></span></summary><div class="callout-dropdown-content"><p>This is the command to run bismark on the two other samples:</p>
+<pre><code>cd ~/workspace/module4
+
+bismark --multicore 4 --bowtie2 $GENOME/genome/bismark_index \
+    -1 $WGBS_DATA/WGBS.A34002.137487.chr19.1.fastq.gz -2 $WGBS_DATA/WGBS.A34002.137487.chr19.2.fastq.gz
+    
+bismark --multicore 4 --bowtie2 $GENOME/genome/bismark_index \
+    -1 $WGBS_DATA/WGBS.A34002.137488.chr19.1.fastq.gz -2 $WGBS_DATA/WGBS.A34002.137488.chr19.2.fastq.gz
+    </code></pre>
+<p>Remember, for the command to work, both <code>$GENOME</code> and
+<code>$WGBS_DATA</code> need to be defined.</p>
+<p>Also, if you want to generate the HTML reports, you can run
+<code>bismark2report</code>. Bismark also has a “summary” that produces
+a report for all samples (<code>bismark2summary</code>), we can run both
+by doing the following:</p>
+<pre><code>bismark2report ; bismark2summary
+</code></pre>
+<p>After checking the reports, we can run the commands to prepare the
+samples for IGV (sort and index):</p>
+<pre><code>samtools sort  WGBS.A34002.137487.chr19.1_bismark_bt2_pe.bam -o WGBS.A34002.137487.chr19.1_bismark_bt2_pe_sorted.bam
+samtools index WGBS.A34002.137487.chr19.1_bismark_bt2_pe_sorted.bam
+
+samtools sort  WGBS.A34002.137488.chr19.1_bismark_bt2_pe.bam -o WGBS.A34002.137488.chr19.1_bismark_bt2_pe_sorted.bam
+samtools index WGBS.A34002.137488.chr19.1_bismark_bt2_pe_sorted.bam
+</code></pre></div></details>
+<hr />
+<p><a name="load_igv"></a></p>
+</div>
+<div id="load-data-and-explore-using-igv" class="section level4 hasAnchor">
+<h4>2.4 Load Data and Explore using IGV<a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#load-data-and-explore-using-igv" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>While you wait for the previous steps to finish executing, it is a good idea to begin exploring the alignments.</p>
+<div id="copy-files-to-your-local-computer-to-view-in-igv" class="section level5 hasAnchor">
+<h5>Copy Files to Your Local Computer to View in IGV<a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#copy-files-to-your-local-computer-to-view-in-igv" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Retrieve the files called <code>WGBS.A34002.137160.chr19.1_bismark_bt2_pe_sorted.bam</code> and <code>WGBS.A34002.137160.chr19.1_bismark_bt2_pe_sorted.bam.bai</code> from the server using your internet browser and the IP address of your AWS instance.</p>
+<p>Optionally, if you are not using Putty (i.e. if you are using a Linux or Mac computer) you can also retrieve the files directly using the terminal and <code>scp</code> using the commands below.</p>
+<details>
+<summary>
+<p><strong>Optional download option</strong> (click here)</p>
+</summary>
+<pre><code>scp -i CBW.pem ubuntu@00.00.00.0:~/workspace/module4/WGBS.A34002.137160.chr19.1_bismark_bt2_pe_sorted.bam .
+scp -i CBW.pem ubuntu@00.00.00.0:~/workspace/module4/WGBS.A34002.137160.chr19.1_bismark_bt2_pe_sorted.bam.bai .
+</code></pre>
+<p>Remember that for the commands above to work, you need to be in the directory with the <code>CBW.pem</code> (or <code>CBW.cer</code>) file you downloaded from AWS when creating your instance.</p>
+</details>
+</div>
+<div id="launch-igv-on-your-computer" class="section level5 hasAnchor">
+<h5>Launch IGV on your computer<a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#launch-igv-on-your-computer" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>If you haven’t installed it yet, please get it here <a href="http://software.broadinstitute.org/software/igv/download">IGV download</a>.</p>
+<p>Make sure that the human genome is selected in the top left corner. It should read: <strong>Human (hg38)</strong>.</p>
+<p>Load your <strong>sorted</strong> <code>bam</code> file in IGV using <code>File -&gt; Load from file</code>. <em>For this to work, you need to have the index file (<code>.bai</code>) in the same location as the <code>bam</code> file.</em></p>
+<p>Now go to the following location:</p>
+<pre><code>chr19:43,375,889-45,912,052</code></pre>
+<p>And zoom in until you see something.</p>
+<p>For instance, try the following window:</p>
+<pre><code>chr19:44,527,387-44,536,873</code></pre>
+<p>You should see something like this:</p>
+<p><img src="img/region2.png" /></p>
+<p><em>If it looks different, can you change the way the colors are displayed?</em></p>
+<p><em>Which section of which chromosome is covered by this dataset?</em></p>
+<p><em>Can you see any interesting patterns in the coverage?</em></p>
+<hr />
+<p><a name="methylation_profiles"></a></p>
+</div>
+</div>
+<div id="generate-methylation-profiles" class="section level4 hasAnchor">
+<h4>2.5 Generate Methylation Profiles<a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#generate-methylation-profiles" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>So far we have only mapped the reads using Bismark. We can generate methylation profiles using the following command:</p>
+<pre><code>cd ~/workspace/module4
+
+bismark_methylation_extractor --cytosine_report WGBS.A34002.137160.chr19.1_bismark_bt2_pe.bam --genome_folder $GENOME/genome/bismark_index
+</code></pre>
+<p>The <code>--cytosine_report</code> option creates a <code>CpG_report</code> table summarizing key data for each <code>CG</code> position in the genome, which will be useful later (see <a href="#r_dss_import">section 4.2</a>).</p>
+<p><strong>How would you do the same for the other replicates?</strong></p>
+<details class="callout-dropdown callout-subtle callout-gray-subtle"><summary class="callout-dropdown-summary"><i class="fas fa-comment-dots" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;<span class="callout-dropdown-title">Solution (click here)</span> <span class="callout-dropdown-caret"><i class="fas fa-chevron-right" aria-hidden="true"></i></span></summary><div class="callout-dropdown-content"><p>These are the commands that you should use:</p>
+<pre><code>cd ~/workspace/module4
+
+bismark_methylation_extractor --cytosine_report WGBS.A34002.137487.chr19.1_bismark_bt2_pe.bam --genome_folder $GENOME/genome/bismark_index
+bismark_methylation_extractor --cytosine_report WGBS.A34002.137488.chr19.1_bismark_bt2_pe.bam --genome_folder $GENOME/genome/bismark_index
+</code></pre></div></details>
+<hr />
+<p>Download <em>all</em> the files produced so far to your local computer using your internet browser.</p>
+<p><strong>While you wait for all the steps and downloads to finish, you can ask the instructors any questions you might have up until this point.</strong></p>
+<hr />
+<p>Load all the downloaded files in IGV using <code>File -&gt; Load from file</code>.</p>
+<p><strong>Please be aware that if you just try to open all your files on IGV you might get a warning/error message mentioning that you are trying to open an unsorted BAM. If that is the case, ignore the message, but make sure that you are opening the <code>sorted.bam</code> so you can visualize your results.</strong></p>
+<p>At this point, if you load the region <code>chr19:44,527,387-44,536,873</code> you should see something like</p>
+<p><img src="img/region2_full.png" /></p>
+<p>This promoter looks to be hypomethylated.</p>
+<p><em>Can you find a promoter that is hypermethylated?</em></p>
+<p>How about <code>chr19:45,637,715-45,657,380</code>?</p>
+<p><em>How would you look for a CpG island using this view of the data?</em></p>
+<hr />
+<p><a name="methylkit"></a></p>
+</div>
+</div>
+<div id="differential-methylation-analysis-in-methylkit" class="section level3 hasAnchor">
+<h3>3. Differential Methylation Analysis in MethylKit<a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#differential-methylation-analysis-in-methylkit" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The following section will use the Bioconductor package <code>methylKit</code> to do a differential methylation analysis.
+You can do it in your own computer (if you have installed <code>R</code> and <code>methylKit</code>) or in the AWS instance.</p>
+<p>To install <code>methylKit</code> locally on your computer, make sure you have a recent version of <code>R</code> and
+follow the instructions in this <a href="https://bioconductor.org/packages/release/bioc/html/methylKit.html">page</a>.</p>
+<hr />
+<p><a name="load_r"></a></p>
+<div id="load-r-and-methylkit" class="section level4 hasAnchor">
+<h4>3.1 Load R and MethylKit<a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#load-r-and-methylkit" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>If you are working in AWS, you will need to load <code>R</code>. The image we provide already has the libraries we need.</p>
+<p>To launch <code>R</code> simply type the following to your terminal:</p>
+<pre><code>cd ~/workspace/module4
+R
+</code></pre>
+<p>If you did this properly, the following message will be displayed and your prompt will change from <strong><code>ubuntu@ip-00-00-00-0:~/workspace/module4$</code></strong> to <strong><code>&gt;</code></strong>:</p>
+<p>```{:output}
+R version 4.2.3 (2023-03-15) – “Shortstop Beagle”
+Copyright (C) 2023 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+…</p>
+<pre><code>
+Once you have successfully launched `R`, you can load `methylKit` with the following command: 
+
+```{}
+library(&quot;methylKit&quot;) 
+</code></pre>
+<hr />
+<p><a name="r_methylkit_import"></a></p>
+</div>
+<div id="import-the-alignment-data-into-methylkit" class="section level4 hasAnchor">
+<h4>3.2 Import the Alignment Data into methylKit<a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#import-the-alignment-data-into-methylkit" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="process-bismark-alignments" class="section level5 hasAnchor">
+<h5>Process Bismark Alignments<a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#process-bismark-alignments" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>To read the alignment data into <code>methylKit</code>, run the following command:</p>
+<pre><code>methRaw.160 = processBismarkAln( location = &quot;WGBS.A34002.137160.chr19.1_bismark_bt2_pe_sorted.bam&quot;,
+                         sample.id=&quot;A34002.137160&quot;, assembly=&quot;hg38&quot;, 
+                         read.context=&quot;CpG&quot;, save.folder=&quot;methylkit&quot;)
+</code></pre>
+<p>This command will import the data into a format that is readable by <code>methylKit</code>. At the same time, it will save two files under the <code>methylkit</code> directory with the information so that it is easy to load again at any time:</p>
+<pre><code>methylkit/A34002.137160_CpG_conversionStats.txt
+methylkit/A34002.137160_CpG.txt
+</code></pre>
+<p>If everything goes well and you see the files, do the same for the other two samples:</p>
+<pre><code>methRaw.487 = processBismarkAln( location = &quot;WGBS.A34002.137487.chr19.1_bismark_bt2_pe_sorted.bam&quot;,
+                         sample.id=&quot;A34002.137487&quot;, assembly=&quot;hg38&quot;, 
+                         read.context=&quot;CpG&quot;, save.folder=&quot;methylkit&quot;)
+                         
+methRaw.488 = processBismarkAln( location = &quot;WGBS.A34002.137488.chr19.1_bismark_bt2_pe_sorted.bam&quot;,
+                         sample.id=&quot;A34002.137488&quot;, assembly=&quot;hg38&quot;, 
+                         read.context=&quot;CpG&quot;, save.folder=&quot;methylkit&quot;)
+</code></pre>
+<hr />
+</div>
+<div id="create-a-methylkit-object" class="section level5 hasAnchor">
+<h5>Create a MethylKit Object<a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#create-a-methylkit-object" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Now that all the samples have been read with <code>methylKit</code>, you can create a file list to make it easier to load the full dataset as a <code>methylkit</code> object. For the purposes of this tutorial, we will consider that samples belong to two experimental groups: <code>A34002.137160</code> as the control group (treatment = 0) and <code>A34002.137487</code> &amp; <code>A34002.137488</code> as the treatment group (treatment = 1). We use the <code>methRead()</code> function to create our object, as shown below:</p>
+<pre><code>file.list = list( file.path(&quot;methylkit&quot;, &quot;A34002.137160_CpG.txt&quot;),
+                  file.path(&quot;methylkit&quot;, &quot;A34002.137487_CpG.txt&quot;),
+                  file.path(&quot;methylkit&quot;, &quot;A34002.137488_CpG.txt&quot;) )
+
+myobj = methRead(file.list,
+           sample.id=list(&quot;A34002.137160&quot;,&quot;A34002.137487&quot;,&quot;A34002.137488&quot;),
+           assembly=&quot;hg38&quot;,
+           treatment=c(0,1,1),
+           context=&quot;CpG&quot;,
+           mincov = 10
+           )
+</code></pre>
+<p><strong>What do all the options in the <code>methRead()</code> command mean?</strong></p>
+<details class="callout-dropdown callout-subtle callout-gray-subtle"><summary class="callout-dropdown-summary"><i class="fas fa-comment-dots" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;<span class="callout-dropdown-title">Solution (click here)</span> <span class="callout-dropdown-caret"><i class="fas fa-chevron-right" aria-hidden="true"></i></span></summary><div class="callout-dropdown-content"><ul>
+<li><p><code>file.list</code> object points to the location of the input
+data in a MethylKit format.</p></li>
+<li><p><code>sample.id</code> points to a list with the appropriate
+sample name for each file.</p></li>
+<li><p><code>assembly</code> specifies which build of the human
+reference genome is used.</p></li>
+<li><p><code>treatment</code> specifies which sample belongs to each
+experimental group.</p></li>
+<li><p><code>context</code> specifies the methylation context.</p></li>
+<li><p><code>mincov</code> specifies the minimum coverage required to be
+included in the object.</p></li>
+</ul>
+<p>For more details, please refer to the MethylKit <a
+href="https://bioconductor.org/packages/release/bioc/manuals/methylKit/man/methylKit.pdf">user
+guide</a> .</p></div></details>
+<hr />
+<p>If the files were loaded properly, you can check the object you just created by running the following command:</p>
+<pre><code>myobj
+</code></pre>
+<p>Which should output the following message followed by previews of the contents of the object:</p>
+<pre><code>methylRawList object with 3 methylRaw objects
+...</code></pre>
+<p>You can also get basic statistics on your object by using the following command:</p>
+<pre><code>getMethylationStats(myobj[[2]],plot=FALSE,both.strands=FALSE)
+</code></pre>
+<hr />
+</div>
+</div>
+<div id="find-differentially-methylated-regions-with-methylkit" class="section level4 hasAnchor">
+<h4>3.3 Find Differentially Methylated Regions with methylKit<a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#find-differentially-methylated-regions-with-methylkit" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><a name="r_methylkit_dmr"></a></p>
+<div id="merge-samples" class="section level5 hasAnchor">
+<h5>Merge Samples<a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#merge-samples" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Before doing any additional analysis, <code>methylKit</code> needs to determine which methylated bases have sufficient coverage in all samples so they can be compared. To do that, the samples should be merged with the <code>unite()</code> function. This function has a parameter <code>destrand=</code> that is turned off by default. We will set the <code>destrand</code> option to <code>TRUE</code> which will merge the coverage of both strands. When doing your own analyses, be aware that for some kinds of methylation analyses (such as CpH methylation) results are strand-specific, so this option should be used carefully.</p>
+<pre><code>meth = unite(myobj, destrand=TRUE)
+</code></pre>
+</div>
+<div id="perform-differential-methylation-analysis" class="section level5 hasAnchor">
+<h5>Perform Differential Methylation Analysis<a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#perform-differential-methylation-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>The standard function for Differential Methylation Analysis on <code>methylKit</code> is <code>calculateDiffMeth()</code>. It takes any <strong>merged</strong> methylkit object as input. Depending on the number of replicates, it uses either Fisher’s exact or logistic regression to calculate P-values. It also, automatically produces Q-values, which are a kind of adjusted P-value. To use it with the results we obtained before, run the following command:</p>
+<pre><code>myDiff = calculateDiffMeth(meth)
+</code></pre>
+<p>To check the output, just type <code>myDiff</code> and read the summary. If you want an example of the output, check the solution below.</p>
+<details class="callout-dropdown callout-subtle callout-gray-subtle"><summary class="callout-dropdown-summary"><i class="fas fa-comment-dots" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;<span class="callout-dropdown-title">Solution (click here)</span> <span class="callout-dropdown-caret"><i class="fas fa-chevron-right" aria-hidden="true"></i></span></summary><div class="callout-dropdown-content"><p>This is what the output looks like:</p>
+<p><code>{:output} methylDiff object with 2941 rows --------------     chr    start      end strand       pvalue     qvalue  meth.diff 1 chr19 42002896 42002896      + 3.271268e-01 0.69569299   8.951407 2 chr19 42002978 42002978      + 1.912989e-01 0.60732656 -21.666667 3 chr19 42007251 42007251      + 6.999764e-05 0.03228847 -55.681818 4 chr19 42007255 42007255      + 3.958578e-01 0.75196047 -11.835106 5 chr19 42007283 42007283      + 8.451850e-01 0.91347038  -2.457757 6 chr19 42007314 42007314      + 9.102723e-01 0.92865750  -1.604278 -------------- sample.ids: A34002.137160 A34002.137487 A34002.137488  destranded TRUE  assembly: hg38  context: CpG  treament: 0 1 1  resolution: base</code></p></div></details>
+<hr />
+<p>To filter results by their statistical significance, <code>methylKit</code> provides the <code>getMethylDiff()</code> function which allows you to extract only the deferentially methylated CpG’s that meet a specific Q-value threshold. Additionally, it is also possible to specify whether to keep <code>hypo</code> or <code>hyper</code> methylated CpG’s only. Finally, the <code>bedgraph()</code> function allows you to save the the <code>methylDiff</code> object into a BedGraph file so you can open it with your genome browser of choice. Let’s create two BedGraph files with hypo and hyper methylated CpG’s with a Q-value below 0.05 based on the data above:</p>
+<pre><code>myDiff.hyper = getMethylDiff(myDiff,qvalue=0.05,difference=10,type=&quot;hyper&quot;)
+bedgraph(myDiff.hyper, file.name = &quot;hyper.CpG.bedGraph&quot;, col.name = &quot;qvalue&quot;)
+
+myDiff.hypo = getMethylDiff(myDiff,qvalue=0.05,difference=10,type=&quot;hypo&quot;)
+bedgraph(myDiff.hypo, file.name = &quot;hypo.CpG.bedGraph&quot;, col.name = &quot;qvalue&quot;)
+</code></pre>
+<p>Two new files should appear now in your workshop folder:</p>
+<p><code>{:output} ~/workspace/module4/hyper.CpG.bedGraph ~/workspace/module4/hypo.CpG.bedGraph</code></p>
+</div>
+<div id="bin-results-to-obtain-differentially-methylated-regions" class="section level5 hasAnchor">
+<h5>Bin Results to Obtain Differentially Methylated Regions<a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#bin-results-to-obtain-differentially-methylated-regions" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>By default, <code>methylKit</code> will compute results with an individual CpG resolution. To get Differentially Methylated Regions (<strong>DMR</strong>), you have to bin your results first, using a window size of your choice. The function to do this is <code>tileMethylCounts()</code>, which takes a regular methylkit object as input. In this case, we will create 1000bp bins using the following command:</p>
+<pre><code>tiles = tileMethylCounts(myobj,win.size=1000,step.size=1000,cov.bases = 10)
+</code></pre>
+<p>As with CpG level results, samples need to be merged before the analysis can continue:</p>
+<pre><code>meth.tiles = unite(tiles, destrand=TRUE) 
+</code></pre>
+<p>Now, we will use the <code>calculateDiffMeth()</code> and <code>getMethylDiff()</code> functions to get the DMRs.</p>
+<p><strong>Do you know how to do it, based on the information above?</strong></p>
+<p><strong>Based on the number of differentially methylated CpGs you found above, do you anticipate many statistically significant DMRs in your analysis?</strong></p>
+<details class="callout-dropdown callout-subtle callout-gray-subtle"><summary class="callout-dropdown-summary"><i class="fas fa-comment-dots" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;<span class="callout-dropdown-title">Solution (click here)</span> <span class="callout-dropdown-caret"><i class="fas fa-chevron-right" aria-hidden="true"></i></span></summary><div class="callout-dropdown-content"><p>Use the following commands to perform a <code>DMR</code>
+analysis:</p>
+<pre><code>myDiff.tiles = calculateDiffMeth(meth.tiles)
+
+myDiff.tiles.hyper = getMethylDiff(myDiff.tiles,qvalue=0.1,difference=10,type=&quot;hyper&quot;)
+bedgraph(myDiff.tiles.hyper, file.name = &quot;hyper.DMR.bedGraph&quot;, col.name = &quot;qvalue&quot;)
+
+myDiff.tiles.hypo = getMethylDiff(myDiff.tiles,qvalue=0.1,difference=10,type=&quot;hypo&quot;)
+bedgraph(myDiff.tiles.hypo, file.name = &quot;hypo.DMR.bedGraph&quot;, col.name = &quot;qvalue&quot;)
+
+</code></pre></div></details>
+<hr />
+<p>Using the navigation pane, download the bedGraph files you just produced and try to open them with IGV.</p>
+<p><strong>Do the statistical results match what you had seen before when exploring the data?</strong></p>
+<p><strong>What interesting genomic features are found close to the DMRs? What could this mean?</strong></p>
+<hr />
+<p><a name="DSS"></a></p>
+</div>
+</div>
+</div>
+<div id="differential-methylation-analysis-in-dss" class="section level3 hasAnchor">
+<h3>4. Differential Methylation Analysis in DSS<a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#differential-methylation-analysis-in-dss" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The following section will use the Bioconductor package <code>DSS</code> to do a differential methylation analysis.
+You can do it in your own computer (if you have installed <code>R</code> and <code>DSS</code>) or in the AWS instance.</p>
+<p>To install <code>DSS</code> locally on your computer, make sure you have a recent version of <code>R</code> and
+follow the instructions in this <a href="https://bioconductor.org/packages/release/bioc/html/DSS.html">page</a>.</p>
+<hr />
+<div id="load-r-and-dss" class="section level4 hasAnchor">
+<h4>4.1 Load R and DSS<a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#load-r-and-dss" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><a name="load_dss_r"></a></p>
+<p>If you just did the previous section, you might not need to load <code>R</code> again. Otherwise, please launch <code>R</code> using the instructions in <a href="#load_methylkit_r">section 3.1</a>.</p>
+<p>Once you have successfully launched <code>R</code>, you can load <code>DSS</code> with the following command:</p>
+<pre><code>library(&quot;DSS&quot;) 
+</code></pre>
+<hr />
+<p><a name="r_dss_import"></a></p>
+</div>
+<div id="import-the-methylation-data-into-dss" class="section level4 hasAnchor">
+<h4>4.2 Import the Methylation Data into DSS<a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#import-the-methylation-data-into-dss" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="process-bismark-cpg-reports" class="section level5 hasAnchor">
+<h5>Process Bismark CpG Reports<a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#process-bismark-cpg-reports" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>The <code>DSS</code> library expects input data to be already summarized into the following columns for each CG position in the genome:</p>
+<ul>
+<li>chromosome number (<code>chr</code>),</li>
+<li>genomic coordinate (<code>pos</code>),</li>
+<li>total number of reads (<code>N</code>),</li>
+<li>and, number of reads showing methylation (<code>X</code>).</li>
+</ul>
+<p>Fortunately, Bismark already produced a table (<code>CpG_report.txt</code>) with most of that information when we ran the <code>bismark_methylation_extractor</code> command (see <a href="#methylation_profiles">section 2.5</a> to review this step). Therefore, we can import the <code>CpG_report</code> table into R and reshape it into the proper input for <code>DSS</code>.</p>
+<p>First, we will load the <code>CpG_report.txt</code> table for sample <code>137160</code> to our R environment and save it as a variable called <code>CpG.report.160</code>. To do this, we will use the base <code>R</code> function <code>read.table</code> and name the columns as follows:</p>
+<ul>
+<li><code>chr</code>,</li>
+<li><code>pos</code>,</li>
+<li><code>strand</code>,</li>
+<li><code>X</code> (num. of reads showing methylation at this position),</li>
+<li><code>C</code> (num. of reads <em>without</em> methylation in this position),</li>
+<li><code>C_context</code> (2-base context at this position),</li>
+<li><code>tri_context</code> (3-base context at this position)</li>
+</ul>
+<p>The full command is as follows:</p>
+<pre><code>CpG.report.160 &lt;- read.table(&quot;WGBS.A34002.137160.chr19.1_bismark_bt2_pe.CpG_report.txt&quot;, header = F, col.names = c(&quot;chr&quot;, &quot;pos&quot;, &quot;strand&quot;, &quot;X&quot;, &quot;C&quot;, &quot;C_context&quot;, &quot;tri_context&quot;)) </code></pre>
+<p>Next, we need to calculate the total number of reads for each position by adding up the ones with and without methylation (columns <code>X</code> and <code>C</code> in the table we just imported). We will name this new column <code>N</code> to follow the <code>DSS</code> convention. Finally, we will save the input table for DSS as <code>CpG.DSS.table.160</code> and make sure it is in ascending order by position with the <code>setorder</code> command. You can find the full commands below:</p>
+<pre><code>CpG.report.160[&quot;N&quot;] &lt;- CpG.report.160[&quot;C&quot;] + CpG.report.160[&quot;X&quot;]
+CpG.DSS.table.160 &lt;- CpG.report.160[c(&quot;chr&quot;, &quot;pos&quot;, &quot;N&quot;, &quot;X&quot;)]
+</code></pre>
+<p><strong>Can you repeat the above process for the other two samples?</strong></p>
+<details class="callout-dropdown callout-subtle callout-gray-subtle"><summary class="callout-dropdown-summary"><i class="fas fa-comment-dots" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;<span class="callout-dropdown-title">Solution (click here)</span> <span class="callout-dropdown-caret"><i class="fas fa-chevron-right" aria-hidden="true"></i></span></summary><div class="callout-dropdown-content"><p>Use the following commands to import the remaining
+<code>CpG_report</code> tables, as well as reformatting them into
+appropriate <code>DSS</code> input.</p>
+<pre><code>CpG.report.487 &lt;- read.table(&quot;WGBS.A34002.137487.chr19.1_bismark_bt2_pe.CpG_report.txt&quot;, header = F, col.names = c(&quot;chr&quot;, &quot;pos&quot;, &quot;strand&quot;, &quot;X&quot;, &quot;C&quot;, &quot;C_context&quot;, &quot;tri_context&quot;)) 
+CpG.report.487[&quot;N&quot;] &lt;- CpG.report.487[&quot;C&quot;] + CpG.report.487[&quot;X&quot;]
+CpG.DSS.table.487 &lt;- CpG.report.487[c(&quot;chr&quot;, &quot;pos&quot;, &quot;N&quot;, &quot;X&quot;)]
+
+CpG.report.488 &lt;- read.table(&quot;WGBS.A34002.137488.chr19.1_bismark_bt2_pe.CpG_report.txt&quot;, header = F, col.names = c(&quot;chr&quot;, &quot;pos&quot;, &quot;strand&quot;, &quot;X&quot;, &quot;C&quot;, &quot;C_context&quot;, &quot;tri_context&quot;)) 
+CpG.report.488[&quot;N&quot;] &lt;- CpG.report.488[&quot;C&quot;] + CpG.report.488[&quot;X&quot;]
+CpG.DSS.table.488 &lt;- CpG.report.488[c(&quot;chr&quot;, &quot;pos&quot;, &quot;N&quot;, &quot;X&quot;)]
+</code></pre>
+<p><em>Hint:</em> If you want to check all the <code>DSS</code> input
+tables are constructed properly, you can take a peek at the “top” of
+each table with the <code>head()</code> command in <code>R</code>. For
+example, you should see the following if you did all the previous steps
+correctly:</p>
+<pre><code>head(CpG.DSS.table.160)</code></pre>
+<p><code>{:output} chr   pos N X 1 chr19 60119 0 0 2 chr19 60120 0 0 3 chr19 60172 0 0 4 chr19 60173 0 0 5 chr19 60183 0 0 6 chr19 60184 0 0</code></p>
+<p>The same command for the other two samples will give the same result,
+because there are no reads aligning to the beginning of chromosome 19 in
+our dataset.</p></div></details>
+<hr />
+<p>Next, we will create the <code>BS</code> object that <code>DSS</code> will use by using the <code>makeBSseqData</code> command and the tables we just created:</p>
+<pre><code>BSobj &lt;- makeBSseqData( list(CpG.DSS.table.160, CpG.DSS.table.487, CpG.DSS.table.488),
+     c(&quot;sample.160&quot;,&quot;sample.487&quot;, &quot;sample.488&quot;) )</code></pre>
+<p>Notice how we are labeling the 3 samples with the names <code>c("sample.160","sample.487", "sample.488")</code> as part of this command. It is likely that you will receive a warning message when you run the command above indicating that the CG sites are not ordered. We will ignore it for now, in this case it should not impact the analysis.</p>
+<p>If the object was constructed properly, we can inspect it’s properties by calling the variable name directly <code>BSobj</code>, which will output.</p>
+<p><code>{:output} An object of type 'BSseq' with   2113330 methylation loci   3 samples has not been smoothed All assays are in-memory</code></p>
+<hr />
+</div>
+</div>
+<div id="find-differentially-methylated-regions-with-dss" class="section level4 hasAnchor">
+<h4>4.3 Find Differentially Methylated Regions with DSS<a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#find-differentially-methylated-regions-with-dss" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><a name="r_dss_dmr"></a></p>
+<p>The <code>DSS</code> library operates under different statistical assumptions than <code>methylKit</code>, which include a smoothing of methylation data to improve methylation analysis. By smoothing the data, <code>DSS</code> will attempt to correct the methylation percentage of a CpG site using the context of nearby sites. Additionally, it will then estimate the dispersion of the sites and perform a Wald statistical test to allow for comparsion across samples. These three steps are done in one single command called <code>DMLtest</code> which will take our <code>BSobj</code> as input.</p>
+<p>We will run command is done as follows and save the results in a variable called <code>dmlTest</code>:</p>
+<pre><code>dmlTest &lt;- DMLtest(BSobj, 
+  group1=c(&quot;sample.160&quot;), 
+  group2=c(&quot;sample.487&quot;, &quot;sample.488&quot;), 
+  smoothing=TRUE)
+</code></pre>
+<p>Notice how we defined the two experimental groups in the <code>DMLtest</code> command, using the we defined when creating <code>BSobj</code>. When the test finishes running, we can extract the significant Differentially Methylated Loci (DML) using the <code>callDML</code> command and our defined p-value threshold:</p>
+<pre><code>dmls = callDML(dmlTest, p.threshold=0.05)</code></pre>
+<p>Extracting Differentially Methylated Regions (DMR) works similarly, with the <code>callDMR</code> command. One important difference between <code>methylKit</code> and <code>DSS</code> is that the latter does not work using bins. Instead, <code>DSS</code> will estimate the length of a DMR based on the dispersion of individual CpGs. Therefore, contrary to DMRs calculated with methylKit, these regions will all have different lengths.</p>
+<p>To ensure that DMRs we call in this workshop are comparable to what we calculated with methylKit, we will set the minimum length to 500bp. The <code>callDMR</code> command will look like this:</p>
+<pre><code>dmrs = callDMR(dmlTest, minlen = 500, p.threshold=0.05)</code></pre>
+<p>The <code>DSS</code> library will group all DMR results into a single table, making no distinction between hypo and hyper methylated regions. You can view the results by running calling the <code>dmrs</code> variable.</p>
+<p><strong>Look at the <code>DSS</code> differential methylation results and compare them to what was obtained by <code>methylKit</code>. Do you notice any important differences? Are there any overlaps?</strong></p>
+<hr />
+<p>To save the results of your <code>DSS</code> analysis as a <code>CSV</code> file, use the base R command <code>write.csv</code>. Unfortunately, there is no native <code>DSS</code> command to export the results into a BedGraph file, and converting the table outptut to this format is outside the scope of this workshop. We encourage you to find tools that do this after the workshop if you want to do a deeper comparsion between the <code>DSS</code> and <code>methylKit</code> results in your own datasets.</p>
+<pre><code>write.csv(dmls, file=&quot;DSS.DML.table.csv&quot;)
+write.csv(dmrs, file=&quot;DSS.DMR.table.csv&quot;) </code></pre>
+<p>After saving the <code>DSS</code> results as CSV, remember to download them to your computer, where you can open them in the file explorer, or even a spreadsheet to improve visualization and filtering.</p>
+<hr />
+</div>
+<div id="congrats-youre-done" class="section level4 hasAnchor">
+<h4>Congrats, you’re done!<a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#congrats-youre-done" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>You can quit R using the <code>quit()</code> or <code>q()</code> command. Remember to stop your AWS instance after this lab to avoid unnecessary costs.</p>
+<p>Once you are finished make sure you download all the files you need and continue exploring on IGV.</p>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<div class="callout-title-static">
+<p>Lab Completed!</p>
+</div>
+<p>Congratulations! You have completed Lab 4!</p>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="module-3-chip-seq-differential-analysis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="module-5-downstream-analysis-and-online-tools.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": false,
+    "twitter": false,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/bioinformaticsdotca/EPI_2023/blob/main/040-module-4.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["_main.pdf", "_main.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

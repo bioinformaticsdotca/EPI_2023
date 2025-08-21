@@ -1,0 +1,417 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{book}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\usepackage{booktabs}
+
+\usepackage{color}
+\usepackage{framed}
+\setlength{\fboxsep}{.8em}
+
+% These colours were manually entered, they shouldn't matter unless you want pdf output
+
+\newenvironment{redbox}{
+  \definecolor{shadecolor}{RGB}{243, 154, 157}
+  \color{white}
+  \begin{shaded}}
+ {\end{shaded}}
+
+\newenvironment{bluebox}{
+  \definecolor{shadecolor}{RGB}{172, 210, 237}
+  \color{white}
+  \begin{shaded}}
+ {\end{shaded}}
+
+\newenvironment{greenbox}{
+  \definecolor{shadecolor}{RGB}{141, 181, 128}
+  \color{white}
+  \begin{shaded}}
+ {\end{shaded}}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage[]{natbib}
+\bibliographystyle{plainnat}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Epigenomic Analysis 2023},
+  pdfauthor={Faculty: Guillaume Bourque, Martin Hirst, David Bujold, Jose Hector Galvez, Edmund Su, Mareike Janiak, Michelle Brazas, Nia Hughes, and Zhibin Lu},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Epigenomic Analysis 2023}
+\author{Faculty: Guillaume Bourque, Martin Hirst, David Bujold, Jose Hector Galvez, Edmund Su, Mareike Janiak, Michelle Brazas, Nia Hughes, and Zhibin Lu}
+\date{October 11, 2023 - October 13, 2023}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\part{Introduction}\label{part-introduction}
+
+\chapter{Workshop Info}\label{workshop-info}
+
+Welcome to the 2023 Epigenomic Analysis Canadian Bioinformatics Workshop webpage!
+
+\section{Pre-work}\label{pre-work}
+
+\href{https://docs.google.com/forms/d/e/1FAIpQLSdxqrJpgL5nJkGTSDChZ4-GFxPuyFp10vh2riHnzK8knJrBjw/viewform?usp=sf_link}{You can find your pre-work here.}
+
+\section{Class Photo}\label{class-photo}
+
+\section{Schedule}\label{schedule}
+
+\chapter{Meet Your Faculty}\label{meet-your-faculty}
+
+\subsubsection{Guillaume Bourque}\label{guillaume-bourque}
+
+\begin{quote}
+Professor, McGill University
+Director of Bioinformatics, Genome Quebec Innovation Centre
+Director, Canadian Centre of Computational Genomics
+Director, McGill initiative for Computational Medicine
+\end{quote}
+
+Dr.~Bourque research interests are in comparative and functional
+genomics with a special emphasis on applications of next-generation sequencing technologies.
+His lab develops advanced tools and scalable computational infrastructure to enable large-scale
+applied research projects.
+
+\subsubsection{Martin Hirst}\label{martin-hirst}
+
+\begin{quote}
+Distinguished Scientist, BC Cancer
+Professor, Department of Microbiology \& Immunology
+Director, Michael Smith Laboratories
+Michael Smith Laboratories
+\end{quote}
+
+Dr.~Hirst's research focuses on understanding epigenetic dysfunction in
+cancer and his laboratory develops experimental and computational tools to characterize normal
+and transformed cell types down to the single cell level. He applies these tools to explore the
+epigenomic states of normal and transformed cell types to discover and exploit therapeutic
+vulnerabilities.
+
+\subsubsection{David Bujold}\label{david-bujold}
+
+\begin{quote}
+Bioinformatics Manager, Data Unit
+Canadian Centre of Computational Genomics
+\end{quote}
+
+He joined the McGill Epigenomic Data Coordination Center at McGill in
+2012 to tackle challenges related to epigenomics, and has since developed
+many data management and discovery solutions, including the IHEC Data Portal. Other projects
+of interest include CanDIG and EpiShare, platforms to make genomic and epigenomic data
+under controlled access more accessible, while maintaining study participants' privacy.
+
+\subsubsection{Jose Hector Galvez}\label{jose-hector-galvez}
+
+\begin{quote}
+Bioinformatics Manager, Tech Dev Unit
+Canadian Centre of Computational Genomics
+\end{quote}
+
+As a Bioinformatics Specialist in the Research and Development team,
+Jose Hector is involved in maintaining, documenting, and upgrading
+the RNA-seq pipelines in GenPipes. He also collaborates in several research projects, mostly
+focusing on transcriptomics, genome assembly, and epigenomics.
+
+\subsubsection{Edmund Su}\label{edmund-su}
+
+\begin{quote}
+Bioinformatician
+Ontario Institute for Cancer Research
+\end{quote}
+
+Edmund is a bioinformatician within the genome informatics team at OICR,
+where he provides technical knowledge and expertise in genomic analysis.
+His main focus is developing pipelines and data wrangling for ICGC-ARGO
+(International Cancer Genome Consortium - Accelerating Research in Genomic Oncology).
+
+\subsubsection{Mareike Janiak}\label{mareike-janiak}
+
+\begin{quote}
+Bioinformatics Analyst, Tech Dev Unit
+Canadian Centre of Computational Genomics
+\end{quote}
+
+As a Bioinformatics Analyst in the TechDev team, Mareike is responsible
+for maintaining pipelines in GenPipes, testing and developing new pipelines
+for the community, and responding to user requests. Prior to joining C3G,
+she worked as both a field and computational biologist, with her doctoral and postdoctoral
+research focusing on mammalian comparative genomics, phylogenomics, and metagenomics,
+most often in primates.
+
+\subsubsection{Michelle Brazas}\label{michelle-brazas}
+
+\begin{quote}
+Acting Scientific Director
+Canadian Bioinformatics Workshops (CBW)
+Toronto, ON, CA
+
+--- \href{mailto:support@bioinformatics.ca}{\nolinkurl{support@bioinformatics.ca}}
+\end{quote}
+
+Dr.~Michelle Brazas is the Associate Director for Adaptive Oncology at the
+Ontario Institute for Cancer Research (OICR), and acting Scientific Director at Bioinformatics.ca.
+Previously, Dr.~Brazas was the Program Manager for Bioinformatics.ca and a faculty member in
+Biotechnology at BCIT. Michelle co-founded and runs the Toronto Bioinformatics User Group
+(TorBUG) now in its 11th season, and plays an active role in the International Society of
+Computational Biology where she sits on the Board of Directors and Executive Board.
+
+\subsubsection{Nia Hughes}\label{nia-hughes}
+
+\begin{quote}
+Program Manager, Bioinformatics.ca
+Ontario Institute for Cancer Research
+Toronto, ON, Canada
+
+--- \href{mailto:nia.hughes@oicr.on.ca}{\nolinkurl{nia.hughes@oicr.on.ca}}
+\end{quote}
+
+Nia is the Program Manager for Bioinformatics.ca, where she coordinates the Canadian
+Bioinformatics Workshop Series. Prior to starting at OICR, she completed her M.Sc. in
+Bioinformatics from the University of Guelph in 2020 before working there as a bioinformatician
+studying epigenetic and transcriptomic patterns across maize varieties.
+
+\subsubsection{Zhibin Lu}\label{zhibin-lu}
+
+\begin{quote}
+HPC and Bioinformatics Services Manager at Princess Margaret
+Cancer Centre, University Health Network
+Bioinformatics and HPC Core, UHN
+MaRS Centre, PMCRT 11-707
+101 College St
+Toronto ON M5G 1L7
+
+--- \href{mailto:zhibin@gmail.com}{\nolinkurl{zhibin@gmail.com}}
+\url{https://bhpc.uhnresearch.ca/}
+\end{quote}
+
+Zhibin Lu is a senior manager at University Health Network Digital. He is responsible for UHN
+HPC operations and scientific software. He manages two HPC clusters at UHN, including
+system administration, user management, and maintenance of bioinformatics tools for
+HPC4health. He is also skilled in Next-Gen sequence data analysis and has developed and
+
+maintained bioinformatics pipelines at the Bioinformatics and HPC Core. He is a member of the
+Digital Research Alliance of Canada Bioinformatics National Team and Scheduling National
+Team.
+
+\chapter{Data and Compute Setup}\label{data-and-compute-setup}
+
+\subsubsection{Course data downloads}\label{course-data-downloads}
+
+Some of these files are quite large. If you have issues downloading them, contact us at \href{mailto:support@bioinformatics.ca}{\nolinkurl{support@bioinformatics.ca}}.
+
+\begin{itemize}
+\tightlist
+\item
+  \href{}{Module 123}
+\item
+  \href{}{Module 4}
+\end{itemize}
+
+\subsubsection{Compute setup}\label{compute-setup}
+
+\paragraph{AMI}\label{ami}
+
+We have made our AWS AMI (Amazon Machine Image) publicly available. To launch your own instance, follow the instructions provided by Amazon on \href{https://repost.aws/knowledge-center/launch-instance-custom-ami}{how to launch an EC2 instance from a custom Amazon Machine Image}. Please note that you will need an AWS account to proceed, and that you will need to upload the CourseData files yourself.
+
+Here are the details of the AMI:
+
+\begin{itemize}
+\tightlist
+\item
+  AWS Region: us-east-1 (N. Virgina)
+\item
+  AMI type: public image
+\item
+  AMI name: CBW\_EPI\_231005
+\item
+  AMI ID: ami-0ae28d3f8e57ba8cf
+\end{itemize}
+
+If you want to create and activate a new AWS account, please follow the \href{https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/}{instructions} provided by Amazon.
+
+\paragraph{Software}\label{software}
+
+For information on installing the necessary tools, please visit
+
+\href{tool-installation.rmd}{Tools Installation}
+
+\part{Modules}\label{part-modules}
+
+\chapter{Module 1}\label{module-1}
+
+\section{Lecture}\label{lecture}
+
+\section{Lab}\label{lab}
+
+\chapter{Module 2}\label{module-2}
+
+\section{Lecture}\label{lecture-1}
+
+\section{Lab}\label{lab-1}
+
+\chapter{Module 3}\label{module-3}
+
+\section{Lecture}\label{lecture-2}
+
+\section{Lab}\label{lab-2}
+
+\chapter{Module 4}\label{module-4}
+
+\section{Lecture}\label{lecture-3}
+
+\section{Lab}\label{lab-3}
+
+\chapter{Tool Installation}\label{tool-installation}
+
+\subsubsection{conda}\label{conda}
+
+Install Miniconda by following the instructoion at \href{https://docs.conda.io/en/main/miniconda.html}{Miniconda official site}
+
+\subsubsection{bedtools}\label{bedtools}
+
+\begin{verbatim}
+wget https://github.com/arq5x/bedtools2/releases/download/v2.30.0/bedtools.static.binary
+mv bedtools.static.binary bedtools
+chmod +x bedtools
+\end{verbatim}
+
+\subsubsection{bwa}\label{bwa}
+
+\begin{verbatim}
+wget https://newcontinuum.dl.sourceforge.net/project/bio-bwa/bwa-0.7.17.tar.bz2
+tar -jxvf bwa-0.7.17.tar.bz2
+cd bwa-0.7.17/
+\end{verbatim}
+
+make
+
+\begin{verbatim}
+#### FastQC
+wget https://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.12.1.zip
+unzip fastqc_v0.12.1.zip
+\end{verbatim}
+
+\subsubsection{samtools}\label{samtools}
+
+\begin{verbatim}
+wget https://github.com/samtools/samtools/releases/download/1.17/samtools-1.17.tar.bz2
+tar -jxvf samtools-1.17.tar.bz2
+cd samtools-1.17
+make
+sudo make install
+\end{verbatim}
+
+\subsubsection{picard}\label{picard}
+
+\begin{verbatim}
+wget https://github.com/broadinstitute/picard/releases/download/3.1.0/picard.jar
+\end{verbatim}
+
+\subsubsection{deeptools}\label{deeptools}
+
+\begin{verbatim}
+pip install deeptools
+\end{verbatim}
+
+\subsubsection{MACS2}\label{macs2}
+
+\begin{verbatim}
+pip install MACS2
+\end{verbatim}
+
+\subsubsection{Homer}\label{homer}
+
+\begin{verbatim}
+wget http://homer.ucsd.edu/homer/configureHomer.pl
+perl ./configureHomer.pl -install
+perl ./configureHomer.pl -install hg19
+perl ./configureHomer.pl -install hg38
+\end{verbatim}
+
+\subsubsection{UCSC tools'}\label{ucsc-tools}
+
+\begin{verbatim}
+rsync -aP hgdownload.soe.ucsc.edu::genome/admin/exe/linux.x86_64/ ./
+\end{verbatim}
+
+\subsubsection{Biamark}\label{biamark}
+
+\begin{verbatim}
+wget https://github.com/FelixKrueger/Bismark/archive/refs/tags/v0.24.2.tar.gz
+tar -zxf v0.24.2.tar.gz
+\end{verbatim}
+
+  \bibliography{book.bib,packages.bib}
+
+\end{document}

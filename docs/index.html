@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Epigenomic Analysis 2023</title>
+  <meta name="description" content="Workshop website for the {{YEAR}} {{WORKSHOP_NAME}} Canadian Bioinformatics Workshop" />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Epigenomic Analysis 2023" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://bioinformaticsdotca.github.io/EPI_2023/img/bioinformatics_logo.png" />
+  <meta property="og:description" content="Workshop website for the {{YEAR}} {{WORKSHOP_NAME}} Canadian Bioinformatics Workshop" />
+  <meta name="github-repo" content="bioinformaticsdotca/EPI_2023" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Epigenomic Analysis 2023" />
+  
+  <meta name="twitter:description" content="Workshop website for the {{YEAR}} {{WORKSHOP_NAME}} Canadian Bioinformatics Workshop" />
+  <meta name="twitter:image" content="https://bioinformaticsdotca.github.io/EPI_2023/img/bioinformatics_logo.png" />
+
+<meta name="author" content="Faculty: Guillaume Bourque, Martin Hirst, David Bujold, Jose Hector Galvez, Edmund Su, Mareike Janiak, Michelle Brazas, Nia Hughes, and Zhibin Lu" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+
+<link rel="next" href="meet-your-faculty.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "name": "{{WORKSHOP_NAME}}",
+  "description": "The complete set of tutorials, slides, and practical exercises for the {{WORKSHOP_NAME}} {{YEAR}} Canadian Bioinformatics Workshop, hosted on GitHub Pages.",
+  "url": "https://bioinformaticsdotca.github.io/{{WORKSHOP_CODE}}",
+  "learningResourceType": ["tutorial", "slides", "exercise"],
+  "inLanguage": "en",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "provider": {
+    "@type": "Organization",
+    "name": "Bioinformatics.ca",
+    "url": "https://bioinformatics.ca"
+  },
+  "keywords": "",
+  "isPartOf": {
+    "@type": "Course",
+    "@id": "{{URL}}"
+  }
+}
+</script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<a href="https://bioinformaticsdotca.github.io/">
+ <img src="img/bioinformatics_logo.png" width="90%" alt="bioinformatics.ca logo" style="display:block; margin-left:auto; margin-right:auto; margin-top:15px;">
+ </a>
+<li><center><strong><a href="./"><br>Epigenomic Analysis<br><br></a></strong></center></li>
+<a href="./">
+ <img src="img/CBW_Epigenome-data_icon.png" width="70%" alt="Epigenomic Analysis logo" style="display:block; margin-left:auto; margin-right:auto; ">
+ </a>
+<br>
+
+<li class="divider"></li>
+<li class="part"><span><b>I Introduction</b></span></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Workshop Info</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#pre-work"><i class="fa fa-check"></i>Pre-work</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#class-photo"><i class="fa fa-check"></i>Class Photo</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#schedule"><i class="fa fa-check"></i>Schedule</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="meet-your-faculty.html"><a href="meet-your-faculty.html"><i class="fa fa-check"></i>Meet Your Faculty</a></li>
+<li class="chapter" data-level="" data-path="data-and-compute-setup.html"><a href="data-and-compute-setup.html"><i class="fa fa-check"></i>Data and Compute Setup</a></li>
+<li class="part"><span><b>II Modules</b></span></li>
+<li class="chapter" data-level="" data-path="module-1-introduction-to-chip-sequencing-and-analysis.html"><a href="module-1-introduction-to-chip-sequencing-and-analysis.html"><i class="fa fa-check"></i>Module 1: Introduction to ChIP Sequencing and Analysis</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-1-introduction-to-chip-sequencing-and-analysis.html"><a href="module-1-introduction-to-chip-sequencing-and-analysis.html#lecture"><i class="fa fa-check"></i>Lecture</a></li>
+<li class="chapter" data-level="" data-path="module-1-introduction-to-chip-sequencing-and-analysis.html"><a href="module-1-introduction-to-chip-sequencing-and-analysis.html#lab"><i class="fa fa-check"></i>Lab</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-1-introduction-to-chip-sequencing-and-analysis.html"><a href="module-1-introduction-to-chip-sequencing-and-analysis.html#breakdown-of-markdown-file"><i class="fa fa-check"></i>Breakdown of Markdown File</a></li>
+<li class="chapter" data-level="" data-path="module-1-introduction-to-chip-sequencing-and-analysis.html"><a href="module-1-introduction-to-chip-sequencing-and-analysis.html#module-1.-alignment"><i class="fa fa-check"></i>Module 1. Alignment</a></li>
+<li class="chapter" data-level="" data-path="module-1-introduction-to-chip-sequencing-and-analysis.html"><a href="module-1-introduction-to-chip-sequencing-and-analysis.html#server-resources"><i class="fa fa-check"></i>Server resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-2-alignment-peak-calling-and-visualization.html"><a href="module-2-alignment-peak-calling-and-visualization.html"><i class="fa fa-check"></i>Module 2: Alignment, Peak Calling, and Visualization</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-2-alignment-peak-calling-and-visualization.html"><a href="module-2-alignment-peak-calling-and-visualization.html#lecture-1"><i class="fa fa-check"></i>Lecture</a></li>
+<li class="chapter" data-level="" data-path="module-2-alignment-peak-calling-and-visualization.html"><a href="module-2-alignment-peak-calling-and-visualization.html#lab-1"><i class="fa fa-check"></i>Lab</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-2-alignment-peak-calling-and-visualization.html"><a href="module-2-alignment-peak-calling-and-visualization.html#breakdown-of-markdown-file-1"><i class="fa fa-check"></i>Breakdown of Markdown File</a></li>
+<li class="chapter" data-level="" data-path="module-2-alignment-peak-calling-and-visualization.html"><a href="module-2-alignment-peak-calling-and-visualization.html#module-2.-peak-calling"><i class="fa fa-check"></i>Module 2. Peak Calling</a></li>
+<li class="chapter" data-level="" data-path="module-2-alignment-peak-calling-and-visualization.html"><a href="module-2-alignment-peak-calling-and-visualization.html#server-resources-1"><i class="fa fa-check"></i>Server resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-3-chip-seq-differential-analysis.html"><a href="module-3-chip-seq-differential-analysis.html"><i class="fa fa-check"></i>Module 3: ChIP-seq Differential Analysis</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-3-chip-seq-differential-analysis.html"><a href="module-3-chip-seq-differential-analysis.html#lecture-2"><i class="fa fa-check"></i>Lecture</a></li>
+<li class="chapter" data-level="" data-path="module-3-chip-seq-differential-analysis.html"><a href="module-3-chip-seq-differential-analysis.html#lab-2"><i class="fa fa-check"></i>Lab</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-3-chip-seq-differential-analysis.html"><a href="module-3-chip-seq-differential-analysis.html#breakdown-of-markdown-file-2"><i class="fa fa-check"></i>Breakdown of markdown file</a></li>
+<li class="chapter" data-level="" data-path="module-3-chip-seq-differential-analysis.html"><a href="module-3-chip-seq-differential-analysis.html#module-3---differential-analysis"><i class="fa fa-check"></i>Module 3 - Differential Analysis</a></li>
+<li class="chapter" data-level="" data-path="module-3-chip-seq-differential-analysis.html"><a href="module-3-chip-seq-differential-analysis.html#server-resources-2"><i class="fa fa-check"></i>Server resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-4-whole-genome-bisulfite-sequencing-and-analysis.html"><a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html"><i class="fa fa-check"></i>Module 4: Whole-Genome Bisulfite Sequencing and Analysis</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-4-whole-genome-bisulfite-sequencing-and-analysis.html"><a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#lecture-3"><i class="fa fa-check"></i>Lecture</a></li>
+<li class="chapter" data-level="" data-path="module-4-whole-genome-bisulfite-sequencing-and-analysis.html"><a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#lab-3"><i class="fa fa-check"></i>Lab</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-4-whole-genome-bisulfite-sequencing-and-analysis.html"><a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#introduction"><i class="fa fa-check"></i>1. Introduction</a></li>
+<li class="chapter" data-level="" data-path="module-4-whole-genome-bisulfite-sequencing-and-analysis.html"><a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#mapping-tutorial"><i class="fa fa-check"></i>2. Mapping Tutorial</a></li>
+<li class="chapter" data-level="" data-path="module-4-whole-genome-bisulfite-sequencing-and-analysis.html"><a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#differential-methylation-analysis-in-methylkit"><i class="fa fa-check"></i>3. Differential Methylation Analysis in MethylKit</a></li>
+<li class="chapter" data-level="" data-path="module-4-whole-genome-bisulfite-sequencing-and-analysis.html"><a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#differential-methylation-analysis-in-dss"><i class="fa fa-check"></i>4. Differential Methylation Analysis in DSS</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-5-downstream-analysis-and-online-tools.html"><a href="module-5-downstream-analysis-and-online-tools.html"><i class="fa fa-check"></i>Module 5: Downstream Analysis and Online Tools</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-5-downstream-analysis-and-online-tools.html"><a href="module-5-downstream-analysis-and-online-tools.html#lecture-4"><i class="fa fa-check"></i>Lecture</a></li>
+<li class="chapter" data-level="" data-path="module-5-downstream-analysis-and-online-tools.html"><a href="module-5-downstream-analysis-and-online-tools.html#lab-4"><i class="fa fa-check"></i>Lab</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-5-downstream-analysis-and-online-tools.html"><a href="module-5-downstream-analysis-and-online-tools.html#introduction-1"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="module-5-downstream-analysis-and-online-tools.html"><a href="module-5-downstream-analysis-and-online-tools.html#ihec-data-portal"><i class="fa fa-check"></i>IHEC Data Portal</a></li>
+<li class="chapter" data-level="" data-path="module-5-downstream-analysis-and-online-tools.html"><a href="module-5-downstream-analysis-and-online-tools.html#predicting-motifs-with-homer"><i class="fa fa-check"></i>Predicting Motifs with HOMER</a></li>
+<li class="chapter" data-level="" data-path="module-5-downstream-analysis-and-online-tools.html"><a href="module-5-downstream-analysis-and-online-tools.html#looking-for-go-terms-enrichment-with-great"><i class="fa fa-check"></i>Looking for GO Terms Enrichment with GREAT</a></li>
+<li class="chapter" data-level="" data-path="module-5-downstream-analysis-and-online-tools.html"><a href="module-5-downstream-analysis-and-online-tools.html#going-back-to-homer-results"><i class="fa fa-check"></i>Going back to HOMER Results</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<h1 id="sponsors">Sponsors</h1>
+<center>
+<<a href="https://genomecanada.ca/"><img src="img/sponsors/genomecanada.png" height="70" style="display:inline-block;"  style="padding-bottom: 20px" alt="Genome Canada logo.">
+<a href="https://www.ontariogenomics.ca/"><img src="img/sponsors/ontariogenomics.png" height="70" style="display:inline-block;" style="padding-bottom: 20px;" alt="Ontario Genomics logo.">
+<br><br>
+<a href="https://oicr.on.ca/"><img src="img/sponsors/oicr.png" width=25% style="display:inline-block;" style="padding-bottom: 20px" alt="Ontario Institute for Cancer Research logo.">
+<a href="https://www.hpcforhealth.ca/"><img src="img/sponsors/hpc4health.png" width=60% style="display:inline-block;" style="padding-bottom: 20px "alt="HPC4Health logo.">
+<br><br>
+<a href="https://computationalgenomics.ca/"><img src="img/sponsors/c3g_Web.png" style="display:inline-block;" width=35% style="padding-bottom: 20px" alt="Canadian Centre for Computational Genomcis logo.">
+
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li></center>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Epigenomic Analysis 2023</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Epigenomic Analysis 2023</h1>
+<p class="author"><em>Faculty: Guillaume Bourque, Martin Hirst, David Bujold, Jose Hector Galvez, Edmund Su, Mareike Janiak, Michelle Brazas, Nia Hughes, and Zhibin Lu</em></p>
+<p class="date"><em>October 11, 2023 - October 13, 2023</em></p>
+</div>
+<div id="workshop-info" class="section level1 hasAnchor">
+<h1>Workshop Info<a href="index.html#workshop-info" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Welcome to the 2023 Epigenomic Analysis Canadian Bioinformatics Workshop webpage!</p>
+<div id="pre-work" class="section level2 hasAnchor">
+<h2>Pre-work<a href="index.html#pre-work" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="https://docs.google.com/forms/d/e/1FAIpQLSdxqrJpgL5nJkGTSDChZ4-GFxPuyFp10vh2riHnzK8knJrBjw/viewform?usp=sf_link">You can find your pre-work here.</a></p>
+</div>
+<div id="class-photo" class="section level2 hasAnchor">
+<h2>Class Photo<a href="index.html#class-photo" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<iframe src="https://drive.google.com/file/d/1sTYR0q81zTqcO6YnDXJ6UaMy6ZDi5sTl/preview" width="640" height="480" allow="autoplay">
+</iframe>
+</div>
+<div id="schedule" class="section level2 hasAnchor">
+<h2>Schedule<a href="index.html#schedule" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<style>
+    :root {
+      --schedule-primary-color: #4A6BFF;
+      --schedule-border-color: #EAECEF;
+      --schedule-text-color: #555;
+    }
+    .schedule-card {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      border: 1px solid var(--schedule-border-color);
+      border-radius: 12px;
+      margin: 2em 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      overflow: hidden;
+    }
+    .schedule-tabs {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--schedule-border-color);
+      background-color: #fff;
+    }
+    .schedule-tabs-wrapper {
+      position: relative;
+      flex-grow: 1;
+      overflow: hidden;
+    }
+    .schedule-tabs-wrapper::before,
+    .schedule-tabs-wrapper::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 50px;
+      pointer-events: none;
+      transition: opacity 0.2s;
+      opacity: 0;
+    }
+    .schedule-tabs-wrapper::before {
+      left: 0;
+      background: linear-gradient(to left, rgba(255,255,255,0), #fff 70%);
+    }
+    .schedule-tabs-wrapper::after {
+      right: 0;
+      background: linear-gradient(to right, rgba(255,255,255,0), #fff 70%);
+    }
+    .schedule-tabs-wrapper.scrolled-left::before { opacity: 1; }
+    .schedule-tabs-wrapper.scrolled-right::after { opacity: 1; }
+    
+    .schedule-tab-buttons {
+      display: flex;
+      overflow-x: auto;
+      white-space: nowrap;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      scroll-behavior: smooth;
+    }
+    .schedule-tab-buttons::-webkit-scrollbar { display: none; }
+    
+    .timezone-selector-container {
+      display: flex;
+      align-items: center;
+      gap: 0.75em;
+      padding: 0 20px;
+    }
+    .timezone-selector-container label {
+      font-size: 0.9em;
+      color: var(--schedule-text-color);
+      font-weight: 500;
+    }
+    .schedule-tabs select {
+      padding: 6px 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+    }
+    .schedule-tab {
+      padding: 14px 20px;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -1px;
+      color: var(--schedule-text-color);
+      font-weight: 500;
+    }
+    .schedule-tab.active {
+      color: var(--schedule-primary-color);
+      border-bottom-color: var(--schedule-primary-color);
+    }
+    .schedule-panel { display: none; }
+    .schedule-panel.active { display: block; }
+    .schedule-table { width: 100%; border-collapse: collapse; }
+    .schedule-table th, .schedule-table td {
+      text-align: left;
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--schedule-border-color);
+    }
+    .schedule-table th {
+      color: #888;
+      font-size: 0.8em;
+      font-weight: 600;
+      text-transform: uppercase;
+      background-color: #F8F9FA;
+    }
+    .schedule-table tr:last-child td { border-bottom: none; }
+    
+    /* --- RULE FOR BREAKS AND PAUSES --- */
+    .schedule-table tr.is-break td {
+      font-style: italic;
+      font-size: 0.95em;
+      color: #777;
+    }
+    
+    /* --- NEW: RULE FOR 'OTHER' TYPE (More Visible) --- */
+    .schedule-table tr.is-other td {
+      background-color: #f0f4ff; /* A light blue background */
+      font-weight: 500; /* Slightly bolder text */
+    }
+    .schedule-table tr.is-other td:first-child {
+      border-left: 4px solid var(--schedule-primary-color);
+    }
+  </style>
+<div class="schedule-card">
+<div class="schedule-tabs" id="schedule-tabs-container"></div>
+<div class="schedule-content" id="schedule-panels-container"></div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const scheduleData = [{"day_label":"Day 1","date":"October 11, 2025","activity":"Virtual Arrivals","type":"other","time_1":"7:15","timezone_1_label":"MOUNTAIN","time_2":"9:15","timezone_2_label":"EASTERN"},{"day_label":"Day 1","date":"October 11, 2025","activity":"Optional AWS connection review (Zhibin Lu)","type":"other","time_1":"7:30","timezone_1_label":"MOUNTAIN","time_2":"9:30","timezone_2_label":"EASTERN"},{"day_label":"Day 1","date":"October 11, 2025","activity":"Welcome (Nia Hughes)","type":"other","time_1":"8:00","timezone_1_label":"MOUNTAIN","time_2":"10:00","timezone_2_label":"EASTERN"},{"day_label":"Day 1","date":"October 11, 2025","activity":"Module 1: Introduction to ChIP sequencing and analysis (Martin Hirst)","type":"Lecture","time_1":"8:30","timezone_1_label":"MOUNTAIN","time_2":"10:30","timezone_2_label":"EASTERN"},{"day_label":"Day 1","date":"October 11, 2025","activity":"Break","type":"Break","time_1":"9:30","timezone_1_label":"MOUNTAIN","time_2":"11:30","timezone_2_label":"EASTERN"},{"day_label":"Day 1","date":"October 11, 2025","activity":"Module 1: Compute setup, file format and QC (Lab - Edmund Su)","type":"Lab","time_1":"10:00","timezone_1_label":"MOUNTAIN","time_2":"12:00","timezone_2_label":"EASTERN"},{"day_label":"Day 1","date":"October 11, 2025","activity":"Break","type":"Break","time_1":"12:00","timezone_1_label":"MOUNTAIN","time_2":"14:00","timezone_2_label":"EASTERN"},{"day_label":"Day 1","date":"October 11, 2025","activity":"Module 2: Alignment, Peak Calling and Visulization (Martin Hirst)","type":"Lecture","time_1":"13:00","timezone_1_label":"MOUNTAIN","time_2":"15:00","timezone_2_label":"EASTERN"},{"day_label":"Day 1","date":"October 11, 2025","activity":"Break","type":"Break","time_1":"14:00","timezone_1_label":"MOUNTAIN","time_2":"16:00","timezone_2_label":"EASTERN"},{"day_label":"Day 1","date":"October 11, 2025","activity":"Module 2: Alignment, Peak Calling and Visulization (Lab - Edmund Su)","type":"Lab","time_1":"14:30","timezone_1_label":"MOUNTAIN","time_2":"16:30","timezone_2_label":"EASTERN"},{"day_label":"Day 1","date":"October 11, 2025","activity":"End of Day 1","type":"other","time_1":"16:30","timezone_1_label":"MOUNTAIN","time_2":"18:30","timezone_2_label":"EASTERN"},{"day_label":"Day 2","date":"October 12, 2025","activity":"Virtual Arrivals","type":"other","time_1":"7:45","timezone_1_label":"MOUNTAIN","time_2":"9:45","timezone_2_label":"EASTERN"},{"day_label":"Day 2","date":"October 12, 2025","activity":"Module 3: ChIP-seq Differential Analysis (Edmund Su)","type":"Lecture","time_1":"8:00","timezone_1_label":"MOUNTAIN","time_2":"10:00","timezone_2_label":"EASTERN"},{"day_label":"Day 2","date":"October 12, 2025","activity":"Break","type":"Break","time_1":"9:00","timezone_1_label":"MOUNTAIN","time_2":"11:00","timezone_2_label":"EASTERN"},{"day_label":"Day 2","date":"October 12, 2025","activity":"Module 3: ChIP-seq Differential Analysis (Lab - Edmund Su)","type":"Lab","time_1":"9:30","timezone_1_label":"MOUNTAIN","time_2":"11:30","timezone_2_label":"EASTERN"},{"day_label":"Day 2","date":"October 12, 2025","activity":"Break","type":"Break","time_1":"11:30","timezone_1_label":"MOUNTAIN","time_2":"13:30","timezone_2_label":"EASTERN"},{"day_label":"Day 2","date":"October 12, 2025","activity":"Module 4: WGBS and analysis (Guillaume Bourque)","type":"Lecture","time_1":"12:30","timezone_1_label":"MOUNTAIN","time_2":"14:30","timezone_2_label":"EASTERN"},{"day_label":"Day 2","date":"October 12, 2025","activity":"Break","type":"Break","time_1":"13:30","timezone_1_label":"MOUNTAIN","time_2":"15:30","timezone_2_label":"EASTERN"},{"day_label":"Day 2","date":"October 12, 2025","activity":"Module 4: WGBS and analysis (Lab part 1 - Héctor Gálvez López)","type":"Lab","time_1":"14:00","timezone_1_label":"MOUNTAIN","time_2":"16:00","timezone_2_label":"EASTERN"},{"day_label":"Day 2","date":"October 12, 2025","activity":"End of Day 2","type":"other","time_1":"16:00","timezone_1_label":"MOUNTAIN","time_2":"18:00","timezone_2_label":"EASTERN"},{"day_label":"Day 2","date":"October 12, 2025","activity":"Virtual Social","type":"Social","time_1":"16:00","timezone_1_label":"MOUNTAIN","time_2":"18:00","timezone_2_label":"EASTERN"},{"day_label":"Day 3","date":"October 13, 2025","activity":"Virtual Arrivals","type":"other","time_1":"7:45","timezone_1_label":"MOUNTAIN","time_2":"9:45","timezone_2_label":"EASTERN"},{"day_label":"Day 3","date":"October 13, 2025","activity":"Module 4: WGBS and analysis (Lab part 2 - Héctor Gálvez López)","type":"Lab","time_1":"8:00","timezone_1_label":"MOUNTAIN","time_2":"10:00","timezone_2_label":"EASTERN"},{"day_label":"Day 3","date":"October 13, 2025","activity":"Break","type":"Break","time_1":"10:00","timezone_1_label":"MOUNTAIN","time_2":"12:00","timezone_2_label":"EASTERN"},{"day_label":"Day 3","date":"October 13, 2025","activity":"Module 5: Downstream Analysis and Online Tools (David Bujold)","type":"Lecture","time_1":"10:30","timezone_1_label":"MOUNTAIN","time_2":"12:30","timezone_2_label":"EASTERN"},{"day_label":"Day 3","date":"October 13, 2025","activity":"Break + Class Photo","type":"Break","time_1":"11:30","timezone_1_label":"MOUNTAIN","time_2":"13:30","timezone_2_label":"EASTERN"},{"day_label":"Day 3","date":"October 13, 2025","activity":"Module 5 - Downstream Analysis and Online Tools (Lab part 1 - David Bujold)","type":"Lab","time_1":"12:30","timezone_1_label":"MOUNTAIN","time_2":"14:30","timezone_2_label":"EASTERN"},{"day_label":"Day 3","date":"October 13, 2025","activity":"Break","type":"Break","time_1":"14:30","timezone_1_label":"MOUNTAIN","time_2":"16:30","timezone_2_label":"EASTERN"},{"day_label":"Day 3","date":"October 13, 2025","activity":"Module 5 - Downstream Analysis and Online Tools (Lab part 2 - David Bujold)","type":"Lab","time_1":"15:00","timezone_1_label":"MOUNTAIN","time_2":"17:00","timezone_2_label":"EASTERN"},{"day_label":"Day 3","date":"October 13, 2025","activity":"Survey & Closing Remarks","type":"other","time_1":"16:00","timezone_1_label":"MOUNTAIN","time_2":"18:00","timezone_2_label":"EASTERN"},{"day_label":"Day 3","date":"October 13, 2025","activity":"End of Day 3","type":"other","time_1":"16:30","timezone_1_label":"MOUNTAIN","time_2":"18:30","timezone_2_label":"EASTERN"}];
+      const tabsContainer = document.getElementById("schedule-tabs-container");
+      const panelsContainer = document.getElementById("schedule-panels-container");
+
+      if (scheduleData.length === 0) return;
+
+      const timezones = [];
+      const firstRow = scheduleData[0];
+      for (const key in firstRow) {
+        if (key.match(/timezone_\d+_label/)) {
+          const index = key.match(/\d+/)[0];
+          timezones.push({ index: index, label: firstRow[key] });
+        }
+      }
+      const days = [...new Set(scheduleData.map(row => row.day_label))];
+      
+      const tabsWrapper = document.createElement("div");
+      tabsWrapper.className = "schedule-tabs-wrapper";
+      const tabButtonsContainer = document.createElement("div");
+      tabButtonsContainer.className = "schedule-tab-buttons";
+      tabsWrapper.appendChild(tabButtonsContainer);
+      tabsContainer.appendChild(tabsWrapper);
+
+      days.forEach((day, dayIndex) => {
+        const tab = document.createElement("div");
+        tab.className = "schedule-tab";
+        tab.dataset.target = `panel-${dayIndex}`;
+        tab.textContent = day;
+        tabButtonsContainer.appendChild(tab);
+      });
+
+      if (timezones.length > 1) {
+        const selectorContainer = document.createElement("div");
+        selectorContainer.className = "timezone-selector-container";
+        let selectorHtml = `<label for="tz-selector">Timezone</label>
+                            <select id="tz-selector">`;
+        timezones.forEach(tz => {
+          selectorHtml += `<option value="${tz.index}">${tz.label}</option>`;
+        });
+        selectorHtml += `</select>`;
+        selectorContainer.innerHTML = selectorHtml;
+        tabsContainer.appendChild(selectorContainer);
+      }
+      
+      const tzSelector = document.getElementById("tz-selector");
+
+      days.forEach((day, dayIndex) => {
+        panelsContainer.innerHTML += `<div class="schedule-panel" id="panel-${dayIndex}"></div>`;
+      });
+      
+      const tabs = document.querySelectorAll(".schedule-tab");
+      const panels = document.querySelectorAll(".schedule-panel");
+
+      function renderTables() {
+        const selectedTzIndex = tzSelector ? tzSelector.value : timezones[0].index;
+        const timeCol = `time_${selectedTzIndex}`;
+        let selectedTzLabel = tzSelector ? tzSelector.options[tzSelector.selectedIndex].text : timezones[0].label;
+        
+        panels.forEach((panel, dayIndex) => {
+          const day = days[dayIndex];
+          const dayEvents = scheduleData.filter(row => row.day_label === day);
+          let tableHtml = `<table class="schedule-table"><thead><tr>
+                               <th style="width:25%;">${selectedTzLabel}</th>
+                               <th>Activity</th>
+                               </tr></thead><tbody>`;
+          dayEvents.forEach(row => {
+            const type = row.type ? row.type.toLowerCase() : "";
+            let rowClass = "";
+
+            if (type === "break" || type === "pause") {
+              rowClass = "class='is-break'";
+            } else if (type === "other") {
+              rowClass = "class='is-other'";
+            }
+            
+            tableHtml += `<tr ${rowClass}><td>${row[timeCol] || ""}</td><td>${row.activity || ""}</td></tr>`;
+          });
+          tableHtml += `</tbody></table>`;
+          panel.innerHTML = tableHtml;
+        });
+      }
+
+      function switchTab(targetId) {
+        tabs.forEach(tab => tab.classList.remove("active"));
+        panels.forEach(panel => panel.classList.remove("active"));
+        
+        const activeTab = document.querySelector(`[data-target='${targetId}']`);
+        const activePanel = document.getElementById(targetId);
+        
+        if (activeTab) {
+          activeTab.classList.add("active");
+          activeTab.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+        }
+        if (activePanel) {
+          activePanel.classList.add("active");
+        }
+      }
+      
+      function updateScrollIndicators() {
+        const el = tabButtonsContainer;
+        const scrollLeft = Math.round(el.scrollLeft);
+        const scrollWidth = Math.round(el.scrollWidth);
+        const clientWidth = Math.round(el.clientWidth);
+        
+        const hasOverflow = scrollWidth > clientWidth;
+        tabsWrapper.classList.toggle("scrolled-left", hasOverflow && scrollLeft > 0);
+        const isAtEnd = scrollLeft >= scrollWidth - clientWidth;
+        tabsWrapper.classList.toggle("scrolled-right", hasOverflow && !isAtEnd);
+      }
+
+      tabButtonsContainer.addEventListener("click", e => {
+        if (e.target.classList.contains("schedule-tab")) {
+          switchTab(e.target.dataset.target);
+        }
+      });
+
+      if (tzSelector) {
+        tzSelector.addEventListener("change", renderTables);
+      }
+      
+      tabButtonsContainer.addEventListener("scroll", updateScrollIndicators, { passive: true });
+      window.addEventListener("resize", updateScrollIndicators);
+
+      renderTables();
+
+      // --- LOGIC TO ACTIVATE CURRENT DAY ---
+      let initialTabIndex = 0;
+
+      const today = new Date();
+      const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+      const monthName = monthNames[today.getMonth()];
+      const day = today.getDate();
+      const year = today.getFullYear();
+      const todayString = `${monthName} ${day}, ${year}`;
+
+      const todayEvent = scheduleData.find(row => row.date === todayString);
+
+      if (todayEvent) {
+        const dayIndex = days.findIndex(day => day === todayEvent.day_label);
+        if (dayIndex !== -1) {
+          initialTabIndex = dayIndex;
+        }
+      }
+
+      if (tabs.length > initialTabIndex) {
+        const initialTabId = `panel-${initialTabIndex}`;
+        switchTab(initialTabId);
+      }
+      // --- END OF CURRENT DAY LOGIC ---
+
+      setTimeout(updateScrollIndicators, 100);
+    });
+  </script>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="meet-your-faculty.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": false,
+    "twitter": false,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/bioinformaticsdotca/EPI_2023/blob/main/index.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["_main.pdf", "_main.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

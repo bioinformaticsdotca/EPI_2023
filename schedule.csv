@@ -1,0 +1,37 @@
+day_label,date,activity,type,time_1,timezone_1_label,time_2,timezone_2_label
+"Day 1","October 11, 2025","Virtual Arrivals","other","7:15","MOUNTAIN","9:15","EASTERN"
+"Day 1","October 11, 2025","Optional AWS connection review (Zhibin Lu)","other","7:30","MOUNTAIN","9:30","EASTERN"
+"Day 1","October 11, 2025","Welcome (Nia Hughes)","other","8:00","MOUNTAIN","10:00","EASTERN"
+"Day 1","October 11, 2025","Module 1: Introduction to ChIP sequencing and analysis (Martin Hirst)","Lecture","8:30","MOUNTAIN","10:30","EASTERN"
+"Day 1","October 11, 2025","Break","Break","9:30","MOUNTAIN","11:30","EASTERN"
+"Day 1","October 11, 2025","Module 1: Compute setup, file format and QC (Lab - Edmund Su)","Lab","10:00","MOUNTAIN","12:00","EASTERN"
+"Day 1","October 11, 2025","Break","Break","12:00","MOUNTAIN","14:00","EASTERN"
+"Day 1","October 11, 2025","Module 2: Alignment, Peak Calling and Visulization (Martin Hirst)","Lecture","13:00","MOUNTAIN","15:00","EASTERN"
+"Day 1","October 11, 2025","Break","Break","14:00","MOUNTAIN","16:00","EASTERN"
+"Day 1","October 11, 2025","Module 2: Alignment, Peak Calling and Visulization (Lab - Edmund Su)","Lab","14:30","MOUNTAIN","16:30","EASTERN"
+"Day 1","October 11, 2025","End of Day 1","other","16:30","MOUNTAIN","18:30","EASTERN"
+
+"Day 2","October 12, 2025","Virtual Arrivals","other","7:45","MOUNTAIN","9:45","EASTERN"
+"Day 2","October 12, 2025","Module 3: ChIP-seq Differential Analysis (Edmund Su)","Lecture","8:00","MOUNTAIN","10:00","EASTERN"
+"Day 2","October 12, 2025","Break","Break","9:00","MOUNTAIN","11:00","EASTERN"
+"Day 2","October 12, 2025","Module 3: ChIP-seq Differential Analysis (Lab - Edmund Su)","Lab","9:30","MOUNTAIN","11:30","EASTERN"
+"Day 2","October 12, 2025","Break","Break","11:30","MOUNTAIN","13:30","EASTERN"
+"Day 2","October 12, 2025","Module 4: WGBS and analysis (Guillaume Bourque)","Lecture","12:30","MOUNTAIN","14:30","EASTERN"
+"Day 2","October 12, 2025","Break","Break","13:30","MOUNTAIN","15:30","EASTERN"
+"Day 2","October 12, 2025","Module 4: WGBS and analysis (Lab part 1 - Héctor Gálvez López)","Lab","14:00","MOUNTAIN","16:00","EASTERN"
+"Day 2","October 12, 2025","End of Day 2","other","16:00","MOUNTAIN","18:00","EASTERN"
+"Day 2","October 12, 2025","Virtual Social","Social","16:00","MOUNTAIN","18:00","EASTERN"
+
+"Day 3","October 13, 2025","Virtual Arrivals","other","7:45","MOUNTAIN","9:45","EASTERN"
+"Day 3","October 13, 2025","Module 4: WGBS and analysis (Lab part 2 - Héctor Gálvez López)","Lab","8:00","MOUNTAIN","10:00","EASTERN"
+"Day 3","October 13, 2025","Break","Break","10:00","MOUNTAIN","12:00","EASTERN"
+"Day 3","October 13, 2025","Module 5: Downstream Analysis and Online Tools (David Bujold)","Lecture","10:30","MOUNTAIN","12:30","EASTERN"
+"Day 3","October 13, 2025","Break + Class Photo","Break","11:30","MOUNTAIN","13:30","EASTERN"
+"Day 3","October 13, 2025","Module 5 - Downstream Analysis and Online Tools (Lab part 1 - David Bujold)","Lab","12:30","MOUNTAIN","14:30","EASTERN"
+"Day 3","October 13, 2025","Break","Break","14:30","MOUNTAIN","16:30","EASTERN"
+"Day 3","October 13, 2025","Module 5 - Downstream Analysis and Online Tools (Lab part 2 - David Bujold)","Lab","15:00","MOUNTAIN","17:00","EASTERN"
+"Day 3","October 13, 2025","Survey & Closing Remarks","other","16:00","MOUNTAIN","18:00","EASTERN"
+"Day 3","October 13, 2025","End of Day 3","other","16:30","MOUNTAIN","18:30","EASTERN"
+
+
+

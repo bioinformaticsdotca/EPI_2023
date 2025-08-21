@@ -1,0 +1,104 @@
+# Data and Compute Setup
+
+#### Course data downloads
+
+:::: {.callout type="blue" title="Note"}
+
+Some of these files are quite large. If you have issues downloading them, contact us at support@bioinformatics.ca.
+
+::::
+
+- [Module 123]()
+- [Module 4]()
+
+#### Compute setup
+
+##### AWS Module
+
+Connecting and properly using a cloud computing cluster at the CBW [here](https://bioinformaticsdotca.github.io/AWS_EPI23)
+
+##### AMI
+
+We have made our AWS AMI (Amazon Machine Image) publicly available. To launch your own instance, follow the instructions provided by Amazon on [how to launch an EC2 instance from a custom Amazon Machine Image](https://repost.aws/knowledge-center/launch-instance-custom-ami). Please note that you will need an AWS account to proceed, and that you will need to upload the CourseData files yourself.
+
+Here are the details of the AMI:
+
+- AWS Region: us-east-1 (N. Virgina)
+- AMI type: public image
+- AMI name: CBW_EPI_231005
+- AMI ID: ami-0ae28d3f8e57ba8cf
+
+If you want to create and activate a new AWS account, please follow the [instructions](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/) provided by Amazon.
+
+##### Software
+
+###### conda
+Install Miniconda by following the instructoion at [Miniconda official site](https://docs.conda.io/en/main/miniconda.html)
+
+###### bedtools
+```{}
+wget https://github.com/arq5x/bedtools2/releases/download/v2.30.0/bedtools.static.binary
+mv bedtools.static.binary bedtools
+chmod +x bedtools
+```
+
+###### bwa
+```{}
+wget https://newcontinuum.dl.sourceforge.net/project/bio-bwa/bwa-0.7.17.tar.bz2
+tar -jxvf bwa-0.7.17.tar.bz2
+cd bwa-0.7.17/
+```
+
+###### make
+```{}
+#### FastQC
+wget https://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.12.1.zip
+unzip fastqc_v0.12.1.zip
+```
+
+###### samtools
+```{}
+wget https://github.com/samtools/samtools/releases/download/1.17/samtools-1.17.tar.bz2
+tar -jxvf samtools-1.17.tar.bz2
+cd samtools-1.17
+make
+sudo make install
+```
+
+###### picard
+```{}
+wget https://github.com/broadinstitute/picard/releases/download/3.1.0/picard.jar
+```
+
+###### deeptools
+```{}
+pip install deeptools
+```
+
+###### MACS2
+```{}
+pip install MACS2
+```
+
+###### Homer
+```{}
+wget http://homer.ucsd.edu/homer/configureHomer.pl
+perl ./configureHomer.pl -install
+perl ./configureHomer.pl -install hg19
+perl ./configureHomer.pl -install hg38
+```
+
+###### UCSC tools'
+```{}
+rsync -aP hgdownload.soe.ucsc.edu::genome/admin/exe/linux.x86_64/ ./
+```
+
+###### Biamark
+```{}
+wget https://github.com/FelixKrueger/Bismark/archive/refs/tags/v0.24.2.tar.gz
+tar -zxf v0.24.2.tar.gz
+```
+
+
+
+

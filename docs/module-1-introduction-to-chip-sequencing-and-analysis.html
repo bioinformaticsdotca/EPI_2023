@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Module 1: Introduction to ChIP Sequencing and Analysis | Epigenomic Analysis 2023</title>
+  <meta name="description" content="Workshop website for the {{YEAR}} {{WORKSHOP_NAME}} Canadian Bioinformatics Workshop" />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Module 1: Introduction to ChIP Sequencing and Analysis | Epigenomic Analysis 2023" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://bioinformaticsdotca.github.io/EPI_2023/img/bioinformatics_logo.png" />
+  <meta property="og:description" content="Workshop website for the {{YEAR}} {{WORKSHOP_NAME}} Canadian Bioinformatics Workshop" />
+  <meta name="github-repo" content="bioinformaticsdotca/EPI_2023" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Module 1: Introduction to ChIP Sequencing and Analysis | Epigenomic Analysis 2023" />
+  
+  <meta name="twitter:description" content="Workshop website for the {{YEAR}} {{WORKSHOP_NAME}} Canadian Bioinformatics Workshop" />
+  <meta name="twitter:image" content="https://bioinformaticsdotca.github.io/EPI_2023/img/bioinformatics_logo.png" />
+
+<meta name="author" content="Faculty: Guillaume Bourque, Martin Hirst, David Bujold, Jose Hector Galvez, Edmund Su, Mareike Janiak, Michelle Brazas, Nia Hughes, and Zhibin Lu" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+<link rel="prev" href="data-and-compute-setup.html"/>
+<link rel="next" href="module-2-alignment-peak-calling-and-visualization.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "name": "{{WORKSHOP_NAME}}",
+  "description": "The complete set of tutorials, slides, and practical exercises for the {{WORKSHOP_NAME}} {{YEAR}} Canadian Bioinformatics Workshop, hosted on GitHub Pages.",
+  "url": "https://bioinformaticsdotca.github.io/{{WORKSHOP_CODE}}",
+  "learningResourceType": ["tutorial", "slides", "exercise"],
+  "inLanguage": "en",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "provider": {
+    "@type": "Organization",
+    "name": "Bioinformatics.ca",
+    "url": "https://bioinformatics.ca"
+  },
+  "keywords": "",
+  "isPartOf": {
+    "@type": "Course",
+    "@id": "{{URL}}"
+  }
+}
+</script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<a href="https://bioinformaticsdotca.github.io/">
+ <img src="img/bioinformatics_logo.png" width="90%" alt="bioinformatics.ca logo" style="display:block; margin-left:auto; margin-right:auto; margin-top:15px;">
+ </a>
+<li><center><strong><a href="./"><br>Epigenomic Analysis<br><br></a></strong></center></li>
+<a href="./">
+ <img src="img/CBW_Epigenome-data_icon.png" width="70%" alt="Epigenomic Analysis logo" style="display:block; margin-left:auto; margin-right:auto; ">
+ </a>
+<br>
+
+<li class="divider"></li>
+<li class="part"><span><b>I Introduction</b></span></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Workshop Info</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#pre-work"><i class="fa fa-check"></i>Pre-work</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#class-photo"><i class="fa fa-check"></i>Class Photo</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#schedule"><i class="fa fa-check"></i>Schedule</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="meet-your-faculty.html"><a href="meet-your-faculty.html"><i class="fa fa-check"></i>Meet Your Faculty</a></li>
+<li class="chapter" data-level="" data-path="data-and-compute-setup.html"><a href="data-and-compute-setup.html"><i class="fa fa-check"></i>Data and Compute Setup</a></li>
+<li class="part"><span><b>II Modules</b></span></li>
+<li class="chapter" data-level="" data-path="module-1-introduction-to-chip-sequencing-and-analysis.html"><a href="module-1-introduction-to-chip-sequencing-and-analysis.html"><i class="fa fa-check"></i>Module 1: Introduction to ChIP Sequencing and Analysis</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-1-introduction-to-chip-sequencing-and-analysis.html"><a href="module-1-introduction-to-chip-sequencing-and-analysis.html#lecture"><i class="fa fa-check"></i>Lecture</a></li>
+<li class="chapter" data-level="" data-path="module-1-introduction-to-chip-sequencing-and-analysis.html"><a href="module-1-introduction-to-chip-sequencing-and-analysis.html#lab"><i class="fa fa-check"></i>Lab</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-1-introduction-to-chip-sequencing-and-analysis.html"><a href="module-1-introduction-to-chip-sequencing-and-analysis.html#breakdown-of-markdown-file"><i class="fa fa-check"></i>Breakdown of Markdown File</a></li>
+<li class="chapter" data-level="" data-path="module-1-introduction-to-chip-sequencing-and-analysis.html"><a href="module-1-introduction-to-chip-sequencing-and-analysis.html#module-1.-alignment"><i class="fa fa-check"></i>Module 1. Alignment</a></li>
+<li class="chapter" data-level="" data-path="module-1-introduction-to-chip-sequencing-and-analysis.html"><a href="module-1-introduction-to-chip-sequencing-and-analysis.html#server-resources"><i class="fa fa-check"></i>Server resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-2-alignment-peak-calling-and-visualization.html"><a href="module-2-alignment-peak-calling-and-visualization.html"><i class="fa fa-check"></i>Module 2: Alignment, Peak Calling, and Visualization</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-2-alignment-peak-calling-and-visualization.html"><a href="module-2-alignment-peak-calling-and-visualization.html#lecture-1"><i class="fa fa-check"></i>Lecture</a></li>
+<li class="chapter" data-level="" data-path="module-2-alignment-peak-calling-and-visualization.html"><a href="module-2-alignment-peak-calling-and-visualization.html#lab-1"><i class="fa fa-check"></i>Lab</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-2-alignment-peak-calling-and-visualization.html"><a href="module-2-alignment-peak-calling-and-visualization.html#breakdown-of-markdown-file-1"><i class="fa fa-check"></i>Breakdown of Markdown File</a></li>
+<li class="chapter" data-level="" data-path="module-2-alignment-peak-calling-and-visualization.html"><a href="module-2-alignment-peak-calling-and-visualization.html#module-2.-peak-calling"><i class="fa fa-check"></i>Module 2. Peak Calling</a></li>
+<li class="chapter" data-level="" data-path="module-2-alignment-peak-calling-and-visualization.html"><a href="module-2-alignment-peak-calling-and-visualization.html#server-resources-1"><i class="fa fa-check"></i>Server resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-3-chip-seq-differential-analysis.html"><a href="module-3-chip-seq-differential-analysis.html"><i class="fa fa-check"></i>Module 3: ChIP-seq Differential Analysis</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-3-chip-seq-differential-analysis.html"><a href="module-3-chip-seq-differential-analysis.html#lecture-2"><i class="fa fa-check"></i>Lecture</a></li>
+<li class="chapter" data-level="" data-path="module-3-chip-seq-differential-analysis.html"><a href="module-3-chip-seq-differential-analysis.html#lab-2"><i class="fa fa-check"></i>Lab</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-3-chip-seq-differential-analysis.html"><a href="module-3-chip-seq-differential-analysis.html#breakdown-of-markdown-file-2"><i class="fa fa-check"></i>Breakdown of markdown file</a></li>
+<li class="chapter" data-level="" data-path="module-3-chip-seq-differential-analysis.html"><a href="module-3-chip-seq-differential-analysis.html#module-3---differential-analysis"><i class="fa fa-check"></i>Module 3 - Differential Analysis</a></li>
+<li class="chapter" data-level="" data-path="module-3-chip-seq-differential-analysis.html"><a href="module-3-chip-seq-differential-analysis.html#server-resources-2"><i class="fa fa-check"></i>Server resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-4-whole-genome-bisulfite-sequencing-and-analysis.html"><a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html"><i class="fa fa-check"></i>Module 4: Whole-Genome Bisulfite Sequencing and Analysis</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-4-whole-genome-bisulfite-sequencing-and-analysis.html"><a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#lecture-3"><i class="fa fa-check"></i>Lecture</a></li>
+<li class="chapter" data-level="" data-path="module-4-whole-genome-bisulfite-sequencing-and-analysis.html"><a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#lab-3"><i class="fa fa-check"></i>Lab</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-4-whole-genome-bisulfite-sequencing-and-analysis.html"><a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#introduction"><i class="fa fa-check"></i>1. Introduction</a></li>
+<li class="chapter" data-level="" data-path="module-4-whole-genome-bisulfite-sequencing-and-analysis.html"><a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#mapping-tutorial"><i class="fa fa-check"></i>2. Mapping Tutorial</a></li>
+<li class="chapter" data-level="" data-path="module-4-whole-genome-bisulfite-sequencing-and-analysis.html"><a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#differential-methylation-analysis-in-methylkit"><i class="fa fa-check"></i>3. Differential Methylation Analysis in MethylKit</a></li>
+<li class="chapter" data-level="" data-path="module-4-whole-genome-bisulfite-sequencing-and-analysis.html"><a href="module-4-whole-genome-bisulfite-sequencing-and-analysis.html#differential-methylation-analysis-in-dss"><i class="fa fa-check"></i>4. Differential Methylation Analysis in DSS</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-5-downstream-analysis-and-online-tools.html"><a href="module-5-downstream-analysis-and-online-tools.html"><i class="fa fa-check"></i>Module 5: Downstream Analysis and Online Tools</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-5-downstream-analysis-and-online-tools.html"><a href="module-5-downstream-analysis-and-online-tools.html#lecture-4"><i class="fa fa-check"></i>Lecture</a></li>
+<li class="chapter" data-level="" data-path="module-5-downstream-analysis-and-online-tools.html"><a href="module-5-downstream-analysis-and-online-tools.html#lab-4"><i class="fa fa-check"></i>Lab</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-5-downstream-analysis-and-online-tools.html"><a href="module-5-downstream-analysis-and-online-tools.html#introduction-1"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="module-5-downstream-analysis-and-online-tools.html"><a href="module-5-downstream-analysis-and-online-tools.html#ihec-data-portal"><i class="fa fa-check"></i>IHEC Data Portal</a></li>
+<li class="chapter" data-level="" data-path="module-5-downstream-analysis-and-online-tools.html"><a href="module-5-downstream-analysis-and-online-tools.html#predicting-motifs-with-homer"><i class="fa fa-check"></i>Predicting Motifs with HOMER</a></li>
+<li class="chapter" data-level="" data-path="module-5-downstream-analysis-and-online-tools.html"><a href="module-5-downstream-analysis-and-online-tools.html#looking-for-go-terms-enrichment-with-great"><i class="fa fa-check"></i>Looking for GO Terms Enrichment with GREAT</a></li>
+<li class="chapter" data-level="" data-path="module-5-downstream-analysis-and-online-tools.html"><a href="module-5-downstream-analysis-and-online-tools.html#going-back-to-homer-results"><i class="fa fa-check"></i>Going back to HOMER Results</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<h1 id="sponsors">Sponsors</h1>
+<center>
+<<a href="https://genomecanada.ca/"><img src="img/sponsors/genomecanada.png" height="70" style="display:inline-block;"  style="padding-bottom: 20px" alt="Genome Canada logo.">
+<a href="https://www.ontariogenomics.ca/"><img src="img/sponsors/ontariogenomics.png" height="70" style="display:inline-block;" style="padding-bottom: 20px;" alt="Ontario Genomics logo.">
+<br><br>
+<a href="https://oicr.on.ca/"><img src="img/sponsors/oicr.png" width=25% style="display:inline-block;" style="padding-bottom: 20px" alt="Ontario Institute for Cancer Research logo.">
+<a href="https://www.hpcforhealth.ca/"><img src="img/sponsors/hpc4health.png" width=60% style="display:inline-block;" style="padding-bottom: 20px "alt="HPC4Health logo.">
+<br><br>
+<a href="https://computationalgenomics.ca/"><img src="img/sponsors/c3g_Web.png" style="display:inline-block;" width=35% style="padding-bottom: 20px" alt="Canadian Centre for Computational Genomcis logo.">
+
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li></center>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Epigenomic Analysis 2023</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="module-1-introduction-to-chip-sequencing-and-analysis" class="section level1 hasAnchor">
+<h1>Module 1: Introduction to ChIP Sequencing and Analysis<a href="module-1-introduction-to-chip-sequencing-and-analysis.html#module-1-introduction-to-chip-sequencing-and-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="lecture" class="section level2 hasAnchor">
+<h2>Lecture<a href="module-1-introduction-to-chip-sequencing-and-analysis.html#lecture" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<iframe width="640" height="360" src="https://www.youtube.com/embed/HOfFxHTb0d4?si=59N3PwijLQ-Pjo23" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+</iframe>
+<p><br></p>
+<iframe src="https://drive.google.com/file/d/1lq501UsIZ5acqfNa0ixTQ7-IGAvw1gGN/preview" width="640" height="480" allow="autoplay">
+</iframe>
+</div>
+<div id="lab" class="section level2 hasAnchor">
+<h2>Lab<a href="module-1-introduction-to-chip-sequencing-and-analysis.html#lab" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="breakdown-of-markdown-file" class="section level3 hasAnchor">
+<h3>Breakdown of Markdown File<a href="module-1-introduction-to-chip-sequencing-and-analysis.html#breakdown-of-markdown-file" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>At the start of each step, the intention will declare.</li>
+<li>This is then follow by a code block</li>
+</ul>
+<p><strong>Code:</strong></p>
+<pre><code>Like this! This is the main code to run for the step.
+
+Additionally the code block will include a header to indicate what environment to the run code for example:
+###Shell###
+pwd
+
+###R###
+getwd()</code></pre>
+<ul>
+<li>Explaining for commands will be broken down following code block</li>
+<li><code>pwd</code> &amp; <code>getwd()</code>
+<ul>
+<li>See your work directory</li>
+</ul></li>
+<li>Sprinkled throughout will also include comments</li>
+</ul>
+<div class="callout-blue">
+<span class="callout-icon"><i class="fas fa-circle-info" aria-hidden="true"></i></span>
+<div class="callout-content">
+<div class="callout-title-static">
+<p>Note</p>
+</div>
+<p>Important points and considerations will also be raised as so.</p>
+</div>
+</div>
+</div>
+<div id="module-1.-alignment" class="section level3 hasAnchor">
+<h3>Module 1. Alignment<a href="module-1-introduction-to-chip-sequencing-and-analysis.html#module-1.-alignment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="step-1-setup" class="section level4 hasAnchor">
+<h4>Step 1: Setup<a href="module-1-introduction-to-chip-sequencing-and-analysis.html#step-1-setup" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>It’s always good practice to organize your directories beforehand</li>
+<li>This avoids file conflicts and accidental data loss.</li>
+<li>We’ll be making a subdirectory for each major step.</li>
+</ul>
+<p><strong>Code:</strong></p>
+<pre><code>###Shell###
+mkdir -p ~/workspace/module123/BWA_index
+mkdir -p ~/workspace/module123/alignments
+mkdir -p ~/workspace/module123/fastqc
+mkdir -p ~/workspace/module123/stats
+mkdir -p ~/workspace/module123/peaks
+mkdir -p ~/workspace/module123/bigBed
+mkdir -p ~/workspace/module123/bigWig
+mkdir -p ~/workspace/module123/resources
+mkdir -p ~/workspace/module123/diffBind
+mkdir -p ~/workspace/module123/edgeR
+mkdir -p ~/workspace/module123/qc</code></pre>
+<ul>
+<li><code>mkdir -p ~/workspace/module123/BWA_index</code>
+<ul>
+<li><code>mkdir</code> creates a directory</li>
+<li><code>-p</code> creates the “parent” if the initial parent directory did not exist</li>
+<li>how could we simplfy the command?</li>
+<li><code>mkdir -p ~/workspace/module123/{BWA_index,alignments,fastqc,stats,peaks,bigBed,bigWig,resources,diffBind,edgeR,qc}</code></li>
+</ul></li>
+</ul>
+</div>
+<div id="step-2a-retrieve-a-reference-genome" class="section level4 hasAnchor">
+<h4>Step 2A: Retrieve a reference genome<a href="module-1-introduction-to-chip-sequencing-and-analysis.html#step-2a-retrieve-a-reference-genome" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>We’ll need a reference genome to align our sequences to.</li>
+<li>A great resource is <a href="https://hgdownload.soe.ucsc.edu/downloads.html">UCSC’s genome repository</a> containing latest <code>Hg38</code> and older <code>hg19</code> human genome.</li>
+<li>For our tutorial, we’ll be working <code>chr19</code> of <code>Hg38</code>/<code>Grch38</code>. This is to speed demonstration purposes.</li>
+</ul>
+<p><strong>Code:</strong></p>
+<pre><code>###Shell###
+wget https://hgdownload.soe.ucsc.edu/goldenPath/hg38/chromosomes/chr19.fa.gz -O ~/workspace/module123/BWA_index/chr19.fa.gz
+gunzip ~/workspace/module123/BWA_index/chr19.fa.gz -c &gt; ~/workspace/module123/BWA_index/chr19.fa</code></pre>
+<ul>
+<li><p>Runtime : &lt;1 minute</p></li>
+<li><p><code>wget https://hgdownload.soe.ucsc.edu/goldenPath/hg38/chromosomes/chr19.fa.gz -O ~/workspace/module123/BWA_index/chr19.fa.gz</code></p>
+<ul>
+<li><code>Wget</code> is a command to pull online files.</li>
+<li>We’re instructing it to pull <code>chr19.fa.gz</code> from the example address.</li>
+<li><code>-O ~/workspace/module123/BWA_index/chr19.fa.gz</code> instructs where and what we would like to save our file as.</li>
+<li><em>What were to happen if we ran the command without <code>-O</code>?</em></li>
+<li>Not all systems carry/support <code>wget</code>, <code>Curl</code> is another useful alternative.</li>
+</ul></li>
+<li><p><code>gunzip ~/workspace/module123/BWA_index/chr19.fa.gz -c &gt; ~/workspace/module123/BWA_index/chr19.fa</code></p>
+<ul>
+<li><code>gzip</code> is a data compression format useful for reducing storage impacts</li>
+<li><code>gunzip</code> is the opposite decompresses <code>gzipped</code> data</li>
+<li><code>-c</code> is a STDOUT redirect. Normally running <code>gunzip file.gz</code> will turn <code>file.tsv.gz</code> into <code>file.tsv</code>. Running <code>-c</code> allows us to save the contents elsewhere. We do this we can compare the size difference.</li>
+<li>compare <code>ls ~/workspace/module123/BWA_index/chr19.fa.gz -ilth</code> vs <code>ls ~/workspace/module123/BWA_index/chr19.fa -ilth</code> and <em>note the size difference</em></li>
+</ul></li>
+</ul>
+<div class="callout-blue">
+<span class="callout-icon"><i class="fas fa-circle-info" aria-hidden="true"></i></span>
+<div class="callout-content">
+<div class="callout-title-static">
+<p>Note</p>
+</div>
+<p>Prior to any tool usage, it’s good practice to explore the tool by invoking the help command. This may vary depending on tool. This is important as the same <code>-O</code> flag could have differing functions in different tools.</p>
+</div>
+</div>
+</div>
+<div id="step-2b-index-the-genome" class="section level4 hasAnchor">
+<h4>Step 2B: Index the genome<a href="module-1-introduction-to-chip-sequencing-and-analysis.html#step-2b-index-the-genome" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>Ready the genome fasta file by creating databases allowing tools to quickly access different parts of the file</li>
+<li>Indexing is only required once per genome.</li>
+<li>That being said, because there are different versions of <code>Hg38</code>/<code>GRCh38</code> (such as those with or <a href="https://gatk.broadinstitute.org/hc/en-us/articles/360035890951-Human-genome-reference-builds-GRCh38-or-hg38-b37-hg19">without ALT contigs and EBV</a>) each version would need their own indices.</li>
+<li>Additionally index files are typically program/tool specific.</li>
+<li>Consortias will also have available the reference genome and related resources. E.g. <a href="https://ewels.github.io/AWS-iGenomes/" class="uri">https://ewels.github.io/AWS-iGenomes/</a></li>
+</ul>
+<div class="callout-blue">
+<span class="callout-icon"><i class="fas fa-circle-info" aria-hidden="true"></i></span>
+<div class="callout-content">
+<div class="callout-title-static">
+<p>Note</p>
+</div>
+<p><a href="https://github.com/bwa-mem2/bwa-mem2">A newer version of BWA-mem</a> does exist, however we’ll be using the older version due to a bug that requires significant memory for indexing.</p>
+</div>
+</div>
+<p><strong>Code:</strong></p>
+<pre><code>###Shell###
+mkdir -p ~/workspace/module123/BWA_index
+bwa index ~/workspace/module123/BWA_index/chr19.fa &gt; ~/workspace/module123/BWA_index/index.log</code></pre>
+<ul>
+<li>Runtime : &lt;1 minute</li>
+<li><code>bwa index ~/workspace/module123/BWA_index/chr19.fa</code>
+<ul>
+<li>Indexing step creates a database to enable quick retrieve of sequences</li>
+<li>take a look inside your folder <code>ls ~/workspace/module123/BWA_index/</code></li>
+<li>For the lab, we’re utilizing <a href="https://bio-bwa.sourceforge.net/bwa.shtml">BWA</a> for alignment.
+### Step 3A: FastQC and interpretation</li>
+</ul></li>
+<li>Checking the quality of your FASTQs is sanity check step (garbage in garbage out)</li>
+</ul>
+<p><strong>Code:</strong></p>
+<pre><code>###Shell###
+fastq_input=~/CourseData/EPI_data/module123/fastq/MCF10A.Input.chr19.R1.fastq.gz
+fastq_h3k4me3=~/CourseData/EPI_data/module123/fastq/MCF10A.H3K4me3.chr19.R1.fastq.gz
+mkdir -p ~/workspace/module123/fastqc
+fastqc -t 8 ${fastq_input} -o ~/workspace/module123/fastqc &gt; ~/workspace/module123/fastqc/input.log 2&gt;&amp;1
+fastqc -t 8 ${fastq_h3k4me3} -o ~/workspace/module123/fastqc &gt; ~/workspace/module123/fastqc/h3k4me3.log 2&gt;&amp;1</code></pre>
+<ul>
+<li><code>fastqc</code>
+<ul>
+<li><code>-t 8</code> specifies the number of threads we want to program to utilize</li>
+<li><code>-o</code> specifies our output directory
+### Step 3A: FastQC and interpretation</li>
+</ul></li>
+<li>Let’s take a look at our FASTQC results and compare</li>
+</ul>
+<p><strong>Code:</strong></p>
+<pre><code>###Browser###
+http://main.uhn-hpc.ca/module123/fastqc/MCF10A.Input.chr19.R1_fastqc.html
+http://main.uhn-hpc.ca/module123/fastqc/MCF10A.H3K4me3.chr19.R1_fastqc.html</code></pre>
+<div class="callout-blue">
+<span class="callout-icon"><i class="fas fa-circle-info" aria-hidden="true"></i></span>
+<div class="callout-content">
+<div class="callout-title-static">
+<p>Note</p>
+</div>
+<p>The URLs link to the TA’s instance, make sure to replace the domain with your own.</p>
+</div>
+</div>
+<ul>
+<li>Observe the summary report, note the warnings and errors.</li>
+<li>we can also look at reports at <a href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/" class="uri">https://www.bioinformatics.babraham.ac.uk/projects/fastqc/</a></li>
+<li><code>Per base sequence quality</code>
+<ul>
+<li>a representation of quality across all reads where the ideal is average,median,25th and 75th resides within the green good quality space</li>
+<li>X-axis is the BP position in your read</li>
+<li>Y-axis is the base quality score</li>
+<li>yellow boxes represent 25th and 75th percentiles</li>
+<li>whiskers represent 10th and 90th percentiles</li>
+<li>read line represents median</li>
+<li>blue line represents average</li>
+<li>For illumina reads, the first couple of bases tend to be poor, quality normalizes for majority of the read and slowly worsens approaching end of read</li>
+<li>possible remedies are to trim reads</li>
+</ul></li>
+<li><code>Per tile sequence quality</code>
+<ul>
+<li>a representation of quality by tile <a href="https://gtk-teaching.github.io/NGS-intro/fig/hiseq-flow-cell.png">(a discrete subdivision with the lane of a flowcell)</a> where heat is bad</li>
+<li>would indicate an issue with the flowcell</li>
+</ul></li>
+<li><code>Per sequence quality score</code>
+<ul>
+<li>a distribution of mean read quality score where the peak and body should be as far right as possible</li>
+</ul></li>
+<li><code>Per base sequence content</code>
+<ul>
+<li>The % of AGCT across reads according to read position</li>
+<li>generally expect an equal/even except for the first couple of base pairs (due to sequencing calibration)</li>
+<li>Certain assays would change this for example : Bisulphite-Sequencing (unmethylated Cs become Us) or amplicon-sequencing (fixed ratios)</li>
+<li>look at H3K4me3, why is it so high in GC? Promoters!</li>
+</ul></li>
+<li><code>Per sequence GC content</code>
+<ul>
+<li>a distrubtion of reads’ GC content, where warning or failures are issued based on deviation of 15% or 30%</li>
+<li>A shift in distribution could mean sequencing bias or contamination</li>
+</ul></li>
+<li><code>Per base N content</code>
+<ul>
+<li>B/C <code>N</code>s are low confidence calls by the sequencer, we expect very few instances</li>
+</ul></li>
+<li><code>Sequence Length Distribution</code>
+<ul>
+<li>With Illumina sequencing, expect uniform distribution</li>
+</ul></li>
+<li><code>Sequence duplication levels</code>
+<ul>
+<li>Using the first 200,000 to find duplicates: expect most reads to unique (left side), spikes otherwise indicate contamination or PCR artifacts</li>
+</ul></li>
+<li><code>Overrepresented sequences</code>
+<ul>
+<li>a table breakdown of the sequences found above in <code>Sequence duplication levels</code></li>
+</ul></li>
+<li><code>Adapter Content</code>
+<ul>
+<li>detects if commonly used adapters remain in read sequence</li>
+</ul></li>
+</ul>
+</div>
+<div id="step-4-alignment" class="section level4 hasAnchor">
+<h4>Step 4: Alignment<a href="module-1-introduction-to-chip-sequencing-and-analysis.html#step-4-alignment" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>Mapping the read pairs to a position of the reference genome</li>
+</ul>
+<p><strong>Code:</strong></p>
+<pre><code>###Shell###
+ref=~/workspace/module123/BWA_index/chr19.fa
+read1=~/CourseData/EPI_data/module123/fastq/MCF10A.Input.chr19.R1.fastq.gz
+read2=~/CourseData/EPI_data/module123/fastq/MCF10A.Input.chr19.R2.fastq.gz
+sample=MCF10A_input_chr19
+bwa mem -M -t 4 ${ref} ${read1} ${read2} 2&gt;~/workspace/module123/alignments/${sample}.alignment.log | samtools view -hbS -o ~/workspace/module123/alignments/${sample}.bam</code></pre>
+<ul>
+<li><p>run time ~2 min</p></li>
+<li><p>The command can be broken down into the following pseudo code <code>ALIGNMENT | SAMtoBAM_conversion</code>. The <code>|</code> operate streams the results from the first command into the second.</p></li>
+<li><p><code>bwa mem -M -t 4 ${ref} ${read1} ${read2} 2&gt;~/workspace/module123/alignments/alignment.log</code></p>
+<ul>
+<li><ul>
+<li><code>|</code> the pipe delimiter passes the results to the next step <code>ACTION A | ACTION B | ACTION C</code> (like an assembly line)</li>
+</ul></li>
+<li><code>bwa mem</code> while BWA has many alignment algorithms, <code>mem</code> is best suited for efficiently handling &gt;70bp paired end reads.</li>
+<li><code>-M</code> alters flagging of chimeric reads. By default chimeric reads are flagged as <code>SUPPLEMENTARY</code> (partially mapping), the option instead turns them to <code>SECONDARY</code> (multi-mapping). Needed to GATK/PICARD support downstream</li>
+<li><code>-t 4</code> resource specification</li>
+<li><code>2&gt;~/workspace/module123/alignments/alignment.log</code> data outputted occurs in two streams <code>1</code> (the data) and <code>2</code> (debug messages, warnings and status updates). We redirect <code>2</code> to a log file.</li>
+<li>What do we see in the logs?</li>
+</ul></li>
+</ul>
+<div class="callout-blue">
+<span class="callout-icon"><i class="fas fa-circle-info" aria-hidden="true"></i></span>
+<div class="callout-content">
+<div class="callout-title-static">
+<p>Note</p>
+</div>
+<p>Logs contain valuable information, helpful for debugging.</p>
+</div>
+</div>
+<ul>
+<li><code>samtools view -hbS -o ~/workspace/module123/alignments/${sample}.bam</code>
+<ul>
+<li><code>samtools view</code> a tool to read our <code>SAM</code>,<code>BAM</code>,<code>CRAM</code> files</li>
+<li><code>-hbS</code> include header, output as <code>BAM</code>, input is <code>SAM</code></li>
+<li><code>-o</code> specify what we want to save our file as</li>
+<li>take a look our new <code>BAM</code> file. Note the header and the body.</li>
+</ul></li>
+<li>What other important functions of <code>samtools</code>?
+<ul>
+<li>CRAM conversion</li>
+<li>samtools quickcheck</li>
+<li>samtools view header</li>
+<li>samtools flags
+### Step 5: Coordinate Sort</li>
+</ul></li>
+<li>Rearrange our alignments by coordinates</li>
+</ul>
+<p><strong>Code:</strong></p>
+<pre><code>###Shell###
+sample=MCF10A_input_chr19
+samtools sort -@8 ~/workspace/module123/alignments/${sample}.bam -o ~/workspace/module123/alignments/${sample}.sorted.bam</code></pre>
+<ul>
+<li>run time &lt;1 min</li>
+<li><code>samtools sort</code> sorts our reads by genome coordinates</li>
+<li>Observe the files before and after via <code>samtools view | head</code></li>
+<li>How to sort by readname?
+#### Step 6: Duplicate Marking</li>
+<li>Identify and tag alignments that are duplicates</li>
+</ul>
+<p><strong>Code:</strong></p>
+<pre><code>###Shell###
+sample=MCF10A_input_chr19
+java -jar /usr/local/picard.jar MarkDuplicates \
+I=~/workspace/module123/alignments/${sample}.sorted.bam \
+O=~/workspace/module123/alignments/${sample}.sorted.dup_marked.bam \
+M=~/workspace/module123/alignments/${sample}.dup_marked.output.log \
+ASSUME_SORTED=TRUE \
+VALIDATION_STRINGENCY=LENIENT \
+&gt; ~/workspace/module123/alignments/${sample}.dup_marked.error.log</code></pre>
+<ul>
+<li><code>java -jar /usr/local/picard.jar MarkDuplicates I=~/workspace/module123/alignments/${sample}.sorted.bam O=~/workspace/module123/alignments/${sample}.sorted.dup_marked.bam M=~/workspace/module123/alignments/${sample}.dup_marked.output.log ASSUME_SORTED=TRUE VALIDATION_STRINGENCY=LENIENT</code>
+<ul>
+<li><code>java -jar /usr/local/picard.jar</code> produced by BroadInstitute, <a href="https://broadinstitute.github.io/picard/">Picard tools are a toolset</a> for HTS/NGS data</li>
+<li><code>MarkDuplicates</code> identifies reads/clusters duplicates arising from library construciton during PCR and cluster formation during sequencing</li>
+<li><code>I=</code> and <code>O=</code> are input and output respectively</li>
+<li><code>M=</code> saves our output log</li>
+<li><code>ASSUME_SORTED=TRUE</code> informs <code>PICARD</code>, our input is already coordinate sorted</li>
+<li><code>VALIDATION_STRINGENCY=LENIENT</code> informs <code>PICARD</code> to continue and notify problems in the <code>work.log</code> instead of failing</li>
+</ul></li>
+</ul>
+</div>
+<div id="step-7-stats" class="section level4 hasAnchor">
+<h4>Step 7: Stats<a href="module-1-introduction-to-chip-sequencing-and-analysis.html#step-7-stats" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>Identify and tag alignments that are duplicates</li>
+</ul>
+<p><strong>Code:</strong></p>
+<pre><code>###Shell###
+sample=MCF10A_input_chr19
+mkdir -p  ~/workspace/module123/stats
+samtools flagstat ~/workspace/module123/alignments/${sample}.sorted.dup_marked.bam &gt; ~/workspace/module123/stats/${sample}.sorted.dup_marked.flagstat
+samtools stats ~/workspace/module123/alignments/${sample}.sorted.dup_marked.bam &gt; ~/workspace/module123/stats/${sample}.sorted.dup_marked.stat</code></pre>
+<ul>
+<li><code>samtools flagstat</code> tallies <code>FLAGS</code> and produces a summarized report</li>
+<li><code>samtools stats</code> collects various metrics on the BAM file include:
+<ul>
+<li>summary stats similar to <code>flagstats</code></li>
+<li>distribution of insert sizes</li>
+<li>distribution of read lengths</li>
+<li>distribution of Coverage</li>
+<li>distribution of GC-depth</li>
+<li>Includes detailed instructions on how to extract parts of interest</li>
+</ul></li>
+</ul>
+</div>
+<div id="step-8-processing-the-remaining-files" class="section level4 hasAnchor">
+<h4>Step 8: Processing the remaining files<a href="module-1-introduction-to-chip-sequencing-and-analysis.html#step-8-processing-the-remaining-files" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>we use a unix for loop to perform all the steps previously mentioned but for the other histone marks and ATAC-seq
+<strong>Code:</strong></li>
+</ul>
+<pre><code>###Shell##
+ref=~/workspace/module123/BWA_index/chr19.fa
+for histone in H3K27ac H3K27me3 H3K4me3 ATAC;
+    do
+    read1=~/CourseData/EPI_data/module123/fastq/MCF10A.${histone}.chr19.R1.fastq.gz
+    read2=~/CourseData/EPI_data/module123/fastq/MCF10A.${histone}.chr19.R2.fastq.gz
+    sample=MCF10A_${histone}_chr19
+    echo &quot;aligning ${histone}&quot;
+    bwa mem -M -t 4 ${ref} ${read1} ${read2} 2&gt; ~/workspace/module123/alignments/${sample}.alignment.log | samtools view -hbS -o ~/workspace/module123/alignments/${sample}.bam
+    echo &quot;sorting ${histone}&quot;
+    samtools sort -@8 ~/workspace/module123/alignments/${sample}.bam -o ~/workspace/module123/alignments/${sample}.sorted.bam
+    echo &quot;dupmarking ${histone}&quot;
+    java -jar /usr/local/picard.jar MarkDuplicates I=~/workspace/module123/alignments/${sample}.sorted.bam O=~/workspace/module123/alignments/${sample}.sorted.dup_marked.bam M=~/workspace/module123/alignments/${sample}.dup_marked.output.log ASSUME_SORTED=TRUE VALIDATION_STRINGENCY=LENIENT &gt; ~/workspace/module123/alignments/${sample}.dup_marked.error.log
+    echo &quot;calculating stats ${histone}&quot;
+    samtools flagstat ~/workspace/module123/alignments/${sample}.sorted.dup_marked.bam &gt; ~/workspace/module123/stats/${sample}.sorted.dup_marked.flagstat
+    samtools stats ~/workspace/module123/alignments/${sample}.sorted.dup_marked.bam &gt; ~/workspace/module123/stats/${sample}.sorted.dup_marked.stat
+    done</code></pre>
+<ul>
+<li>run time ~8 mins</li>
+<li>for loops are different in every language, best practice to review beforehand</li>
+<li>have feedback to indicate where in the process we are e.g. the echo lines</li>
+<li>not show here but also good to capture success and failures</li>
+</ul>
+</div>
+<div id="step-9-clean-up" class="section level4 hasAnchor">
+<h4>Step 9: Clean up!<a href="module-1-introduction-to-chip-sequencing-and-analysis.html#step-9-clean-up" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>Remove temporary files</li>
+</ul>
+<p><strong>Code:</strong></p>
+<pre><code>###Shell###
+ls ~/workspace/module123/alignments/*.bam | grep -v sorted.dup_marked | xargs -I {} sh -c &quot;echo rm {}; rm {}&quot;</code></pre>
+<ul>
+<li><code>ls ~/workspace/module123/alignments/*.bam</code>
+<ul>
+<li>a look up of <code>BAM</code> files in our directory : <code>~/workspace/module123/alignments</code></li>
+<li>The <code>*</code> in <code>*.bam</code> acts as a wild card for any string of variable length ending in the suffix <code>bam</code></li>
+<li>running the command on it’s own produces</li>
+</ul></li>
+<li><code>grep -v sorted.dup_marked</code>
+<ul>
+<li><code>grep</code> a powerful tool that searches and matches text</li>
+<li><code>-v</code> return matches that do not much our pattern or regex</li>
+<li><code>sorted.dup_marked</code> is our pattern, returning 2/3 of the files : <code>MCF10A_input_chr19.bam</code>,<code>MCF10A_input_chr19.sorted.bam</code>,<code>MCF10A_input_chr19.sorted.dup_marked.bam</code></li>
+</ul></li>
+<li><code>xargs -I {} sh -c "echo rm {}; rm {}"</code>
+<ul>
+<li><code>xargs</code> receives input and performs an action. Think a for-loop</li>
+<li><code>-I {}</code> the variable we want to use</li>
+<li><code>sh -c</code> interpret the string provided in bash shell</li>
+<li><code>echo rm {}</code> echos the command we want to perform</li>
+<li><code>rm {}</code> removes the file</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="server-resources" class="section level3 hasAnchor">
+<h3>Server resources<a href="module-1-introduction-to-chip-sequencing-and-analysis.html#server-resources" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="qc-resources" class="section level4 hasAnchor">
+<h4>QC Resources<a href="module-1-introduction-to-chip-sequencing-and-analysis.html#qc-resources" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<pre><code>###TSS+/-2kb
+mkdir workspace/module123/qc
+wget https://www.bcgsc.ca/downloads/esu/touchdown/hg38v79_genes_tss_2000.bed -O workspace/module123/resources/hg38v79_genes_tss_2000.bed
+
+sort -k1,1 -k2,2n workspace/module123/resources/hg38v79_genes_tss_2000.bed &gt; tmp
+mv tmp workspace/module123/resources/hg38v79_genes_tss_2000.bed
+
+###Enhancer liftover
+wget https://www.bcgsc.ca/downloads/esu/touchdown/encode_enhancers_liftover.bed -O workspace/module123/resources/encode_enhancers_liftover.bed
+
+###Blacklist
+wget https://www.encodeproject.org/files/ENCFF356LFX/@@download/ENCFF356LFX.bed.gz -O ~/workspace/module123/resources/hg38_blacklist.bed.gz
+
+gunzip ~/workspace/module123/resources/hg38_blacklist.bed.gz</code></pre>
+<ul>
+<li><code>hg38v79_genes_tss_2000.bed</code>
+<ul>
+<li>Generated by downloading Ensemblv79 GTF convert to Bed +/-2kb of TSS. See <a href="https://www.biostars.org/p/56280/" class="uri">https://www.biostars.org/p/56280/</a></li>
+</ul></li>
+<li><code>encode_enhancers_liftover.bed</code>
+<ul>
+<li>download various <a href="https://egg2.wustl.edu/roadmap/data/byFileType/chromhmmSegmentations/ChmmModels/coreMarks/jointModel/final/">ChroHMM state7</a> and merge</li>
+<li>converted from hg19 to hg38 using UCSC liftover tool</li>
+</ul></li>
+</ul>
+</div>
+<div id="encode-bed" class="section level4 hasAnchor">
+<h4>Encode Bed<a href="module-1-introduction-to-chip-sequencing-and-analysis.html#encode-bed" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<pre><code>ls ~/CourseData/EPI_data/module123/encode_bed
+basal.H3K27ac.peak_calls.bed
+basal.H3K27me3.peak_calls.bed
+basal.H3K4me1.peak_calls.bed
+basal.H3K4me3.peak_calls.bed
+lp.H3K27ac.peak_calls.bed
+lp.H3K27me3.peak_calls.bed
+lp.H3K4me1.peak_calls.bed
+lp.H3K4me3.peak_calls.bed
+luminal.H3K27ac.peak_calls.bed
+luminal.H3K27me3.peak_calls.bed
+luminal.H3K4me1.peak_calls.bed
+luminal.H3K4me3.peak_calls.bed
+stromal.H3K27ac.peak_calls.bed
+stromal.H3K27me3.peak_calls.bed
+stromal.H3K4me1.peak_calls.bed
+stromal.H3K4me3.peak_calls.bed</code></pre>
+<ul>
+<li><a href="https://epigenomesportal.ca/tracks/CEEHRC/hg38/" class="uri">https://epigenomesportal.ca/tracks/CEEHRC/hg38/</a></li>
+<li>Breast Basal CEMT0035</li>
+<li>Breast Stromal CEMT0036</li>
+<li>Breast Luminal CEMT0037</li>
+<li>Breast Luminal Progenitor CEMT0038
+#### Encode BigWig</li>
+</ul>
+<pre><code>ls ~/CourseData/EPI_data/module123/encode_bigWig
+basal.H3K27ac.signal_unstranded.bigWig
+basal.H3K27me3.signal_unstranded.bigWig
+basal.H3K4me1.signal_unstranded.bigWig
+basal.H3K4me3.signal_unstranded.bigWig
+lp.H3K27ac.signal_unstranded.bigWig
+lp.H3K27me3.signal_unstranded.bigWig
+lp.H3K4me1.signal_unstranded.bigWig
+lp.H3K4me3.signal_unstranded.bigWig
+luminal.H3K27ac.signal_unstranded.bigWig
+luminal.H3K27me3.signal_unstranded.bigWig
+luminal.H3K4me1.signal_unstranded.bigWig
+luminal.H3K4me3.signal_unstranded.bigWig
+stromal.H3K27ac.signal_unstranded.bigWig
+stromal.H3K27me3.signal_unstranded.bigWig
+stromal.H3K4me1.signal_unstranded.bigWig
+stromal.H3K4me3.signal_unstranded.bigWig</code></pre>
+<ul>
+<li><a href="https://epigenomesportal.ca/tracks/CEEHRC/hg38/" class="uri">https://epigenomesportal.ca/tracks/CEEHRC/hg38/</a></li>
+<li>Breast Basal CEMT0035</li>
+<li>Breast Stromal CEMT0036</li>
+<li>Breast Luminal CEMT0037</li>
+<li>Breast Luminal Progenitor CEMT0038
+#### MCF10A Fastq</li>
+</ul>
+<pre><code>ls ~/CourseData/EPI_data/module123/fastq
+MCF10A.ATAC.chr19.R1.fastq.gz
+MCF10A.ATAC.chr19.R2.fastq.gz
+MCF10A.H3K27ac.chr19.R1.fastq.gz
+MCF10A.H3K27ac.chr19.R2.fastq.gz
+MCF10A.H3K27me3.chr19.R1.fastq.gz
+MCF10A.H3K27me3.chr19.R2.fastq.gz
+MCF10A.H3K4me3.chr19.R1.fastq.gz
+MCF10A.H3K4me3.chr19.R2.fastq.gz
+MCF10A.Input.chr19.R1.fastq.gz
+MCF10A.Input.chr19.R2.fastq.gz</code></pre>
+<ul>
+<li>MCF10A histone marks and input come courtesy of Dr.Hirst</li>
+<li>ATACseq data originates from <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM6431322">GSM6431322</a>
+#### Triplicates</li>
+</ul>
+<pre><code>CourseData/EPI_data/module123/triplicates/triplicates.csv
+
+CourseData/EPI_data/module123/triplicates/alignments:
+MCF10A_H3K4me3_chr19.CondA.Rep1.bam      MCF10A_H3K4me3_chr19.CondB.Rep2.bam      MCF10A_input_chr19.CondA.Rep3.bam
+MCF10A_H3K4me3_chr19.CondA.Rep1.bam.bai  MCF10A_H3K4me3_chr19.CondB.Rep2.bam.bai  MCF10A_input_chr19.CondA.Rep3.bam.bai
+MCF10A_H3K4me3_chr19.CondA.Rep2.bam      MCF10A_H3K4me3_chr19.CondB.Rep3.bam      MCF10A_input_chr19.CondB.Rep1.bam
+MCF10A_H3K4me3_chr19.CondA.Rep2.bam.bai  MCF10A_H3K4me3_chr19.CondB.Rep3.bam.bai  MCF10A_input_chr19.CondB.Rep1.bam.bai
+MCF10A_H3K4me3_chr19.CondA.Rep3.bam      MCF10A_input_chr19.CondA.Rep1.bam        MCF10A_input_chr19.CondB.Rep2.bam
+MCF10A_H3K4me3_chr19.CondA.Rep3.bam.bai  MCF10A_input_chr19.CondA.Rep1.bam.bai    MCF10A_input_chr19.CondB.Rep2.bam.bai
+MCF10A_H3K4me3_chr19.CondB.Rep1.bam      MCF10A_input_chr19.CondA.Rep2.bam        MCF10A_input_chr19.CondB.Rep3.bam
+MCF10A_H3K4me3_chr19.CondB.Rep1.bam.bai  MCF10A_input_chr19.CondA.Rep2.bam.bai    MCF10A_input_chr19.CondB.Rep3.bam.bai
+
+CourseData/EPI_data/module123/triplicates/bigWig:
+CondA.Rep1.bw  CondA.Rep2.bw  CondA.Rep3.bw  CondB.Rep1.bw  CondB.Rep2.bw  CondB.Rep3.bw
+
+CourseData/EPI_data/module123/triplicates/peaks:
+CondA.Rep1_peaks.narrowPeak  CondA.Rep3_peaks.narrowPeak  CondB.Rep2_peaks.narrowPeak
+CondA.Rep2_peaks.narrowPeak  CondB.Rep1_peaks.narrowPeak  CondB.Rep3_peaks.narrowPeak</code></pre>
+<ul>
+<li>triplicates were generated from MCF10A_H3K4me3 by choosing a list of exclusive peaks for condA and condB and subsampling replicates accordingly</li>
+</ul>
+<div class="callout-green">
+<span class="callout-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></span>
+<div class="callout-content">
+<div class="callout-title-static">
+<p>Lab Completed!</p>
+</div>
+<p>Congratulations! You have completed Lab 1!</p>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-and-compute-setup.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="module-2-alignment-peak-calling-and-visualization.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": false,
+    "twitter": false,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/bioinformaticsdotca/EPI_2023/blob/main/010-module-1.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["_main.pdf", "_main.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

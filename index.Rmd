@@ -1,0 +1,350 @@
+--- 
+title: "Epigenomic Analysis 2023"
+author: "Faculty: Guillaume Bourque, Martin Hirst, David Bujold, Jose Hector Galvez, Edmund Su, Mareike Janiak, Michelle Brazas, Nia Hughes, and Zhibin Lu"
+date: "October 11, 2023 - October 13, 2023"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+url: https://bioinformaticsdotca.github.io/EPI_2023/ 
+cover-image: img/bioinformatics_logo.png
+description: |
+  Workshop website for the {{YEAR}} {{WORKSHOP_NAME}} Canadian Bioinformatics Workshop
+link-citations: yes
+github-repo: bioinformaticsdotca/EPI_2023
+favicon: img/favicon.ico
+---
+
+# (PART) Introduction {-}
+
+# Workshop Info
+
+Welcome to the 2023 Epigenomic Analysis Canadian Bioinformatics Workshop webpage!  
+
+## Pre-work
+
+[You can find your pre-work here.](https://docs.google.com/forms/d/e/1FAIpQLSdxqrJpgL5nJkGTSDChZ4-GFxPuyFp10vh2riHnzK8knJrBjw/viewform?usp=sf_link)
+
+## Class Photo
+
+<iframe src="https://drive.google.com/file/d/1sTYR0q81zTqcO6YnDXJ6UaMy6ZDi5sTl/preview" width="640" height="480" allow="autoplay"></iframe>
+
+## Schedule
+
+```{r schedule-loader, echo=FALSE, message=FALSE, warning=FALSE}
+# --- Self-Contained R-Markdown Schedule Component ---
+# To format your schedule csv, go here: https://cbw-dev.github.io/smart-scheduler/
+
+# 1. Load necessary libraries
+library(readr)
+library(jsonlite)
+library(htmltools)
+
+# 2. Define the path to your schedule data
+csv_path <- "schedule.csv"
+
+# 3. Check if the CSV file exists
+if (!file.exists(csv_path)) {
+  stop("Error: 'schedule.csv' not found. Please create it in your project directory.")
+}
+
+# 4. Read the schedule data, ensuring all columns are character type
+schedule_df <- readr::read_csv(
+  csv_path,
+  col_types = cols(.default = "c"),
+  show_col_types = FALSE
+)
+
+# 5. Convert the data frame to a JSON object
+schedule_json <- jsonlite::toJSON(schedule_df, auto_unbox = FALSE, na = "string")
+
+# 6. Define the HTML structure, CSS, and JavaScript using htmltools
+schedule_component <- tagList(
+  # A. CSS for the design
+  tags$style(HTML("
+    :root {
+      --schedule-primary-color: #4A6BFF;
+      --schedule-border-color: #EAECEF;
+      --schedule-text-color: #555;
+    }
+    .schedule-card {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      border: 1px solid var(--schedule-border-color);
+      border-radius: 12px;
+      margin: 2em 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      overflow: hidden;
+    }
+    .schedule-tabs {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--schedule-border-color);
+      background-color: #fff;
+    }
+    .schedule-tabs-wrapper {
+      position: relative;
+      flex-grow: 1;
+      overflow: hidden;
+    }
+    .schedule-tabs-wrapper::before,
+    .schedule-tabs-wrapper::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 50px;
+      pointer-events: none;
+      transition: opacity 0.2s;
+      opacity: 0;
+    }
+    .schedule-tabs-wrapper::before {
+      left: 0;
+      background: linear-gradient(to left, rgba(255,255,255,0), #fff 70%);
+    }
+    .schedule-tabs-wrapper::after {
+      right: 0;
+      background: linear-gradient(to right, rgba(255,255,255,0), #fff 70%);
+    }
+    .schedule-tabs-wrapper.scrolled-left::before { opacity: 1; }
+    .schedule-tabs-wrapper.scrolled-right::after { opacity: 1; }
+    
+    .schedule-tab-buttons {
+      display: flex;
+      overflow-x: auto;
+      white-space: nowrap;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      scroll-behavior: smooth;
+    }
+    .schedule-tab-buttons::-webkit-scrollbar { display: none; }
+    
+    .timezone-selector-container {
+      display: flex;
+      align-items: center;
+      gap: 0.75em;
+      padding: 0 20px;
+    }
+    .timezone-selector-container label {
+      font-size: 0.9em;
+      color: var(--schedule-text-color);
+      font-weight: 500;
+    }
+    .schedule-tabs select {
+      padding: 6px 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+    }
+    .schedule-tab {
+      padding: 14px 20px;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -1px;
+      color: var(--schedule-text-color);
+      font-weight: 500;
+    }
+    .schedule-tab.active {
+      color: var(--schedule-primary-color);
+      border-bottom-color: var(--schedule-primary-color);
+    }
+    .schedule-panel { display: none; }
+    .schedule-panel.active { display: block; }
+    .schedule-table { width: 100%; border-collapse: collapse; }
+    .schedule-table th, .schedule-table td {
+      text-align: left;
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--schedule-border-color);
+    }
+    .schedule-table th {
+      color: #888;
+      font-size: 0.8em;
+      font-weight: 600;
+      text-transform: uppercase;
+      background-color: #F8F9FA;
+    }
+    .schedule-table tr:last-child td { border-bottom: none; }
+    
+    /* --- RULE FOR BREAKS AND PAUSES --- */
+    .schedule-table tr.is-break td {
+      font-style: italic;
+      font-size: 0.95em;
+      color: #777;
+    }
+    
+    /* --- NEW: RULE FOR 'OTHER' TYPE (More Visible) --- */
+    .schedule-table tr.is-other td {
+      background-color: #f0f4ff; /* A light blue background */
+      font-weight: 500; /* Slightly bolder text */
+    }
+    .schedule-table tr.is-other td:first-child {
+      border-left: 4px solid var(--schedule-primary-color);
+    }
+  ")),
+
+  # B. HTML placeholders
+  div(class = "schedule-card",
+      div(class = "schedule-tabs", id = "schedule-tabs-container"),
+      div(class = "schedule-content", id = "schedule-panels-container")
+  ),
+
+  # C. JavaScript to build the interface
+  tags$script(HTML(paste0('
+    document.addEventListener("DOMContentLoaded", function() {
+      const scheduleData = ', jsonlite::toJSON(schedule_df, auto_unbox = TRUE, na = "string"), ';
+      const tabsContainer = document.getElementById("schedule-tabs-container");
+      const panelsContainer = document.getElementById("schedule-panels-container");
+
+      if (scheduleData.length === 0) return;
+
+      const timezones = [];
+      const firstRow = scheduleData[0];
+      for (const key in firstRow) {
+        if (key.match(/timezone_\\d+_label/)) {
+          const index = key.match(/\\d+/)[0];
+          timezones.push({ index: index, label: firstRow[key] });
+        }
+      }
+      const days = [...new Set(scheduleData.map(row => row.day_label))];
+      
+      const tabsWrapper = document.createElement("div");
+      tabsWrapper.className = "schedule-tabs-wrapper";
+      const tabButtonsContainer = document.createElement("div");
+      tabButtonsContainer.className = "schedule-tab-buttons";
+      tabsWrapper.appendChild(tabButtonsContainer);
+      tabsContainer.appendChild(tabsWrapper);
+
+      days.forEach((day, dayIndex) => {
+        const tab = document.createElement("div");
+        tab.className = "schedule-tab";
+        tab.dataset.target = `panel-${dayIndex}`;
+        tab.textContent = day;
+        tabButtonsContainer.appendChild(tab);
+      });
+
+      if (timezones.length > 1) {
+        const selectorContainer = document.createElement("div");
+        selectorContainer.className = "timezone-selector-container";
+        let selectorHtml = `<label for="tz-selector">Timezone</label>
+                            <select id="tz-selector">`;
+        timezones.forEach(tz => {
+          selectorHtml += `<option value="${tz.index}">${tz.label}</option>`;
+        });
+        selectorHtml += `</select>`;
+        selectorContainer.innerHTML = selectorHtml;
+        tabsContainer.appendChild(selectorContainer);
+      }
+      
+      const tzSelector = document.getElementById("tz-selector");
+
+      days.forEach((day, dayIndex) => {
+        panelsContainer.innerHTML += `<div class="schedule-panel" id="panel-${dayIndex}"></div>`;
+      });
+      
+      const tabs = document.querySelectorAll(".schedule-tab");
+      const panels = document.querySelectorAll(".schedule-panel");
+
+      function renderTables() {
+        const selectedTzIndex = tzSelector ? tzSelector.value : timezones[0].index;
+        const timeCol = `time_${selectedTzIndex}`;
+        let selectedTzLabel = tzSelector ? tzSelector.options[tzSelector.selectedIndex].text : timezones[0].label;
+        
+        panels.forEach((panel, dayIndex) => {
+          const day = days[dayIndex];
+          const dayEvents = scheduleData.filter(row => row.day_label === day);
+          let tableHtml = `<table class="schedule-table"><thead><tr>
+                               <th style="width:25%;">${selectedTzLabel}</th>
+                               <th>Activity</th>
+                               </tr></thead><tbody>`;
+          dayEvents.forEach(row => {
+            const type = row.type ? row.type.toLowerCase() : "";
+            let rowClass = "";
+
+            if (type === "break" || type === "pause") {
+              rowClass = "class=\'is-break\'";
+            } else if (type === "other") {
+              rowClass = "class=\'is-other\'";
+            }
+            
+            tableHtml += `<tr ${rowClass}><td>${row[timeCol] || ""}</td><td>${row.activity || ""}</td></tr>`;
+          });
+          tableHtml += `</tbody></table>`;
+          panel.innerHTML = tableHtml;
+        });
+      }
+
+      function switchTab(targetId) {
+        tabs.forEach(tab => tab.classList.remove("active"));
+        panels.forEach(panel => panel.classList.remove("active"));
+        
+        const activeTab = document.querySelector(`[data-target=\'${targetId}\']`);
+        const activePanel = document.getElementById(targetId);
+        
+        if (activeTab) {
+          activeTab.classList.add("active");
+          activeTab.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+        }
+        if (activePanel) {
+          activePanel.classList.add("active");
+        }
+      }
+      
+      function updateScrollIndicators() {
+        const el = tabButtonsContainer;
+        const scrollLeft = Math.round(el.scrollLeft);
+        const scrollWidth = Math.round(el.scrollWidth);
+        const clientWidth = Math.round(el.clientWidth);
+        
+        const hasOverflow = scrollWidth > clientWidth;
+        tabsWrapper.classList.toggle("scrolled-left", hasOverflow && scrollLeft > 0);
+        const isAtEnd = scrollLeft >= scrollWidth - clientWidth;
+        tabsWrapper.classList.toggle("scrolled-right", hasOverflow && !isAtEnd);
+      }
+
+      tabButtonsContainer.addEventListener("click", e => {
+        if (e.target.classList.contains("schedule-tab")) {
+          switchTab(e.target.dataset.target);
+        }
+      });
+
+      if (tzSelector) {
+        tzSelector.addEventListener("change", renderTables);
+      }
+      
+      tabButtonsContainer.addEventListener("scroll", updateScrollIndicators, { passive: true });
+      window.addEventListener("resize", updateScrollIndicators);
+
+      renderTables();
+
+      // --- LOGIC TO ACTIVATE CURRENT DAY ---
+      let initialTabIndex = 0;
+
+      const today = new Date();
+      const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+      const monthName = monthNames[today.getMonth()];
+      const day = today.getDate();
+      const year = today.getFullYear();
+      const todayString = `${monthName} ${day}, ${year}`;
+
+      const todayEvent = scheduleData.find(row => row.date === todayString);
+
+      if (todayEvent) {
+        const dayIndex = days.findIndex(day => day === todayEvent.day_label);
+        if (dayIndex !== -1) {
+          initialTabIndex = dayIndex;
+        }
+      }
+
+      if (tabs.length > initialTabIndex) {
+        const initialTabId = `panel-${initialTabIndex}`;
+        switchTab(initialTabId);
+      }
+      // --- END OF CURRENT DAY LOGIC ---
+
+      setTimeout(updateScrollIndicators, 100);
+    });
+  ')))
+)
+
+# 7. Output the final component
+schedule_component
+```

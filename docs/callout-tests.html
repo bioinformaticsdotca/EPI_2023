@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Callout Tests | Callout Test Page</title>
+  <meta name="description" content="Workshop website for the YEAR WORKSHOP Canadian Bioinformatics Workshop" />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Callout Tests | Callout Test Page" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://cbw-dev.github.io/bookdown-template/img/bioinformatics_logo.png" />
+  <meta property="og:description" content="Workshop website for the YEAR WORKSHOP Canadian Bioinformatics Workshop" />
+  <meta name="github-repo" content="cbw-dev/bookdown-template" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Callout Tests | Callout Test Page" />
+  
+  <meta name="twitter:description" content="Workshop website for the YEAR WORKSHOP Canadian Bioinformatics Workshop" />
+  <meta name="twitter:image" content="https://cbw-dev.github.io/bookdown-template/img/bioinformatics_logo.png" />
+
+<meta name="author" content="Faculty: INSTRUCTOR AND TA NAMES" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+<link rel="prev" href="module-1.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<a href="https://bioinformaticsdotca.github.io/">
+ <img src="img/bioinformatics_logo.png" width="90%" alt="bioinformatics.ca logo" style="display:block; margin-left:auto; margin-right:auto; margin-top:15px;">
+ </a>
+<li><center><strong><a href="./"><br>YOUR WORKSHOP NAME<br><br></a></strong></center></li>
+<a href="./">
+ <img src="img/MISSINGLOGO.PNG" width="70%" alt="WORKSHOP NAME logo" style="display:block; margin-left:auto; margin-right:auto; ">
+ </a>
+<br>
+
+<li class="divider"></li>
+<li class="part"><span><b>I Introduction</b></span></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Workshop Info</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#schedule"><i class="fa fa-check"></i>Schedule</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#pre-work"><i class="fa fa-check"></i>Pre-work</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="meet-your-faculty.html"><a href="meet-your-faculty.html"><i class="fa fa-check"></i>Meet Your Faculty</a></li>
+<li class="chapter" data-level="" data-path="data-and-compute-setup.html"><a href="data-and-compute-setup.html"><i class="fa fa-check"></i>Data and Compute Setup</a></li>
+<li class="part"><span><b>II Modules</b></span></li>
+<li class="chapter" data-level="" data-path="module-1.html"><a href="module-1.html"><i class="fa fa-check"></i>Module 1</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-1.html"><a href="module-1.html#lecture"><i class="fa fa-check"></i>Lecture</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-1.html"><a href="module-1.html#downloads"><i class="fa fa-check"></i>Downloads</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-1.html"><a href="module-1.html#lab"><i class="fa fa-check"></i>Lab</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="callout-tests.html"><a href="callout-tests.html"><i class="fa fa-check"></i>Callout Tests</a>
+<ul>
+<li class="chapter" data-level="" data-path="callout-tests.html"><a href="callout-tests.html#regular-callouts"><i class="fa fa-check"></i>Regular Callouts</a>
+<ul>
+<li class="chapter" data-level="" data-path="callout-tests.html"><a href="callout-tests.html#red-regular"><i class="fa fa-check"></i>Red Regular</a></li>
+<li class="chapter" data-level="" data-path="callout-tests.html"><a href="callout-tests.html#blue-regular"><i class="fa fa-check"></i>Blue Regular</a></li>
+<li class="chapter" data-level="" data-path="callout-tests.html"><a href="callout-tests.html#green-regular-no-icon"><i class="fa fa-check"></i>Green Regular (No Icon)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="callout-tests.html"><a href="callout-tests.html#important-callouts"><i class="fa fa-check"></i>Important Callouts</a>
+<ul>
+<li class="chapter" data-level="" data-path="callout-tests.html"><a href="callout-tests.html#red-important"><i class="fa fa-check"></i>Red Important</a></li>
+<li class="chapter" data-level="" data-path="callout-tests.html"><a href="callout-tests.html#yellow-important"><i class="fa fa-check"></i>Yellow Important</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="callout-tests.html"><a href="callout-tests.html#subtle-callouts"><i class="fa fa-check"></i>Subtle Callouts</a>
+<ul>
+<li class="chapter" data-level="" data-path="callout-tests.html"><a href="callout-tests.html#purple-subtle"><i class="fa fa-check"></i>Purple Subtle</a></li>
+<li class="chapter" data-level="" data-path="callout-tests.html"><a href="callout-tests.html#gray-subtle-no-title"><i class="fa fa-check"></i>Gray Subtle (No Title)</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<h1 id="sponsors">Sponsors</h1>
+<center>
+<a href="https://www.cihr-irsc.gc.ca"><img src="img/sponsors/cihr.png" width=90% style="padding-bottom: 20px" alt="Canadian Institutes of Health Research logo."></a>
+
+<a href="https://genomecanada.ca/"><img src="img/sponsors/genomecanada.png" height="70" style="display:inline-block;"  style="padding-bottom: 20px" alt="Genome Canada logo.">
+<a href="https://www.ontariogenomics.ca/"><img src="img/sponsors/ontariogenomics.png" height="70" style="display:inline-block;" style="padding-bottom: 20px;" alt="Ontario Genomics logo.">
+<br><br>
+<a href="https://oicr.on.ca/"><img src="img/sponsors/oicr.png" width=25% style="display:inline-block;" style="padding-bottom: 20px" alt="Ontario Institute for Cancer Research logo.">
+<a href="https://www.hpcforhealth.ca/"><img src="img/sponsors/hpc4health.png" width=60% style="display:inline-block;" style="padding-bottom: 20px "alt="HPC4Health logo.">
+<br><br>
+<a href="https://www.bioinformatics.ca"><img src="img/sponsors/YOUR-SPONSOR-HERE.SVG" style="display:inline-block;" width=35% style="padding-bottom: 20px" alt="ORGANIZATION logo."> <a href="https://www.bioinformatics.ca"><img src="img/sponsors/YOUR-SPONSOR-HERE.SVG" style="display:inline-block;" width=35% style="padding-bottom: 20px" alt="ORGANIZATION logo."> <br><br>
+<a href="https://www.bioinformatics.ca"><img src="img/sponsors/YOUR-SPONSOR-HERE.SVG" width=60% style="padding-bottom: 20px" alt="ORGANIZATION logo."> <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li></center>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Callout Test Page</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="callout-tests" class="section level1 hasAnchor">
+<h1>Callout Tests<a href="callout-tests.html#callout-tests" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>This page tests the static and dropdown callout blocks.</p>
+<div id="regular-callouts" class="section level2 hasAnchor">
+<h2>Regular Callouts<a href="callout-tests.html#regular-callouts" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="red-regular" class="section level3 hasAnchor">
+<h3>Red Regular<a href="callout-tests.html#red-regular" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Static:</strong></p>
+<div class="callout-red">
+<span class="callout-icon"><i class="fas fa-triangle-exclamation" aria-hidden="true"></i></span>
+<div class="callout-content">
+<div class="callout-title-static" style="margin-bottom: 0.5em;">
+<p>Regular Red Static</p>
+</div>
+<p>This is a regular red static callout.
+It can contain <code>inline code</code> and also:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="callout-tests.html#cb6-1" tabindex="-1"></a><span class="co"># R code block</span></span>
+<span id="cb6-2"><a href="callout-tests.html#cb6-2" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;Hello from static red!&quot;</span>)</span>
+<span id="cb6-3"><a href="callout-tests.html#cb6-3" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div>
+<p>More text after the code block.</p>
+</div>
+</div>
+<p><strong>Dropdown:</strong></p>
+<details class="callout-dropdown callout-red">
+<summary class="callout-dropdown-summary"><span
+class="callout-icon"><i class="fas fa-triangle-exclamation" aria-hidden="true"></i></span><span
+class="callout-dropdown-title">Regular Red Dropdown</span><span
+class="callout-dropdown-caret"><i class="fas fa-chevron-right" aria-hidden="true"></i></span></summary>
+<div class="callout-dropdown-content">
+<p>This is the content of a regular red dropdown.
+It can contain <code>inline code</code> and also:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="callout-tests.html#cb7-1" tabindex="-1"></a><span class="co"># R code block</span></span>
+<span id="cb7-2"><a href="callout-tests.html#cb7-2" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;Hello from dropdown red!&quot;</span>)</span>
+<span id="cb7-3"><a href="callout-tests.html#cb7-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">*</span> <span class="dv">2</span></span></code></pre></div>
+<p>More text after the code block.</p>
+</div>
+</details>
+</div>
+<div id="blue-regular" class="section level3 hasAnchor">
+<h3>Blue Regular<a href="callout-tests.html#blue-regular" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Static:</strong></p>
+<div class="callout-blue">
+<span class="callout-icon"><i class="fas fa-info-circle" aria-hidden="true"></i></span>
+<div class="callout-content">
+<div class="callout-title-static" style="margin-bottom: 0.5em;">
+<p>Info</p>
+</div>
+<p>This blue static callout uses a specific icon.</p>
+</div>
+</div>
+<p><strong>Dropdown:</strong></p>
+<details class="callout-dropdown callout-blue">
+<summary class="callout-dropdown-summary"><span
+class="callout-icon"><i class="fas fa-info-circle" aria-hidden="true"></i></span><span
+class="callout-dropdown-title">More Info (Click)</span><span
+class="callout-dropdown-caret"><i class="fas fa-chevron-right" aria-hidden="true"></i></span></summary>
+<div class="callout-dropdown-content">
+<p>Details for the blue dropdown.</p>
+</div>
+</details>
+</div>
+<div id="green-regular-no-icon" class="section level3 hasAnchor">
+<h3>Green Regular (No Icon)<a href="callout-tests.html#green-regular-no-icon" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Static:</strong></p>
+<div class="callout-green">
+<div class="callout-content">
+<div class="callout-title-static" style="margin-bottom: 0.5em;">
+<p>Success!</p>
+</div>
+<p>This green static callout has no icon.</p>
+</div>
+</div>
+<p><strong>Dropdown:</strong></p>
+<details class="callout-dropdown callout-green">
+<summary class="callout-dropdown-summary"><span class="callout-dropdown-title">Success Details</span><span
+class="callout-dropdown-caret"><i class="fas fa-chevron-right" aria-hidden="true"></i></span></summary>
+<div class="callout-dropdown-content">
+<p>Content for the green dropdown without an icon.</p>
+</div>
+</details>
+</div>
+</div>
+<div id="important-callouts" class="section level2 hasAnchor">
+<h2>Important Callouts<a href="callout-tests.html#important-callouts" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="red-important" class="section level3 hasAnchor">
+<h3>Red Important<a href="callout-tests.html#red-important" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Static:</strong></p>
+<div class="callout-red-important">
+<span class="callout-icon"><i class="fas fa-triangle-exclamation" aria-hidden="true"></i></span>
+<div class="callout-content">
+<div class="callout-title-static" style="margin-bottom: 0.5em;">
+<p>CRITICAL WARNING</p>
+</div>
+<p>This is an important red static callout.</p>
+</div>
+</div>
+<p><strong>Dropdown:</strong></p>
+<details class="callout-dropdown callout-red-important">
+<summary class="callout-dropdown-summary"><span
+class="callout-icon"><i class="fas fa-triangle-exclamation" aria-hidden="true"></i></span><span
+class="callout-dropdown-title">Expand for Critical Warning</span><span
+class="callout-dropdown-caret"><i class="fas fa-chevron-right" aria-hidden="true"></i></span></summary>
+<div class="callout-dropdown-content">
+<p>Content of the important red dropdown.</p>
+</div>
+</details>
+</div>
+<div id="yellow-important" class="section level3 hasAnchor">
+<h3>Yellow Important<a href="callout-tests.html#yellow-important" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Static:</strong></p>
+<div class="callout-yellow-important">
+<span class="callout-icon"><i class="fas fa-bell" aria-hidden="true"></i></span>
+<div class="callout-content">
+<div class="callout-title-static" style="margin-bottom: 0.5em;">
+<p>Important Yellow Note</p>
+</div>
+<p>This is an important yellow static callout.</p>
+</div>
+</div>
+<p><strong>Dropdown:</strong></p>
+<details class="callout-dropdown callout-yellow-important">
+<summary class="callout-dropdown-summary"><span
+class="callout-icon"><i class="fas fa-bell" aria-hidden="true"></i></span><span
+class="callout-dropdown-title">Expand for Important Yellow
+Note</span><span
+class="callout-dropdown-caret"><i class="fas fa-chevron-right" aria-hidden="true"></i></span></summary>
+<div class="callout-dropdown-content">
+<p>Content of the important yellow dropdown.</p>
+</div>
+</details>
+</div>
+</div>
+<div id="subtle-callouts" class="section level2 hasAnchor">
+<h2>Subtle Callouts<a href="callout-tests.html#subtle-callouts" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="purple-subtle" class="section level3 hasAnchor">
+<h3>Purple Subtle<a href="callout-tests.html#purple-subtle" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Static:</strong></p>
+<div class="callout-purple-subtle">
+<span class="callout-icon"><i class="fas fa-lightbulb" aria-hidden="true"></i></span>
+<div class="callout-content">
+<div class="callout-title-static" style="margin-bottom: 0.5em;">
+<p>Subtle Purple Idea</p>
+</div>
+<p>A subtle purple idea, presented statically.</p>
+</div>
+</div>
+<p><strong>Dropdown:</strong></p>
+<details class="callout-dropdown callout-purple-subtle callout-subtle">
+<summary class="callout-dropdown-summary"><span
+class="callout-icon"><i class="fas fa-lightbulb" aria-hidden="true"></i></span><span
+class="callout-dropdown-title">Subtle Purple Idea (Expand)</span><span
+class="callout-dropdown-caret"><i class="fas fa-chevron-right" aria-hidden="true"></i></span></summary>
+<div class="callout-dropdown-content">
+<p>Details of the subtle purple idea in a dropdown.</p>
+</div>
+</details>
+</div>
+<div id="gray-subtle-no-title" class="section level3 hasAnchor">
+<h3>Gray Subtle (No Title)<a href="callout-tests.html#gray-subtle-no-title" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Static:</strong></p>
+<div class="callout-gray-subtle">
+<span class="callout-icon"><i class="fas fa-comment-dots" aria-hidden="true"></i></span>
+<div class="callout-content">
+<p>This is a subtle gray static callout with no explicit title.
+The icon should still align with the first line of text.</p>
+</div>
+</div>
+<p><strong>Dropdown:</strong></p>
+<details class="callout-dropdown callout-gray-subtle callout-subtle">
+<summary class="callout-dropdown-summary"><span
+class="callout-icon"><i class="fas fa-comment-dots" aria-hidden="true"></i></span><span
+class="callout-dropdown-title">Details</span><span
+class="callout-dropdown-caret"><i class="fas fa-chevron-right" aria-hidden="true"></i></span></summary>
+<div class="callout-dropdown-content">
+<p>This is a subtle gray dropdown with no explicit title (will default to “Details”).
+The icon should align with the “Details” text in the summary.
+Content is here.</p>
+</div>
+</details>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="module-1.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/cbw-dev/bookdown-template/blob/main/011-callout-test.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["_main.pdf", "_main.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+bookdown::gitbook:
+  css: style.css # This is how bookdown knows to look at style.css for formatting
+  pandoc_args:
+    - "--lua-filter=callouts.lua"
+  includes:
+    in_header:
+      - fa-header.html
+      - _bioschemas.html
+  config:
+    sharing:
+      facebook: no
+      twitter: no
+    toc: # Table of Contents
+      collapse: subsection
+      before: |
+        <a href="https://bioinformaticsdotca.github.io/">
+         <img src="img/bioinformatics_logo.png" width="90%" alt="bioinformatics.ca logo" style="display:block; margin-left:auto; margin-right:auto; margin-top:15px;">
+         </a>
+        <li><center><strong><a href="./"><br>Epigenomic Analysis<br><br></a></strong></center></li>
+        <a href="./">
+         <img src="img/CBW_Epigenome-data_icon.png" width="70%" alt="Epigenomic Analysis logo" style="display:block; margin-left:auto; margin-right:auto; ">
+         </a>
+        <br>
+
+      after: |
+        <h1 id="sponsors">Sponsors</h1>
+        <center>
+        <<a href="https://genomecanada.ca/"><img src="img/sponsors/genomecanada.png" height="70" style="display:inline-block;"  style="padding-bottom: 20px" alt="Genome Canada logo.">
+        <a href="https://www.ontariogenomics.ca/"><img src="img/sponsors/ontariogenomics.png" height="70" style="display:inline-block;" style="padding-bottom: 20px;" alt="Ontario Genomics logo.">
+        <br><br>
+        <a href="https://oicr.on.ca/"><img src="img/sponsors/oicr.png" width=25% style="display:inline-block;" style="padding-bottom: 20px" alt="Ontario Institute for Cancer Research logo.">
+        <a href="https://www.hpcforhealth.ca/"><img src="img/sponsors/hpc4health.png" width=60% style="display:inline-block;" style="padding-bottom: 20px "alt="HPC4Health logo.">
+        <br><br>
+        <a href="https://computationalgenomics.ca/"><img src="img/sponsors/c3g_Web.png" style="display:inline-block;" width=35% style="padding-bottom: 20px" alt="Canadian Centre for Computational Genomcis logo.">
+
+        <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li></center>
+
+    edit: https://github.com/bioinformaticsdotca/EPI_2023/blob/main/%s
+
+    download: ["pdf", "epub"]
+  number_sections: false
+bookdown::pdf_book:
+  includes:
+    in_header: preamble.tex
+  latex_engine: xelatex
+  citation_package: natbib
+  keep_tex: yes
+bookdown::epub_book: default
+bookdown::html_document2:
+  css: style.css
+  pandoc_args:
+    - "--lua-filter=callouts.lua"
+  includes:
+    in_header:
+      - fa-header.html

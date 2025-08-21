@@ -1,0 +1,410 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{book}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\usepackage{booktabs}
+
+\usepackage{color}
+\usepackage{framed}
+\setlength{\fboxsep}{.8em}
+
+% These colours were manually entered, they shouldn't matter unless you want pdf output
+
+\newenvironment{redbox}{
+  \definecolor{shadecolor}{RGB}{243, 154, 157}
+  \color{white}
+  \begin{shaded}}
+ {\end{shaded}}
+
+\newenvironment{bluebox}{
+  \definecolor{shadecolor}{RGB}{172, 210, 237}
+  \color{white}
+  \begin{shaded}}
+ {\end{shaded}}
+
+\newenvironment{greenbox}{
+  \definecolor{shadecolor}{RGB}{141, 181, 128}
+  \color{white}
+  \begin{shaded}}
+ {\end{shaded}}
+\usepackage[]{natbib}
+\bibliographystyle{plainnat}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Callout Test Page},
+  pdfauthor={Faculty: INSTRUCTOR AND TA NAMES},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Callout Test Page}
+\author{Faculty: INSTRUCTOR AND TA NAMES}
+\date{DATES}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\part{Introduction}\label{part-introduction}
+
+\chapter{Workshop Info}\label{workshop-info}
+
+Welcome to the YEAR WORKSHOP Canadian Bioinformatics Workshop webpage!
+
+\section{Schedule}\label{schedule}
+
+YOUR SCHEDULE HERE
+
+\section{Pre-work}\label{pre-work}
+
+\href{LINK\%20TO\%20PREWORK}{You can find your pre-work here.}
+
+In this tutorial, you can choose between using:
+
+\textbf{16S dataset from wild blueberry, \emph{Vaccinium angustifolium} (soil microbiome)}
+- \href{https://apsjournals.apsnet.org/doi/10.1094/PBIOMES-03-17-0012-R}{Variation in Bacterial and Eukaryotic Communities Associated with Natural and Managed Wild Blueberry Habitats}
+- \href{https://www.frontiersin.org/articles/10.3389/fmicb.2019.01682/full\#B50}{Metagenomic Functional Shifts to Plant Induced Environmental Changes}
+
+\textbf{18S dataset from plastics incubated in a coastal marine environment (plastisphere)}
+- \href{https://www.sciencedirect.com/science/article/pii/S0025326X22003836\#s0050}{Microbial pioneers of plastic colonisation in coastal seawaters}
+
+\textbf{ITS2 dataset from stool samples from pregnant women (gut microbiome)}
+- \href{https://gut.bmj.com/content/73/8/1302.long}{Landscape of the gut mycobiome dynamics during pregnancy and its relationship with host metabolism and pregnancy health}
+
+This is a subtle blue tip with a custom lightbulb icon and a left-aligned title.
+The main content can have \textbf{bold} and \emph{italic} text as usual.
+
+Your process completed successfully. All data has been saved.
+
+test text
+
+\chapter{Meet Your Faculty}\label{meet-your-faculty}
+
+\subsubsection{NAME}\label{name}
+
+\begin{quote}
+JOB TITLE
+INSTITUTION
+LOCATION
+
+--- CONTACT INFO, IF PROVIDED
+\end{quote}
+
+BIO GOES HERE
+
+\subsubsection{Michelle Brazas, PhD}\label{michelle-brazas-phd}
+
+\begin{quote}
+Scientific Director
+Canadian Bioinformatics Workshops (CBW)
+Toronto, ON, CA
+
+--- \href{mailto:director@bioinformatics.ca}{\nolinkurl{director@bioinformatics.ca}}
+\end{quote}
+
+Dr.~Michelle Brazas is the Associate Director for Adaptive Oncology at the Ontario Institute for
+Cancer Research (OICR), and acting Scientific Director at Bioinformatics.ca. Previously, Dr.
+Brazas was the Program Manager for Bioinformatics.ca and a faculty member in
+Biotechnology at BCIT. Michelle co-founded and runs the Toronto Bioinformatics User Group
+(TorBUG) now in its 11th season, and plays an active role in the International Society of
+Computational Biology where she sits on the Board of Directors and Executive Board.
+
+\subsubsection{Nia Hughes (she/her)}\label{nia-hughes-sheher}
+
+\begin{quote}
+Platform Training Manager, Canadian Bioinformatics Hub
+Ontario Institute for Cancer Research
+Toronto, ON, Canada
+
+--- \href{mailto:training@bioinformatics.ca}{\nolinkurl{training@bioinformatics.ca}}
+\end{quote}
+
+Nia is the Platform Training Manager for the Canadian Bioinformatics Hub, where she coordinates the Canadian Bioinformatics Workshop Series. Prior to starting at OICR, she completed her M.Sc. in Bioinformatics from the University of Guelph in 2020 before working there as a bioinformatician studying epigenetic and transcriptomic patterns across maize varieties.
+
+\chapter{Data and Compute Setup}\label{data-and-compute-setup}
+
+\subsubsection{Course data downloads}\label{course-data-downloads}
+
+Coming soon!
+
+\subsubsection{Compute setup}\label{compute-setup}
+
+Coming soon!
+
+\part{Modules}\label{part-modules}
+
+\chapter{Module 1}\label{module-1}
+
+\section{Lecture}\label{lecture}
+
+Here is an example of a pdf embedded:
+
+\includegraphics[width=1\linewidth,height=9.375in]{content-files/sample-pdf.pdf}~
+
+Here is an example of a YouTube video embedded:
+
+\subsection{Downloads}\label{downloads}
+
+{[}insert your downloads for this module here (ex. datasets){]}
+
+\section{Lab}\label{lab}
+
+{[}Your lab here{]}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Your R code here}
+
+\CommentTok{\# For example:}
+\NormalTok{x }\OtherTok{\textless{}{-}} \DecValTok{42}
+\NormalTok{x}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 42
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Your python code here}
+
+\CommentTok{\# For example:}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"hello world"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## hello world
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Your bash code here}
+
+\CommentTok{\# For example:}
+\CommentTok{\#pwd}
+\end{Highlighting}
+\end{Shaded}
+
+Try running these code ``chunks'' by pressing the green (left-pointing) triangle next to your code chunks.
+
+You will see the code run in the console and the output provided below the code chunk.
+
+The output of the code will also be produced under the code chunk on your website page.
+
+\chapter{Callout Tests}\label{callout-tests}
+
+This page tests the static and dropdown callout blocks.
+
+\section{Regular Callouts}\label{regular-callouts}
+
+\subsection{Red Regular}\label{red-regular}
+
+\textbf{Static:}
+
+This is a regular red static callout.
+It can contain \texttt{inline\ code} and also:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# R code block}
+\FunctionTok{print}\NormalTok{(}\StringTok{"Hello from static red!"}\NormalTok{)}
+\NormalTok{x }\OtherTok{\textless{}{-}} \DecValTok{1} \SpecialCharTok{+} \DecValTok{1}
+\end{Highlighting}
+\end{Shaded}
+
+More text after the code block.
+
+\textbf{Dropdown:}
+
+This is the content of a regular red dropdown.
+It can contain \texttt{inline\ code} and also:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# R code block}
+\FunctionTok{print}\NormalTok{(}\StringTok{"Hello from dropdown red!"}\NormalTok{)}
+\NormalTok{y }\OtherTok{\textless{}{-}} \DecValTok{2} \SpecialCharTok{*} \DecValTok{2}
+\end{Highlighting}
+\end{Shaded}
+
+More text after the code block.
+
+\subsection{Blue Regular}\label{blue-regular}
+
+\textbf{Static:}
+
+This blue static callout uses a specific icon.
+
+\textbf{Dropdown:}
+
+Details for the blue dropdown.
+
+\subsection{Green Regular (No Icon)}\label{green-regular-no-icon}
+
+\textbf{Static:}
+
+This green static callout has no icon.
+
+\textbf{Dropdown:}
+
+Content for the green dropdown without an icon.
+
+\section{Important Callouts}\label{important-callouts}
+
+\subsection{Red Important}\label{red-important}
+
+\textbf{Static:}
+
+This is an important red static callout.
+
+\textbf{Dropdown:}
+
+Content of the important red dropdown.
+
+\subsection{Yellow Important}\label{yellow-important}
+
+\textbf{Static:}
+
+This is an important yellow static callout.
+
+\textbf{Dropdown:}
+
+Content of the important yellow dropdown.
+
+\section{Subtle Callouts}\label{subtle-callouts}
+
+\subsection{Purple Subtle}\label{purple-subtle}
+
+\textbf{Static:}
+
+A subtle purple idea, presented statically.
+
+\textbf{Dropdown:}
+
+Details of the subtle purple idea in a dropdown.
+
+\subsection{Gray Subtle (No Title)}\label{gray-subtle-no-title}
+
+\textbf{Static:}
+
+This is a subtle gray static callout with no explicit title.
+The icon should still align with the first line of text.
+
+\textbf{Dropdown:}
+
+This is a subtle gray dropdown with no explicit title (will default to ``Details'').
+The icon should align with the ``Details'' text in the summary.
+Content is here.
+
+  \bibliography{book.bib,packages.bib}
+
+\end{document}

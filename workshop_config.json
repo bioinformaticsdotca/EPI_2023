@@ -1,0 +1,8 @@
+{
+  "workshop_code": "Workshop Code (e.g. INR_Mon-2510)",
+  "workshop_name": "Enter Full Workshop Name Here (e.g. Introduction to R)",
+  "year": "Enter Year Here",
+  "url": "https://bioinformatics.ca/workshop/url",
+  "dates": "Enter Dates Here (e.g. August 11-13, 2025)",
+  "faculty": "Enter Faculty Names Here, separated by commas"
+}
