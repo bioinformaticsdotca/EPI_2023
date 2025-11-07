@@ -1,15 +1,15 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.5.5)  21 AUG 2025 12:09
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.5.20)  6 NOV 2025 20:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **_main.tex
 (./_main.tex
 LaTeX2e <2024-11-01> patch level 2
-L3 programming layer <2025-04-14>
-(/Users/clin/Library/TinyTeX/texmf-dist/tex/latex/base/book.cls
-Document Class: book 2025/01/22 v1.4n Standard LaTeX document class
-(/Users/clin/Library/TinyTeX/texmf-dist/tex/latex/base/bk10.clo
-File: bk10.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
+L3 programming layer <2025-04-29>
+(/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2024/06/29 v1.4n Standard LaTeX document class
+(/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/base/bk10.clo
+File: bk10.clo 2024/06/29 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count268
 \c@chapter=\count269
@@ -23,20 +23,37 @@ File: bk10.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
 \abovecaptionskip=\skip49
 \belowcaptionskip=\skip50
 \bibindent=\dimen146
-) (/Users/clin/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2025/06/16 v2.17y AMS math features
+) (/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
+(/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: xetex.def on input line 274.
+(/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/graphics-def/xetex.def
+File: xetex.def 2022/09/22 v5.0n Graphics/color driver for xetex
+) (/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
+Package xcolor Info: Model `RGB' extended on input line 1365.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1367.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
+) (/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2024/11/05 v2.17t AMS math features
 \@mathmargin=\skip51
 For additional information on amsmath, use the `?' option.
-(/Users/clin/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty
-Package: amstext 2024/11/17 v2.01 AMS text
-(/Users/clin/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty
+(/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2021/08/26 v2.01 AMS text
+(/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks17
 \ex@=\dimen147
-)) (/Users/clin/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty
+)) (/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen148
-) (/Users/clin/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty
+) (/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
 \inf@bad=\count277
@@ -84,52 +101,3247 @@ LaTeX Info: Redefining \Relbar on input line 970.
 \multlinegap=\skip52
 \multlinetaggap=\skip53
 \mathdisplay@stack=\toks21
-LaTeX Info: Redefining \[ on input line 2949.
-LaTeX Info: Redefining \] on input line 2950.
-) (/Users/clin/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/amssymb.sty
+LaTeX Info: Redefining \[ on input line 2953.
+LaTeX Info: Redefining \] on input line 2954.
+) (/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
-(/Users/clin/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+(/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-)) (/Users/clin/Library/TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty
+)) (/Users/nhughes/Library/TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2024/12/12 v1.0g TeX engine tests
-) (/Users/clin/Library/TinyTeX/texmf-dist/tex/latex/unicode-math/unicode-math.sty (/Users/clin/Library/TinyTeX/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2025-08-13 L3 programming layer (loader) 
+) (/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/unicode-math/unicode-math.sty (/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2025-04-29 L3 programming layer (loader) 
+(/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
+File: l3backend-xetex.def 2025-04-14 L3 backend support: XeTeX
+\g__graphics_track_int=\count289
+\g__pdfannot_backend_int=\count290
+\g__pdfannot_backend_link_int=\count291
+))
+Package: unicode-math 2023/08/13 v0.8r Unicode maths in XeLaTeX and LuaLaTeX
+(/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/unicode-math/unicode-math-xetex.sty
+Package: unicode-math-xetex 2023/08/13 v0.8r Unicode maths in XeLaTeX and LuaLaTeX
+(/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+Package: xparse 2024-08-16 L3 Experimental document command parser
+) (/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
+Package: l3keys2e 2024-08-16 LaTeX2e option processing using LaTeX3 keys
+) (/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec.sty
+Package: fontspec 2024/05/11 v2.9e Font selection for XeLaTeX and LuaLaTeX
+(/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
+Package: fontspec-xetex 2024/05/11 v2.9e Font selection for XeLaTeX and LuaLaTeX
+\l__fontspec_script_int=\count292
+\l__fontspec_language_int=\count293
+\l__fontspec_strnum_int=\count294
+\l__fontspec_tmp_int=\count295
+\l__fontspec_tmpa_int=\count296
+\l__fontspec_tmpb_int=\count297
+\l__fontspec_tmpc_int=\count298
+\l__fontspec_em_int=\count299
+\l__fontspec_emdef_int=\count300
+\l__fontspec_strong_int=\count301
+\l__fontspec_strongdef_int=\count302
+\l__fontspec_tmpa_dim=\dimen156
+\l__fontspec_tmpb_dim=\dimen157
+\l__fontspec_tmpc_dim=\dimen158
+(/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+) (/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec.cfg))) (/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/base/fix-cm.sty
+Package: fix-cm 2020/11/24 v1.1t fixes to LaTeX
+(/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/base/ts1enc.def
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding TS1 on input line 47.
+))
+\g__um_fam_int=\count303
+\g__um_fonts_used_int=\count304
+\l__um_primecount_int=\count305
+\g__um_primekern_muskip=\muskip18
+(/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/unicode-math/unicode-math-table.tex))) (/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/lm/lmodern.sty
+Package: lmodern 2015/05/01 v1.6.1 Latin Modern Fonts
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
+(Font)                  OML/cmm/m/it --> OML/lmm/m/it on input line 23.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/cmsy/m/n --> OMS/lmsy/m/n on input line 24.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 25.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 26.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/cmm/b/it --> OML/lmm/b/it on input line 27.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/b/n --> OMS/lmsy/b/n on input line 28.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 29.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 31.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 32.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> OT1/lmr/m/it on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 34.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 35.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> OT1/lmss/bx/n on input line 36.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
+) (/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+Package: fancyvrb 2024/01/20 4.5c verbatim text (tvz,hv)
+(/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks22
+)
+\FV@CodeLineNo=\count306
+\FV@InFile=\read2
+\FV@TabBox=\box55
+\c@FancyVerbLine=\count307
+\FV@StepNumber=\count308
+\FV@OutFile=\write3
+) (/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/framed/framed.sty
+Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
+\OuterFrameSep=\skip54
+\fb@frw=\dimen159
+\fb@frh=\dimen160
+\FrameRule=\dimen161
+\FrameSep=\dimen162
+) (/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2024-10-27 v4.22 Multi-page Table package (DPC)
+\LTleft=\skip55
+\LTright=\skip56
+\LTpre=\skip57
+\LTpost=\skip58
+\LTchunksize=\count309
+\LTcapwidth=\dimen163
+\LT@head=\box56
+\LT@firsthead=\box57
+\LT@foot=\box58
+\LT@lastfoot=\box59
+\LT@gbox=\box60
+\LT@cols=\count310
+\LT@rows=\count311
+\c@LT@tables=\count312
+\c@LT@chunks=\count313
+\LT@p@ftn=\toks23
+) (/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen164
+\lightrulewidth=\dimen165
+\cmidrulewidth=\dimen166
+\belowrulesep=\dimen167
+\belowbottomsep=\dimen168
+\aboverulesep=\dimen169
+\abovetopsep=\dimen170
+\cmidrulesep=\dimen171
+\cmidrulekern=\dimen172
+\defaultaddspace=\dimen173
+\@cmidla=\count314
+\@cmidlb=\count315
+\@aboverulesep=\dimen174
+\@belowrulesep=\dimen175
+\@thisruleclass=\count316
+\@lastruleclass=\count317
+\@thisrulewidth=\dimen176
+) (/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/tools/array.sty
+Package: array 2024/10/17 v2.6g Tabular extension package (FMi)
+\col@sep=\dimen177
+\ar@mcellbox=\box61
+\extrarowheight=\dimen178
+\NC@list=\toks24
+\extratabsurround=\skip59
+\backup@length=\skip60
+\ar@cellbox=\box62
+) (/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2023/07/08 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count318
+\calc@Bcount=\count319
+\calc@Adimen=\dimen179
+\calc@Bdimen=\dimen180
+\calc@Askip=\skip61
+\calc@Bskip=\skip62
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count320
+\calc@Cskip=\skip63
+) (/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2025/02/11 v2.5l e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count321
+) (/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/mdwtools/footnote.sty
+Package: footnote 1997/01/28 1.13 Save footnotes around boxes
+\fn@notes=\box63
+\fn@width=\dimen181
+) (/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+(/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+(/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+) (/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: xetex.def on input line 106.
+)
+\Gin@req@height=\dimen182
+\Gin@req@width=\dimen183
+)
+\pandoc@box=\box64
+(/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip64
+\bibsep=\skip65
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count322
+) (/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/bookmark/bookmark.sty
+Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
+(/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2025-05-20 v7.01m Hypertext links for LaTeX
+(/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+) (/Users/nhughes/Library/TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+) (/Users/nhughes/Library/TinyTeX/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+(/Users/nhughes/Library/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+) (/Users/nhughes/Library/TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
+(/Users/nhughes/Library/TinyTeX/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode not found.
+)) (/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/hycolor/hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+) (/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2023-11-26 v2.56 Cross-referencing by name of section
+(/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+) (/Users/nhughes/Library/TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+(/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+))
+\c@section@level=\count323
+) (/Users/nhughes/Library/TinyTeX/texmf-dist/tex/generic/stringenc/stringenc.sty
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
+)
+\@linkdim=\dimen184
+\Hy@linkcounter=\count324
+\Hy@pagecounter=\count325
+(/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2025-05-20 v7.01m Hyperref: PDFDocEncoding definition (HO)
+) (/Users/nhughes/Library/TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+\Hy@SavedSpaceFactor=\count326
+(/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
+File: puenc.def 2025-05-20 v7.01m Hyperref: PDF Unicode definition (HO)
+)
+Package hyperref Info: Option `unicode' set `true' on input line 4040.
+Package hyperref Info: Hyper figures OFF on input line 4157.
+Package hyperref Info: Link nesting OFF on input line 4162.
+Package hyperref Info: Hyper index ON on input line 4165.
+Package hyperref Info: Plain pages OFF on input line 4172.
+Package hyperref Info: Backreferencing OFF on input line 4177.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4424.
+\c@Hy@tempcnt=\count327
+(/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip19
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4763.
+\XeTeXLinkMargin=\dimen185
+(/Users/nhughes/Library/TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+(/Users/nhughes/Library/TinyTeX/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
+))
+\Fld@menulength=\count328
+\Field@Width=\dimen186
+\Fld@charsize=\dimen187
+Package hyperref Info: Hyper figures OFF on input line 6042.
+Package hyperref Info: Link nesting OFF on input line 6047.
+Package hyperref Info: Hyper index ON on input line 6050.
+Package hyperref Info: backreferencing OFF on input line 6057.
+Package hyperref Info: Link coloring OFF on input line 6062.
+Package hyperref Info: Link coloring with OCG OFF on input line 6067.
+Package hyperref Info: PDF/A mode OFF on input line 6072.
+(/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/base/atbegshi-ltx.sty
+Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
+package with kernel methods
+)
+\Hy@abspage=\count329
+\c@Item=\count330
+\c@Hfootnote=\count331
+)
+Package hyperref Info: Driver (autodetected): hxetex.
+(/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hxetex.def
+File: hxetex.def 2025-05-20 v7.01m Hyperref driver for XeTeX
+\pdfm@box=\box65
+\c@Hy@AnnotLevel=\count332
+\HyField@AnnotCount=\count333
+\Fld@listcount=\count334
+\c@bookmark@seq@number=\count335
+(/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
+(/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/base/atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
+with kernel methods
+) (/Users/nhughes/Library/TinyTeX/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
+)
+\Hy@SectionHShift=\skip66
+) (/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/bookmark/bkm-dvipdfm.def
+File: bkm-dvipdfm.def 2023-12-10 v1.31 bookmark driver for dvipdfm (HO)
+\BKM@id=\count336
+)) (./_main.aux)
+\openout1 = `_main.aux'.
 
-! LaTeX Error: Mismatched LaTeX support files detected.
-(LaTeX)        Loading 'expl3.sty' aborted!
-(LaTeX)        
-(LaTeX)        The L3 programming layer in the LaTeX format
-(LaTeX)        is dated 2025-04-14, but in your TeX tree the files require
-(LaTeX)        at least 2025-08-13.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 147.
+LaTeX Font Info:    ... okay on input line 147.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 147.
+LaTeX Font Info:    ... okay on input line 147.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 147.
+LaTeX Font Info:    ... okay on input line 147.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 147.
+LaTeX Font Info:    ... okay on input line 147.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 147.
+LaTeX Font Info:    ... okay on input line 147.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 147.
+LaTeX Font Info:    ... okay on input line 147.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 147.
+LaTeX Font Info:    ... okay on input line 147.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 147.
+LaTeX Font Info:    ... okay on input line 147.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 147.
+LaTeX Font Info:    ... okay on input line 147.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 147.
+LaTeX Font Info:    ... okay on input line 147.
+LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
+(Font)                  OT1/lmr/m/n --> TU/lmr/m/n on input line 147.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/lmr/m/it --> TU/lmr/m/it on input line 147.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/lmr/bx/n --> TU/lmr/bx/n on input line 147.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 147.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/lmss/bx/n --> TU/lmss/bx/n on input line 147.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 147.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/bx/n on input line 147.
 
-For immediate help type H <return>.
- ...                                              
-                                                  
-l.78      \ExplLoaderFileDate{expl3.sty}}
-                                         %
-
-The most likely causes are:
- - A recent format generation failed;
- - A stray format file in the user tree which needs to be removed or rebuilt;
- - You are running a manually installed version of expl3.sty
-   which is incompatible with the version in LaTeX.
-
-LaTeX will abort loading the incompatible support files but this may lead to
-later errors. Please ensure that your LaTeX format is correctly regenerated.
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999964596882403.
 
 
- 
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: 
+(fontspec)             Font family 'latinmodern-math.otf(0)' created for font
+(fontspec)             'latinmodern-math.otf' with options
+(fontspec)             [Scale=MatchLowercase,BoldItalicFont={},ItalicFont={},SmallCapsFont={},Script=Math,BoldFont={latinmodern-math.otf}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[0.9999964596882403]"[latinmodern-math.otf]/OT:script=math;language=dflt;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[0.9999964596882403]"[latinmodern-math.otf]/OT:script=math;language=dflt;"
+
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(0)/m/n' will be
+(Font)              scaled to size 10.0pt on input line 147.
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: 
+(fontspec)             Font family 'latinmodern-math.otf(1)' created for font
+(fontspec)             'latinmodern-math.otf' with options
+(fontspec)             [Scale=MatchLowercase,BoldItalicFont={},ItalicFont={},SmallCapsFont={},Script=Math,SizeFeatures={{Size=8.5-},{Size=6-8.5,Font=latinmodern-math.otf,Style=MathScript},{Size=-6,Font=latinmodern-math.otf,Style=MathScriptScript}},BoldFont={latinmodern-math.otf}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <8.5->s*[0.9999964596882403]"[latinmodern-math.otf]/OT:script=math;language=dflt;"<6-8.5>s*[0.9999964596882403]"[latinmodern-math.otf]/OT:script=math;language=dflt;+ssty=0;"<-6>s*[0.9999964596882403]"[latinmodern-math.otf]/OT:script=math;language=dflt;+ssty=1;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[0.9999964596882403]"[latinmodern-math.otf]/OT:script=math;language=dflt;"
+
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 10.0pt on input line 147.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `normal' on input line 147.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/lmr/m/n --> TU/latinmodern-math.otf(1)/m/n on input line 147.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `bold' on input line 147.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/lmr/bx/n --> TU/latinmodern-math.otf(1)/b/n on input line 147.
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 1.000096459334209.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 1.000096459334209.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 1.000096459334209.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 1.000096459334209.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 1.000096459334209.
+
+
+Package fontspec Info: 
+(fontspec)             Font family 'latinmodern-math.otf(2)' created for font
+(fontspec)             'latinmodern-math.otf' with options
+(fontspec)             [Scale=MatchLowercase,BoldItalicFont={},ItalicFont={},SmallCapsFont={},Script=Math,SizeFeatures={{Size=8.5-},{Size=6-8.5,Font=latinmodern-math.otf,Style=MathScript},{Size=-6,Font=latinmodern-math.otf,Style=MathScriptScript}},BoldFont={latinmodern-math.otf},ScaleAgain=1.0001,FontAdjustment={\fontdimen
+(fontspec)             8\font =6.77pt\relax \fontdimen 9\font =3.94pt\relax
+(fontspec)             \fontdimen 10\font =4.44pt\relax \fontdimen 11\font
+(fontspec)             =6.86pt\relax \fontdimen 12\font =3.45pt\relax
+(fontspec)             \fontdimen 13\font =3.63pt\relax \fontdimen 14\font
+(fontspec)             =3.63pt\relax \fontdimen 15\font =2.89pt\relax
+(fontspec)             \fontdimen 16\font =2.47pt\relax \fontdimen 17\font
+(fontspec)             =2.47pt\relax \fontdimen 18\font =2.5pt\relax
+(fontspec)             \fontdimen 19\font =2.0pt\relax \fontdimen 22\font
+(fontspec)             =2.5pt\relax \fontdimen 20\font =0pt\relax \fontdimen
+(fontspec)             21\font =0pt\relax }].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <8.5->s*[1.000096459334209]"[latinmodern-math.otf]/OT:script=math;language=dflt;"<6-8.5>s*[1.000096459334209]"[latinmodern-math.otf]/OT:script=math;language=dflt;+ssty=0;"<-6>s*[1.000096459334209]"[latinmodern-math.otf]/OT:script=math;language=dflt;+ssty=1;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[1.000096459334209]"[latinmodern-math.otf]/OT:script=math;language=dflt;"
+
+LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
+(Font)              `symbols' in the math version `normal' on input line 147.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/lmsy/m/n --> TU/latinmodern-math.otf(2)/m/n on input line 147.
+LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
+(Font)              `symbols' in the math version `bold' on input line 147.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/lmsy/b/n --> TU/latinmodern-math.otf(2)/b/n on input line 147.
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9998964600422715.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9998964600422715.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9998964600422715.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9998964600422715.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9998964600422715.
+
+
+Package fontspec Info: 
+(fontspec)             Font family 'latinmodern-math.otf(3)' created for font
+(fontspec)             'latinmodern-math.otf' with options
+(fontspec)             [Scale=MatchLowercase,BoldItalicFont={},ItalicFont={},SmallCapsFont={},Script=Math,SizeFeatures={{Size=8.5-},{Size=6-8.5,Font=latinmodern-math.otf,Style=MathScript},{Size=-6,Font=latinmodern-math.otf,Style=MathScriptScript}},BoldFont={latinmodern-math.otf},ScaleAgain=0.9999,FontAdjustment={\fontdimen
+(fontspec)             8\font =0.4pt\relax \fontdimen 9\font =2.0pt\relax
+(fontspec)             \fontdimen 10\font =1.67pt\relax \fontdimen 11\font
+(fontspec)             =1.11pt\relax \fontdimen 12\font =6.0pt\relax
+(fontspec)             \fontdimen 13\font =0pt\relax }].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <8.5->s*[0.9998964600422715]"[latinmodern-math.otf]/OT:script=math;language=dflt;"<6-8.5>s*[0.9998964600422715]"[latinmodern-math.otf]/OT:script=math;language=dflt;+ssty=0;"<-6>s*[0.9998964600422715]"[latinmodern-math.otf]/OT:script=math;language=dflt;+ssty=1;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[0.9998964600422715]"[latinmodern-math.otf]/OT:script=math;language=dflt;"
+
+LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
+(Font)              `largesymbols' in the math version `normal' on input line 147.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/m/n on input line 147.
+LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
+(Font)              `largesymbols' in the math version `bold' on input line 147.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/b/n on input line 147.
+Package hyperref Info: Link coloring OFF on input line 147.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 12.0pt on input line 149.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 8.0pt on input line 149.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 6.0pt on input line 149.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 149.
+(/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 12.0011pt on input line 149.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 8.00073pt on input line 149.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 6.00055pt on input line 149.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 11.99872pt on input line 149.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 7.99915pt on input line 149.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 5.99936pt on input line 149.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 149.
+(/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 149.
+(/Users/nhughes/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+Overfull \hbox (456.71611pt too wide) in paragraph at lines 149--149
+ [][] 
+ []
+
+
+
+[1
+
+
+]
+
+[2
+
+] (./_main.toc
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 7.0pt on input line 3.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 5.0pt on input line 3.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 10.00092pt on input line 3.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 7.00064pt on input line 3.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 5.00046pt on input line 3.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 9.99893pt on input line 3.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 6.99925pt on input line 3.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 4.99947pt on input line 3.
+
+
+[3])
+\tf@toc=\write4
+\openout4 = `_main.toc'.
+
+
+
+[4]
+
+[5
+
+]
+
+[6]
+Chapter 1.
+
+
+[7
+
+]
+
+[8
+
+]
+Chapter 2.
+
+Underfull \hbox (badness 1668) in paragraph at lines 187--191
+[]\TU/lmr/m/n/10 Distinguished Scientist, BC Cancer Professor, Department of
+ []
+
+
+
+[9]
+Underfull \hbox (badness 1688) in paragraph at lines 253--256
+[]\TU/lmr/m/n/10 Acting Scientific Director Canadian Bioinformatics Workshops
+ []
+
+
+
+[10]
+
+[11]
+
+[12
+
+]
+Chapter 3.
+
+Package hyperref Warning: Suppressing link with empty target on input line 314.
+
+
+Package hyperref Warning: Suppressing link with empty target on input line 316.
+
+
+
+[13]
+Overfull \hbox (117.0pt too wide) in paragraph at lines 357--357
+[]\TU/lmtt/m/n/10 wget https://github.com/arq5x/bedtools2/releases/download/v2.30.0/bedtools.static.binary[] 
+ []
+
+
+Overfull \hbox (69.75pt too wide) in paragraph at lines 365--365
+[]\TU/lmtt/m/n/10 wget https://newcontinuum.dl.sourceforge.net/project/bio-bwa/bwa-0.7.17.tar.bz2[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 373--373
+[]\TU/lmtt/m/n/10 wget https://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.12.1.zip[] 
+ []
+
+
+Overfull \hbox (106.5pt too wide) in paragraph at lines 383--383
+[]\TU/lmtt/m/n/10 wget https://github.com/samtools/samtools/releases/download/1.17/samtools-1.17.tar.bz2[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 389--389
+[]\TU/lmtt/m/n/10 wget https://github.com/broadinstitute/picard/releases/download/3.1.0/picard.jar[] 
+ []
+
+
+
+[14]
+Overfull \hbox (12.0pt too wide) in paragraph at lines 416--416
+[]\TU/lmtt/m/n/10 rsync -aP hgdownload.soe.ucsc.edu::genome/admin/exe/linux.x86_64/ ./[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 423--423
+[]\TU/lmtt/m/n/10 wget https://github.com/FelixKrueger/Bismark/archive/refs/tags/v0.24.2.tar.gz[] 
+ []
+
+
+
+[15]
+
+[16
+
+]
+
+[17]
+
+[18]
+Chapter 4.
+
+Overfull \hbox (216.75pt too wide) in paragraph at lines 454--454
+[]\TU/lmtt/m/n/10 Additionally the code block will include a header to indicate what environment to the run code for example:[] 
+ []
+
+
+
+[19
+
+]
+Overfull \hbox (300.49997pt too wide) in paragraph at lines 519--520
+[]\TU/lmtt/m/n/10 mkdir -p ~/workspace/module123/{BWA_index,alignments,fastqc,stats,peaks,bigBed,bigWig,resources,diffBind,edgeR,qc} 
+ []
+
+
+Overfull \hbox (300.75pt too wide) in paragraph at lines 541--541
+[]\TU/lmtt/m/n/10 wget https://hgdownload.soe.ucsc.edu/goldenPath/hg38/chromosomes/chr19.fa.gz -O ~/workspace/module123/BWA_index/chr19.fa.gz[] 
+ []
+
+
+
+
+Overfull \hbox (64.56845pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 20 \TU/lmr/m/sl/10 CHAPTER 4.  MODULE 1: INTRODUCTION TO CHIP SEQUENCING AND ANALYSIS
+ []
+
+[20]
+Overfull \hbox (159.0pt too wide) in paragraph at lines 541--541
+[]\TU/lmtt/m/n/10 gunzip ~/workspace/module123/BWA_index/chr19.fa.gz -c > ~/workspace/module123/BWA_index/chr19.fa[] 
+ []
+
+
+Overfull \hbox (79.0pt too wide) in paragraph at lines 547--548
+[]\TU/lmtt/m/n/10 wget https://hgdownload.soe.ucsc.edu/goldenPath/hg38/chromosomes/chr19.fa.gz
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 556--558
+[]\TU/lmtt/m/n/10 -O ~/workspace/module123/BWA_index/chr19.fa.gz \TU/lmr/m/n/10 instructs
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 563--564
+[]\TU/lmtt/m/n/10 gunzip ~/workspace/module123/BWA_index/chr19.fa.gz -c >
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 574--575
+[]\TU/lmr/m/n/10 compare \TU/lmtt/m/n/10 ls ~/workspace/module123/BWA_index/chr19.fa.gz
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 574--575
+\TU/lmtt/m/n/10 -ilth \TU/lmr/m/n/10 vs \TU/lmtt/m/n/10 ls ~/workspace/module123/BWA_index/chr19.fa
+ []
+
+
+
+[21]
+Overfull \hbox (148.5pt too wide) in paragraph at lines 604--604
+[]\TU/lmtt/m/n/10 bwa index ~/workspace/module123/BWA_index/chr19.fa > ~/workspace/module123/BWA_index/index.log[] 
+ []
+
+
+Overfull \hbox (10.03996pt too wide) in paragraph at lines 618--620
+[]\TU/lmr/m/n/10 take a look inside your folder \TU/lmtt/m/n/10 ls ~/workspace/module123/BWA_index/ 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 636--636
+[]\TU/lmtt/m/n/10 fastq_input=~/CourseData/EPI_data/module123/fastq/MCF10A.Input.chr19.R1.fastq.gz[] 
+ []
+
+
+Overfull \hbox (96.0pt too wide) in paragraph at lines 636--636
+[]\TU/lmtt/m/n/10 fastq_h3k4me3=~/CourseData/EPI_data/module123/fastq/MCF10A.H3K4me3.chr19.R1.fastq.gz[] 
+ []
+
+
+Overfull \hbox (201.0pt too wide) in paragraph at lines 636--636
+[]\TU/lmtt/m/n/10 fastqc -t 8 ${fastq_input} -o ~/workspace/module123/fastqc > ~/workspace/module123/fastqc/input.log 2>&1[] 
+ []
+
+
+Overfull \hbox (222.0pt too wide) in paragraph at lines 636--636
+[]\TU/lmtt/m/n/10 fastqc -t 8 ${fastq_h3k4me3} -o ~/workspace/module123/fastqc > ~/workspace/module123/fastqc/h3k4me3.log 2>&1[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 661--661
+[]\TU/lmtt/m/n/10 http://main.uhn-hpc.ca/module123/fastqc/MCF10A.Input.chr19.R1_fastqc.html[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 661--661
+[]\TU/lmtt/m/n/10 http://main.uhn-hpc.ca/module123/fastqc/MCF10A.H3K4me3.chr19.R1_fastqc.html[] 
+ []
+
+
+
+
+Overfull \hbox (64.56845pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 22 \TU/lmr/m/sl/10 CHAPTER 4.  MODULE 1: INTRODUCTION TO CHIP SEQUENCING AND ANALYSIS
+ []
+
+[22]
+
+[23]
+Overfull \hbox (43.5pt too wide) in paragraph at lines 796--796
+[]\TU/lmtt/m/n/10 read1=~/CourseData/EPI_data/module123/fastq/MCF10A.Input.chr19.R1.fastq.gz[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 796--796
+[]\TU/lmtt/m/n/10 read2=~/CourseData/EPI_data/module123/fastq/MCF10A.Input.chr19.R2.fastq.gz[] 
+ []
+
+
+Overfull \hbox (547.5pt too wide) in paragraph at lines 796--796
+[]\TU/lmtt/m/n/10 bwa mem -M -t 4 ${ref} ${read1} ${read2} 2>~/workspace/module123/alignments/${sample}.alignment.log | samtools view -hbS -o ~/workspace/module123/alignments/${sample}.bam[] 
+ []
+
+
+Overfull \hbox (147.25pt too wide) in paragraph at lines 804--805
+[]\TU/lmtt/m/n/10 bwa mem -M -t 4 ${ref} ${read1} ${read2} 2>~/workspace/module123/alignments/alignment.log 
+ []
+
+
+Underfull \hbox (badness 1062) in paragraph at lines 817--819
+\TU/lmr/m/n/10 are flagged as \TU/lmtt/m/n/10 SUPPLEMENTARY \TU/lmr/m/n/10 (partially mapping), the option
+ []
+
+
+Overfull \hbox (37.0pt too wide) in paragraph at lines 832--833
+[]\TU/lmtt/m/n/10 samtools view -hbS -o ~/workspace/module123/alignments/${sample}.bam 
+ []
+
+
+
+
+Overfull \hbox (64.56845pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 24 \TU/lmr/m/sl/10 CHAPTER 4.  MODULE 1: INTRODUCTION TO CHIP SEQUENCING AND ANALYSIS
+ []
+
+[24]
+Overfull \hbox (290.25pt too wide) in paragraph at lines 870--870
+[]\TU/lmtt/m/n/10 samtools sort -@8 ~/workspace/module123/alignments/${sample}.bam -o ~/workspace/module123/alignments/${sample}.sorted.bam[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 899--899
+[]\TU/lmtt/m/n/10 O=~/workspace/module123/alignments/${sample}.sorted.dup_marked.bam \[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 899--899
+[]\TU/lmtt/m/n/10 M=~/workspace/module123/alignments/${sample}.dup_marked.output.log \[] 
+ []
+
+
+Overfull \hbox (215.5pt too wide) in paragraph at lines 904--905
+[]\TU/lmtt/m/n/10 java -jar /usr/local/picard.jar MarkDuplicates I=~/workspace/module123/alignments/${sample}.sorted.bam
+ []
+
+
+Overfull \hbox (26.5pt too wide) in paragraph at lines 904--905
+\TU/lmtt/m/n/10 O=~/workspace/module123/alignments/${sample}.sorted.dup_marked.bam
+ []
+
+
+Overfull \hbox (26.5pt too wide) in paragraph at lines 904--905
+\TU/lmtt/m/n/10 M=~/workspace/module123/alignments/${sample}.dup_marked.output.log
+ []
+
+
+
+[25]
+Overfull \hbox (437.25pt too wide) in paragraph at lines 939--939
+[]\TU/lmtt/m/n/10 samtools flagstat ~/workspace/module123/alignments/${sample}.sorted.dup_marked.bam > ~/workspace/module123/stats/${sample}.sorted.dup_marked.flagstat[] 
+ []
+
+
+Overfull \hbox (400.5pt too wide) in paragraph at lines 939--939
+[]\TU/lmtt/m/n/10 samtools stats ~/workspace/module123/alignments/${sample}.sorted.dup_marked.bam > ~/workspace/module123/stats/${sample}.sorted.dup_marked.stat[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 992--992
+[]    \TU/lmtt/m/n/10 read1=~/CourseData/EPI_data/module123/fastq/MCF10A.${histone}.chr19.R1.fastq.gz[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 992--992
+[]    \TU/lmtt/m/n/10 read2=~/CourseData/EPI_data/module123/fastq/MCF10A.${histone}.chr19.R2.fastq.gz[] 
+ []
+
+
+
+
+Overfull \hbox (64.56845pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 26 \TU/lmr/m/sl/10 CHAPTER 4.  MODULE 1: INTRODUCTION TO CHIP SEQUENCING AND ANALYSIS
+ []
+
+[26]
+Overfull \hbox (573.75pt too wide) in paragraph at lines 992--992
+[]    \TU/lmtt/m/n/10 bwa mem -M -t 4 ${ref} ${read1} ${read2} 2> ~/workspace/module123/alignments/${sample}.alignment.log | samtools view -hbS -o ~/workspace/module123/alignments/${sample}.bam[] 
+ []
+
+
+Overfull \hbox (311.25pt too wide) in paragraph at lines 992--992
+[]    \TU/lmtt/m/n/10 samtools sort -@8 ~/workspace/module123/alignments/${sample}.bam -o ~/workspace/module123/alignments/${sample}.sorted.bam[] 
+ []
+
+
+Overfull \hbox (1518.75pt too wide) in paragraph at lines 992--992
+[]    \TU/lmtt/m/n/10 java -jar /usr/local/picard.jar MarkDuplicates I=~/workspace/module123/alignments/${sample}.sorted.bam O=~/workspace/module123/alignments/${sample}.sorted.dup_marked.bam M=~/workspace/module123/alignments/${sample}.dup_marked.output.log ASSUME_SORTED=TRUE VALIDATION_STRINGENCY=LENIENT > ~/workspace/module123/alignments/${sample}.dup_marked.error.log[] 
+ []
+
+
+Overfull \hbox (458.25pt too wide) in paragraph at lines 992--992
+[]    \TU/lmtt/m/n/10 samtools flagstat ~/workspace/module123/alignments/${sample}.sorted.dup_marked.bam > ~/workspace/module123/stats/${sample}.sorted.dup_marked.flagstat[] 
+ []
+
+
+Overfull \hbox (421.5pt too wide) in paragraph at lines 992--992
+[]    \TU/lmtt/m/n/10 samtools stats ~/workspace/module123/alignments/${sample}.sorted.dup_marked.bam > ~/workspace/module123/stats/${sample}.sorted.dup_marked.stat[] 
+ []
+
+
+Overfull \hbox (227.25pt too wide) in paragraph at lines 1019--1019
+[]\TU/lmtt/m/n/10 ls ~/workspace/module123/alignments/*.bam | grep -v sorted.dup_marked | xargs -I {} sh -c "echo rm {}; rm {}"[] 
+ []
+
+
+Overfull \hbox (34.19386pt too wide) in paragraph at lines 1029--1031
+[]\TU/lmr/m/n/10 a look up of \TU/lmtt/m/n/10 BAM \TU/lmr/m/n/10 files in our directory : \TU/lmtt/m/n/10 ~/workspace/module123/alignments 
+ []
+
+
+Overfull \hbox (185.30997pt too wide) in paragraph at lines 1045--1046
+\TU/lmtt/m/n/10 MCF10A_input_chr19.bam\TU/lmr/m/n/10 ,\TU/lmtt/m/n/10 MCF10A_input_chr19.sorted.bam\TU/lmr/m/n/10 ,\TU/lmtt/m/n/10 MCF10A_input_chr19.sorted.dup_marked.bam 
+ []
+
+
+
+[27]
+Overfull \hbox (369.0pt too wide) in paragraph at lines 1084--1084
+[]\TU/lmtt/m/n/10 wget https://www.bcgsc.ca/downloads/esu/touchdown/hg38v79_genes_tss_2000.bed -O workspace/module123/resources/hg38v79_genes_tss_2000.bed[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 1084--1084
+[]\TU/lmtt/m/n/10 sort -k1,1 -k2,2n workspace/module123/resources/hg38v79_genes_tss_2000.bed > tmp[] 
+ []
+
+
+Overfull \hbox (400.5pt too wide) in paragraph at lines 1084--1084
+[]\TU/lmtt/m/n/10 wget https://www.bcgsc.ca/downloads/esu/touchdown/encode_enhancers_liftover.bed -O workspace/module123/resources/encode_enhancers_liftover.bed[] 
+ []
+
+
+Overfull \hbox (384.75pt too wide) in paragraph at lines 1084--1084
+[]\TU/lmtt/m/n/10 wget https://www.encodeproject.org/files/ENCFF356LFX/@@download/ENCFF356LFX.bed.gz -O ~/workspace/module123/resources/hg38_blacklist.bed.gz[] 
+ []
+
+
+
+
+Overfull \hbox (64.56845pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 28 \TU/lmr/m/sl/10 CHAPTER 4.  MODULE 1: INTRODUCTION TO CHIP SEQUENCING AND ANALYSIS
+ []
+
+[28]
+
+[29]
+Overfull \hbox (258.75pt too wide) in paragraph at lines 1222--1222
+[]\TU/lmtt/m/n/10 MCF10A_H3K4me3_chr19.CondA.Rep1.bam      MCF10A_H3K4me3_chr19.CondB.Rep2.bam      MCF10A_input_chr19.CondA.Rep3.bam[] 
+ []
+
+
+Overfull \hbox (279.75pt too wide) in paragraph at lines 1222--1222
+[]\TU/lmtt/m/n/10 MCF10A_H3K4me3_chr19.CondA.Rep1.bam.bai  MCF10A_H3K4me3_chr19.CondB.Rep2.bam.bai  MCF10A_input_chr19.CondA.Rep3.bam.bai[] 
+ []
+
+
+Overfull \hbox (258.75pt too wide) in paragraph at lines 1222--1222
+[]\TU/lmtt/m/n/10 MCF10A_H3K4me3_chr19.CondA.Rep2.bam      MCF10A_H3K4me3_chr19.CondB.Rep3.bam      MCF10A_input_chr19.CondB.Rep1.bam[] 
+ []
+
+
+Overfull \hbox (279.75pt too wide) in paragraph at lines 1222--1222
+[]\TU/lmtt/m/n/10 MCF10A_H3K4me3_chr19.CondA.Rep2.bam.bai  MCF10A_H3K4me3_chr19.CondB.Rep3.bam.bai  MCF10A_input_chr19.CondB.Rep1.bam.bai[] 
+ []
+
+
+Overfull \hbox (258.75pt too wide) in paragraph at lines 1222--1222
+[]\TU/lmtt/m/n/10 MCF10A_H3K4me3_chr19.CondA.Rep3.bam      MCF10A_input_chr19.CondA.Rep1.bam        MCF10A_input_chr19.CondB.Rep2.bam[] 
+ []
+
+
+Overfull \hbox (279.75pt too wide) in paragraph at lines 1222--1222
+[]\TU/lmtt/m/n/10 MCF10A_H3K4me3_chr19.CondA.Rep3.bam.bai  MCF10A_input_chr19.CondA.Rep1.bam.bai    MCF10A_input_chr19.CondB.Rep2.bam.bai[] 
+ []
+
+
+Overfull \hbox (258.75pt too wide) in paragraph at lines 1222--1222
+[]\TU/lmtt/m/n/10 MCF10A_H3K4me3_chr19.CondB.Rep1.bam      MCF10A_input_chr19.CondA.Rep2.bam        MCF10A_input_chr19.CondB.Rep3.bam[] 
+ []
+
+
+Overfull \hbox (279.75pt too wide) in paragraph at lines 1222--1222
+[]\TU/lmtt/m/n/10 MCF10A_H3K4me3_chr19.CondB.Rep1.bam.bai  MCF10A_input_chr19.CondA.Rep2.bam.bai    MCF10A_input_chr19.CondB.Rep3.bam.bai[] 
+ []
+
+
+Overfull \hbox (117.0pt too wide) in paragraph at lines 1222--1222
+[]\TU/lmtt/m/n/10 CondA.Rep1.bw  CondA.Rep2.bw  CondA.Rep3.bw  CondB.Rep1.bw  CondB.Rep2.bw  CondB.Rep3.bw[] 
+ []
+
+
+Overfull \hbox (101.25pt too wide) in paragraph at lines 1222--1222
+[]\TU/lmtt/m/n/10 CondA.Rep1_peaks.narrowPeak  CondA.Rep3_peaks.narrowPeak  CondB.Rep2_peaks.narrowPeak[] 
+ []
+
+
+Overfull \hbox (101.25pt too wide) in paragraph at lines 1222--1222
+[]\TU/lmtt/m/n/10 CondA.Rep2_peaks.narrowPeak  CondB.Rep1_peaks.narrowPeak  CondB.Rep3_peaks.narrowPeak[] 
+ []
+
+
+
+
+Overfull \hbox (64.56845pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 30 \TU/lmr/m/sl/10 CHAPTER 4.  MODULE 1: INTRODUCTION TO CHIP SEQUENCING AND ANALYSIS
+ []
+
+[30]
+Chapter 5.
+
+Overfull \hbox (216.75pt too wide) in paragraph at lines 1259--1259
+[]\TU/lmtt/m/n/10 Additionally the code block will include a header to indicate what environment to the run code for example:[] 
+ []
+
+
+
+[31
+
+]
+Overfull \hbox (80.25pt too wide) in paragraph at lines 1319--1319
+[]\TU/lmtt/m/n/10 treatment_bam=~/workspace/module123/alignments/${treatment}.sorted.dup_marked.bam[] 
+ []
+
+
+Overfull \hbox (122.25pt too wide) in paragraph at lines 1319--1319
+[]\TU/lmtt/m/n/10 treatment_dedup=~/workspace/module123/alignments/${treatment}.sorted.dup_marked.dedup.bam[] 
+ []
+
+
+Overfull \hbox (33.0pt too wide) in paragraph at lines 1319--1319
+[]\TU/lmtt/m/n/10 samtools view -@4 ${treatment_bam} -bh -q10 -F1028 -o ${treatment_dedup}[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 1319--1319
+[]\TU/lmtt/m/n/10 treatment_bam=~/workspace/module123/alignments/${treatment}.sorted.dup_marked.bam[] 
+ []
+
+
+Overfull \hbox (122.25pt too wide) in paragraph at lines 1319--1319
+[]\TU/lmtt/m/n/10 treatment_dedup=~/workspace/module123/alignments/${treatment}.sorted.dup_marked.dedup.bam[] 
+ []
+
+
+Overfull \hbox (33.0pt too wide) in paragraph at lines 1319--1319
+[]\TU/lmtt/m/n/10 samtools view -@4 ${treatment_bam} -bh -q10 -F1028 -o ${treatment_dedup}[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 1319--1319
+[]\TU/lmtt/m/n/10 treatment_bam=~/workspace/module123/alignments/${treatment}.sorted.dup_marked.bam[] 
+ []
+
+
+Overfull \hbox (122.25pt too wide) in paragraph at lines 1319--1319
+[]\TU/lmtt/m/n/10 treatment_dedup=~/workspace/module123/alignments/${treatment}.sorted.dup_marked.dedup.bam[] 
+ []
+
+
+Overfull \hbox (33.0pt too wide) in paragraph at lines 1319--1319
+[]\TU/lmtt/m/n/10 samtools view -@4 ${treatment_bam} -bh -q10 -F1028 -o ${treatment_dedup}[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 1319--1319
+[]\TU/lmtt/m/n/10 treatment_bam=~/workspace/module123/alignments/${treatment}.sorted.dup_marked.bam[] 
+ []
+
+
+Overfull \hbox (122.25pt too wide) in paragraph at lines 1319--1319
+[]\TU/lmtt/m/n/10 treatment_dedup=~/workspace/module123/alignments/${treatment}.sorted.dup_marked.dedup.bam[] 
+ []
+
+
+Overfull \hbox (33.0pt too wide) in paragraph at lines 1319--1319
+[]\TU/lmtt/m/n/10 samtools view -@4 ${treatment_bam} -bh -q10 -F1028 -o ${treatment_dedup}[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 1319--1319
+[]\TU/lmtt/m/n/10 input_bam=~/workspace/module123/alignments/${input}.sorted.dup_marked.bam[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 1319--1319
+[]\TU/lmtt/m/n/10 input_dedup=~/workspace/module123/alignments/${input}.sorted.dup_marked.dedup.bam[] 
+ []
+
+
+Overfull \hbox (16.0pt too wide) in paragraph at lines 1328--1329
+[]\TU/lmtt/m/n/10 samtools view -@4 ${input_bam} -bh -q10 -F1028 -o ${input_dedup} 
+ []
+
+
+
+
+Overfull \hbox (46.73174pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 32 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 2: ALIGNMENT, PEAK CALLING, AND VISUALIZATION
+ []
+
+[32]
+Overfull \hbox (96.0pt too wide) in paragraph at lines 1372--1372
+[]\TU/lmtt/m/n/10 treatment=~/workspace/module123/alignments/${name}_chr19.sorted.dup_marked.dedup.bam[] 
+ []
+
+
+Overfull \hbox (101.25pt too wide) in paragraph at lines 1372--1372
+[]\TU/lmtt/m/n/10 input=~/workspace/module123/alignments/MCF10A_input_chr19.sorted.dup_marked.dedup.bam[] 
+ []
+
+
+Overfull \hbox (846.75pt too wide) in paragraph at lines 1372--1372
+[]\TU/lmtt/m/n/10 macs2 callpeak -t ${treatment} -c ${input} -f BAMPE -g 58617616 -n ${name} --keep-dup all --outdir ~/workspace/module123/peaks/ --bdg 1> ~/workspace/module123/peaks/${name}.out.log 2> ~/workspace/module123/peaks/${name}.err.log[] 
+ []
+
+
+Overfull \hbox (96.0pt too wide) in paragraph at lines 1372--1372
+[]\TU/lmtt/m/n/10 treatment=~/workspace/module123/alignments/${name}_chr19.sorted.dup_marked.dedup.bam[] 
+ []
+
+
+Overfull \hbox (101.25pt too wide) in paragraph at lines 1372--1372
+[]\TU/lmtt/m/n/10 input=~/workspace/module123/alignments/MCF10A_input_chr19.sorted.dup_marked.dedup.bam[] 
+ []
+
+
+Overfull \hbox (846.75pt too wide) in paragraph at lines 1372--1372
+[]\TU/lmtt/m/n/10 macs2 callpeak -t ${treatment} -c ${input} -f BAMPE -g 58617616 -n ${name} --keep-dup all --outdir ~/workspace/module123/peaks/ --bdg 1> ~/workspace/module123/peaks/${name}.out.log 2> ~/workspace/module123/peaks/${name}.err.log[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1377--1378
+[]\TU/lmtt/m/n/10 macs2 callpeak -t ${treatment} -c ${input} -f BAMPE -g
+ []
+
+
+Overfull \hbox (58.0pt too wide) in paragraph at lines 1377--1378
+\TU/lmtt/m/n/10 58617616 -n ${name} --keep-dup all --outdir ~/workspace/module123/peaks/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1377--1378
+\TU/lmtt/m/n/10 --bdg 1> ~/workspace/module123/peaks/${name}.out.log 2>
+ []
+
+
+Underfull \hbox (badness 2020) in paragraph at lines 1388--1390
+[]\TU/lmtt/m/n/10 -f BAMPE \TU/lmr/m/n/10 Instructs MACS2 on what kind of file to expect.
+ []
+
+
+
+[33]
+Overfull \hbox (96.0pt too wide) in paragraph at lines 1444--1444
+[]\TU/lmtt/m/n/10 treatment=~/workspace/module123/alignments/${name}_chr19.sorted.dup_marked.dedup.bam[] 
+ []
+
+
+Overfull \hbox (101.25pt too wide) in paragraph at lines 1444--1444
+[]\TU/lmtt/m/n/10 input=~/workspace/module123/alignments/MCF10A_input_chr19.sorted.dup_marked.dedup.bam[] 
+ []
+
+
+Overfull \hbox (888.75pt too wide) in paragraph at lines 1444--1444
+[]\TU/lmtt/m/n/10 macs2 callpeak -t ${treatment} -c ${input} -f BAMPE -g 58617616 -n ${name} --keep-dup all --outdir ~/workspace/module123/peaks/ --bdg --broad 1> ~/workspace/module123/peaks/${name}.out.log 2> ~/workspace/module123/peaks/${name}.err.log[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1449--1450
+[]\TU/lmtt/m/n/10 macs2 callpeak -t ${treatment} -c ${input} -f BAMPE -g
+ []
+
+
+Overfull \hbox (58.0pt too wide) in paragraph at lines 1449--1450
+\TU/lmtt/m/n/10 58617616 -n ${name} --keep-dup all --outdir ~/workspace/module123/peaks/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1449--1450
+\TU/lmtt/m/n/10 --bdg --broad 1> ~/workspace/module123/peaks/${name}.out.log
+ []
+
+
+
+
+Overfull \hbox (46.73174pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 34 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 2: ALIGNMENT, PEAK CALLING, AND VISUALIZATION
+ []
+
+[34]
+Overfull \hbox (75.0pt too wide) in paragraph at lines 1500--1500
+[]\TU/lmtt/m/n/10 dedup=~/workspace/module123/alignments/${name}_chr19.sorted.dup_marked.dedup.bam[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 1500--1500
+[]\TU/lmtt/m/n/10 nsort=~/workspace/module123/alignments/${name}_chr19.nsorted.dup_marked.dedup.bam[] 
+ []
+
+
+Overfull \hbox (119.24498pt too wide) in paragraph at lines 1526--1528
+[]\TU/lmr/m/n/10 columns : \TU/lmtt/m/n/10 chrR1,startR1,endR1,chrR2,startR2,endR2,readName,mapQ,strandR1,strandR2 
+ []
+
+
+Overfull \hbox (23.71997pt too wide) in paragraph at lines 1528--1530
+[]\TU/lmr/m/n/10 e.g. \TU/lmtt/m/n/10 chr19 4534039 4534190 chr19 4534110 4534248 SRR20814384.28
+ []
+
+
+
+[35]
+Overfull \hbox (253.5pt too wide) in paragraph at lines 1553--1553
+[]\TU/lmtt/m/n/10 | awk 'BEGIN{{OFS="\t"}}{{printf "%s\t%s\t%s\tN\t1000\t%s\n%s\t%s\t%s\tN\t1000\t%s\n",$1,$2,$3,$9,$4,$5,$6,$10}}'\[] 
+ []
+
+
+Overfull \hbox (600.0pt too wide) in paragraph at lines 1553--1553
+[]\TU/lmtt/m/n/10 | awk 'BEGIN{{OFS = "\t"}} {{if ($6 == "+") {{$2 = $2 + 4}} else if ($6 == "-") {{$3 = $3 - 5}} if ($2 >= $3) {{ if ($6 == "+") {{$2 = $3 - 1}} else {{$3 = $2 + 1}} }} print $0}}'\[] 
+ []
+
+
+Overfull \hbox (341.5pt too wide) in paragraph at lines 1558--1559
+[]\TU/lmtt/m/n/10 cat ${tags} |  awk []BEGIN{{OFS="\t"}}{{printf "%s\t%s\t%s\tN\t1000\t%s\n%s\t%s\t%s\tN\t1000\t%s\n",$1,$2,$3,$9,$4,$5,$6,$10}}[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1558--1559
+\TU/lmtt/m/n/10 | awk []BEGIN {{OFS = "\t"}} {{if ($6 == "+") {{$2 = $2 + 4}}
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1558--1559
+\TU/lmtt/m/n/10 else if ($6 == "-") {{$3 = $3 - 5}} if ($2 >= $3) {{ if ($6
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1558--1559
+\TU/lmtt/m/n/10 == "+") {{$2 = $3 - 1}} else {{$3 = $2 + 1}} }} print $0}}[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1563--1565
+[]\TU/lmtt/m/n/10 read tagFile | rearrange columns | shift Tag depending
+ []
+
+
+Overfull \hbox (26.5pt too wide) in paragraph at lines 1577--1577
+ []      \TU/lmtt/m/n/10 printf "%s\t%s\t%s\tN\t1000\t%s\n%s\t%s\t%s\tN\t1000\t%s\n",[] 
+ []
+
+
+Overfull \hbox (37.0pt too wide) in paragraph at lines 1581--1582
+[]\TU/lmtt/m/n/10 printf "%s\t%s\t%s\tN\t1000\t%s\n%s\t%s\t%s\tN\t1000\t%s\n",$1,$2...
+ []
+
+
+Overfull \hbox (147.99997pt too wide) in paragraph at lines 1586--1587
+[]\TU/lmr/m/n/10 equivalent to \TU/lmtt/m/n/10 print chrR1,startR1,endR1,"N","1000",strandR1,chrR2,startR2,endR2,strandR2 
+ []
+
+
+
+
+Overfull \hbox (46.73174pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 36 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 2: ALIGNMENT, PEAK CALLING, AND VISUALIZATION
+ []
+
+[36]
+Underfull \hbox (badness 10000) in paragraph at lines 1619--1620
+
+ []
+
+
+Overfull \hbox (142.0pt too wide) in paragraph at lines 1651--1652
+[]\TU/lmtt/m/n/10 macs2 callpeak -t /home/ubuntu/workspace/module123/peaks/MCF10A_ATAC_chr19.frags.tn5.bed
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1651--1652
+\TU/lmtt/m/n/10 -f BED -n {name} -g 58617616 -p 0.01 --nomodel --extsize 200
+ []
+
+
+
+[37]
+Overfull \hbox (384.75pt too wide) in paragraph at lines 1711--1711
+[]\TU/lmtt/m/n/10 wget https://www.encodeproject.org/files/ENCFF356LFX/@@download/ENCFF356LFX.bed.gz -O ~/workspace/module123/resources/hg38_blacklist.bed.gz[] 
+ []
+
+
+Overfull \hbox (479.25pt too wide) in paragraph at lines 1711--1711
+[]\TU/lmtt/m/n/10 bedtools intersect -v -a ~/workspace/module123/peaks/${sample}.narrowPeak -b ${blacklist} > ~/workspace/module123/peaks/${sample}.blacklistRemoved.narrowPeak[] 
+ []
+
+
+Overfull \hbox (442.5pt too wide) in paragraph at lines 1711--1711
+[]\TU/lmtt/m/n/10 bedtools intersect -u -a ~/workspace/module123/peaks/${sample}.narrowPeak -b ${blacklist} > ~/workspace/module123/peaks/${sample}.blacklist.narrowPeak[] 
+ []
+
+
+Overfull \hbox (479.25pt too wide) in paragraph at lines 1711--1711
+[]\TU/lmtt/m/n/10 bedtools intersect -v -a ~/workspace/module123/peaks/${sample}.narrowPeak -b ${blacklist} > ~/workspace/module123/peaks/${sample}.blacklistRemoved.narrowPeak[] 
+ []
+
+
+Overfull \hbox (442.5pt too wide) in paragraph at lines 1711--1711
+[]\TU/lmtt/m/n/10 bedtools intersect -u -a ~/workspace/module123/peaks/${sample}.narrowPeak -b ${blacklist} > ~/workspace/module123/peaks/${sample}.blacklist.narrowPeak[] 
+ []
+
+
+Overfull \hbox (468.75pt too wide) in paragraph at lines 1711--1711
+[]\TU/lmtt/m/n/10 bedtools intersect -v -a ~/workspace/module123/peaks/${sample}.broadPeak -b ${blacklist} > ~/workspace/module123/peaks/${sample}.blacklistRemoved.broadPeak[] 
+ []
+
+
+Overfull \hbox (432.0pt too wide) in paragraph at lines 1711--1711
+[]\TU/lmtt/m/n/10 bedtools intersect -u -a ~/workspace/module123/peaks/${sample}.broadPeak -b ${blacklist} > ~/workspace/module123/peaks/${sample}.blacklist.broadPeak[] 
+ []
+
+
+Overfull \hbox (479.25pt too wide) in paragraph at lines 1711--1711
+[]\TU/lmtt/m/n/10 bedtools intersect -v -a ~/workspace/module123/peaks/${sample}.narrowPeak -b ${blacklist} > ~/workspace/module123/peaks/${sample}.blacklistRemoved.narrowPeak[] 
+ []
+
+
+Overfull \hbox (442.5pt too wide) in paragraph at lines 1711--1711
+[]\TU/lmtt/m/n/10 bedtools intersect -u -a ~/workspace/module123/peaks/${sample}.narrowPeak -b ${blacklist} > ~/workspace/module123/peaks/${sample}.blacklist.narrowPeak[] 
+ []
+
+
+Overfull \hbox (63.25pt too wide) in paragraph at lines 1716--1717
+[]\TU/lmtt/m/n/10 bedtools intersect -u -a ~/workspace/module123/peaks/${sample}.narrowPeak
+ []
+
+
+
+
+Overfull \hbox (46.73174pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 38 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 2: ALIGNMENT, PEAK CALLING, AND VISUALIZATION
+ []
+
+[38]
+Overfull \hbox (63.25pt too wide) in paragraph at lines 1726--1727
+[]\TU/lmtt/m/n/10 bedtools intersect -v -a ~/workspace/module123/peaks/${sample}.narrowPeak
+ []
+
+
+Overfull \hbox (321.75pt too wide) in paragraph at lines 1767--1767
+[]\TU/lmtt/m/n/10 wget https://hgdownload.cse.ucsc.edu/goldenpath/hg38/bigZips/hg38.chrom.sizes -O workspace/module123/resources/hg38.chrom.sizes[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1767--1767
+[]\TU/lmtt/m/n/10 input_bedgraph=~/workspace/module123/peaks/${sample}_treat_pileup.bdg[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1767--1767
+[]\TU/lmtt/m/n/10 output_bigwig=~/workspace/module123/bigWig/${sample}_treat_pileup.bw[] 
+ []
+
+
+Overfull \hbox (22.5pt too wide) in paragraph at lines 1767--1767
+[]\TU/lmtt/m/n/10 sort -k1,1 -k2,2n ${input_bedgraph} > ~/workspace/module123/bigWig/tmp[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 1767--1767
+[]\TU/lmtt/m/n/10 bedGraphToBigWig ~/workspace/module123/bigWig/tmp ${chrom_sizes} ${output_bigwig}[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 1767--1767
+[]\TU/lmtt/m/n/10 input_bedgraph=~/workspace/module123/peaks/MCF10A_H3K27me3_control_lambda.bdg[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 1767--1767
+[]\TU/lmtt/m/n/10 output_bigwig=~/workspace/module123/bigWig/MCF10A_Input_control_pileup.bw[] 
+ []
+
+
+Overfull \hbox (22.5pt too wide) in paragraph at lines 1767--1767
+[]\TU/lmtt/m/n/10 sort -k1,1 -k2,2n ${input_bedgraph} > ~/workspace/module123/bigWig/tmp[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 1767--1767
+[]\TU/lmtt/m/n/10 bedGraphToBigWig ~/workspace/module123/bigWig/tmp ${chrom_sizes} ${output_bigwig}[] 
+ []
+
+
+
+[39]
+Underfull \hbox (badness 1874) in paragraph at lines 1805--1807
+[]\TU/lmr/m/n/10 wig has a different format : []$[][][][][] [] [] [] [][][][][][] [] [][][][][][][] [] [][][] [] [][][][] []
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1841--1841
+[]\TU/lmtt/m/n/10 input_bedgraph=~/workspace/module123/peaks/${sample}_treat_pileup.bdg[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1841--1841
+[]\TU/lmtt/m/n/10 output_bigwig=~/workspace/module123/bigWig/${sample}_treat_pileup.bw[] 
+ []
+
+
+Overfull \hbox (22.5pt too wide) in paragraph at lines 1841--1841
+[]\TU/lmtt/m/n/10 sort -k1,1 -k2,2n ${input_bedgraph} > ~/workspace/module123/bigWig/tmp[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 1841--1841
+[]\TU/lmtt/m/n/10 bedGraphToBigWig ~/workspace/module123/bigWig/tmp ${chrom_sizes} ${output_bigwig}[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1841--1841
+[]\TU/lmtt/m/n/10 input_bedgraph=~/workspace/module123/peaks/${sample}_treat_pileup.bdg[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1841--1841
+[]\TU/lmtt/m/n/10 output_bigwig=~/workspace/module123/bigWig/${sample}_treat_pileup.bw[] 
+ []
+
+
+Overfull \hbox (22.5pt too wide) in paragraph at lines 1841--1841
+[]\TU/lmtt/m/n/10 sort -k1,1 -k2,2n ${input_bedgraph} > ~/workspace/module123/bigWig/tmp[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 1841--1841
+[]\TU/lmtt/m/n/10 bedGraphToBigWig ~/workspace/module123/bigWig/tmp ${chrom_sizes} ${output_bigwig}[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1841--1841
+[]\TU/lmtt/m/n/10 input_bedgraph=~/workspace/module123/peaks/${sample}_treat_pileup.bdg[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1841--1841
+[]\TU/lmtt/m/n/10 output_bigwig=~/workspace/module123/bigWig/${sample}_treat_pileup.bw[] 
+ []
+
+
+Overfull \hbox (22.5pt too wide) in paragraph at lines 1841--1841
+[]\TU/lmtt/m/n/10 sort -k1,1 -k2,2n ${input_bedgraph} > ~/workspace/module123/bigWig/tmp[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 1841--1841
+[]\TU/lmtt/m/n/10 bedGraphToBigWig ~/workspace/module123/bigWig/tmp ${chrom_sizes} ${output_bigwig}[] 
+ []
+
+
+
+
+Overfull \hbox (46.73174pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 40 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 2: ALIGNMENT, PEAK CALLING, AND VISUALIZATION
+ []
+
+[40]
+Overfull \hbox (321.75pt too wide) in paragraph at lines 1867--1867
+[]\TU/lmtt/m/n/10 wget https://hgdownload.cse.ucsc.edu/goldenpath/hg38/bigZips/hg38.chrom.sizes -O workspace/module123/resources/hg38.chrom.sizes[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 1867--1867
+[]\TU/lmtt/m/n/10 input_bed=~/workspace/module123/peaks/${sample}_peaks.blacklistRemoved.narrowPeak[] 
+ []
+
+
+Overfull \hbox (33.0pt too wide) in paragraph at lines 1867--1867
+[]\TU/lmtt/m/n/10 output_bigwig=~/workspace/module123/bigBed/${sample}.blacklistRemoved.bb[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 1867--1867
+[]\TU/lmtt/m/n/10 sort -k1,1 -k2,2n ${input_bed} | cut -f1-3 > ~/workspace/module123/bigBed/tmp[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1867--1867
+[]\TU/lmtt/m/n/10 bedToBigBed ~/workspace/module123/bigBed/tmp ${chrom_sizes} ${output_bigwig}[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 1920--1920
+[]\TU/lmtt/m/n/10 input_bed=~/workspace/module123/peaks/${sample}_peaks.blacklistRemoved.narrowPeak[] 
+ []
+
+
+Overfull \hbox (33.0pt too wide) in paragraph at lines 1920--1920
+[]\TU/lmtt/m/n/10 output_bigwig=~/workspace/module123/bigBed/${sample}.blacklistRemoved.bb[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 1920--1920
+[]\TU/lmtt/m/n/10 sort -k1,1 -k2,2n ${input_bed} | cut -f1-3 > ~/workspace/module123/bigBed/tmp[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1920--1920
+[]\TU/lmtt/m/n/10 bedToBigBed ~/workspace/module123/bigBed/tmp ${chrom_sizes} ${output_bigwig}[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 1920--1920
+[]\TU/lmtt/m/n/10 input_bed=~/workspace/module123/peaks/${sample}_peaks.blacklistRemoved.narrowPeak[] 
+ []
+
+
+Overfull \hbox (33.0pt too wide) in paragraph at lines 1920--1920
+[]\TU/lmtt/m/n/10 output_bigwig=~/workspace/module123/bigBed/${sample}.blacklistRemoved.bb[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 1920--1920
+[]\TU/lmtt/m/n/10 sort -k1,1 -k2,2n ${input_bed} | cut -f1-3 > ~/workspace/module123/bigBed/tmp[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1920--1920
+[]\TU/lmtt/m/n/10 bedToBigBed ~/workspace/module123/bigBed/tmp ${chrom_sizes} ${output_bigwig}[] 
+ []
+
+
+
+[41]
+Overfull \hbox (75.0pt too wide) in paragraph at lines 1920--1920
+[]\TU/lmtt/m/n/10 input_bed=~/workspace/module123/peaks/${sample}_peaks.blacklistRemoved.broadPeak[] 
+ []
+
+
+Overfull \hbox (33.0pt too wide) in paragraph at lines 1920--1920
+[]\TU/lmtt/m/n/10 output_bigwig=~/workspace/module123/bigBed/${sample}.blacklistRemoved.bb[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 1920--1920
+[]\TU/lmtt/m/n/10 sort -k1,1 -k2,2n ${input_bed} | cut -f1-3 > ~/workspace/module123/bigBed/tmp[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1920--1920
+[]\TU/lmtt/m/n/10 bedToBigBed ~/workspace/module123/bigBed/tmp ${chrom_sizes} ${output_bigwig}[] 
+ []
+
+
+Underfull \hbox (badness 1117) in paragraph at lines 1961--1962
+[]\TU/lmr/m/n/10 Blacklist identified region hightlighted in red, represented by both
+ []
+
+
+Overfull \hbox (369.0pt too wide) in paragraph at lines 1997--1997
+[]\TU/lmtt/m/n/10 wget https://www.bcgsc.ca/downloads/esu/touchdown/hg38v79_genes_tss_2000.bed -O workspace/module123/resources/hg38v79_genes_tss_2000.bed[] 
+ []
+
+
+
+
+Overfull \hbox (46.73174pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 42 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 2: ALIGNMENT, PEAK CALLING, AND VISUALIZATION
+ []
+
+[42]
+Overfull \hbox (75.0pt too wide) in paragraph at lines 1997--1997
+[]\TU/lmtt/m/n/10 sort -k1,1 -k2,2n workspace/module123/resources/hg38v79_genes_tss_2000.bed > tmp[] 
+ []
+
+
+Overfull \hbox (400.5pt too wide) in paragraph at lines 1997--1997
+[]\TU/lmtt/m/n/10 wget https://www.bcgsc.ca/downloads/esu/touchdown/encode_enhancers_liftover.bed -O workspace/module123/resources/encode_enhancers_liftover.bed[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 1997--1997
+[]\TU/lmtt/m/n/10 query_bam=~/workspace/module123/alignments/${sample}_chr19.sorted.dup_marked.bam[] 
+ []
+
+
+Overfull \hbox (285.0pt too wide) in paragraph at lines 1997--1997
+[]\TU/lmtt/m/n/10 samtools view -@4 -q 10 -F 1028 $query_bam -L ~/workspace/module123/peaks/${sample}_peaks.blacklistRemoved.narrowPeak -c[] 
+ []
+
+
+Overfull \hbox (294.25pt too wide) in paragraph at lines 2002--2003
+[]\TU/lmtt/m/n/10 samtools view -@4 -q 10 -F 1028 $query_bam -L ~/workspace/module123/peaks/${sample}_peaks.blacklistRemoved.narrowPeak
+ []
+
+
+Overfull \hbox (96.0pt too wide) in paragraph at lines 2058--2058
+[]    \TU/lmtt/m/n/10 query_bam=~/workspace/module123/alignments/${sample}_chr19.sorted.dup_marked.bam[] 
+ []
+
+
+Overfull \hbox (132.75pt too wide) in paragraph at lines 2058--2058
+[]    \TU/lmtt/m/n/10 samtools view -@4 -q 10 -F 1028 $query_bam -c > ~/workspace/module123/qc/col_${histone}[] 
+ []
+
+
+Overfull \hbox (190.5pt too wide) in paragraph at lines 2058--2058
+[]    \TU/lmtt/m/n/10 samtools view -@4 -q 10 -F 1028 $query_bam -L ${TSS} -c >> ~/workspace/module123/qc/col_${histone}[] 
+ []
+
+
+Overfull \hbox (190.5pt too wide) in paragraph at lines 2058--2058
+[]    \TU/lmtt/m/n/10 samtools view -@4 -q 10 -F 1028 $query_bam -L ${ENH} -c >> ~/workspace/module123/qc/col_${histone}[] 
+ []
+
+
+
+[43]
+Overfull \hbox (96.0pt too wide) in paragraph at lines 2058--2058
+[]        \TU/lmtt/m/n/10 peaks=~/workspace/module123/peaks/${sample}_peaks.blacklistRemoved.broadPeak[] 
+ []
+
+
+Overfull \hbox (547.5pt too wide) in paragraph at lines 2058--2058
+[]        \TU/lmtt/m/n/10 samtools view -@4 -q 10 -F 1028 $query_bam -L ~/workspace/module123/peaks/${sample}_peaks.blacklistRemoved.broadPeak -c >> ~/workspace/module123/qc/col_${histone}[] 
+ []
+
+
+Overfull \hbox (153.75pt too wide) in paragraph at lines 2058--2058
+[]    \TU/lmtt/m/n/10 elif [[ "$histone" == "H3K27ac" || "$histone" == "H3K4me3" || "$histone" == "ATAC" ]]; then[] 
+ []
+
+
+Overfull \hbox (101.25pt too wide) in paragraph at lines 2058--2058
+[]        \TU/lmtt/m/n/10 peaks=~/workspace/module123/peaks/${sample}_peaks.blacklistRemoved.narrowPeak[] 
+ []
+
+
+Overfull \hbox (552.75pt too wide) in paragraph at lines 2058--2058
+[]        \TU/lmtt/m/n/10 samtools view -@4 -q 10 -F 1028 $query_bam -L ~/workspace/module123/peaks/${sample}_peaks.blacklistRemoved.narrowPeak -c >> ~/workspace/module123/qc/col_${histone}[] 
+ []
+
+
+Overfull \hbox (841.5pt too wide) in paragraph at lines 2058--2058
+[]\TU/lmtt/m/n/10 paste ~/workspace/module123/qc/col_H3K27ac ~/workspace/module123/qc/col_H3K27me3 ~/workspace/module123/qc/col_H3K4me3 ~/workspace/module123/qc/col_ATAC ~/workspace/module123/qc/col_input > ~/workspace/module123/qc/integers.tsv[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2058--2058
+[]\TU/lmtt/m/n/10 <(awk '{print $1/442829*100}' ~/workspace/module123/qc/col_H3K27ac) \[] 
+ []
+
+
+Overfull \hbox (27.75pt too wide) in paragraph at lines 2058--2058
+[]\TU/lmtt/m/n/10 <(awk '{print $1/1610910*100}' ~/workspace/module123/qc/col_H3K27me3) \[] 
+ []
+
+
+Overfull \hbox (22.5pt too wide) in paragraph at lines 2058--2058
+[]\TU/lmtt/m/n/10 <(awk '{print $1/1512352*100}' ~/workspace/module123/qc/col_H3K4me3) \[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 2058--2058
+[]\TU/lmtt/m/n/10 <(awk '{print $1/2751833*100}' ~/workspace/module123/qc/col_ATAC) \[] 
+ []
+
+
+Overfull \hbox (227.25pt too wide) in paragraph at lines 2058--2058
+[]\TU/lmtt/m/n/10 <(awk '{print $1/1023265*100}' ~/workspace/module123/qc/col_input) > ~/workspace/module123/qc/percentages.tsv[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2060--2064
+[]\TU/lmtt/m/n/10 paste ~/workspace/module123/qc/col_H3K27ac ~/workspace/module123/qc/col_H3K27me3
+ []
+
+
+Overfull \hbox (22.5pt too wide) in paragraph at lines 2060--2064
+\TU/lmtt/m/n/10 ~/workspace/module123/qc/col_H3K4me3 ~/workspace/module123/qc/col_ATAC
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 2060--2064
+\TU/lmtt/m/n/10 ~/workspace/module123/qc/col_input > ~/workspace/module123/qc/integers.tsv
+ []
+
+
+Overfull \hbox (0.53986pt too wide) in paragraph at lines 2077--2078
+[]\TU/lmr/m/n/10 H3K27me3  
+ []
+
+
+Overfull \hbox (0.53986pt too wide) in paragraph at lines 2113--2114
+[]\TU/lmr/m/n/10 H3K27me3  
+ []
+
+
+
+
+Overfull \hbox (46.73174pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 44 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 2: ALIGNMENT, PEAK CALLING, AND VISUALIZATION
+ []
+
+[44]
+Overfull \hbox (369.0pt too wide) in paragraph at lines 2157--2157
+[]\TU/lmtt/m/n/10 wget https://www.bcgsc.ca/downloads/esu/touchdown/hg38v79_genes_tss_2000.bed -O workspace/module123/resources/hg38v79_genes_tss_2000.bed[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2157--2157
+[]\TU/lmtt/m/n/10 sort -k1,1 -k2,2n workspace/module123/resources/hg38v79_genes_tss_2000.bed > tmp[] 
+ []
+
+
+Overfull \hbox (400.5pt too wide) in paragraph at lines 2157--2157
+[]\TU/lmtt/m/n/10 wget https://www.bcgsc.ca/downloads/esu/touchdown/encode_enhancers_liftover.bed -O workspace/module123/resources/encode_enhancers_liftover.bed[] 
+ []
+
+
+Overfull \hbox (384.75pt too wide) in paragraph at lines 2157--2157
+[]\TU/lmtt/m/n/10 wget https://www.encodeproject.org/files/ENCFF356LFX/@@download/ENCFF356LFX.bed.gz -O ~/workspace/module123/resources/hg38_blacklist.bed.gz[] 
+ []
+
+
+
+[45]
+
+
+Overfull \hbox (46.73174pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 46 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 2: ALIGNMENT, PEAK CALLING, AND VISUALIZATION
+ []
+
+[46]
+Overfull \hbox (258.75pt too wide) in paragraph at lines 2293--2293
+[]\TU/lmtt/m/n/10 MCF10A_H3K4me3_chr19.CondA.Rep1.bam      MCF10A_H3K4me3_chr19.CondB.Rep2.bam      MCF10A_input_chr19.CondA.Rep3.bam[] 
+ []
+
+
+Overfull \hbox (279.75pt too wide) in paragraph at lines 2293--2293
+[]\TU/lmtt/m/n/10 MCF10A_H3K4me3_chr19.CondA.Rep1.bam.bai  MCF10A_H3K4me3_chr19.CondB.Rep2.bam.bai  MCF10A_input_chr19.CondA.Rep3.bam.bai[] 
+ []
+
+
+Overfull \hbox (258.75pt too wide) in paragraph at lines 2293--2293
+[]\TU/lmtt/m/n/10 MCF10A_H3K4me3_chr19.CondA.Rep2.bam      MCF10A_H3K4me3_chr19.CondB.Rep3.bam      MCF10A_input_chr19.CondB.Rep1.bam[] 
+ []
+
+
+Overfull \hbox (279.75pt too wide) in paragraph at lines 2293--2293
+[]\TU/lmtt/m/n/10 MCF10A_H3K4me3_chr19.CondA.Rep2.bam.bai  MCF10A_H3K4me3_chr19.CondB.Rep3.bam.bai  MCF10A_input_chr19.CondB.Rep1.bam.bai[] 
+ []
+
+
+Overfull \hbox (258.75pt too wide) in paragraph at lines 2293--2293
+[]\TU/lmtt/m/n/10 MCF10A_H3K4me3_chr19.CondA.Rep3.bam      MCF10A_input_chr19.CondA.Rep1.bam        MCF10A_input_chr19.CondB.Rep2.bam[] 
+ []
+
+
+Overfull \hbox (279.75pt too wide) in paragraph at lines 2293--2293
+[]\TU/lmtt/m/n/10 MCF10A_H3K4me3_chr19.CondA.Rep3.bam.bai  MCF10A_input_chr19.CondA.Rep1.bam.bai    MCF10A_input_chr19.CondB.Rep2.bam.bai[] 
+ []
+
+
+Overfull \hbox (258.75pt too wide) in paragraph at lines 2293--2293
+[]\TU/lmtt/m/n/10 MCF10A_H3K4me3_chr19.CondB.Rep1.bam      MCF10A_input_chr19.CondA.Rep2.bam        MCF10A_input_chr19.CondB.Rep3.bam[] 
+ []
+
+
+Overfull \hbox (279.75pt too wide) in paragraph at lines 2293--2293
+[]\TU/lmtt/m/n/10 MCF10A_H3K4me3_chr19.CondB.Rep1.bam.bai  MCF10A_input_chr19.CondA.Rep2.bam.bai    MCF10A_input_chr19.CondB.Rep3.bam.bai[] 
+ []
+
+
+Overfull \hbox (117.0pt too wide) in paragraph at lines 2293--2293
+[]\TU/lmtt/m/n/10 CondA.Rep1.bw  CondA.Rep2.bw  CondA.Rep3.bw  CondB.Rep1.bw  CondB.Rep2.bw  CondB.Rep3.bw[] 
+ []
+
+
+Overfull \hbox (101.25pt too wide) in paragraph at lines 2293--2293
+[]\TU/lmtt/m/n/10 CondA.Rep1_peaks.narrowPeak  CondA.Rep3_peaks.narrowPeak  CondB.Rep2_peaks.narrowPeak[] 
+ []
+
+
+Overfull \hbox (101.25pt too wide) in paragraph at lines 2293--2293
+[]\TU/lmtt/m/n/10 CondA.Rep2_peaks.narrowPeak  CondB.Rep1_peaks.narrowPeak  CondB.Rep3_peaks.narrowPeak[] 
+ []
+
+
+
+[47]
+
+
+Overfull \hbox (46.73174pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 48 \TU/lmr/m/sl/10 CHAPTER 5.  MODULE 2: ALIGNMENT, PEAK CALLING, AND VISUALIZATION
+ []
+
+[48
+
+]
+Chapter 6.
+
+Overfull \hbox (216.75pt too wide) in paragraph at lines 2330--2330
+[]\TU/lmtt/m/n/10 Additionally the code block will include a header to indicate what environment to the run code for example:[] 
+ []
+
+
+
+[49]
+Overfull \hbox (117.0pt too wide) in paragraph at lines 2367--2367
+[]\TU/lmtt/m/n/10 cp ~/CourseData/EPI_data/module123/encode_bigWig/*H3K4me3* ~/workspace/module123/bigWig/[] 
+ []
+
+
+Overfull \hbox (117.0pt too wide) in paragraph at lines 2367--2367
+[]\TU/lmtt/m/n/10 cp ~/CourseData/EPI_data/module123/encode_bigBed/*H3K4me3* ~/workspace/module123/bigBed/[] 
+ []
+
+
+Overfull \hbox (101.25pt too wide) in paragraph at lines 2367--2367
+[]\TU/lmtt/m/n/10 cp ~/CourseData/EPI_data/module123/triplicates/bigWig/* ~/workspace/module123/bigWig/[] 
+ []
+
+
+Overfull \hbox (132.75pt too wide) in paragraph at lines 2387--2387
+[]\TU/lmtt/m/n/10 MCF10A_H3K27ac=~/workspace/module123/peaks/MCF10A_H3K27ac_peaks.blacklistRemoved.narrowPeak[] 
+ []
+
+
+Overfull \hbox (138.0pt too wide) in paragraph at lines 2387--2387
+[]\TU/lmtt/m/n/10 MCF10A_H3K27me3=~/workspace/module123/peaks/MCF10A_H3K27me3_peaks.blacklistRemoved.broadPeak[] 
+ []
+
+
+Overfull \hbox (132.75pt too wide) in paragraph at lines 2387--2387
+[]\TU/lmtt/m/n/10 MCF10A_H3K4me3=~/workspace/module123/peaks/MCF10A_H3K4me3_peaks.blacklistRemoved.narrowPeak[] 
+ []
+
+
+Overfull \hbox (33.0pt too wide) in paragraph at lines 2387--2387
+[]\TU/lmtt/m/n/10 bedtools intersect -u -a ${MCF10A_H3K27ac} -b ${MCF10A_H3K27me3} | wc -l[] 
+ []
+
+
+Overfull \hbox (27.75pt too wide) in paragraph at lines 2387--2387
+[]\TU/lmtt/m/n/10 bedtools intersect -u -a ${MCF10A_H3K27ac} -b ${MCF10A_H3K4me3} | wc -l[] 
+ []
+
+
+Overfull \hbox (16.0pt too wide) in paragraph at lines 2392--2393
+[]\TU/lmtt/m/n/10 bedtools intersect -u -a ${MCF10A_H3K27ac} -b ${MCF10A_H3K27me3}
+ []
+
+
+Overfull \hbox (10.75pt too wide) in paragraph at lines 2400--2401
+[]\TU/lmtt/m/n/10 bedtools intersect -u -a ${MCF10A_H3K27ac} -b ${MCF10A_H3K4me3}
+ []
+
+
+
+[50]
+Overfull \hbox (101.25pt too wide) in paragraph at lines 2441--2441
+[]\TU/lmtt/m/n/10 basal_H3K27ac=~/CourseData/EPI_data/module123/encode_bed/basal.H3K27ac.peak_calls.bed[] 
+ []
+
+
+Overfull \hbox (122.25pt too wide) in paragraph at lines 2441--2441
+[]\TU/lmtt/m/n/10 luminal_H3K27ac=~/CourseData/EPI_data/module123/encode_bed/luminal.H3K27ac.peak_calls.bed[] 
+ []
+
+
+Overfull \hbox (122.25pt too wide) in paragraph at lines 2441--2441
+[]\TU/lmtt/m/n/10 stromal_H3K27ac=~/CourseData/EPI_data/module123/encode_bed/stromal.H3K27ac.peak_calls.bed[] 
+ []
+
+
+Overfull \hbox (69.75pt too wide) in paragraph at lines 2441--2441
+[]\TU/lmtt/m/n/10 lp_H3K27ac=~/CourseData/EPI_data/module123/encode_bed/lp.H3K27ac.peak_calls.bed[] 
+ []
+
+
+Overfull \hbox (132.75pt too wide) in paragraph at lines 2441--2441
+[]\TU/lmtt/m/n/10 MCF10A_H3K27ac=~/workspace/module123/peaks/MCF10A_H3K27ac_peaks.blacklistRemoved.narrowPeak[] 
+ []
+
+
+Overfull \hbox (694.5pt too wide) in paragraph at lines 2441--2441
+[]\TU/lmtt/m/n/10 <(ls ~/CourseData/EPI_data/module123/encode_bed/*H3K4me3* | xargs -I {} sh -c "bedtools intersect -u -a ~/workspace/module123/peaks/MCF10A_H3K4me3_peaks.blacklistRemoved.narrowPeak -b {} | wc -l") \[] 
+ []
+
+
+Overfull \hbox (699.75pt too wide) in paragraph at lines 2441--2441
+[]\TU/lmtt/m/n/10 <(ls ~/CourseData/EPI_data/module123/encode_bed/*H3K27ac* |  xargs -I {} sh -c "bedtools intersect -u -a ~/workspace/module123/peaks/MCF10A_H3K27ac_peaks.blacklistRemoved.narrowPeak -b {} | wc -l") \[] 
+ []
+
+
+Overfull \hbox (694.5pt too wide) in paragraph at lines 2441--2441
+[]\TU/lmtt/m/n/10 <(ls ~/CourseData/EPI_data/module123/encode_bed/*H3K27me3* |  xargs -I {} sh -c "bedtools intersect -u -a ~/workspace/module123/peaks/MCF10A_H3K27me3_peaks.blacklistRemoved.broadPeak -b {} | wc -l")[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2446--2447
+[]\TU/lmtt/m/n/10 paste \ <(ls CourseData/module123/bed/*H3K4me3* | xargs -I
+ []
+
+
+Overfull \hbox (252.25pt too wide) in paragraph at lines 2446--2447
+\TU/lmtt/m/n/10 {} sh -c "bedtools intersect -u -a workspace/module123/peaks/MCF10A_H3K4me3_peaks.blacklistRemoved.narrowPeak
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2446--2447
+\TU/lmtt/m/n/10 -b {} | wc -l") \ <(ls CourseData/module123/bed/*H3K27ac* |
+ []
+
+
+Overfull \hbox (299.5pt too wide) in paragraph at lines 2446--2447
+\TU/lmtt/m/n/10 xargs -I {} sh -c "bedtools intersect -u -a workspace/module123/peaks/MCF10A_H3K27ac_peaks.blacklistRemoved.narrowPeak
+ []
+
+
+Underfull \hbox (badness 5592) in paragraph at lines 2453--2455
+[]\TU/lmr/m/n/10 Each \TU/lmtt/m/n/10 <(COMMAND)\TU/lmr/m/n/10 , contains the following \TU/lmtt/m/n/10 LOOKUP | FORLOOP
+ []
+
+
+
+[51]
+Overfull \hbox (101.25pt too wide) in paragraph at lines 2511--2511
+[]\TU/lmtt/m/n/10 basal_H3K4me3=~/CourseData/EPI_data/module123/encode_bed/basal.H3K4me3.peak_calls.bed[] 
+ []
+
+
+Overfull \hbox (122.25pt too wide) in paragraph at lines 2511--2511
+[]\TU/lmtt/m/n/10 luminal_H3K4me3=~/CourseData/EPI_data/module123/encode_bed/luminal.H3K4me3.peak_calls.bed[] 
+ []
+
+
+Overfull \hbox (122.25pt too wide) in paragraph at lines 2511--2511
+[]\TU/lmtt/m/n/10 stromal_H3K4me3=~/CourseData/EPI_data/module123/encode_bed/stromal.H3K4me3.peak_calls.bed[] 
+ []
+
+
+Overfull \hbox (69.75pt too wide) in paragraph at lines 2511--2511
+[]\TU/lmtt/m/n/10 lp_H3K4me3=~/CourseData/EPI_data/module123/encode_bed/lp.H3K4me3.peak_calls.bed[] 
+ []
+
+
+Overfull \hbox (132.75pt too wide) in paragraph at lines 2511--2511
+[]\TU/lmtt/m/n/10 MCF10A_H3K4me3=~/workspace/module123/peaks/MCF10A_H3K4me3_peaks.blacklistRemoved.narrowPeak[] 
+ []
+
+
+Overfull \hbox (484.5pt too wide) in paragraph at lines 2511--2511
+[]\TU/lmtt/m/n/10 bedtools intersect -u -a ${MCF10A_H3K4me3} -b ${lp_H3K4me3} | bedtools intersect -v -a stdin -b ${basal_H3K4me3} ${luminal_H3K4me3} ${stromal_H3K4me3} | wc -l[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2516--2517
+[]\TU/lmtt/m/n/10 bedtools intersect -u -a ${MCF10A_H3K4me3} -b ${lp_H3K4me3}
+ []
+
+
+Overfull \hbox (52.75pt too wide) in paragraph at lines 2516--2517
+\TU/lmtt/m/n/10 | bedtools intersect -v -a stdin -b ${basal_H3K4me3} ${luminal_H3K4me3}
+ []
+
+File: ./img/MCF10A-pLP-mBLS.png Graphic file (type bmp)
+<./img/MCF10A-pLP-mBLS.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[52]
+Underfull \hbox (badness 10000) in paragraph at lines 2534--2535
+[]\TU/lmtt/m/n/10 bedtools intersect -u -a ${MCF10A_H3K4me3} -b ${lp_H3K4me3}
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2534--2535
+\TU/lmtt/m/n/10 |  bedtools intersect -u -a stdin -b  {basal_H3K4me3} |
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2534--2535
+\TU/lmtt/m/n/10 bedtools intersect -u -a stdin -b ${luminal_H3K4me3} |
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2534--2535
+\TU/lmtt/m/n/10 bedtools intersect -u -a stdin -b ${stromal_H3K4me3}  | wc
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2539--2540
+\TU/lmtt/m/n/10 Common with LP | Common with Basal | Common with Luminal
+ []
+
+File: ./img/MCF10A-pLPMBLS.png Graphic file (type bmp)
+<./img/MCF10A-pLPMBLS.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[53]
+Underfull \hbox (badness 10000) in paragraph at lines 2545--2545
+[]\TU/lmr/bx/n/10 Step1E: Using Bedtools to compare binary condi-
+ []
+
+
+Overfull \hbox (117.0pt too wide) in paragraph at lines 2574--2574
+[]\TU/lmtt/m/n/10 condA_rep1=~/CourseData/EPI_data/module123/triplicates/peaks/CondA.Rep1_peaks.narrowPeak[] 
+ []
+
+
+Overfull \hbox (117.0pt too wide) in paragraph at lines 2574--2574
+[]\TU/lmtt/m/n/10 condB_rep1=~/CourseData/EPI_data/module123/triplicates/peaks/CondB.Rep1_peaks.narrowPeak[] 
+ []
+
+
+Overfull \hbox (117.0pt too wide) in paragraph at lines 2574--2574
+[]\TU/lmtt/m/n/10 condA_rep2=~/CourseData/EPI_data/module123/triplicates/peaks/CondA.Rep2_peaks.narrowPeak[] 
+ []
+
+
+Overfull \hbox (117.0pt too wide) in paragraph at lines 2574--2574
+[]\TU/lmtt/m/n/10 condB_rep2=~/CourseData/EPI_data/module123/triplicates/peaks/CondB.Rep2_peaks.narrowPeak[] 
+ []
+
+
+Overfull \hbox (117.0pt too wide) in paragraph at lines 2574--2574
+[]\TU/lmtt/m/n/10 condA_rep3=~/CourseData/EPI_data/module123/triplicates/peaks/CondA.Rep3_peaks.narrowPeak[] 
+ []
+
+
+Overfull \hbox (117.0pt too wide) in paragraph at lines 2574--2574
+[]\TU/lmtt/m/n/10 condB_rep3=~/CourseData/EPI_data/module123/triplicates/peaks/CondB.Rep3_peaks.narrowPeak[] 
+ []
+
+
+
+[54]
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2574--2574
+[]\TU/lmtt/m/n/10 bedtools intersect -u -a ${condA_rep1} -b ${condA_rep2} ${condA_rep3} | wc -l[] 
+ []
+
+
+Overfull \hbox (132.75pt too wide) in paragraph at lines 2574--2574
+[]\TU/lmtt/m/n/10 bedtools intersect -u -a ${condA_rep1} -b ${condA_rep2} ${condA_rep3} -f 0.5 -F 0.5 | wc -l[] 
+ []
+
+
+Overfull \hbox (64.5pt too wide) in paragraph at lines 2574--2574
+[]\TU/lmtt/m/n/10 bedtools intersect -wao -a ${condA_rep1} -b ${condA_rep2} ${condA_rep3} | head[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2579--2580
+[]\TU/lmtt/m/n/10 bedtools intersect -u -a ${condA_rep1} -b ${condA_rep2} | wc
+ []
+
+
+Underfull \hbox (badness 6893) in paragraph at lines 2584--2586
+[]\TU/lmr/m/n/10 counting the number of condA_rep1 peaks that intersect
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2589--2590
+[]\TU/lmtt/m/n/10 bedtools intersect -u -a ${condA_rep1} -b ${condB_rep2} | wc
+ []
+
+
+Underfull \hbox (badness 6893) in paragraph at lines 2594--2596
+[]\TU/lmr/m/n/10 counting the number of condA_rep1 peaks that intersect
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2599--2600
+[]\TU/lmtt/m/n/10 bedtools intersect -v -a ${condA_rep1} -b ${condA_rep2} | wc
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2609--2610
+[]\TU/lmtt/m/n/10 bedtools intersect -v -a ${condA_rep1} -b ${condB_rep2} | wc
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2621--2622
+[]\TU/lmtt/m/n/10 bedtools intersect -u -a ${condA_rep1} -b ${condA_rep2}
+ []
+
+
+Underfull \hbox (badness 6893) in paragraph at lines 2626--2627
+[]\TU/lmr/m/n/10 counting the number of condA_rep1 peaks that intersect
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2629--2630
+[]\TU/lmtt/m/n/10 bedtools intersect -wao -a ${condA_rep1} -b ${condA_rep2}
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2639--2640
+[]\TU/lmtt/m/n/10 bedtools intersect -u -a ${condA_rep1} -b ${condA_rep2}
+ []
+
+
+
+[55]
+Underfull \hbox (badness 10000) in paragraph at lines 2653--2654
+[]\TU/lmtt/m/n/10 bedtools intersect -wao -a ${condA_rep1} -b ${condA_rep2}
+ []
+
+
+Overfull \hbox (132.75pt too wide) in paragraph at lines 2697--2697
+[]\TU/lmtt/m/n/10 MCF10A_H3K27ac=~/workspace/module123/peaks/MCF10A_H3K27ac_peaks.blacklistRemoved.narrowPeak[] 
+ []
+
+
+Overfull \hbox (122.25pt too wide) in paragraph at lines 2697--2697
+[]\TU/lmtt/m/n/10 condA_peaks=~/CourseData/EPI_data/module123/triplicates/peaks/CondA.Rep1_peaks.narrowPeak[] 
+ []
+
+
+Overfull \hbox (122.25pt too wide) in paragraph at lines 2697--2697
+[]\TU/lmtt/m/n/10 condB_peaks=~/CourseData/EPI_data/module123/triplicates/peaks/CondB.Rep1_peaks.narrowPeak[] 
+ []
+
+
+Overfull \hbox (337.5pt too wide) in paragraph at lines 2697--2697
+[]\TU/lmtt/m/n/10 cat ${condA_peaks} ${condB_peaks} | sort -k1,1 -k2,2n | bedtools merge -i stdin > ~/workspace/module123/deeptools/merged_peaks.bed[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 2697--2697
+[]\TU/lmtt/m/n/10 methylation=~/workspace/module123/resources/example_methylation.bed[] 
+ []
+
+
+Overfull \hbox (69.75pt too wide) in paragraph at lines 2697--2697
+[]\TU/lmtt/m/n/10 bedtools map -a ${MCF10A_H3K27ac} -b ${methylation} -c 4 -o median,count | head[] 
+ []
+
+
+
+[56]
+Underfull \hbox (badness 10000) in paragraph at lines 2718--2719
+[]\TU/lmtt/m/n/10 cat ${condA_rep1} ${condA_rep2} ${condA_rep3} | sort -k1,1
+ []
+
+
+Underfull \hbox (badness 1917) in paragraph at lines 2723--2725
+[]\TU/lmr/m/n/10 Pseudo code : \TU/lmtt/m/n/10 read peak files | sort peak files | merge
+ []
+
+
+Underfull \hbox (badness 2443) in paragraph at lines 2729--2731
+[]\TU/lmr/m/n/10 compare how many peaks \TU/lmtt/m/n/10 cat ${condA_rep1} ${condA_rep2}
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2734--2735
+[]\TU/lmtt/m/n/10 echo chr19\\t1\\t58617616 | bedtools makewindows -w 50
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2734--2735
+\TU/lmtt/m/n/10 -b stdin | awk []BEGIN{srand(1);}{print $0"\t"rand()}[]  >
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2771--2772
+[]\TU/lmtt/m/n/10 bedtools map -a ${MCF10A_H3K27ac} -b ${methylation} -c 4
+ []
+
+
+
+[57]
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2815--2815
+[]\TU/lmtt/m/n/10 samples <- read.csv("CourseData/EPI_data/module123/triplicates/triplicates.csv")[] 
+ []
+
+
+Overfull \hbox (348.0pt too wide) in paragraph at lines 2815--2815
+[]\TU/lmtt/m/n/10 write.table(analyzed_peaks, file="workspace/module123/diffBind/differential_peaks.tsv", sep="\t", quote=F, row.names=F, col.names=F)[] 
+ []
+
+
+Overfull \hbox (42.25pt too wide) in paragraph at lines 2836--2837
+[]\TU/lmtt/m/n/10 read.csv("CourseData/EPI_data/module123/triplicates/triplicates.csv") 
+ []
+
+
+
+[58]
+Underfull \hbox (badness 10000) in paragraph at lines 2904--2905
+[]\TU/lmtt/m/n/10 analyzed_peaks <- dba.report(MCF10A, method=DBA_EDGER,
+ []
+
+
+Overfull \hbox (136.75pt too wide) in paragraph at lines 2926--2927
+[]\TU/lmtt/m/n/10 write.table(analyzed_peaks, file="workspace/module123/diffBind/differential_peaks.tsv",
+ []
+
+File: ./img/diffBind.png Graphic file (type bmp)
+<./img/diffBind.png>
+
+
+[59]
+Overfull \hbox (122.25pt too wide) in paragraph at lines 2963--2963
+[]\TU/lmtt/m/n/10 condA_peaks=~/CourseData/EPI_data/module123/triplicates/peaks/CondA.Rep1_peaks.narrowPeak[] 
+ []
+
+
+Overfull \hbox (122.25pt too wide) in paragraph at lines 2963--2963
+[]\TU/lmtt/m/n/10 condB_peaks=~/CourseData/EPI_data/module123/triplicates/peaks/CondB.Rep1_peaks.narrowPeak[] 
+ []
+
+
+Overfull \hbox (316.5pt too wide) in paragraph at lines 2963--2963
+[]\TU/lmtt/m/n/10 cat ${condA_peaks} ${condB_peaks} | sort -k1,1 -k2,2n | bedtools merge -i stdin > ~/workspace/module123/edgeR/merged_peaks.bed[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2968--2969
+[]\TU/lmtt/m/n/10 cat ${condA_peaks} ${condB_peaks} | sort -k1,1 -k2,2n |
+ []
+
+
+Underfull \hbox (badness 5245) in paragraph at lines 2973--2974
+[]\TU/lmr/m/n/10 Pseudo code break down : \TU/lmtt/m/n/10 Read our peaks | sort peaks
+ []
+
+
+
+[60]
+Overfull \hbox (122.25pt too wide) in paragraph at lines 2993--2993
+[]\TU/lmtt/m/n/10 condA_peaks=~/CourseData/EPI_data/module123/triplicates/peaks/CondA.Rep1_peaks.narrowPeak[] 
+ []
+
+
+Overfull \hbox (122.25pt too wide) in paragraph at lines 2993--2993
+[]\TU/lmtt/m/n/10 condB_peaks=~/CourseData/EPI_data/module123/triplicates/peaks/CondB.Rep1_peaks.narrowPeak[] 
+ []
+
+
+Overfull \hbox (316.5pt too wide) in paragraph at lines 2993--2993
+[]\TU/lmtt/m/n/10 cat ${condA_peaks} ${condB_peaks} | sort -k1,1 -k2,2n | bedtools merge -i stdin > ~/workspace/module123/edgeR/merged_peaks.bed[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2998--2999
+[]\TU/lmtt/m/n/10 cat ${condA_peaks} ${condB_peaks} | sort -k1,1 -k2,2n |
+ []
+
+
+Underfull \hbox (badness 5245) in paragraph at lines 3003--3004
+[]\TU/lmr/m/n/10 Pseudo code break down : \TU/lmtt/m/n/10 Read our peaks | sort peaks
+ []
+
+
+Overfull \hbox (64.5pt too wide) in paragraph at lines 3028--3028
+[]\TU/lmtt/m/n/10 condA_bam=~/workspace/module123/alignments/MCF10A_H3K4me3_chr19.CondA.Rep1.bam[] 
+ []
+
+
+Overfull \hbox (64.5pt too wide) in paragraph at lines 3028--3028
+[]\TU/lmtt/m/n/10 condB_bam=~/workspace/module123/alignments/MCF10A_H3K4me3_chr19.CondB.Rep1.bam[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 3028--3028
+[]\TU/lmtt/m/n/10 condA_count=~/workspace/module123/edgeR/MCF10A_H3K4me3_chr19.CondA.Rep1.bed[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 3028--3028
+[]\TU/lmtt/m/n/10 condB_count=~/workspace/module123/edgeR/MCF10A_H3K4me3_chr19.CondB.Rep1.bed[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 3028--3028
+[]\TU/lmtt/m/n/10 bedtools intersect -a ${peaks} -b ${condA_bam} -c > ${condA_count}[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 3028--3028
+[]\TU/lmtt/m/n/10 bedtools intersect -a ${peaks} -b ${condB_bam} -c > ${condB_count}[] 
+ []
+
+
+Overfull \hbox (26.5pt too wide) in paragraph at lines 3033--3034
+[]\TU/lmtt/m/n/10 bedtools intersect -a ${peaks} -b ${condA_bam} -c > ${condA_count} 
+ []
+
+
+
+[61]
+Overfull \hbox (150.73pt too wide) in paragraph at lines 3062--3064
+[]\TU/lmr/m/n/10 condA<-read.csv(“workspace/module123/edgeR/MCF10A_H3K4me3_chr19.CondA.Rep1.bed”,sep=‘[]’,col.names
+ []
+
+
+Overfull \hbox (12.954pt too wide) in paragraph at lines 3062--3064
+\TU/lmr/m/n/10 = c(“chr”, “start”, “end”,“MCF10A_H3K4me3_chr19.CondA.Rep1”),colClasses=
+ []
+
+
+Overfull \hbox (370.06pt too wide) in paragraph at lines 3062--3064
+\TU/lmr/m/n/10 c(“character”,“character”,“character”,“numeric”)) condB<-read.csv(“workspace/module123/edgeR/MCF10A_H3K4me3_chr19.CondB.Rep1.bed”,sep=’[]’,col.names
+ []
+
+
+Overfull \hbox (12.53401pt too wide) in paragraph at lines 3062--3064
+\TU/lmr/m/n/10 = c(“chr”, “start”, “end”,“MCF10A_H3K4me3_chr19.CondB.Rep1”),colClasses=
+ []
+
+
+Overfull \hbox (322.70876pt too wide) in paragraph at lines 3065--3070
+[]\TU/lmr/m/n/10 peaks<-data.frame( MCF10A_H3K4me3_chr19.CondA.Rep1=condA$[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][][][][][][][][][][][][][][][][][][][][][][] []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3065--3070
+[][][][][]$\TU/lmr/m/n/10 MCF10A_H3K4me3_chr19.CondB.Rep1 ) row.names(peaks)<-
+ []
+
+
+Overfull \hbox (3.662pt too wide) in paragraph at lines 3079--3080
+[]\TU/lmr/m/n/10 edger_tp <- topTags(edger_et, n=nrow(edger_et$table),adjust.method=“BH”) 
+ []
+
+
+Overfull \hbox (12.312pt too wide) in paragraph at lines 3083--3084
+[]\TU/lmr/m/n/10 write.table(de, file=“workspace/module123/edgeR/differential_peaks_edger.tsv”,
+ []
+
+
+Overfull \hbox (836.25pt too wide) in paragraph at lines 3113--3113
+[]\TU/lmtt/m/n/10 - `condA<-read.csv("workspace/module123/edgeR/MCF10A_H3K4me3_chr19.CondA.Rep1.bed",sep='\t',col.names = c("chr", "start", "end","MCF10A_H3K4me3_chr19.CondA.Rep1"),colClasses= c("character","character","character","numeric"))`[] 
+ []
+
+
+Overfull \hbox (174.75pt too wide) in paragraph at lines 3113--3113
+[]    \TU/lmtt/m/n/10 - `col.names = c("chr", "start", "end","MCF10A_H3K4me3_chr19.CondA.Rep1")` set our column names[] 
+ []
+
+
+Overfull \hbox (222.0pt too wide) in paragraph at lines 3113--3113
+[]    \TU/lmtt/m/n/10 - `colClasses= c("character","character","character","numeric")` indicate with column are what datatypes[] 
+ []
+
+
+Overfull \hbox (505.5pt too wide) in paragraph at lines 3113--3113
+[]\TU/lmtt/m/n/10 - `peaks<-data.frame(MCF10A_H3K4me3_chr19.CondA.Rep1=condA$MCF10A_H3K4me3_chr19.CondA.Rep1,MCF10A_H3K4me3_chr19.CondB.Rep1=condB$MCF10A_H3K4me3_chr19.CondB.Rep1)`[] 
+ []
+
+
+Overfull \hbox (22.5pt too wide) in paragraph at lines 3113--3113
+[]    \TU/lmtt/m/n/10 - make a new data.frame using our two columns from condA and condB[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 3113--3113
+[]\TU/lmtt/m/n/10 - `row.names(peaks)<-paste(peaks$chr,peaks$start,peaks$end,sep='_')`[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 3113--3113
+[]    \TU/lmtt/m/n/10 - ``row.names(peaks)<-` indicate we want to overwrite exist row names[] 
+ []
+
+
+Overfull \hbox (332.25pt too wide) in paragraph at lines 3113--3113
+[]    \TU/lmtt/m/n/10 - `paste(peaks$chr,peaks$start,peaks$end,sep='_')` we want to concatenate our `chr`,`start` and `end` with `_` as a seperator[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 3113--3113
+[]\TU/lmtt/m/n/10 - `edger_dl <- DGEList(counts=peaks, group=1:2,lib.size=c(1131503,1266436))`[] 
+ []
+
+
+Overfull \hbox (85.5pt too wide) in paragraph at lines 3113--3113
+[]    \TU/lmtt/m/n/10 - `DGEList(counts=peaks_clean, group=1:2)` read in our `peak_clean` data.frame[] 
+ []
+
+
+Overfull \hbox (27.75pt too wide) in paragraph at lines 3113--3113
+[]    \TU/lmtt/m/n/10 - `lib.size=c(1131503,1266436)` library size for the two conditions[] 
+ []
+
+
+Overfull \hbox (264.0pt too wide) in paragraph at lines 3113--3113
+[]\TU/lmtt/m/n/10 - `edger_tmm <- calcNormFactors(edger_dl, method = "TMM")` calculate the normalization factor to scale library sizes[] 
+ []
+
+
+Overfull \hbox (836.25pt too wide) in paragraph at lines 3113--3113
+[]\TU/lmtt/m/n/10 - `bvc=0.01` Set the `square-rootdispersion`. according to edgeR documentation: `from well-controlled experiments are 0.4 for human data, 0.1 for data on genetically identical model organisms or 0.01 for technical replicates`[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 3113--3113
+[]\TU/lmtt/m/n/10 - `edger_tp <- topTags(edger_et, n=nrow(edger_et$table),adjust.method="BH")`[] 
+ []
+
+
+Overfull \hbox (85.5pt too wide) in paragraph at lines 3113--3113
+[]\TU/lmtt/m/n/10 - `de <- edger_tp$table %>% filter(FDR < 0.01) %>% filter(logFC >=1 | logFC <=-1)`[] 
+ []
+
+
+
+[62]
+Overfull \hbox (96.0pt too wide) in paragraph at lines 3113--3113
+[]    \TU/lmtt/m/n/10 - `filter(logFC >=1 | logFC <=-1)` filter for peaks with appropriate fold change[] 
+ []
+
+
+Overfull \hbox (321.75pt too wide) in paragraph at lines 3113--3113
+[]\TU/lmtt/m/n/10 - `write.table(de, file="workspace/module123/edgeR/differential_peaks_edger.tsv", sep="\t", quote=F, row.names=F, col.names=F)`[] 
+ []
+
+
+Overfull \hbox (374.25pt too wide) in paragraph at lines 3113--3113
+[]\TU/lmtt/m/n/10 <img src="https://github.com/bioinformaticsdotca/EPI_2023/blob/module123/module123_images/edger.png?raw=true" alt="Region" width="750" />[] 
+ []
+
+
+Overfull \hbox (369.0pt too wide) in paragraph at lines 3134--3134
+[]\TU/lmtt/m/n/10 wget https://www.bcgsc.ca/downloads/esu/touchdown/hg38v79_genes_tss_2000.bed -O workspace/module123/resources/hg38v79_genes_tss_2000.bed[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3134--3134
+[]\TU/lmtt/m/n/10 sort -k1,1 -k2,2n workspace/module123/resources/hg38v79_genes_tss_2000.bed > tmp[] 
+ []
+
+
+Overfull \hbox (400.5pt too wide) in paragraph at lines 3134--3134
+[]\TU/lmtt/m/n/10 wget https://www.bcgsc.ca/downloads/esu/touchdown/encode_enhancers_liftover.bed -O workspace/module123/resources/encode_enhancers_liftover.bed[] 
+ []
+
+
+Overfull \hbox (384.75pt too wide) in paragraph at lines 3134--3134
+[]\TU/lmtt/m/n/10 wget https://www.encodeproject.org/files/ENCFF356LFX/@@download/ENCFF356LFX.bed.gz -O ~/workspace/module123/resources/hg38_blacklist.bed.gz[] 
+ []
+
+
+
+[63]
+
+[64]
+Overfull \hbox (258.75pt too wide) in paragraph at lines 3270--3270
+[]\TU/lmtt/m/n/10 MCF10A_H3K4me3_chr19.CondA.Rep1.bam      MCF10A_H3K4me3_chr19.CondB.Rep2.bam      MCF10A_input_chr19.CondA.Rep3.bam[] 
+ []
+
+
+Overfull \hbox (279.75pt too wide) in paragraph at lines 3270--3270
+[]\TU/lmtt/m/n/10 MCF10A_H3K4me3_chr19.CondA.Rep1.bam.bai  MCF10A_H3K4me3_chr19.CondB.Rep2.bam.bai  MCF10A_input_chr19.CondA.Rep3.bam.bai[] 
+ []
+
+
+Overfull \hbox (258.75pt too wide) in paragraph at lines 3270--3270
+[]\TU/lmtt/m/n/10 MCF10A_H3K4me3_chr19.CondA.Rep2.bam      MCF10A_H3K4me3_chr19.CondB.Rep3.bam      MCF10A_input_chr19.CondB.Rep1.bam[] 
+ []
+
+
+Overfull \hbox (279.75pt too wide) in paragraph at lines 3270--3270
+[]\TU/lmtt/m/n/10 MCF10A_H3K4me3_chr19.CondA.Rep2.bam.bai  MCF10A_H3K4me3_chr19.CondB.Rep3.bam.bai  MCF10A_input_chr19.CondB.Rep1.bam.bai[] 
+ []
+
+
+Overfull \hbox (258.75pt too wide) in paragraph at lines 3270--3270
+[]\TU/lmtt/m/n/10 MCF10A_H3K4me3_chr19.CondA.Rep3.bam      MCF10A_input_chr19.CondA.Rep1.bam        MCF10A_input_chr19.CondB.Rep2.bam[] 
+ []
+
+
+Overfull \hbox (279.75pt too wide) in paragraph at lines 3270--3270
+[]\TU/lmtt/m/n/10 MCF10A_H3K4me3_chr19.CondA.Rep3.bam.bai  MCF10A_input_chr19.CondA.Rep1.bam.bai    MCF10A_input_chr19.CondB.Rep2.bam.bai[] 
+ []
+
+
+Overfull \hbox (258.75pt too wide) in paragraph at lines 3270--3270
+[]\TU/lmtt/m/n/10 MCF10A_H3K4me3_chr19.CondB.Rep1.bam      MCF10A_input_chr19.CondA.Rep2.bam        MCF10A_input_chr19.CondB.Rep3.bam[] 
+ []
+
+
+Overfull \hbox (279.75pt too wide) in paragraph at lines 3270--3270
+[]\TU/lmtt/m/n/10 MCF10A_H3K4me3_chr19.CondB.Rep1.bam.bai  MCF10A_input_chr19.CondA.Rep2.bam.bai    MCF10A_input_chr19.CondB.Rep3.bam.bai[] 
+ []
+
+
+Overfull \hbox (117.0pt too wide) in paragraph at lines 3270--3270
+[]\TU/lmtt/m/n/10 CondA.Rep1.bw  CondA.Rep2.bw  CondA.Rep3.bw  CondB.Rep1.bw  CondB.Rep2.bw  CondB.Rep3.bw[] 
+ []
+
+
+Overfull \hbox (101.25pt too wide) in paragraph at lines 3270--3270
+[]\TU/lmtt/m/n/10 CondA.Rep1_peaks.narrowPeak  CondA.Rep3_peaks.narrowPeak  CondB.Rep2_peaks.narrowPeak[] 
+ []
+
+
+Overfull \hbox (101.25pt too wide) in paragraph at lines 3270--3270
+[]\TU/lmtt/m/n/10 CondA.Rep2_peaks.narrowPeak  CondB.Rep1_peaks.narrowPeak  CondB.Rep3_peaks.narrowPeak[] 
+ []
+
+
+
+[65]
+
+[66
+
+]
+Chapter 7.
+
+
+[67]
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 3333.
+
+
+
+Overfull \hbox (82.58955pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 68 \TU/lmr/m/sl/10 CHAPTER 7.  MODULE 4: WHOLE-GENOME BISULFITE SEQUENCING AND ANALYSIS
+ []
+
+[68]
+Overfull \hbox (195.75pt too wide) in paragraph at lines 3398--3398
+[]    \TU/lmtt/m/n/10 -1 $WGBS_DATA/WGBS.A34002.137160.chr19.1.fastq.gz -2 $WGBS_DATA/WGBS.A34002.137160.chr19.2.fastq.gz[] 
+ []
+
+
+
+[69]
+Overfull \hbox (227.25pt too wide) in paragraph at lines 3424--3425
+[]\TU/lmtt/m/n/10 {:output} WGBS.A34002.137160.chr19.1_bismark_bt2_pe.bam  WGBS.A34002.137160.chr19.1_bismark_bt2_PE_report.txt 
+ []
+
+
+Overfull \hbox (118.085pt too wide) in paragraph at lines 3432--3433
+[]\TU/lmr/m/n/10 This will produce an additional file called: \TU/lmtt/m/n/10 WGBS.A34002.137160.chr19.1_bismark_bt2_PE_report.html\TU/lmr/m/n/10 . 
+ []
+
+
+
+
+Overfull \hbox (82.58955pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 70 \TU/lmr/m/sl/10 CHAPTER 7.  MODULE 4: WHOLE-GENOME BISULFITE SEQUENCING AND ANALYSIS
+ []
+
+[70]
+Overfull \hbox (258.75pt too wide) in paragraph at lines 3470--3470
+[]\TU/lmtt/m/n/10 samtools sort WGBS.A34002.137160.chr19.1_bismark_bt2_pe.bam -o WGBS.A34002.137160.chr19.1_bismark_bt2_pe_sorted.bam[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 3470--3470
+[]\TU/lmtt/m/n/10 samtools index WGBS.A34002.137160.chr19.1_bismark_bt2_pe_sorted.bam[] 
+ []
+
+
+Overfull \hbox (195.75pt too wide) in paragraph at lines 3500--3500
+[]    \TU/lmtt/m/n/10 -1 $WGBS_DATA/WGBS.A34002.137487.chr19.1.fastq.gz -2 $WGBS_DATA/WGBS.A34002.137487.chr19.2.fastq.gz[] 
+ []
+
+
+Overfull \hbox (195.75pt too wide) in paragraph at lines 3500--3500
+[]    \TU/lmtt/m/n/10 -1 $WGBS_DATA/WGBS.A34002.137488.chr19.1.fastq.gz -2 $WGBS_DATA/WGBS.A34002.137488.chr19.2.fastq.gz[] 
+ []
+
+
+Underfull \hbox (badness 1072) in paragraph at lines 3504--3505
+\TU/lmr/m/n/10 Bismark also has a “summary” that produces a report for all samples
+ []
+
+
+
+[71]
+Overfull \hbox (264.0pt too wide) in paragraph at lines 3518--3518
+[]\TU/lmtt/m/n/10 samtools sort  WGBS.A34002.137487.chr19.1_bismark_bt2_pe.bam -o WGBS.A34002.137487.chr19.1_bismark_bt2_pe_sorted.bam[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 3518--3518
+[]\TU/lmtt/m/n/10 samtools index WGBS.A34002.137487.chr19.1_bismark_bt2_pe_sorted.bam[] 
+ []
+
+
+Overfull \hbox (264.0pt too wide) in paragraph at lines 3518--3518
+[]\TU/lmtt/m/n/10 samtools sort  WGBS.A34002.137488.chr19.1_bismark_bt2_pe.bam -o WGBS.A34002.137488.chr19.1_bismark_bt2_pe_sorted.bam[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 3518--3518
+[]\TU/lmtt/m/n/10 samtools index WGBS.A34002.137488.chr19.1_bismark_bt2_pe_sorted.bam[] 
+ []
+
+
+Overfull \hbox (16.96pt too wide) in paragraph at lines 3528--3529
+\TU/lmr/m/n/10 trieve the files called \TU/lmtt/m/n/10 WGBS.A34002.137160.chr19.1_bismark_bt2_pe_sorted.bam
+ []
+
+
+Underfull \hbox (badness 1337) in paragraph at lines 3528--3529
+\TU/lmr/m/n/10 and \TU/lmtt/m/n/10 WGBS.A34002.137160.chr19.1_bismark_bt2_pe_sorted.bam.bai \TU/lmr/m/n/10 from
+ []
+
+
+Overfull \hbox (216.75pt too wide) in paragraph at lines 3537--3537
+[]\TU/lmtt/m/n/10 scp -i CBW.pem ubuntu@00.00.00.0:~/workspace/module4/WGBS.A34002.137160.chr19.1_bismark_bt2_pe_sorted.bam .[] 
+ []
+
+
+Overfull \hbox (237.75pt too wide) in paragraph at lines 3537--3537
+[]\TU/lmtt/m/n/10 scp -i CBW.pem ubuntu@00.00.00.0:~/workspace/module4/WGBS.A34002.137160.chr19.1_bismark_bt2_pe_sorted.bam.bai .[] 
+ []
+
+
+
+
+Overfull \hbox (82.58955pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 72 \TU/lmr/m/sl/10 CHAPTER 7.  MODULE 4: WHOLE-GENOME BISULFITE SEQUENCING AND ANALYSIS
+ []
+
+[72]
+File: ./img/region2.png Graphic file (type bmp)
+<./img/region2.png>
+
+Overfull \hbox (379.5pt too wide) in paragraph at lines 3583--3583
+[]\TU/lmtt/m/n/10 bismark_methylation_extractor --cytosine_report WGBS.A34002.137160.chr19.1_bismark_bt2_pe.bam --genome_folder $GENOME/genome/bismark_index[] 
+ []
+
+
+LaTeX Warning: Hyper reference `r_dss_import' on page 73 undefined on input line 3585.
+
+
+
+[73]
+Overfull \hbox (379.5pt too wide) in paragraph at lines 3596--3596
+[]\TU/lmtt/m/n/10 bismark_methylation_extractor --cytosine_report WGBS.A34002.137487.chr19.1_bismark_bt2_pe.bam --genome_folder $GENOME/genome/bismark_index[] 
+ []
+
+
+Overfull \hbox (379.5pt too wide) in paragraph at lines 3596--3596
+[]\TU/lmtt/m/n/10 bismark_methylation_extractor --cytosine_report WGBS.A34002.137488.chr19.1_bismark_bt2_pe.bam --genome_folder $GENOME/genome/bismark_index[] 
+ []
+
+File: ./img/region2_full.png Graphic file (type bmp)
+<./img/region2_full.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+
+Overfull \hbox (82.58955pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 74 \TU/lmr/m/sl/10 CHAPTER 7.  MODULE 4: WHOLE-GENOME BISULFITE SEQUENCING AND ANALYSIS
+ []
+
+[74]
+
+[75]
+Overfull \hbox (143.25pt too wide) in paragraph at lines 3659--3659
+[]\TU/lmtt/m/n/10 Once you have successfully launched `R`, you can load `methylKit` with the following command:[] 
+ []
+
+
+Overfull \hbox (174.75pt too wide) in paragraph at lines 3673--3673
+[]\TU/lmtt/m/n/10 methRaw.160 = processBismarkAln( location = "WGBS.A34002.137160.chr19.1_bismark_bt2_pe_sorted.bam",[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 3673--3673
+[]                         \TU/lmtt/m/n/10 sample.id="A34002.137160", assembly="hg38",[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 3673--3673
+[]                         \TU/lmtt/m/n/10 read.context="CpG", save.folder="methylkit")[] 
+ []
+
+
+Overfull \hbox (174.75pt too wide) in paragraph at lines 3692--3692
+[]\TU/lmtt/m/n/10 methRaw.487 = processBismarkAln( location = "WGBS.A34002.137487.chr19.1_bismark_bt2_pe_sorted.bam",[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 3692--3692
+[]                         \TU/lmtt/m/n/10 sample.id="A34002.137487", assembly="hg38",[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 3692--3692
+[]                         \TU/lmtt/m/n/10 read.context="CpG", save.folder="methylkit")[] 
+ []
+
+
+Overfull \hbox (174.75pt too wide) in paragraph at lines 3692--3692
+[]\TU/lmtt/m/n/10 methRaw.488 = processBismarkAln( location = "WGBS.A34002.137488.chr19.1_bismark_bt2_pe_sorted.bam",[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 3692--3692
+[]                         \TU/lmtt/m/n/10 sample.id="A34002.137488", assembly="hg38",[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 3692--3692
+[]                         \TU/lmtt/m/n/10 read.context="CpG", save.folder="methylkit")[] 
+ []
+
+
+
+
+Overfull \hbox (82.58955pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 76 \TU/lmr/m/sl/10 CHAPTER 7.  MODULE 4: WHOLE-GENOME BISULFITE SEQUENCING AND ANALYSIS
+ []
+
+[76]
+Overfull \hbox (1.5pt too wide) in paragraph at lines 3712--3712
+[]\TU/lmtt/m/n/10 file.list = list( file.path("methylkit", "A34002.137160_CpG.txt"),[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 3712--3712
+[]                  \TU/lmtt/m/n/10 file.path("methylkit", "A34002.137487_CpG.txt"),[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 3712--3712
+[]                  \TU/lmtt/m/n/10 file.path("methylkit", "A34002.137488_CpG.txt") )[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 3712--3712
+[]           \TU/lmtt/m/n/10 sample.id=list("A34002.137160","A34002.137487","A34002.137488"),[] 
+ []
+
+
+
+[77]
+Underfull \hbox (badness 5681) in paragraph at lines 3768--3769
+ \TU/lmr/bx/n/10 7.2.3.3.2 Perform Differential Methylation Analysis[] \TU/lmr/m/n/10 The stan-
+ []
+
+
+Underfull \hbox (badness 4479) in paragraph at lines 3768--3769
+\TU/lmr/m/n/10 dard function for Differential Methylation Analysis on \TU/lmtt/m/n/10 methylKit \TU/lmr/m/n/10 is
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3778--3779
+[]\TU/lmtt/m/n/10 {:output} methylDiff object with 2941 rows --------------     chr
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3778--3779
+\TU/lmtt/m/n/10 start      end strand       pvalue     qvalue  meth.diff 1 chr19
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3778--3779
+\TU/lmtt/m/n/10 42002896 42002896      + 3.271268e-01 0.69569299   8.951407 2
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3778--3779
+\TU/lmtt/m/n/10 chr19 42002978 42002978      + 1.912989e-01 0.60732656 -21.666667
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 3778--3779
+\TU/lmtt/m/n/10 3 chr19 42007251 42007251      + 6.999764e-05 0.03228847 -55.681818
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 3778--3779
+\TU/lmtt/m/n/10 4 chr19 42007255 42007255      + 3.958578e-01 0.75196047 -11.835106
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 3778--3779
+\TU/lmtt/m/n/10 5 chr19 42007283 42007283      + 8.451850e-01 0.91347038  -2.457757
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 3778--3779
+\TU/lmtt/m/n/10 6 chr19 42007314 42007314      + 9.102723e-01 0.92865750  -1.604278
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 3778--3779
+\TU/lmtt/m/n/10 -------------- sample.ids: A34002.137160 A34002.137487 A34002.137488
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3778--3779
+\TU/lmtt/m/n/10 destranded TRUE  assembly: hg38  context: CpG  treament: 0 1 1
+ []
+
+
+
+
+Overfull \hbox (82.58955pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 78 \TU/lmr/m/sl/10 CHAPTER 7.  MODULE 4: WHOLE-GENOME BISULFITE SEQUENCING AND ANALYSIS
+ []
+
+[78]
+Overfull \hbox (48.75pt too wide) in paragraph at lines 3790--3790
+[]\TU/lmtt/m/n/10 myDiff.hyper = getMethylDiff(myDiff,qvalue=0.05,difference=10,type="hyper")[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3790--3790
+[]\TU/lmtt/m/n/10 bedgraph(myDiff.hyper, file.name = "hyper.CpG.bedGraph", col.name = "qvalue")[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 3790--3790
+[]\TU/lmtt/m/n/10 myDiff.hypo = getMethylDiff(myDiff,qvalue=0.05,difference=10,type="hypo")[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 3790--3790
+[]\TU/lmtt/m/n/10 bedgraph(myDiff.hypo, file.name = "hypo.CpG.bedGraph", col.name = "qvalue")[] 
+ []
+
+
+Overfull \hbox (106.5pt too wide) in paragraph at lines 3794--3795
+[]\TU/lmtt/m/n/10 {:output} ~/workspace/module4/hyper.CpG.bedGraph ~/workspace/module4/hypo.CpG.bedGraph 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 3802--3802
+[]\TU/lmtt/m/n/10 tiles = tileMethylCounts(myobj,win.size=1000,step.size=1000,cov.bases = 10)[] 
+ []
+
+
+
+[79]
+Overfull \hbox (106.5pt too wide) in paragraph at lines 3827--3827
+[]\TU/lmtt/m/n/10 myDiff.tiles.hyper = getMethylDiff(myDiff.tiles,qvalue=0.1,difference=10,type="hyper")[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 3827--3827
+[]\TU/lmtt/m/n/10 bedgraph(myDiff.tiles.hyper, file.name = "hyper.DMR.bedGraph", col.name = "qvalue")[] 
+ []
+
+
+Overfull \hbox (96.0pt too wide) in paragraph at lines 3827--3827
+[]\TU/lmtt/m/n/10 myDiff.tiles.hypo = getMethylDiff(myDiff.tiles,qvalue=0.1,difference=10,type="hypo")[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 3827--3827
+[]\TU/lmtt/m/n/10 bedgraph(myDiff.tiles.hypo, file.name = "hypo.DMR.bedGraph", col.name = "qvalue")[] 
+ []
+
+
+LaTeX Warning: Hyper reference `load_methylkit_r' on page 80 undefined on input line 3851.
+
+
+
+
+Overfull \hbox (82.58955pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 80 \TU/lmr/m/sl/10 CHAPTER 7.  MODULE 4: WHOLE-GENOME BISULFITE SEQUENCING AND ANALYSIS
+ []
+
+[80]
+
+LaTeX Warning: Hyper reference `methylation_profiles' on page 81 undefined on input line 3879.
+
+
+Overfull \hbox (584.25pt too wide) in paragraph at lines 3905--3905
+[]\TU/lmtt/m/n/10 CpG.report.160 <- read.table("WGBS.A34002.137160.chr19.1_bismark_bt2_pe.CpG_report.txt", header = F, col.names = c("chr", "pos", "strand", "X", "C", "C_context", "tri_context"))[] 
+ []
+
+
+
+[81]
+Overfull \hbox (584.25pt too wide) in paragraph at lines 3926--3926
+[]\TU/lmtt/m/n/10 CpG.report.487 <- read.table("WGBS.A34002.137487.chr19.1_bismark_bt2_pe.CpG_report.txt", header = F, col.names = c("chr", "pos", "strand", "X", "C", "C_context", "tri_context"))[] 
+ []
+
+
+Overfull \hbox (584.25pt too wide) in paragraph at lines 3926--3926
+[]\TU/lmtt/m/n/10 CpG.report.488 <- read.table("WGBS.A34002.137488.chr19.1_bismark_bt2_pe.CpG_report.txt", header = F, col.names = c("chr", "pos", "strand", "X", "C", "C_context", "tri_context"))[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3934--3935
+[]\TU/lmtt/m/n/10 {:output} chr   pos N X 1 chr19 60119 0 0 2 chr19 60120 0 0 3
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3934--3935
+\TU/lmtt/m/n/10 chr19 60172 0 0 4 chr19 60173 0 0 5 chr19 60183 0 0 6 chr19 60184
+ []
+
+
+Overfull \hbox (106.5pt too wide) in paragraph at lines 3945--3945
+[]\TU/lmtt/m/n/10 BSobj <- makeBSseqData( list(CpG.DSS.table.160, CpG.DSS.table.487, CpG.DSS.table.488),[] 
+ []
+
+
+Overfull \hbox (44.38004pt too wide) in paragraph at lines 3947--3948
+[]\TU/lmr/m/n/10 Notice how we are labeling the 3 samples with the names \TU/lmtt/m/n/10 c("sample.160","sample.487",
+ []
+
+
+
+
+Overfull \hbox (82.58955pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 82 \TU/lmr/m/sl/10 CHAPTER 7.  MODULE 4: WHOLE-GENOME BISULFITE SEQUENCING AND ANALYSIS
+ []
+
+[82]
+Underfull \hbox (badness 10000) in paragraph at lines 3951--3952
+[]\TU/lmtt/m/n/10 {:output} An object of type []BSseq[] with   2113330 methylation
+ []
+
+
+Underfull \hbox (badness 3281) in paragraph at lines 3957--3958
+\TU/lmr/m/n/10 The \TU/lmtt/m/n/10 DSS \TU/lmr/m/n/10 library operates under different statistical assumptions than
+ []
+
+
+Underfull \hbox (badness 1158) in paragraph at lines 3957--3958
+\TU/lmtt/m/n/10 methylKit\TU/lmr/m/n/10 , which include a smoothing of methylation data to improve
+ []
+
+
+
+[83]
+
+
+Overfull \hbox (82.58955pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 84 \TU/lmr/m/sl/10 CHAPTER 7.  MODULE 4: WHOLE-GENOME BISULFITE SEQUENCING AND ANALYSIS
+ []
+
+[84]
+Chapter 8.
+
+
+[85
+
+]
+File: ./img/portal_select_from_overview.png Graphic file (type bmp)
+<./img/portal_select_from_overview.png>
+
+
+
+Overfull \hbox (22.98955pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 86 \TU/lmr/m/sl/10 CHAPTER 8.  MODULE 5: DOWNSTREAM ANALYSIS AND ONLINE TOOLS
+ []
+
+[86]
+File: ./img/portal_blood_h3k27ac.png Graphic file (type bmp)
+<./img/portal_blood_h3k27ac.png>
+File: ./img/portal_send_to_ucsc.png Graphic file (type bmp)
+<./img/portal_send_to_ucsc.png>
+File: ./img/ucsc_fullTrackView.png Graphic file (type bmp)
+<./img/ucsc_fullTrackView.png>
+
+
+[87]
+File: ./img/portal_selectAllTissues.png Graphic file (type bmp)
+<./img/portal_selectAllTissues.png>
+File: ./img/portal_selectAllAssays.png Graphic file (type bmp)
+<./img/portal_selectAllAssays.png>
+File: ./img/portal_deselect_non_core_assays.png Graphic file (type bmp)
+<./img/portal_deselect_non_core_assays.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+
+Overfull \hbox (22.98955pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 88 \TU/lmr/m/sl/10 CHAPTER 8.  MODULE 5: DOWNSTREAM ANALYSIS AND ONLINE TOOLS
+ []
+
+[88]
+File: ./img/portal_blueprint_chipseq.png Graphic file (type bmp)
+<./img/portal_blueprint_chipseq.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[89]
+File: ./img/portal_clusteringPerMark.png Graphic file (type bmp)
+<./img/portal_clusteringPerMark.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+
+Overfull \hbox (22.98955pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 90 \TU/lmr/m/sl/10 CHAPTER 8.  MODULE 5: DOWNSTREAM ANALYSIS AND ONLINE TOOLS
+ []
+
+[90]
+File: ./img/portal_selectTcell.png Graphic file (type bmp)
+<./img/portal_selectTcell.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[91]
+File: ./img/portal_correlationOutlier.png Graphic file (type bmp)
+<./img/portal_correlationOutlier.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+
+Overfull \hbox (22.98955pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 92 \TU/lmr/m/sl/10 CHAPTER 8.  MODULE 5: DOWNSTREAM ANALYSIS AND ONLINE TOOLS
+ []
+
+[92]
+File: ./img/HOMER_selectDataGrid.png Graphic file (type bmp)
+<./img/HOMER_selectDataGrid.png>
+File: ./img/HOMER_selecthg19.png Graphic file (type bmp)
+<./img/HOMER_selecthg19.png>
+File: ./img/HOMER_showNonCoreAssays.png Graphic file (type bmp)
+<./img/HOMER_showNonCoreAssays.png>
+File: ./img/HOMER_showTFBS.png Graphic file (type bmp)
+<./img/HOMER_showTFBS.png>
+
+
+[93]
+File: ./img/HOMER_selectCTCF.png Graphic file (type bmp)
+<./img/HOMER_selectCTCF.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+
+Overfull \hbox (22.98955pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 94 \TU/lmr/m/sl/10 CHAPTER 8.  MODULE 5: DOWNSTREAM ANALYSIS AND ONLINE TOOLS
+ []
+
+[94]
+File: ./img/HOMER_selectPeaksTrack.png Graphic file (type bmp)
+<./img/HOMER_selectPeaksTrack.png>
+
+Overfull \hbox (176.28pt too wide) in paragraph at lines 4239--4241
+\TU/lmtt/m/n/10 https://epigenomesportal.ca/tracks/ENCODE/hg19/84840.ENCODE.ENCBS400ARI.CTCF.peak_calls.bigBed\TU/lmr/m/n/10 .
+ []
+
+
+Underfull \hbox (badness 2980) in paragraph at lines 4241--4243
+[]\TU/lmr/m/n/10 Useful tip: You can get the full set of metadata about EN-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4241--4243
+\TU/lmr/m/n/10 CODE experiments and samples by consulting the ENCODE
+ []
+
+
+Underfull \hbox (badness 2302) in paragraph at lines 4241--4243
+\TU/lmr/m/n/10 portal, and searching for a given sample name. In this case:
+ []
+
+
+
+[95]
+Overfull \hbox (174.75pt too wide) in paragraph at lines 4250--4250
+[]\TU/lmtt/m/n/10 wget https://epigenomesportal.ca/tracks/ENCODE/hg19/84840.ENCODE.ENCBS400ARI.CTCF.peak_calls.bigBed[] 
+ []
+
+
+Overfull \hbox (201.0pt too wide) in paragraph at lines 4262--4262
+[]\TU/lmtt/m/n/10 bigBedToBed 84840.ENCODE.ENCBS400ARI.CTCF.peak_calls.bigBed 84840.ENCODE.ENCBS400ARI.CTCF.peak_calls.bed[] 
+ []
+
+
+Overfull \hbox (237.75pt too wide) in paragraph at lines 4293--4293
+[]\TU/lmtt/m/n/10 findMotifsGenome.pl 84840.ENCODE.ENCBS400ARI.CTCF.peak_calls.bed hg19 output -preparsedDir preparsed -p 4 -S 15[] 
+ []
+
+File: ./img/GREAT_select_bone_marrow.png Graphic file (type bmp)
+<./img/GREAT_select_bone_marrow.png>
+
+
+
+Overfull \hbox (22.98955pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 96 \TU/lmr/m/sl/10 CHAPTER 8.  MODULE 5: DOWNSTREAM ANALYSIS AND ONLINE TOOLS
+ []
+
+[96]
+File: ./img/GREAT_bone_marrow_h3k27ac.png Graphic file (type bmp)
+<./img/GREAT_bone_marrow_h3k27ac.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[97]
+File: ./img/GREAT_selectSomeBoneMarrowDatasets.png Graphic file (type bmp)
+<./img/GREAT_selectSomeBoneMarrowDatasets.png>
+File: ./img/GREAT_batch_download.png Graphic file (type bmp)
+<./img/GREAT_batch_download.png>
+
+
+
+Overfull \hbox (22.98955pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 98 \TU/lmr/m/sl/10 CHAPTER 8.  MODULE 5: DOWNSTREAM ANALYSIS AND ONLINE TOOLS
+ []
+
+[98]
+Overfull \hbox (169.5pt too wide) in paragraph at lines 4365--4365
+[]\TU/lmtt/m/n/10 wget -O trackList.txt 'https://epigenomesportal.ca/api/datahub/download?session=18731&format=text'[] 
+ []
+
+
+Overfull \hbox (253.5pt too wide) in paragraph at lines 4385--4385
+[]\TU/lmtt/m/n/10 bigBedToBed 58394.Blueprint.ERS1027405.H3K27ac.peak_calls.bigBed 58394.Blueprint.ERS1027405.H3K27ac.peak_calls.bed[] 
+ []
+
+
+Overfull \hbox (264.0pt too wide) in paragraph at lines 4406--4406
+[]\TU/lmtt/m/n/10 sort -R 58394.Blueprint.ERS1027405.H3K27ac.peak_calls.bed > 58394.Blueprint.ERS1027405.H3K27ac.peak_calls.random.bed[] 
+ []
+
+
+Overfull \hbox (363.75pt too wide) in paragraph at lines 4406--4406
+[]\TU/lmtt/m/n/10 head -n 20000 58394.Blueprint.ERS1027405.H3K27ac.peak_calls.random.bed > 58394.Blueprint.ERS1027405.H3K27ac.peak_calls.random_short.bed[] 
+ []
+
+
+Overfull \hbox (219.7109pt too wide) in paragraph at lines 4411--4412
+[]\TU/lmr/m/n/10 From your local computer, download the BED file \TU/lmtt/m/n/10 58394.Blueprint.ERS1027405.H3K27ac.peak_calls.random_short.bed
+ []
+
+
+
+[99]
+Overfull \hbox (201.0pt too wide) in paragraph at lines 4416--4416
+[]\TU/lmtt/m/n/10 http://<your VM ip address>/module5/great/58394.Blueprint.ERS1027405.H3K27ac.peak_calls.random_short.bed[] 
+ []
+
+
+Overfull \hbox (66.83998pt too wide) in paragraph at lines 4429--4431
+\TU/lmr/m/n/10 downloaded (58394.Blueprint.ERS1027405.H3K27ac.peak_calls.random_short.bed) 
+ []
+
+
+Underfull \hbox (badness 1331) in paragraph at lines 4431--4432
+[]\TU/lmr/m/n/10 Leave the “Background regions” to its default value, “Whole
+ []
+
+File: ./img/GREAT_go_biological_process.png Graphic file (type bmp)
+<./img/GREAT_go_biological_process.png>
+
+
+
+Overfull \hbox (27.98955pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 100 \TU/lmr/m/sl/10 CHAPTER 8.  MODULE 5: DOWNSTREAM ANALYSIS AND ONLINE TOOLS
+ []
+
+[100]
+File: ./img/HOMER_results.png Graphic file (type bmp)
+<./img/HOMER_results.png>
+No file _main.bbl.
+
+
+[101] (./_main.aux)
+ ***********
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-04-29>
+ ***********
+
+LaTeX Warning: There were undefined references.
+
+ ) 
 Here is how much of TeX's memory you used:
- 1582 strings out of 472265
- 20224 string characters out of 5529237
- 416835 words of memory out of 5000000
- 28149 multiletter control sequences out of 15000+600000
- 626833 words of font info for 41 fonts, out of 8000000 for 9000
+ 17816 strings out of 472247
+ 329093 string characters out of 5528703
+ 864561 words of memory out of 5000000
+ 44095 multiletter control sequences out of 15000+600000
+ 633665 words of font info for 97 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 56i,0n,72p,219b,42s stack positions out of 10000i,1000n,20000p,200000b,200000s
-No pages of output.
+ 90i,7n,114p,927b,553s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+Output written on _main.pdf (101 pages).
